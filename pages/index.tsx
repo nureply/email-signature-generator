@@ -3,9 +3,9 @@ import { SetStateAction, useState } from 'react';
 
 import Image from 'next/image'
 
-import iconLinkedIn from '../assets/iconLinkedIn.png';
-import iconGitHub from '../assets/iconGitHub.png';
-import iconTwitter from '../assets/iconTwitter.png';
+import iconLinkedIn from '../assets/iconLinkedIn.ico';
+import iconGitHub from '../assets/iconGitHub.ico';
+import iconTwitter from '../assets/iconTwitter.ico';
 
 import { Inter } from 'next/font/google'
 
@@ -35,103 +35,140 @@ export default function Home() {
   };
 
   return (
-    <div className='grid gap-48 md:grid-cols-3'>
-      <div>
-        <div className='p-6 w-1/2 h-screen bg-white z-20 fixed top-0 -left-96 lg:w-60 lg:left-0 peer-focus:left-0 peer:transition ease-out delay-150 duration-200'>
-          <div className='flex flex-col justify-start items-center'>
-            <h1 className='text-lg text-center cursor-pointer font-bold text-nureply-blue-full border-b border-gray-100 pb-4 w-full'>
-              Change Layout
-            </h1>
-            <div className='my-4 border-b border-gray-100 pb-4'>
-              <div className='inline-block mb-2 justify-start items-center gap-4 px-5 p-2 rounded-md cursor-pointer hover:shadow-lg m-auto'>
-                <div className='p-1 text-base text-gray-600 hover:text-nureply-blue font-semibold'>
-                  <input onClick={() => handleLayoutChange('layout-default')} type='radio' id='layout-1' name='layout' value='layout' className='h-3' checked /><label htmlFor='layout-1'> Default</label>
-                </div>
-                <div className='p-1 text-base text-gray-600 hover:text-nureply-blue font-semibold'>
-                  <input onClick={() => handleLayoutChange('layout-foursquare')} type='radio' id='layout-2' name='layout' value='layout' className='h-3' /><label htmlFor='layout-2'> Foursquare</label>
-                </div>
-              </div>
-            </div>
-            <div className='my-4 border-b border-gray-100 pb-4'>
-              <label htmlFor='name' className='p-1 text-base text-gray-600 font-semibold'>Name</label><input
-                className='text-black border-2'
-                type='text'
-                id='name'
-                name='name'
-                onChange={(name) => setName(name.target.value)}
-                value={name}
-              />
-              <label htmlFor='profession' className='p-1 text-base text-gray-600 font-semibold'>Profession</label><input
-                className='text-black border-2'
-                type='text'
-                id='profession'
-                name='profession'
-                onChange={(profession) => setProfession(profession.target.value)}
-                value={profession}
-              />
-              <label htmlFor='phone' className='p-1 text-base text-gray-600 font-semibold'>Phone</label><input
-                className='text-black border-2'
-                type='text'
-                id='phone'
-                name='phone'
-                onChange={(phone) => setPhone(phone.target.value)}
-                value={phone}
-              />
-              <label htmlFor='email' className='p-1 text-base text-gray-600 font-semibold'>Email</label><input
-                className='text-black border-2'
-                type='text'
-                id='email'
-                name='email'
-                onChange={(email) => setEmail(email.target.value)}
-                value={email}
-              />
-              <label htmlFor='link' className='p-1 text-base text-gray-600 font-semibold'>Link</label><input
-                className='text-black border-2'
-                type='text'
-                id='link'
-                name='link'
-                onChange={(link) => setLink(link.target.value)}
-                value={link}
-              />
-              <label htmlFor='link-LinkedIn' className='p-1 text-base text-nureply-blue font-semibold'>LinkedIn</label><input
-                className='text-black border-2'
-                type='text'
-                id='link-LinkedIn'
-                name='link-LinkedIn'
-                onChange={(linkLinkedIn) => setLinkLinkedIn(linkLinkedIn.target.value)}
-                value={linkLinkedIn}
-              />
-              <label htmlFor='link-GitHub' className='p-1 text-base text-nureply-blue font-semibold'>GitHub</label><input
-                className='text-black border-2'
-                type='text'
-                id='link-GitHub'
-                name='link-GitHub'
-                onChange={(linkGitHub) => setLinkGitHub(linkGitHub.target.value)}
-                value={linkGitHub}
-              />
-              <label htmlFor='link-Twitter' className='p-1 text-base text-nureply-blue font-semibold'>Twitter</label><input
-                className='text-black border-2'
-                type='text'
-                id='link-Twitter'
-                name='link-Twitter'
-                onChange={(linkTwitter) => setLinkTwitter(linkTwitter.target.value)}
-                value={linkTwitter}
-              />
-            </div>
-            <div>
-              <label htmlFor='photo' className='p-1 text-base text-nureply-blue hover:text-nureply-blue-full font-semibold'>Upload Photo</label><input
-                className='hidden'
-                type='file'
-                id='photo'
-                name='photo'
-                accept='image/png, image/jpeg'
-                onChange={onPhotoChange}
-              />
-            </div>
-          </div>
+    <div className='grid grid-cols-6'>
+      <div className='z-30 h-screen w-[240px] p-6 bg-white
+      flex flex-col items-center overflow-wrap'>
+        <p>T E S T</p>
+      </div>
+
+      <div className='z-20 h-screen col-span-2 min-w-[480px] max-w-[720px] p-6 bg-white
+      flex flex-col items-center overflow-wrap overflow-y-auto'>
+        <div className='w-full p-6
+        border-b border-gray-100'>
+          <h1 className='text-2xl font-bold text-nureply-blue-full underline decoration-nureply-blue'>Layouts</h1>
+          <p className='text-base text-gray-600'>Choose a layout for your email signature first</p>
+        </div>
+        <input onClick={() => handleLayoutChange('layout-default')} type='radio' id='layout-default' name='layout' value='layout' className='sr-only peer peer-checked:checked' checked/>
+        <label htmlFor='layout-default'
+          className='w-full mt-6 p-6 px-9 rounded-lg hover:shadow
+          text-base font-semibold text-gray-600 hover:text-nureply-blue cursor-pointer'>
+           Default
+        </label>
+        <input onClick={() => handleLayoutChange('layout-foursquare')} type='radio' id='layout-foursquare' name='layout' value='layout' className='sr-only peer peer-checked:checked'/>
+        <label htmlFor='layout-foursquare'
+          className='w-full mt-6 p-6 px-9 rounded-lg hover:shadow
+          text-base font-semibold text-gray-600 hover:text-nureply-blue cursor-pointer'>
+           Foursquare
+        </label>
+
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>functionality intact, will be fixed later with step by step customization being added</p>
+        <div className='p-1 text-base text-gray-600 hover:text-nureply-blue font-semibold'>
+        </div>
+        <div className='my-4 border-b border-gray-100 pb-4'>
+          <label htmlFor='name' className='p-1 text-base text-gray-600 font-semibold'>Name</label><input
+            className='text-black border-2'
+            type='text'
+            id='name'
+            name='name'
+            onChange={(name) => setName(name.target.value)}
+            value={name}
+          />
+          <label htmlFor='profession' className='p-1 text-base text-gray-600 font-semibold'>Profession</label><input
+            className='text-black border-2'
+            type='text'
+            id='profession'
+            name='profession'
+            onChange={(profession) => setProfession(profession.target.value)}
+            value={profession}
+          />
+          <label htmlFor='phone' className='p-1 text-base text-gray-600 font-semibold'>Phone</label><input
+            className='text-black border-2'
+            type='text'
+            id='phone'
+            name='phone'
+            onChange={(phone) => setPhone(phone.target.value)}
+            value={phone}
+          />
+          <label htmlFor='email' className='p-1 text-base text-gray-600 font-semibold'>Email</label><input
+            className='text-black border-2'
+            type='text'
+            id='email'
+            name='email'
+            onChange={(email) => setEmail(email.target.value)}
+            value={email}
+          />
+          <label htmlFor='link' className='p-1 text-base text-gray-600 font-semibold'>Link</label><input
+            className='text-black border-2'
+            type='text'
+            id='link'
+            name='link'
+            onChange={(link) => setLink(link.target.value)}
+            value={link}
+          />
+          <label htmlFor='link-LinkedIn' className='p-1 text-base text-nureply-blue font-semibold'>LinkedIn</label><input
+            className='text-black border-2'
+            type='text'
+            id='link-LinkedIn'
+            name='link-LinkedIn'
+            onChange={(linkLinkedIn) => setLinkLinkedIn(linkLinkedIn.target.value)}
+            value={linkLinkedIn}
+          />
+          <label htmlFor='link-GitHub' className='p-1 text-base text-nureply-blue font-semibold'>GitHub</label><input
+            className='text-black border-2'
+            type='text'
+            id='link-GitHub'
+            name='link-GitHub'
+            onChange={(linkGitHub) => setLinkGitHub(linkGitHub.target.value)}
+            value={linkGitHub}
+          />
+          <label htmlFor='link-Twitter' className='p-1 text-base text-nureply-blue font-semibold'>Twitter</label><input
+            className='text-black border-2'
+            type='text'
+            id='link-Twitter'
+            name='link-Twitter'
+            onChange={(linkTwitter) => setLinkTwitter(linkTwitter.target.value)}
+            value={linkTwitter}
+          />
+        </div>
+        <div>
+          <label htmlFor='photo' className='p-1 text-base text-nureply-blue hover:text-nureply-blue-full font-semibold'>Upload Photo</label><input
+            className='hidden'
+            type='file'
+            id='photo'
+            name='photo'
+            accept='image/png, image/jpeg'
+            onChange={onPhotoChange}
+          />
         </div>
       </div>
-      <div className='col-span-2'>
+
+      <div className='col-span-3'>
         {layout === 'layout-default' ? (
           <LayoutDefault />
         ) : layout === 'layout-foursquare' ? (
