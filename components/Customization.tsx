@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { SetStateAction, useState } from "react";
 
-import Slider from './Slider';
-import ColorPicker from './ColorPicker';
+import Slider from "./Slider";
+import ColorPicker from "./ColorPicker";
 
 const Customization = () => {
   const [output, setOutput] = useState({
@@ -37,9 +37,11 @@ const Customization = () => {
 
   return (
     <>
-      <div className='m-8'>
-        <div className="w-full p-4
-        border-b border-gray-100">
+      <div className="m-8">
+        <div
+          className="w-full p-4
+        border-b border-gray-100"
+        >
           <h1 className="text-2xl font-bold text-nureply-blue-full underline decoration-nureply-blue">
             Customization
           </h1>
@@ -64,7 +66,7 @@ const Customization = () => {
         <ColorPicker />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Customization
+export default Customization;

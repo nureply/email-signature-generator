@@ -1,5 +1,4 @@
 import React from "react";
-
 import clsx from "clsx";
 
 interface IInputText {
@@ -19,24 +18,26 @@ const InputText = ({
   onChange,
 }: IInputText) => {
   return (
-    <div>
-      <label
-        className={clsx("block p-1 text-base font-semibold text-default", {
-          "text-nureply-blue-full": colored === true,
-        })}
-        htmlFor={id}
-      >
-        {label}
-      </label>
-      <input
-        className="border-2 p-1 rounded text-input"
-        type="text"
-        id={id}
-        name={name}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
+    <>
+      <div>
+        <label
+          className={clsx("block p-2 font-semibold text-default", {
+            "text-nureply-blue-full": colored === true,
+          })}
+          htmlFor={id}
+        >
+          {label}
+        </label>
+        <input
+          className="p-2 border rounded text-input"
+          type="text"
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+        />
+      </div>
+    </>
   );
 };
 

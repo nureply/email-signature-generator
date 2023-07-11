@@ -1,6 +1,7 @@
 import React from "react";
 import { SetStateAction, useState } from "react";
 
+import Heading from "./Heading";
 import InputText from "./InputText";
 
 const Info = () => {
@@ -127,17 +128,13 @@ const Info = () => {
   return (
     <>
       <div className="m-8">
-        <div
-          className="w-full p-4
-        border-b border-gray-100"
-        >
-          <h1 className="text-2xl font-bold text-nureply-blue-full underline decoration-nureply-blue">
-            Your info
-          </h1>
-          <p className="text-base text-default">
-            Enter your data and see how it looks on your selected layout
-          </p>
+        <div className="p-4 border-b border-background">
+          <Heading
+            primary="Your info"
+            secondary="Enter your data and see how it looks on your selected layout"
+          />
         </div>
+
         <div className="my-4 pb-4 border-b border-background">
           {inputTextDataDefault.map((item) => (
             <InputText
@@ -163,20 +160,22 @@ const Info = () => {
           ))}
         </div>
 
-        <label
-          htmlFor="image"
-          className="block p-1 text-base font-semibold text-nureply-blue-full hover:text-nureply-blue"
-        >
-          Upload Image
-        </label>
-        <input
-          className="hidden"
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          onChange={onImageChange}
-        />
+        <div className="my-4 pb-4 border-b border-background">
+          <label
+            className="block w-fit p-4 bg-background border border-nureply-blue-full rounded-lg font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
+            htmlFor="image"
+          >
+            Upload Image
+          </label>
+          <input
+            className="hidden"
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={onImageChange}
+          />
+        </div>
       </div>
     </>
   );

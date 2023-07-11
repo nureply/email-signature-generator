@@ -11,12 +11,13 @@ import iconTwitter from "../assets/iconTwitter.png";
 import iconInstagram from "../assets/iconInstagram.png";
 
 import Step from "@/components/Step";
-import TemplateTitle from "@/components/TemplateTitle";
+import TemplateTitle from "@/components/Heading";
 import Template from "@/components/Template";
 import Info from "@/components/Info";
 import Customization from "@/components/Customization";
 
 import { Inter } from "next/font/google";
+import Heading from "@/components/Heading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -60,8 +61,15 @@ export default function Home() {
         className="flex-1 h-[200vh]
       bg-window overflow-y-scroll"
       >
-        <TemplateTitle />
         <div className="">
+          <div className="m-8">
+            <div className="p-4 border-b border-background">
+              <Heading
+                primary="Layouts"
+                secondary="Choose a custom layout for your signature"
+              />
+            </div>
+          </div>
           {templates.map((item) => (
             <Template
               isSelected={item === template}
