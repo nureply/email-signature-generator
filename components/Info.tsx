@@ -134,7 +134,7 @@ const Info = () => {
           <h1 className="text-2xl font-bold text-nureply-blue-full underline decoration-nureply-blue">
             Your info
           </h1>
-          <p className="text-base text-gray-600">
+          <p className="text-base text-default">
             Enter your data and see how it looks on your selected layout
           </p>
         </div>

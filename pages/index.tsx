@@ -11,8 +11,10 @@ import iconTwitter from "../assets/iconTwitter.png";
 import iconInstagram from "../assets/iconInstagram.png";
 
 import Step from "@/components/Step";
+import TemplateTitle from "@/components/TemplateTitle";
 import Template from "@/components/Template";
 import Info from "@/components/Info";
+import Customization from "@/components/Customization";
 
 import { Inter } from "next/font/google";
 
@@ -58,6 +60,7 @@ export default function Home() {
         className="flex-1 h-[200vh]
       bg-window overflow-y-scroll"
       >
+        <TemplateTitle />
         <div className="">
           {templates.map((item) => (
             <Template
@@ -69,6 +72,7 @@ export default function Home() {
           ))}
         </div>
         <Info />
+        <Customization />
       </main>
 
       <aside
