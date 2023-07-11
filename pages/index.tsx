@@ -1,22 +1,22 @@
-import React from 'react'
-import { SetStateAction, useState } from 'react';
+import React from "react";
+import { SetStateAction, useState } from "react";
 
-import Image from 'next/image'
+import Image from "next/image";
 
-import iconLinkedIn from '../assets/iconLinkedIn.png';
-import iconGitHub from '../assets/iconGitHub.png';
-import iconArtStation from '../assets/iconArtStation.png';
-import iconYouTube from '../assets/iconYouTube.png';
-import iconTwitter from '../assets/iconTwitter.png';
-import iconInstagram from '../assets/iconInstagram.png';
+import iconLinkedIn from "../assets/iconLinkedIn.png";
+import iconGitHub from "../assets/iconGitHub.png";
+import iconArtStation from "../assets/iconArtStation.png";
+import iconYouTube from "../assets/iconYouTube.png";
+import iconTwitter from "../assets/iconTwitter.png";
+import iconInstagram from "../assets/iconInstagram.png";
 
 import Step from "@/components/Step";
 import Template from "@/components/Template";
-import Info from '@/components/Info';
+import Info from "@/components/Info";
 
-import { Inter } from 'next/font/google'
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 const templates = [
   "Plain Text",
@@ -37,11 +37,15 @@ export default function Home() {
   };
 
   return (
-    <div className="flex w-full max-w-[1440px] mx-auto px-4 py-10 sm:px-6 lg:px-8 gap-x-8 items-start
-    bg-background">
-      <aside className="hidden sticky shrink-0 h-screen top-8
+    <div
+      className="flex w-full max-w-[1440px] mx-auto px-4 py-10 sm:px-6 lg:px-8 gap-x-8 items-start
+    bg-background"
+    >
+      <aside
+        className="hidden sticky shrink-0 h-screen top-8
       w-44 lg:block
-      bg-window overflow-wrap p-6">
+      bg-window overflow-wrap p-6"
+      >
         {/* Left column area */}
         <div className="">
           {parts.map((item) => (
@@ -50,10 +54,10 @@ export default function Home() {
         </div>
       </aside>
 
-
-
-      <main className="flex-1 h-[200vh]
-      bg-window overflow-y-scroll">
+      <main
+        className="flex-1 h-[200vh]
+      bg-window overflow-y-scroll"
+      >
         <div className="">
           {templates.map((item) => (
             <Template
@@ -67,11 +71,11 @@ export default function Home() {
         <Info />
       </main>
 
-
-
-      <aside className="hidden sticky shrink-0 h-screen top-8
+      <aside
+        className="hidden sticky shrink-0 h-screen top-8
       w-96 xl:block
-      bg-window">
+      bg-window"
+      >
         {/* Right column area */}
       </aside>
     </div>
