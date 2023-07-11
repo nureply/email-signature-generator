@@ -1,50 +1,48 @@
-import Image from "next/image";
+import clsx from "clsx";
+import { LayoutTemplate, UserCircle, Wrench } from "lucide-react";
+
 interface StepProps {
-  part: number;
+  part: string;
+  handleStep: React.Dispatch<React.SetStateAction<string>>;
+  isSelected: boolean;
 }
 
-const Step = ({ part }: StepProps) => {
-  return <div className="flex items-center p-4">{stepsPicker(part)}</div>;
+const Step = ({ part, handleStep, isSelected }: StepProps) => {
+  return (
+    <div
+      className={clsx("cursor-pointer justify-around", {
+        "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": isSelected === true,
+      })}
+      onClick={() => handleStep(part)}
+    >
+      <div className="flex items-center p-4">{stepsPicker(part)}</div>
+    </div>
+  );
 };
 
 export default Step;
 
-const stepsPicker = (part: number) => {
+const stepsPicker = (part: string) => {
   switch (part) {
-    case 1:
+    case "Step 1":
       return (
-        <div className="flex items ">
-          <Image
-            src="/template_icon.png"
-            alt="Template Icon"
-            width={50}
-            height={50}
-          />
-          Step {part}
+        <div className="flex items-center ">
+          <LayoutTemplate />
+          {part}
         </div>
       );
-    case 2:
+    case "Step 2":
       return (
-        <div className="flex items">
-          <Image
-            src="/profile_icon.png"
-            alt="Profile Icon"
-            width={50}
-            height={50}
-          />
-          Step {part}
+        <div className="flex items-center">
+          <UserCircle />
+          {part}
         </div>
       );
-    case 3:
+    case "Step 3":
       return (
-        <div className="flex items">
-          <Image
-            src="/customization.png"
-            alt="Customization"
-            width={50}
-            height={50}
-          />
-          Step {part}
+        <div className="flex items-center">
+          <Wrench />
+          {part}
         </div>
       );
   }
