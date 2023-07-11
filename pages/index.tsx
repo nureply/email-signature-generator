@@ -36,6 +36,8 @@ export default function Home() {
     setTemplate(selectedTemplate);
   };
 
+
+  
   return (
     <div className="flex w-full max-w-[1440px] mx-auto px-4 py-10 sm:px-6 lg:px-8 gap-x-8 items-start
     bg-background">
