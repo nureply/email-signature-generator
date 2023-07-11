@@ -22,10 +22,13 @@ const Info = () => {
         TwitterLink: '',
         InstagramLink: '',
     });
+
     const handleChange = e => {
         setOutput({ ...output, [e.target.name]: e.target.value })
     }
+
     const [image, setImage] = useState('');
+
     const onImageChange = e => {
         if (e.target.files && e.target.files[0]) {
             setImage(URL.createObjectURL(e.target.files[0]));
@@ -44,7 +47,6 @@ const Info = () => {
                 </div>
                 <div className='my-4 pb-4 border-b border-background'>
                     <InputText
-                        color='text-default'
                         label='Full Name'
                         id='fullName'
                         name='fullName'
@@ -52,7 +54,6 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-default'
                         label='Occupation'
                         id='occupation'
                         name='occupation'
@@ -60,7 +61,6 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-default'
                         label='Job Title'
                         id='jobTitle'
                         name='jobTitle'
@@ -68,7 +68,6 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-default'
                         label='Company'
                         id='company'
                         name='company'
@@ -76,7 +75,6 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-default'
                         label='Work Adress'
                         id='workAdress'
                         name='workAdress'
@@ -84,7 +82,6 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-default'
                         label='Phone Number'
                         id='phoneNumber'
                         name='phoneNumber'
@@ -92,7 +89,6 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-default'
                         label='Work Email'
                         id='workEmail'
                         name='workEmail'
@@ -100,7 +96,6 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-default'
                         label='Website'
                         id='website'
                         name='website'
@@ -111,7 +106,7 @@ const Info = () => {
 
                 <div className='my-4 pb-4 border-b border-background'>
                     <InputText
-                        color='text-nureply-blue-full'
+                        colored
                         label='LinkedIn'
                         id='LinkedInLink'
                         name='LinkedInLink'
@@ -119,7 +114,7 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-nureply-blue-full'
+                        colored
                         label='GitHub'
                         id='GitHubLink'
                         name='GitHubLink'
@@ -127,7 +122,7 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-nureply-blue-full'
+                        colored
                         label='ArtStation'
                         id='ArtStationLink'
                         name='ArtStationLink'
@@ -135,7 +130,7 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-nureply-blue-full'
+                        colored
                         label='Youtube'
                         id='YoutubeLink'
                         name='YoutubeLink'
@@ -143,7 +138,7 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-nureply-blue-full'
+                        colored
                         label='Twitter'
                         id='TwitterLink'
                         name='TwitterLink'
@@ -151,7 +146,7 @@ const Info = () => {
                         onChange={handleChange}
                     />
                     <InputText
-                        color='text-nureply-blue-full'
+                        colored
                         label='Instagram'
                         id='InstagramLink'
                         name='InstagramLink'

@@ -1,17 +1,27 @@
 import React from 'react';
 
-function InputText({
-    color,
+import clsx from 'clsx';
 
+interface IInputText {
+    colored?: boolean;
+    label: string;
+    id: string;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+const InputText = ({
+    colored,
     label,
-
     id,
     name,
     value,
-    onChange }) {
+    onChange }: IInputText) => {
     return (
         <div>
-            <label className={`${color} block p-1 text-base font-semibold`}
+            <label className={clsx('block p-1 text-base font-semibold text-default', {
+                'text-nureply-blue-full': colored === true,
+            })}
                 htmlFor={id}>{label}</label>
             <input className='border-2 p-1 rounded text-input'
                 type="text"
