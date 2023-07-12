@@ -1,5 +1,4 @@
-import React from "react";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 import Heading from "./Heading";
 import InputText from "./InputText";
@@ -138,6 +137,7 @@ const Info = () => {
         <div className="my-4 pb-4 border-b border-background">
           {inputTextDataDefault.map((item) => (
             <InputText
+              key={item.id}
               label={item.label}
               id={item.id}
               name={item.name}
@@ -150,6 +150,7 @@ const Info = () => {
         <div className="my-4 pb-4 border-b border-background">
           {inputTextDataColored.map((item) => (
             <InputText
+              key={item.id}
               colored
               label={item.label}
               id={item.id}

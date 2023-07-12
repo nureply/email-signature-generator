@@ -8,13 +8,7 @@ interface IColorPicker {
   value: color;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const ColorPicker = ({
-  label,
-  id,
-  name,
-  value,
-  onChange,
-}: IColorPicker) => {
+const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
   const [color, setColor] = useState("");
 
   const onColorChange = (e) => {
@@ -23,10 +17,7 @@ const ColorPicker = ({
 
   return (
     <>
-      <label
-        className="block p-2 font-semibold text-default"
-        htmlFor={id}
-      >
+      <label className="block p-2 font-semibold text-default" htmlFor={id}>
         {label}
       </label>
       <input

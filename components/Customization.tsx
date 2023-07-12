@@ -1,8 +1,7 @@
-import React from "react";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
-import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
+import Slider from "./Slider";
 
 const Customization = () => {
   const [output, setOutput] = useState({
@@ -47,7 +46,7 @@ const Customization = () => {
       step: 1,
     },
   ];
-  
+
   const colorPickerData = [
     {
       label: "Name Color",
@@ -83,6 +82,7 @@ const Customization = () => {
         <div className="w-full p-4">
           {sliderData.map((item) => (
             <Slider
+              key={item.id}
               label={item.label}
               id={item.id}
               name={item.name}
@@ -94,15 +94,16 @@ const Customization = () => {
             />
           ))}
         </div>
-          {colorPickerData.map((item) => (
-            <ColorPicker
-              label={item.label}
-              id={item.id}
-              name={item.name}
-              value='nureply-blue-full'
-              onChange={handleChange}
-            />
-          ))}
+        {colorPickerData.map((item) => (
+          <ColorPicker
+            key={item.id}
+            label={item.label}
+            id={item.id}
+            name={item.name}
+            value="nureply-blue-full"
+            onChange={handleChange}
+          />
+        ))}
       </div>
     </>
   );
