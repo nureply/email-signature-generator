@@ -1,6 +1,5 @@
 import { SetStateAction, useState } from "react";
 
-import Info from "@/components/Info";
 import Step from "@/components/Step";
 import Template from "@/components/Template";
 
@@ -24,15 +23,15 @@ export default function Home() {
       <aside
         className="hidden sticky shrink-0 h-screen top-8
       w-44 lg:block
-      bg-window overflow-wrap p-6"
+      bg-window overflow-wrap "
       >
         {/* Left column area */}
         <Step setStep={handleSetStep} step={step} />
       </aside>
 
       <main
-        className="flex-1 h-[200vh]
-      bg-window overflow-y-scroll"
+        className="flex-1
+      bg-window"
       >
         {step === 1 && (
           <Template
@@ -40,9 +39,9 @@ export default function Home() {
             handleTemplate={handleTemplateChange}
           />
         )}
-        {step === 2 && (
+        {/*  {step === 2 && (
           <Info templateType={template} handleTemplate={handleTemplateChange} />
-        )}
+        )} */}
         {step === 3 && <div>{/* Style Changer Component */}</div>}
       </main>
 
