@@ -1,7 +1,36 @@
+import React from "react";
 import { SetStateAction, useState } from "react";
 
+import Image from "next/image";
+
+import iconLinkedIn from "../assets/iconLinkedIn.png";
+import iconGitHub from "../assets/iconGitHub.png";
+import iconArtStation from "../assets/iconArtStation.png";
+import iconYouTube from "../assets/iconYouTube.png";
+import iconTwitter from "../assets/iconTwitter.png";
+import iconInstagram from "../assets/iconInstagram.png";
+
 import Step from "@/components/Step";
+import TemplateTitle from "@/components/Heading";
 import Template from "@/components/Template";
+import Info from "@/components/Info";
+import Customization from "@/components/Customization";
+
+import { Inter } from "next/font/google";
+import Heading from "@/components/Heading";
+
+const inter = Inter({ subsets: ["latin"] });
+
+const templates = [
+  "Plain Text",
+  "Template 1 Left",
+  "Template 1 Right",
+  "Template 2 Left",
+  "Template 2 Right",
+  "Template 3 Top",
+  "Template 3 Bottom",
+];
+const parts = [1, 2, 3];
 
 export default function Home() {
   const [step, setStep] = useState(1);
