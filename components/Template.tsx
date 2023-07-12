@@ -32,7 +32,7 @@ const Template = ({ templateType, handleTemplate }: TemplateProps) => {
             )}
           >
             {item}
-            <div>{templatePicker(item)}</div>
+            <div className="bg-gray-100">{templatePicker(item)}</div>
           </div>
         );
       })}
