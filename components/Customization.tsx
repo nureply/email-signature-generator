@@ -8,6 +8,10 @@ const Customization = () => {
   const [output, setOutput] = useState({
     fontSize: "",
     iconSize: "",
+    imageSize: "",
+    nameColor: "",
+    textColor: "",
+    linkColor: "",
   });
 
   const handleChange = (e) => {
@@ -32,6 +36,33 @@ const Customization = () => {
       max: 24,
       value: 16,
       step: 1,
+    },
+    {
+      label: "Image Size",
+      id: "imageSize",
+      name: "imageSize",
+      min: 100,
+      max: 120,
+      value: 100,
+      step: 1,
+    },
+  ];
+  
+  const colorPickerData = [
+    {
+      label: "Name Color",
+      id: "nameColor",
+      name: "nameColor",
+    },
+    {
+      label: "Text Color",
+      id: "textColor",
+      name: "textColor",
+    },
+    {
+      label: "Link Color",
+      id: "linkColor",
+      name: "linkColor",
     },
   ];
 
@@ -63,7 +94,15 @@ const Customization = () => {
             />
           ))}
         </div>
-        <ColorPicker />
+          {colorPickerData.map((item) => (
+            <ColorPicker
+              label={item.label}
+              id={item.id}
+              name={item.name}
+              value='nureply-blue-full'
+              onChange={handleChange}
+            />
+          ))}
       </div>
     </>
   );
