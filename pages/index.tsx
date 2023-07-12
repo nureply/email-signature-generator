@@ -33,10 +33,15 @@ const templates = [
 const parts = [1, 2, 3];
 
 export default function Home() {
+  const [step, setStep] = useState(1);
   const [template, setTemplate] = useState("");
 
   const handleTemplateChange = (selectedTemplate: SetStateAction<string>) => {
     setTemplate(selectedTemplate);
+  };
+
+  const handleSetStep = (selectedStep: SetStateAction<number>) => {
+    setStep(selectedStep);
   };
 
   return (
@@ -50,37 +55,23 @@ export default function Home() {
       bg-window overflow-wrap p-6"
       >
         {/* Left column area */}
-        <div className="">
-          {parts.map((item) => (
-            <Step part={item} key={item} />
-          ))}
-        </div>
+        <Step setStep={handleSetStep} step={step} />
       </aside>
 
       <main
         className="flex-1 h-[200vh]
       bg-window overflow-y-scroll"
       >
-        <div className="">
-          <div className="m-8">
-            <div className="p-4 border-b border-background">
-              <Heading
-                primary="Layouts"
-                secondary="Choose a custom layout for your signature"
-              />
-            </div>
-          </div>
-          {templates.map((item) => (
-            <Template
-              isSelected={item === template}
-              templateType={item}
-              handleTemplate={handleTemplateChange}
-              key={item}
-            />
-          ))}
-        </div>
-        <Info />
-        <Customization />
+        {step === 1 && (
+          <Template
+            templateType={template}
+            handleTemplate={handleTemplateChange}
+          />
+        )}
+        {step === 2 && (
+          <Info templateType={template} handleTemplate={handleTemplateChange} />
+        )}
+        {step === 3 && <div>{/* Style Changer Component */}</div>}
       </main>
 
       <aside
@@ -88,7 +79,7 @@ export default function Home() {
       w-96 xl:block
       bg-window"
       >
-        {/* Right column area */}
+        {/* Preview Component */}
       </aside>
     </div>
   );
