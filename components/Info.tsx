@@ -1,5 +1,4 @@
-import React from "react";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 import Heading from "./Heading";
 import InputText from "./InputText";
@@ -11,7 +10,7 @@ const Info = () => {
     occupation: "",
     jobTitle: "",
     company: "",
-    workAddress: "",
+    workAdress: "",
     phoneNumber: "",
     workEmail: "",
     website: "",
@@ -24,13 +23,13 @@ const Info = () => {
     InstagramLink: "",
   });
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setOutput({ ...output, [e.target.name]: e.target.value });
   };
 
   const [image, setImage] = useState("");
 
-  const onImageChange = (e: { target: { files: (Blob | MediaSource)[] } }) => {
+  const onImageChange = (e: { target: { files: (Blob | MediaSource)[]; }; }) => {
     if (e.target.files && e.target.files[0]) {
       setImage(URL.createObjectURL(e.target.files[0]));
     }
@@ -62,10 +61,10 @@ const Info = () => {
       value: output.company,
     },
     {
-      label: "Work Address",
-      id: "workAddress",
-      name: "workAddress",
-      value: output.workAddress,
+      label: "Work Adress",
+      id: "workAdress",
+      name: "workAdress",
+      value: output.workAdress,
     },
     {
       label: "Phone Number",

@@ -6,14 +6,12 @@ interface IColorPicker {
   id: string;
   name: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
   const [color, setColor] = useState("");
 
-  const onColorChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const onColorChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     setColor(e.target.value);
   };
 

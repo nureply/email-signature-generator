@@ -28,7 +28,7 @@ const Template = ({ templateType, handleTemplate }: TemplateProps) => {
               "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer flex-auto",
               {
                 "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": item === templateType,
-              },
+              }
             )}
           >
             {item}
@@ -56,7 +56,7 @@ const templatePicker = (type: string) => {
       );
     case "Template 1 Left":
       return (
-        <div className="flex justify-around p-4 alaign-center">
+        <div className="flex justify-around p-4 align-center">
           <ProfileIcon />
           <div>
             <Texts />

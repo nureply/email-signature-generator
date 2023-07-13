@@ -1,21 +1,19 @@
-import React from "react";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
-import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
+import Slider from "./Slider";
 
 const Customization = () => {
   const [output, setOutput] = useState({
     fontSize: "",
     iconSize: "",
     imageSize: "",
-
     nameColor: "",
     textColor: "",
     linkColor: "",
   });
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setOutput({ ...output, [e.target.name]: e.target.value });
   };
 

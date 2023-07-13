@@ -7,7 +7,7 @@ interface IInputText {
   id: string;
   name: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const InputText = ({
   colored,
@@ -22,7 +22,7 @@ const InputText = ({
       <div>
         <label
           className={clsx("block p-2 font-semibold text-default", {
-            "text-nureply-blue-full": colored === true,
+            "text-nureply-blue-full": colored,
           })}
           htmlFor={id}
         >
