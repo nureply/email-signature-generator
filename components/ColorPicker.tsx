@@ -5,13 +5,15 @@ interface IColorPicker {
   label: string;
   id: string;
   name: string;
-  value: color;
+  value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
   const [color, setColor] = useState("");
 
-  const onColorChange = (e) => {
+  const onColorChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setColor(e.target.value);
   };
 
@@ -27,7 +29,7 @@ const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
         id={id}
         name={name}
         value={color}
-        onChange={onChange}
+        onChange={onColorChange}
       />
     </>
   );

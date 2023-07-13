@@ -68,10 +68,8 @@ export default function Home() {
             handleTemplate={handleTemplateChange}
           />
         )}
-        {/*  {step === 2 && (
-          <Info templateType={template} handleTemplate={handleTemplateChange} />
-        )} */}
-        {step === 3 && <div>{/* Style Changer Component */}</div>}
+        {step === 2 && <Info />}
+        {step === 3 && <Customization />}
       </main>
 
       <aside
