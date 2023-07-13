@@ -19,18 +19,20 @@ const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
 
   return (
     <>
-      <label className="block p-2 font-semibold text-default" htmlFor={id}>
-        {label}
-      </label>
-      <input
-        style={{ backgroundColor: color }}
-        className="w-[40px] h-[40px] p-4 border-4 border-nureply-blue-full rounded-lg overflow-hidden"
-        type="color"
-        id={id}
-        name={name}
-        value={color}
-        onChange={onColorChange}
-      />
+      <div className="m-2">
+        <label className="block pb-2 font-semibold text-default" htmlFor={id}>
+          {label}
+        </label>
+        <input
+          style={{ backgroundColor: color }}
+          className="w-[40px] h-[40px] p-4 border-4 border-nureply-blue-full rounded-lg overflow-hidden"
+          type="color"
+          id={id}
+          name={name}
+          value={color}
+          onChange={onColorChange}
+        />
+      </div>
     </>
   );
 };
