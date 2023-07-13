@@ -1,39 +1,33 @@
 import { useState } from "react";
 
+import useInfoStore from "../store/infoStore";
+
 import Heading from "./Heading";
 import InputText from "./InputText";
 
 const Info = () => {
-  const [output, setOutput] = useState({
-    textInput: "",
-    fullName: "",
-    occupation: "",
-    jobTitle: "",
-    company: "",
-    workAdress: "",
-    phoneNumber: "",
-    workEmail: "",
-    website: "",
+  const { output, setOutput, handleChange, onImageChange } = useInfoStore();
 
-    LinkedInLink: "",
-    GitHubLink: "",
-    ArtStationLink: "",
-    YouTubeLink: "",
-    TwitterLink: "",
-    InstagramLink: "",
-  });
+  const {
+    textInput,
+    fullName,
+    occupation,
+    jobTitle,
+    company,
+    workAddress,
+    phoneNumber,
+    workEmail,
+    website,
 
-  const handleChange = (e) => {
-    setOutput({ ...output, [e.target.name]: e.target.value });
-  };
+    LinkedInLink,
+    GitHubLink,
+    ArtStationLink,
+    YouTubeLink,
+    TwitterLink,
+    InstagramLink,
 
-  const [image, setImage] = useState("");
-
-  const onImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0]));
-    }
-  };
+    image,
+  } = output;
 
   const inputTextDataDefault = [
     {
@@ -61,10 +55,10 @@ const Info = () => {
       value: output.company,
     },
     {
-      label: "Work Adress",
-      id: "workAdress",
-      name: "workAdress",
-      value: output.workAdress,
+      label: "Work Address",
+      id: "workAddress",
+      name: "workAddress",
+      value: output.workAddress,
     },
     {
       label: "Phone Number",

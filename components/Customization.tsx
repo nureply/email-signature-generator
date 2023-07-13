@@ -1,21 +1,12 @@
 import { useState } from "react";
 
+import useCustomizationStore from "../store/customizationStore";
+
 import ColorPicker from "./ColorPicker";
 import Slider from "./Slider";
 
 const Customization = () => {
-  const [output, setOutput] = useState({
-    fontSize: "",
-    iconSize: "",
-    imageSize: "",
-    nameColor: "",
-    textColor: "",
-    linkColor: "",
-  });
-
-  const handleChange = (e) => {
-    setOutput({ ...output, [e.target.name]: e.target.value });
-  };
+  const { output, setOutput, handleChange } = useCustomizationStore();
 
   const sliderData = [
     {
