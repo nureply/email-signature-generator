@@ -14,7 +14,7 @@ type State = {
   handleChange: (e: any) => void;
 };
 
-const useDesignStore = create<State>((set) => ({
+const useCustomizationStore = create<State>((set) => ({
   output: {
     fontSize: "",
     iconSize: "",
@@ -32,4 +32,4 @@ const useDesignStore = create<State>((set) => ({
   },
 }));
 
-export default useDesignStore;
+export default useCustomizationStore;
