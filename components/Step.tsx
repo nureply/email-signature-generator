@@ -1,13 +1,11 @@
+import { useStepStore } from "@/store/stepStore";
 import clsx from "clsx";
 import { LayoutTemplate, UserCircle, Wrench } from "lucide-react";
 
-interface StepProps {
-  step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
-}
 const steps = [1, 2, 3];
 
-const Step = ({ step, setStep }: StepProps) => {
+const Step = () => {
+  const { step, setStep } = useStepStore();
   return (
     <>
       {steps.map((item) => {

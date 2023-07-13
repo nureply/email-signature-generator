@@ -18,31 +18,15 @@ import Customization from "@/components/Customization";
 
 import { Inter } from "next/font/google";
 import Heading from "@/components/Heading";
+import { useStepStore } from "@/store/stepStore";
+import { Preview } from "@/components/Preview";
+import { useTemplateStore } from "@/store/templateStore";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const templates = [
-  "Plain Text",
-  "Template 1 Left",
-  "Template 1 Right",
-  "Template 2 Left",
-  "Template 2 Right",
-  "Template 3 Top",
-  "Template 3 Bottom",
-];
-const parts = [1, 2, 3];
-
 export default function Home() {
-  const [step, setStep] = useState(1);
-  const [template, setTemplate] = useState("");
-
-  const handleTemplateChange = (selectedTemplate: SetStateAction<string>) => {
-    setTemplate(selectedTemplate);
-  };
-
-  const handleSetStep = (selectedStep: SetStateAction<number>) => {
-    setStep(selectedStep);
-  };
+  const { step } = useStepStore();
+  const { template } = useTemplateStore();
 
   return (
     <div
@@ -55,19 +39,14 @@ export default function Home() {
       bg-window overflow-wrap "
       >
         {/* Left column area */}
-        <Step setStep={handleSetStep} step={step} />
+        <Step />
       </aside>
 
       <main
         className="flex-1
       bg-window"
       >
-        {step === 1 && (
-          <Template
-            templateType={template}
-            handleTemplate={handleTemplateChange}
-          />
-        )}
+        {step === 1 && <Template />}
         {/*  {step === 2 && (
           <Info templateType={template} handleTemplate={handleTemplateChange} />
         )} */}
@@ -80,6 +59,7 @@ export default function Home() {
       bg-window"
       >
         {/* Preview Component */}
+        <Preview variant={template} />
       </aside>
     </div>
   );

@@ -1,236 +1,53 @@
-interface PreviewProps {
-  templateType: string;
+import { useTemplateStore } from "@/store/templateStore";
+import { cn } from "@/utils/cn";
+import { VariantProps, cva } from "class-variance-authority";
+let size = "13px";
+
+const previewVariants = cva(`bg-stone-200 rounded-lg flex-auto gap-5`, {
+  variants: {
+    variant: {
+      PlainText: `bg-stone-200 rounded-lg flex-auto gap-5 text-${size} `,
+      destructive: `text-white hover:bg-red-600 dark:hover:bg-red-600`,
+      outline: `bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-100 border border-slate-200 dark:border-slate-700`,
+      subtle: `bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100`,
+      ghost: `bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-400 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent`,
+      link: `bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100 hover:bg-transparent dark:hover:bg-transparent`,
+    },
+  },
+
+  defaultVariants: {
+    variant: PlainText,
+  },
+});
+
+export interface PreviewProps
+  extends React.ButtonHTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof previewVariants> {
+  isLoading?: boolean;
 }
 
-const Preview = ({ templateType }: PreviewProps) => {
-  return <>{templatePicker(templateType)}</>;
+const Preview = ({ className, variant, ...props }: PreviewProps) => {
+  const { template, setTemplate } = useTemplateStore();
+  return (
+    <div className={cn(previewVariants({ variant, className }))}>
+      deneme
+      <div key="profileIcon"></div>
+      <div key="userInputs">
+        <div key="personalInfo">
+          <div key="sign-of"></div>
+          <div key="name"></div>
+          <div key="jobInfo"></div>
+        </div>
+        <div key="contactInfo">
+          <div key="workMail"></div>
+          <div key="website"></div>
+          <div key="phoneNumber"></div>
+          <div key="address"></div>
+        </div>
+        <div key="icons"></div>
+      </div>
+    </div>
+  );
 };
 
-export default Preview;
-
-const templatePicker = (type: string) => {
-  switch (type) {
-    case "Plain Text":
-      return (
-        <div className="bg-stone-200 mt-10 rounded-lg flex-auto m-5 grid grid-cols-1 gap-5">
-          <div>
-            <p>
-              Hi X,
-              <br />
-              Apparently, email signatures can mess up deliverability. Did you
-              know that? News to me.
-              <br />
-              *FULL NAME*
-              <br />
-              *OCCUPATION* | *JOB TITLE* | *COMPANY*
-              <br />
-              <br />
-              *WEB SITE*
-              <br />
-              *WORK MAİL*
-              <br />
-              *PHONE NUMBER*
-              <br />
-              *WORK ADRESS* <br />
-            </p>
-          </div>
-          <div>*ICONS*</div>
-        </div>
-      );
-    case "Template 1 Left":
-      return (
-        <div className="bg-stone-200 mt-10 rounded-lg flex-auto m-5 grid grid-cols-1 gap-5">
-          <p>
-            Hi X,
-            <br />
-            Apparently, email signatures can mess up deliverability. Did you
-            know that? News to me.
-            <br />
-            <div className="grid grid-cols-2 mt-5">
-              <div className="w-14 h-14 bg-stone-400 rounded-full mt-10 ml-10"></div>
-              <div>
-                *FULL NAME*
-                <br />
-                *OCCUPATION* | *JOB TITLE* | *COMPANY*
-                <br />
-                <br />
-                *WEB SITE*
-                <br />
-                *WORK MAİL*
-                <br />
-                *PHONE NUMBER*
-                <br />
-                *WORK ADRESS* <br />
-              </div>
-            </div>
-          </p>
-        </div>
-      );
-    case "Template 1 Right":
-      return (
-        <div className="bg-stone-200 mt-10 rounded-lg flex-auto m-5 grid grid-cols-1 gap-5">
-          <p>
-            Hi X,
-            <br />
-            Apparently, email signatures can mess up deliverability. Did you
-            know that? News to me.
-            <br />
-            <div className="grid grid-cols-2 mt-5 gap-40">
-              <div>
-                *FULL NAME*
-                <br />
-                *OCCUPATION* | *JOB TITLE* | *COMPANY*
-                <br />
-                <br />
-                *WEB SITE*
-                <br />
-                *WORK MAİL*
-                <br />
-                *PHONE NUMBER*
-                <br />
-                *WORK ADRESS* <br />
-              </div>
-              <div className="w-14 h-14 bg-stone-400 rounded-full mt-10"></div>
-            </div>
-          </p>
-          <div>*ICONS*</div>
-        </div>
-      );
-    case "Template 2 Left":
-      return (
-        <div className="bg-stone-200 mt-10 rounded-lg flex-auto m-5 gap-10">
-          <p>
-            Hi X,
-            <br />
-            Apparently, email signatures can mess up deliverability. Did you
-            know that? News to me.
-            <br />
-          </p>
-          <div className="grid grid-cols-2">
-            <div>
-              <div className="w-14 h-14 bg-stone-400 rounded-full mt-10"></div>
-              <div>*ICONS*</div>
-            </div>
-            <div>
-              <p>
-                <div>
-                  *FULL NAME*
-                  <br />
-                  *OCCUPATION* | *JOB TITLE* | *COMPANY*
-                  <br />
-                  <br />
-                  *WEB SITE*
-                  <br />
-                  *WORK MAİL*
-                  <br />
-                  *PHONE NUMBER*
-                  <br />
-                  *WORK ADRESS* <br />
-                </div>
-              </p>
-            </div>
-          </div>
-        </div>
-      );
-    case "Template 2 Right":
-      return (
-        <div className="bg-stone-200 mt-10 rounded-lg flex-auto m-5 gap-10">
-          <p>
-            Hi X,
-            <br />
-            Apparently, email signatures can mess up deliverability. Did you
-            know that? News to me.
-            <br />
-          </p>
-          <div className="grid grid-cols-2">
-            <div>
-              <p>
-                <div>
-                  *FULL NAME*
-                  <br />
-                  *OCCUPATION* | *JOB TITLE* | *COMPANY*
-                  <br />
-                  <br />
-                  *WEB SITE*
-                  <br />
-                  *WORK MAİL*
-                  <br />
-                  *PHONE NUMBER*
-                  <br />
-                  *WORK ADRESS* <br />
-                </div>
-              </p>
-            </div>
-            <div>
-              <div className="w-14 h-14 bg-stone-400 rounded-full mt-10"></div>
-              <div>*ICONS*</div>
-            </div>
-          </div>
-        </div>
-      );
-    case "Template 3 Top":
-      return (
-        <div className="bg-stone-200 mt-10 rounded-lg flex-auto m-5 gap-5 grid grid-cols-1">
-          <p>
-            Hi X,
-            <br />
-            Apparently, email signatures can mess up deliverability. Did you
-            know that? News to me.
-            <br />
-          </p>
-          <div className="w-14 h-14 bg-stone-400 rounded-full "></div>
-          <p>
-            <div>
-              *FULL NAME*
-              <br />
-              *OCCUPATION* | *JOB TITLE* | *COMPANY*
-              <br />
-              <br />
-              *WEB SITE*
-              <br />
-              *WORK MAİL*
-              <br />
-              *PHONE NUMBER*
-              <br />
-              *WORK ADRESS* <br />
-            </div>
-          </p>
-
-          <div>*ICONS*</div>
-        </div>
-      );
-    case "Template 3 Bottom":
-      return (
-        <div className="bg-stone-200 mt-10 rounded-lg flex-auto m-5 gap-5 grid grid-cols-1">
-          <p>
-            Hi X,
-            <br />
-            Apparently, email signatures can mess up deliverability. Did you
-            know that? News to me.
-            <br />
-          </p>
-          <p>
-            <div>
-              *FULL NAME*
-              <br />
-              *OCCUPATION* | *JOB TITLE* | *COMPANY*
-              <br />
-              <br />
-              *WEB SITE*
-              <br />
-              *WORK MAİL*
-              <br />
-              *PHONE NUMBER*
-              <br />
-              *WORK ADRESS* <br />
-            </div>
-          </p>
-
-          <div>*ICONS*</div>
-          <div className="w-14 h-14 bg-stone-400 rounded-full "></div>
-        </div>
-      );
-    default:
-      return null;
-  }
-};
+export { Preview, previewVariants };

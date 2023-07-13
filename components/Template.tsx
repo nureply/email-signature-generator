@@ -1,12 +1,8 @@
 import clsx from "clsx";
 import React, { Dispatch, SetStateAction } from "react";
+import { useTemplateStore } from "@/store/templateStore";
 
-interface TemplateProps {
-  templateType: string;
-  handleTemplate: Dispatch<SetStateAction<string>>;
-}
-
-const templates = [
+const templates: string[] = [
   "Plain Text",
   "Template 1 Left",
   "Template 1 Right",
@@ -16,18 +12,27 @@ const templates = [
   "Template 3 Bottom",
 ];
 
-const Template = ({ templateType, handleTemplate }: TemplateProps) => {
+const templateObject: { [key: string]: string } = {};
+
+templates.forEach((template, index) => {
+  templateObject[`template${index + 1}`] = template;
+});
+
+console.log(templateObject);
+
+const Template = () => {
+  const { template, setTemplate } = useTemplateStore();
   return (
     <>
       {templates.map((item) => {
         return (
           <div
             key={item}
-            onClick={() => handleTemplate(item)}
+            onClick={() => setTemplate(item)}
             className={clsx(
               "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer flex-auto",
               {
-                "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": item === templateType,
+                "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": item === template,
               }
             )}
           >
@@ -42,7 +47,7 @@ const Template = ({ templateType, handleTemplate }: TemplateProps) => {
 
 const templatePicker = (type: string) => {
   switch (type) {
-    case "Plain Text":
+    case "PlainText":
       return <Texts />;
     case "Template 1 Right":
       return (
