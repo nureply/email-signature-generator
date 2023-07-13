@@ -56,7 +56,7 @@ const templatePicker = (type: string) => {
       );
     case "Template 1 Left":
       return (
-        <div className="flex justify-around p-4 alaign-center">
+        <div className="flex justify-around p-4 align-center">
           <ProfileIcon />
           <div>
             <Texts />
