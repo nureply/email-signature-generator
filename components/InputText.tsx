@@ -7,7 +7,7 @@ interface IInputText {
   id: string;
   name: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const InputText = ({
   colored,

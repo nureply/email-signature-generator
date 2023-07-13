@@ -5,28 +5,21 @@ interface IColorPicker {
   label: string;
   id: string;
   name: string;
-  value: color;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const ColorPicker = ({
-  label,
-  id,
-  name,
-  value,
-  onChange,
-}: IColorPicker) => {
+const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
   const [color, setColor] = useState("");
 
-  const onColorChange = (e) => {
+  const onColorChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setColor(e.target.value);
   };
 
   return (
     <>
-      <label
-        className="block p-2 font-semibold text-default"
-        htmlFor={id}
-      >
+      <label className="block p-2 font-semibold text-default" htmlFor={id}>
         {label}
       </label>
       <input

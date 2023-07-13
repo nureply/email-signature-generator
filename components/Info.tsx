@@ -11,7 +11,7 @@ const Info = () => {
     occupation: "",
     jobTitle: "",
     company: "",
-    workAdress: "",
+    workAddress: "",
     phoneNumber: "",
     workEmail: "",
     website: "",
@@ -24,13 +24,13 @@ const Info = () => {
     InstagramLink: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setOutput({ ...output, [e.target.name]: e.target.value });
   };
 
   const [image, setImage] = useState("");
 
-  const onImageChange = (e) => {
+  const onImageChange = (e: { target: { files: (Blob | MediaSource)[] } }) => {
     if (e.target.files && e.target.files[0]) {
       setImage(URL.createObjectURL(e.target.files[0]));
     }
@@ -62,10 +62,10 @@ const Info = () => {
       value: output.company,
     },
     {
-      label: "Work Adress",
-      id: "workAdress",
-      name: "workAdress",
-      value: output.workAdress,
+      label: "Work Address",
+      id: "workAddress",
+      name: "workAddress",
+      value: output.workAddress,
     },
     {
       label: "Phone Number",
@@ -138,6 +138,7 @@ const Info = () => {
         <div className="my-4 pb-4 border-b border-background">
           {inputTextDataDefault.map((item) => (
             <InputText
+              key={item.id}
               label={item.label}
               id={item.id}
               name={item.name}
@@ -150,6 +151,7 @@ const Info = () => {
         <div className="my-4 pb-4 border-b border-background">
           {inputTextDataColored.map((item) => (
             <InputText
+              key={item.id}
               colored
               label={item.label}
               id={item.id}

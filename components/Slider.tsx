@@ -8,7 +8,7 @@ interface ISlider {
   max: number;
   value: number;
   step: number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const Slider = ({
   label,
