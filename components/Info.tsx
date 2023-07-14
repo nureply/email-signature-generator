@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import useInfoStore from "../store/infoStore";
 
 import Heading from "./Heading";
@@ -10,6 +8,9 @@ const Info = () => {
 
   const {
     textInput,
+
+    signOff,
+
     fullName,
     occupation,
     jobTitle,
@@ -29,6 +30,14 @@ const Info = () => {
     image,
   } = output;
 
+  const signOffData = [
+    {
+      label: "Sign-off with:",
+      id: "signOff",
+      name: "signOff",
+      value: output.signOff,
+    },
+  ];
   const inputTextDataDefault = [
     {
       label: "Full Name",
@@ -126,6 +135,20 @@ const Info = () => {
             primary="Your info"
             secondary="Enter your data and see how it looks on your selected layout"
           />
+        </div>
+
+        <div className="my-4 pb-4 border-b border-background">
+          {signOffData.map((item) => (
+            <InputText
+              key={item.id}
+              colored
+              label={item.label}
+              id={item.id}
+              name={item.name}
+              value={item.value}
+              onChange={handleChange}
+            />
+          ))}
         </div>
 
         <div className="my-4 pb-4 border-b border-background">

@@ -1,9 +1,12 @@
-import { ChangeEvent } from "react";
 import { create } from "zustand";
+import { ChangeEvent } from "react";
 
 type State = {
   output: {
     textInput: string;
+
+    signOff: string;
+
     fullName: string;
     occupation: string;
     jobTitle: string;
@@ -23,13 +26,16 @@ type State = {
     image: string;
   };
   setOutput: (newOutput: Partial<State["output"]>) => void;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleChange: (e: any) => void;
 };
 
 const useInfoStore = create<State>((set) => ({
   output: {
     textInput: "",
+
+    signOff: "",
+
     fullName: "",
     occupation: "",
     jobTitle: "",
@@ -50,7 +56,7 @@ const useInfoStore = create<State>((set) => ({
   },
   setOutput: (newOutput) =>
     set((state) => ({ output: { ...state.output, ...newOutput } })),
-  handleChange: (e) => {
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     set((state) => ({ output: { ...state.output, [name]: value } }));
   },

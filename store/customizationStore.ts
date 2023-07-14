@@ -1,24 +1,25 @@
 import { create } from "zustand";
+import { ChangeEvent } from "react";
 
 type State = {
   output: {
-    fontSize: string;
-    iconSize: string;
-    imageSize: string;
+    fontSize: number;
+    iconSize: number;
+    imageSize: number;
 
     nameColor: string;
     textColor: string;
     linkColor: string;
   };
   setOutput: (newOutput: Partial<State["output"]>) => void;
-  handleChange: (e: any) => void;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const useCustomizationStore = create<State>((set) => ({
   output: {
-    fontSize: "",
-    iconSize: "",
-    imageSize: "",
+    fontSize: 12,
+    iconSize: 16,
+    imageSize: 100,
 
     nameColor: "",
     textColor: "",
