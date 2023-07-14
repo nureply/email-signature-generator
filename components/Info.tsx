@@ -1,40 +1,44 @@
-import { useState } from "react";
+import useInfoStore from "../store/infoStore";
 
 import Heading from "./Heading";
+import Description from "./Description";
 import InputText from "./InputText";
 
 const Info = () => {
-  const [output, setOutput] = useState({
-    textInput: "",
-    fullName: "",
-    occupation: "",
-    jobTitle: "",
-    company: "",
-    workAdress: "",
-    phoneNumber: "",
-    workEmail: "",
-    website: "",
+  const { output, setOutput, handleChange, onImageChange } = useInfoStore();
 
-    LinkedInLink: "",
-    GitHubLink: "",
-    ArtStationLink: "",
-    YouTubeLink: "",
-    TwitterLink: "",
-    InstagramLink: "",
-  });
+  const {
+    textInput,
 
-  const handleChange = (e) => {
-    setOutput({ ...output, [e.target.name]: e.target.value });
-  };
+    signOff,
 
-  const [image, setImage] = useState("");
+    fullName,
+    occupation,
+    jobTitle,
+    company,
+    workAddress,
+    phoneNumber,
+    workEmail,
+    website,
 
-  const onImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0]));
-    }
-  };
+    LinkedInLink,
+    GitHubLink,
+    ArtStationLink,
+    YouTubeLink,
+    TwitterLink,
+    InstagramLink,
 
+    image,
+  } = output;
+
+  const signOffData = [
+    {
+      label: "Sign-off",
+      id: "signOff",
+      name: "signOff",
+      value: output.signOff,
+    },
+  ];
   const inputTextDataDefault = [
     {
       label: "Full Name",
@@ -61,10 +65,10 @@ const Info = () => {
       value: output.company,
     },
     {
-      label: "Work Adress",
-      id: "workAdress",
-      name: "workAdress",
-      value: output.workAdress,
+      label: "Work Address",
+      id: "workAddress",
+      name: "workAddress",
+      value: output.workAddress,
     },
     {
       label: "Phone Number",
@@ -134,7 +138,27 @@ const Info = () => {
           />
         </div>
 
+        <div className="m-4 pb-4 border-b border-background">
+          {signOffData.map((item) => (
+            <InputText
+              key={item.id}
+              colored
+              label={item.label}
+              id={item.id}
+              name={item.name}
+              value={item.value}
+              onChange={handleChange}
+            />
+          ))}
+        </div>
+
         <div className="my-4 pb-4 border-b border-background">
+          <div className="m-2 py-4">
+            <Description
+              primary="Personal info & contacts"
+              secondary="Start filling in your data, unused fields can be left blank"
+            />
+          </div>
           {inputTextDataDefault.map((item) => (
             <InputText
               key={item.id}
@@ -148,6 +172,12 @@ const Info = () => {
         </div>
 
         <div className="my-4 pb-4 border-b border-background">
+          <div className="m-2 py-4">
+            <Description
+              primary="Social media links"
+              secondary="Add URLs of your social media profiles"
+            />
+          </div>
           {inputTextDataColored.map((item) => (
             <InputText
               key={item.id}
@@ -162,6 +192,12 @@ const Info = () => {
         </div>
 
         <div className="my-4 pb-4 border-b border-background">
+          <div className="mx-2 my-4">
+            <Description
+              primary="Add a photo"
+              secondary="Can be both square or round"
+            />
+          </div>
           <label
             className="block w-fit p-4 bg-background border border-nureply-blue-full rounded-lg font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
             htmlFor="image"

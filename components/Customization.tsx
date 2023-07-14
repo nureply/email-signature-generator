@@ -1,21 +1,10 @@
-import { useState } from "react";
+import useCustomizationStore from "../store/customizationStore";
 
-import ColorPicker from "./ColorPicker";
 import Slider from "./Slider";
+import ColorPicker from "./ColorPicker";
 
 const Customization = () => {
-  const [output, setOutput] = useState({
-    fontSize: "",
-    iconSize: "",
-    imageSize: "",
-    nameColor: "",
-    textColor: "",
-    linkColor: "",
-  });
-
-  const handleChange = (e) => {
-    setOutput({ ...output, [e.target.name]: e.target.value });
-  };
+  const { output, setOutput, handleChange } = useCustomizationStore();
 
   const sliderData = [
     {
@@ -24,7 +13,7 @@ const Customization = () => {
       name: "fontSize",
       min: 12,
       max: 16,
-      value: 12,
+      value: output.fontSize,
       step: 1,
     },
     {
@@ -33,7 +22,7 @@ const Customization = () => {
       name: "iconSize",
       min: 16,
       max: 24,
-      value: 16,
+      value: output.iconSize,
       step: 1,
     },
     {
@@ -42,11 +31,10 @@ const Customization = () => {
       name: "imageSize",
       min: 100,
       max: 120,
-      value: 100,
+      value: output.imageSize,
       step: 1,
     },
   ];
-
   const colorPickerData = [
     {
       label: "Name Color",
@@ -68,10 +56,7 @@ const Customization = () => {
   return (
     <>
       <div className="m-8">
-        <div
-          className="w-full p-4
-        border-b border-gray-100"
-        >
+        <div className="w-full p-4 border-b border-background">
           <h1 className="text-2xl font-bold text-nureply-blue-full underline decoration-nureply-blue">
             Customization
           </h1>
@@ -79,27 +64,16 @@ const Customization = () => {
             Customize the styling of your email signature
           </p>
         </div>
+
         <div className="w-full p-4">
           {sliderData.map((item) => (
-            <Slider
-              key={item.id}
-              label={item.label}
-              id={item.id}
-              name={item.name}
-              min={item.min}
-              max={item.max}
-              value={item.value}
-              step={item.step}
-              onChange={handleChange}
-            />
+            <Slider key={item.id} {...item} onChange={handleChange} />
           ))}
         </div>
         {colorPickerData.map((item) => (
           <ColorPicker
             key={item.id}
-            label={item.label}
-            id={item.id}
-            name={item.name}
+            {...item}
             value="nureply-blue-full"
             onChange={handleChange}
           />
