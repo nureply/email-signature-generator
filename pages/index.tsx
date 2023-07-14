@@ -59,7 +59,12 @@ export default function Home() {
       bg-window"
       >
         {/* Preview Component */}
-        <Preview variant={template} />
+        <Preview
+          outerDiv={template.id}
+          profileIcon={template.id}
+          linkIcons={template.id}
+          userInfo={template.id}
+        />
       </aside>
     </div>
   );

@@ -12,9 +12,12 @@ const Step = () => {
         return (
           <div
             key={item}
-            className={clsx("cursor-pointer justify-around m-5 bg-gray-200", {
-              "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": step === item,
-            })}
+            className={clsx(
+              "bg-gray-200 rounded-lg cursor-pointer justify-around m-5 ",
+              {
+                "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": step === item,
+              }
+            )}
             onClick={() => setStep(item)}
           >
             <div className="flex items-center p-4">{stepsPicker(item)}</div>

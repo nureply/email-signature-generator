@@ -1,50 +1,95 @@
 import { useTemplateStore } from "@/store/templateStore";
 import { cn } from "@/utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
-let size = "13px";
 
-const previewVariants = cva(`bg-stone-200 rounded-lg flex-auto gap-5`, {
-  variants: {
-    variant: {
-      PlainText: `bg-stone-200 rounded-lg flex-auto gap-5 text-${size} `,
-      destructive: `text-white hover:bg-red-600 dark:hover:bg-red-600`,
-      outline: `bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-100 border border-slate-200 dark:border-slate-700`,
-      subtle: `bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100`,
-      ghost: `bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-400 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent`,
-      link: `bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100 hover:bg-transparent dark:hover:bg-transparent`,
+
+const previewVariants = cva(
+  `bg-gray-200 rounded-lg m-5 gap-0.1 flex text-[${30}px]`,
+  {
+    variants: {
+      outerDiv: {
+        plainText: ``,
+        template1Left: `grid grid-cols-2 items-center p-4`,
+        template1Right: `grid grid-cols-2 items-center p-4`,
+        template2Left: `grid grid-cols-2 items-center`,
+        template2Right: `grid grid-cols-2 items-center`,
+        template3Top: `flex-col items-center`,
+        template3Bottom: `flex-col items-center`,
+      },
+      userInfo: {
+        plainText: `flex-col gap-1`,
+        template1Left: `flex-col gap-1`,
+        template1Right: `order-1 flex-col gap-1`,
+        template2Left: `flex-col gap-1`,
+        template2Right: `flex-col order-1 gap-1`,
+        template3Top: `flex-col gap-1`,
+        template3Bottom: `flex-col order-1 gap-1`,
+      },
+      profileIcon: {
+        plainText: `hidden `,
+        template1Left: ``,
+        template1Right: `order-2 ml-10`,
+        template2Left: `ml-10`,
+        template2Right: `order-2`,
+        template3Top: ``,
+        template3Bottom: `order-3`,
+      },
+      linkIcons: {
+        plainText: `hidden `,
+        template1Left: `flex gap-2 col-start-2 col-end-3`,
+        template1Right: `flex gap-2 order-3 `,
+        template2Left: `flex gap-2`,
+        template2Right: `flex gap-2 col-start-2 col-end-3 order-3`,
+        template3Top: `flex gap-2`,
+        template3Bottom: `flex gap-2 order-2`,
+      },
+      contactInfo: {
+        plainText: ` `,
+        template1Left: ``,
+        template1Right: ``,
+        template2Left: ``,
+        template2Right: ``,
+        template3Top: ``,
+        template3Bottom: `flex gap-2 order-2`,
+      },
     },
-  },
-
-  defaultVariants: {
-    variant: PlainText,
-  },
-});
+  }
+);
 
 export interface PreviewProps
   extends React.ButtonHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof previewVariants> {
-  isLoading?: boolean;
-}
+    VariantProps<typeof previewVariants> {}
 
-const Preview = ({ className, variant, ...props }: PreviewProps) => {
-  const { template, setTemplate } = useTemplateStore();
+const Preview = ({
+  className,
+  outerDiv,
+  userInfo,
+  profileIcon,
+  linkIcons,
+  ...props
+}: PreviewProps) => {
   return (
-    <div className={cn(previewVariants({ variant, className }))}>
-      deneme
-      <div key="profileIcon"></div>
-      <div key="userInputs">
-        <div key="personalInfo">
-          <div key="sign-of"></div>
-          <div key="name"></div>
-          <div key="jobInfo"></div>
+    <div className={cn(previewVariants({ outerDiv }))}>
+      <div className={cn(previewVariants({ profileIcon }))}>
+        <div className="w-20 h-20 bg-stone-400 rounded-full mt-5"></div>
+      </div>
+      <div key="personalInfo " className={cn(previewVariants({ userInfo }))}>
+        <div key="sign-of">Regards</div>
+        <div key="name">Ege </div>
+        <div key="jobInfo">student|OzU|CS</div>
+        <div>
+          <div key="workMail">ege.oruc@ozu.edu.tr</div>
+          <div key="website">www</div>
+          <div key="phoneNumber">500-500-500</div>
+          <div key="address">Eskisehir</div>
         </div>
-        <div key="contactInfo">
-          <div key="workMail"></div>
-          <div key="website"></div>
-          <div key="phoneNumber"></div>
-          <div key="address"></div>
-        </div>
-        <div key="icons"></div>
+      </div>
+      <div className={cn(previewVariants({ linkIcons }))}>
+        <div key="icons" className="w-4 h-4 bg-stone-400 rounded-full"></div>
+        <div key="icons" className="w-4 h-4 bg-stone-400 rounded-full"></div>
+        <div key="icons" className="w-4 h-4 bg-stone-400 rounded-full"></div>
+        <div key="icons" className="w-4 h-4 bg-stone-400 rounded-full"></div>
+        <div key="icons" className="w-4 h-4 bg-stone-400 rounded-full"></div>
       </div>
     </div>
   );
