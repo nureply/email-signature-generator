@@ -51,16 +51,11 @@ export default function Home() {
       <div className="flex w-full max-w-[1440px] mx-auto px-4 py-10 sm:px-6 lg:px-8 gap-x-8 items-start bg-background">
         <aside className="hidden sticky shrink-0 h-screen top-8 w-44 lg:block bg-window overflow-wrap">
           {/* Left column area */}
-          <Step setStep={handleSetStep} step={step} />
+          <Step />
         </aside>
 
         <main className="flex-1 bg-window">
-          {step === 1 && (
-            <Template
-              templateType={template}
-              handleTemplate={handleTemplateChange}
-            />
-          )}
+          {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
         </main>
