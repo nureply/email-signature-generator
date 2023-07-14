@@ -1,6 +1,7 @@
 import useInfoStore from "../store/infoStore";
 
 import Heading from "./Heading";
+import Description from "./Description";
 import InputText from "./InputText";
 
 const Info = () => {
@@ -32,7 +33,7 @@ const Info = () => {
 
   const signOffData = [
     {
-      label: "Sign-off with:",
+      label: "Sign-off",
       id: "signOff",
       name: "signOff",
       value: output.signOff,
@@ -137,7 +138,7 @@ const Info = () => {
           />
         </div>
 
-        <div className="my-4 pb-4 border-b border-background">
+        <div className="m-4 pb-4 border-b border-background">
           {signOffData.map((item) => (
             <InputText
               key={item.id}
@@ -152,6 +153,12 @@ const Info = () => {
         </div>
 
         <div className="my-4 pb-4 border-b border-background">
+          <div className="m-2 py-4">
+            <Description
+              primary="Personal info & contacts"
+              secondary="Start filling in your data, unused fields can be left blank"
+            />
+          </div>
           {inputTextDataDefault.map((item) => (
             <InputText
               key={item.id}
@@ -165,6 +172,12 @@ const Info = () => {
         </div>
 
         <div className="my-4 pb-4 border-b border-background">
+          <div className="m-2 py-4">
+            <Description
+              primary="Social media links"
+              secondary="Add URLs of your social media profiles"
+            />
+          </div>
           {inputTextDataColored.map((item) => (
             <InputText
               key={item.id}
@@ -179,6 +192,12 @@ const Info = () => {
         </div>
 
         <div className="my-4 pb-4 border-b border-background">
+          <div className="mx-2 my-4">
+            <Description
+              primary="Add a photo"
+              secondary="Can be both square or round"
+            />
+          </div>
           <label
             className="block w-fit p-4 bg-background border border-nureply-blue-full rounded-lg font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
             htmlFor="image"
