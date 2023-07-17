@@ -1,10 +1,11 @@
 import useCustomizationStore from "../store/customizationStore";
 
+import Heading from "./Heading";
 import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
 
 const Customization = () => {
-  const { output, setOutput, handleChange } = useCustomizationStore();
+  const { customizationOutput, setCustomizationOutput, handleChange } = useCustomizationStore();
 
   const sliderData = [
     {
@@ -13,7 +14,7 @@ const Customization = () => {
       name: "fontSize",
       min: 12,
       max: 16,
-      value: output.fontSize,
+      value: customizationOutput.fontSize,
       step: 1,
     },
     {
@@ -22,7 +23,7 @@ const Customization = () => {
       name: "iconSize",
       min: 16,
       max: 24,
-      value: output.iconSize,
+      value: customizationOutput.iconSize,
       step: 1,
     },
     {
@@ -31,7 +32,7 @@ const Customization = () => {
       name: "imageSize",
       min: 100,
       max: 120,
-      value: output.imageSize,
+      value: customizationOutput.imageSize,
       step: 1,
     },
   ];
@@ -57,12 +58,10 @@ const Customization = () => {
     <>
       <div className="m-8">
         <div className="w-full p-4 border-b border-background">
-          <h1 className="text-2xl font-bold text-nureply-blue-full underline decoration-nureply-blue">
-            Customization
-          </h1>
-          <p className="text-base text-default">
-            Customize the styling of your email signature
-          </p>
+          <Heading
+            primary="Customization"
+            secondary="Customize the styling of your email signature"
+          />
         </div>
 
         <div className="w-full p-4">
