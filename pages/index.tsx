@@ -10,6 +10,7 @@ import iconYouTube from "../assets/iconYouTube.png";
 import iconTwitter from "../assets/iconTwitter.png";
 import iconInstagram from "../assets/iconInstagram.png";
 
+import Header from "@/components/Header";
 import Step from "@/components/Step";
 import Template from "@/components/Template";
 import Info from "@/components/Info";
@@ -47,6 +48,10 @@ export default function Home() {
       <Head>
         <title>Email Signature Generator - Nureply</title>
       </Head>
+
+      <div className="">
+        <Header />
+      </div>
 
       <div className="flex w-full max-w-[1440px] mx-auto px-4 py-10 sm:px-6 lg:px-8 gap-x-8 items-start bg-background">
         <aside className="hidden sticky shrink-0 h-screen top-8 w-44 lg:block bg-window overflow-wrap">

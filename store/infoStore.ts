@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { ChangeEvent } from "react";
 
 type State = {
-  output: {
+  infoOutput: {
     textInput: string;
 
     signOff: string;
@@ -25,13 +25,13 @@ type State = {
 
     image: string;
   };
-  setOutput: (newOutput: Partial<State["output"]>) => void;
+  setInfoOutput: (newInfoOutput: Partial<State["infoOutput"]>) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const useInfoStore = create<State>((set) => ({
-  output: {
+  infoOutput: {
     textInput: "",
 
     signOff: "",
@@ -54,17 +54,17 @@ const useInfoStore = create<State>((set) => ({
 
     image: "",
   },
-  setOutput: (newOutput) =>
-    set((state) => ({ output: { ...state.output, ...newOutput } })),
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => {
+  setInfoOutput: (newInfoOutput) =>
+    set((state) => ({ infoOutput: { ...state.infoOutput, ...newInfoOutput } })),
+  handleChange: (e) => {
     const { name, value } = e.target;
-    set((state) => ({ output: { ...state.output, [name]: value } }));
+    set((state) => ({ infoOutput: { ...state.infoOutput, [name]: value } }));
   },
   onImageChange: (e) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
       set((state) => ({
-        output: { ...state.output, image: URL.createObjectURL(file) },
+        infoOutput: { ...state.infoOutput, image: URL.createObjectURL(file) },
       }));
     }
   },

@@ -5,7 +5,7 @@ import Description from "./Description";
 import InputText from "./InputText";
 
 const Info = () => {
-  const { output, setOutput, handleChange, onImageChange } = useInfoStore();
+  const { infoOutput, setInfoOutput, handleChange, onImageChange } = useInfoStore();
 
   const {
     textInput,
@@ -29,14 +29,14 @@ const Info = () => {
     InstagramLink,
 
     image,
-  } = output;
+  } = infoOutput;
 
   const signOffData = [
     {
       label: "Sign-off",
       id: "signOff",
       name: "signOff",
-      value: output.signOff,
+      value: infoOutput.signOff,
     },
   ];
   const inputTextDataDefault = [
@@ -44,49 +44,49 @@ const Info = () => {
       label: "Full Name",
       id: "fullName",
       name: "fullName",
-      value: output.fullName,
+      value: infoOutput.fullName,
     },
     {
       label: "Occupation",
       id: "occupation",
       name: "occupation",
-      value: output.occupation,
+      value: infoOutput.occupation,
     },
     {
       label: "Job Title",
       id: "jobTitle",
       name: "jobTitle",
-      value: output.jobTitle,
+      value: infoOutput.jobTitle,
     },
     {
       label: "Company",
       id: "company",
       name: "company",
-      value: output.company,
+      value: infoOutput.company,
     },
     {
       label: "Work Address",
       id: "workAddress",
       name: "workAddress",
-      value: output.workAddress,
+      value: infoOutput.workAddress,
     },
     {
       label: "Phone Number",
       id: "phoneNumber",
       name: "phoneNumber",
-      value: output.phoneNumber,
+      value: infoOutput.phoneNumber,
     },
     {
       label: "Work Email",
       id: "workEmail",
       name: "workEmail",
-      value: output.workEmail,
+      value: infoOutput.workEmail,
     },
     {
       label: "Website",
       id: "website",
       name: "website",
-      value: output.website,
+      value: infoOutput.website,
     },
   ];
   const inputTextDataColored = [
@@ -94,37 +94,37 @@ const Info = () => {
       label: "LinkedIn",
       id: "LinkedInLink",
       name: "LinkedInLink",
-      value: output.LinkedInLink,
+      value: infoOutput.LinkedInLink,
     },
     {
       label: "GitHub",
       id: "GitHubLink",
       name: "GitHubLink",
-      value: output.GitHubLink,
+      value: infoOutput.GitHubLink,
     },
     {
       label: "ArtStation",
       id: "ArtStationLink",
       name: "ArtStationLink",
-      value: output.ArtStationLink,
+      value: infoOutput.ArtStationLink,
     },
     {
       label: "YouTube",
       id: "YouTubeLink",
       name: "YouTubeLink",
-      value: output.YouTubeLink,
+      value: infoOutput.YouTubeLink,
     },
     {
       label: "Twitter",
       id: "TwitterLink",
       name: "TwitterLink",
-      value: output.TwitterLink,
+      value: infoOutput.TwitterLink,
     },
     {
       label: "Instagram",
       id: "InstagramLink",
       name: "InstagramLink",
-      value: output.InstagramLink,
+      value: infoOutput.InstagramLink,
     },
   ];
 
@@ -142,7 +142,6 @@ const Info = () => {
           {signOffData.map((item) => (
             <InputText
               key={item.id}
-              colored
               label={item.label}
               id={item.id}
               name={item.name}
@@ -181,7 +180,6 @@ const Info = () => {
           {inputTextDataColored.map((item) => (
             <InputText
               key={item.id}
-              colored
               label={item.label}
               id={item.id}
               name={item.name}

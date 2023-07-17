@@ -8,7 +8,7 @@ const Description = ({ primary, secondary }: IDescription) => {
   return (
     <>
       <div>
-        <h1 className="text-xl font-bold text-nureply-blue-full underline decoration-nureply-blue-tint">
+        <h1 className="text-xl font-bold text-default underline decoration-decoration">
           {primary}
         </h1>
         <p className="text-sm text-default">{secondary}</p>
