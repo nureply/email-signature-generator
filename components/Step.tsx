@@ -1,22 +1,23 @@
+import { useStepStore } from "@/store/stepStore";
 import clsx from "clsx";
 import { LayoutTemplate, UserCircle, Wrench } from "lucide-react";
 
-interface StepProps {
-  step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
-}
 const steps = [1, 2, 3];
 
-const Step = ({ step, setStep }: StepProps) => {
+const Step = () => {
+  const { step, setStep } = useStepStore();
   return (
     <>
       {steps.map((item) => {
         return (
           <div
             key={item}
-            className={clsx("cursor-pointer justify-around m-5 bg-gray-200", {
-              "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": step === item,
-            })}
+            className={clsx(
+              "bg-gray-200 rounded-lg cursor-pointer justify-around m-5 ",
+              {
+                "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": step === item,
+              }
+            )}
             onClick={() => setStep(item)}
           >
             <div className="flex items-center p-4">{stepsPicker(item)}</div>
