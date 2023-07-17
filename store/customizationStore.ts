@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { ChangeEvent } from "react";
 
 type State = {
-  output: {
+  customizationOutput: {
     fontSize: number;
     iconSize: number;
     imageSize: number;
@@ -11,12 +11,12 @@ type State = {
     textColor: string;
     linkColor: string;
   };
-  setOutput: (newOutput: Partial<State["output"]>) => void;
+  setCustomizationOutput: (newCustomizationOutput: Partial<State["customizationOutput"]>) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const useCustomizationStore = create<State>((set) => ({
-  output: {
+  customizationOutput: {
     fontSize: 12,
     iconSize: 16,
     imageSize: 100,
@@ -25,11 +25,11 @@ const useCustomizationStore = create<State>((set) => ({
     textColor: "",
     linkColor: "",
   },
-  setOutput: (newOutput) =>
-    set((state) => ({ output: { ...state.output, ...newOutput } })),
+  setCustomizationOutput: (newCustomizationOutput) =>
+    set((state) => ({ customizationOutput: { ...state.customizationOutput, ...newCustomizationOutput } })),
   handleChange: (e) => {
     const { name, value } = e.target;
-    set((state) => ({ output: { ...state.output, [name]: value } }));
+    set((state) => ({ customizationOutput: { ...state.customizationOutput, [name]: value } }));
   },
 }));
 

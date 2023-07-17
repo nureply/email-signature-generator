@@ -22,7 +22,7 @@ const Slider = ({
   step,
   onChange,
 }: ISlider) => {
-  const { output, setOutput, handleChange } = useCustomizationStore();
+  const { customizationOutput, setCustomizationOutput, handleChange } = useCustomizationStore();
 
   return (
     <>

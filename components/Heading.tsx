@@ -8,7 +8,7 @@ const Heading = ({ primary, secondary }: IHeading) => {
   return (
     <>
       <div>
-        <h1 className="text-2xl font-bold text-nureply-blue-full underline decoration-nureply-blue-tint">
+        <h1 className="text-2xl font-bold text-default underline decoration-decoration">
           {primary}
         </h1>
         <p className="text-default">{secondary}</p>

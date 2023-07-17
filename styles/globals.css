@@ -9,5 +9,6 @@
 @layer base {
   body {
     @apply bg-background;
+    padding-top: 4rem;
   }
 }
