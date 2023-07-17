@@ -29,19 +29,19 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="flex w-full max-w-[1440px] mx-auto px-4 py-10 sm:px-6 lg:px-8 gap-x-8 items-start bg-background">
-        <aside className="hidden sticky shrink-0 h-screen top-8 w-44 lg:block bg-window overflow-wrap">
+      <div className="flex w-full max-w-[1440px] mx-auto px-4 py-10 sm:px-6 lg:px-8 bg-background gap-8">
+        <aside className="sticky hidden basis-1/6 h-screen top-8 lg:block bg-window ">
           {/* Left column area */}
           <Step />
         </aside>
 
-        <main className="flex-1 bg-window">
+        <main className=" basis-2/6 bg-window overflow-y-auto">
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
         </main>
 
-        <aside className="hidden sticky shrink-0 h-screen top-8 w-96 xl:block bg-window">
+        <aside className="sticky hidden  basis-3/6 h-screen top-8 p-5 xl:block bg-window">
           <Preview
             outerDiv={template.id}
             profileIcon={template.id}
