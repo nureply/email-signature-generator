@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className="flex p-8 justify-between items-center bg-window fixed top-0 left-0 right-0 z-50">
             <div className="items-center flex overflow-hidden">
-                <Image src={iconNureply} width={80} height={80} alt="" />
+                <Image src={iconNureply} width={56} height={56} alt="" />
             <h1 className="text-2xl text-default">
                 Email Signature Generator - Nureply
             </h1>
