@@ -74,33 +74,33 @@ const Preview = ({
   linkIcons,
   ...props
 }: PreviewProps) => {
-  const { output } = useInfoStore();
+  const { infoOutput } = useInfoStore();
 
-  let signOff = output.signOff;
-  let fullName = output.fullName;
-  let occupation = output.occupation;
-  let jobTitle = output.jobTitle;
-  let company = output.company;
-  let workAddress = output.workAddress;
-  let phoneNumber = output.phoneNumber;
-  let workEmail = output.workEmail;
-  let website = output.website;
-  let LinkedInLink = output.LinkedInLink;
-  let GitHubLink = output.GitHubLink;
-  let ArtStataionLink = output.ArtStationLink;
-  let YouTubeLink = output.YouTubeLink;
-  let TwitterLink = output.TwitterLink;
-  let InstagramLink = output.InstagramLink;
-  let image = output.image;
+  let signOff = infoOutput.signOff;
+  let fullName = infoOutput.fullName;
+  let occupation = infoOutput.occupation;
+  let jobTitle = infoOutput.jobTitle;
+  let company = infoOutput.company;
+  let workAddress = infoOutput.workAddress;
+  let phoneNumber = infoOutput.phoneNumber;
+  let workEmail = infoOutput.workEmail;
+  let website = infoOutput.website;
+  let LinkedInLink = infoOutput.LinkedInLink;
+  let GitHubLink = infoOutput.GitHubLink;
+  let ArtStataionLink = infoOutput.ArtStationLink;
+  let YouTubeLink = infoOutput.YouTubeLink;
+  let TwitterLink = infoOutput.TwitterLink;
+  let InstagramLink = infoOutput.InstagramLink;
+  let image = infoOutput.image;
 
-  const { output: custom } = useCustomizationStore();
+  const { customizationOutput } = useCustomizationStore();
 
-  let fontSize = custom.fontSize.toString();
-  let iconSize = custom.iconSize;
-  let imageSize = custom.imageSize;
-  let nameColor = custom.nameColor;
-  let textColor = custom.textColor;
-  let linkColor = custom.linkColor;
+  let fontSize = customizationOutput.fontSize.toString();
+  let iconSize = customizationOutput.iconSize;
+  let imageSize = customizationOutput.imageSize;
+  let nameColor = customizationOutput.nameColor;
+  let textColor = customizationOutput.textColor;
+  let linkColor = customizationOutput.linkColor;
 
   const template = useTemplateStore();
 
