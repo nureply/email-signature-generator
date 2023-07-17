@@ -9,7 +9,8 @@ export interface TemplateStoreState {
       | "template2Left"
       | "template2Right"
       | "template3Top"
-      | "template3Bottom";
+      | "template3Bottom"
+      | "initial";
 
     label: string;
   };
@@ -22,12 +23,13 @@ export interface TemplateStoreState {
       | "template2Right"
       | "template3Top"
       | "template3Bottom"
+      | "initial"
   ) => void;
 }
 
 export const useTemplateStore = create<TemplateStoreState>((set) => ({
   template: {
-    id: "plainText",
+    id: "initial",
     label: "",
   },
   setTemplate: (newId) => {

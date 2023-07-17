@@ -1,14 +1,7 @@
 import clsx from "clsx";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTemplateStore } from "@/store/templateStore";
-import {
-  AlignJustify,
-  Dot,
-  Facebook,
-  Linkedin,
-  Twitter,
-  UserCircle,
-} from "lucide-react";
+import { AlignJustify, UserCircle } from "lucide-react";
 
 const templateData: {
   label: string;
@@ -19,7 +12,8 @@ const templateData: {
     | "template2Left"
     | "template2Right"
     | "template3Top"
-    | "template3Bottom";
+    | "template3Bottom"
+    | "initial";
 }[] = [
   {
     label: "Plain Text",
@@ -90,7 +84,7 @@ const templatePicker = (type: string) => {
       );
     case "Template 1 Right":
       return (
-        <div className="flex justify-around p-4 align-center">
+        <div className="flex justify-around p-5 pl-10 align-center">
           <div>
             <div className="flex">
               <AlignJustify size={96} color="#36383a" />
@@ -120,28 +114,28 @@ const templatePicker = (type: string) => {
       );
     case "Template 2 Left":
       return (
-        <div className="flex justify-around gap-5 p-4 align-center">
-          <div className="flex-col">
-            <UserCircle size={60} color="#36383a" />
-            <Icons />
+        <div className="grid grid-cols-2 p-5">
+          <div className="flex order-3">
+            <AlignJustify size={96} color="#36383a" />
+            <AlignJustify size={96} color="#36383a" />
           </div>
           <div>
-            <div className="flex">
-              <AlignJustify size={96} color="#36383a" />
-              <AlignJustify size={96} color="#36383a" />
+            <UserCircle className="order-2 ml-5" size={60} color="#36383a" />
+            <div className="m-3 gap-2 flex order-1">
+              <Icons />
             </div>
           </div>
         </div>
       );
     case "Template 2 Right":
       return (
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 p-5">
           <div className="flex">
             <AlignJustify size={96} color="#36383a" />
             <AlignJustify size={96} color="#36383a" />
           </div>
           <div>
-            <UserCircle size={60} color="#36383a" />
+            <UserCircle className="ml-8" size={60} color="#36383a" />
             <div className="m-3 gap-2 flex">
               <Icons />
             </div>
