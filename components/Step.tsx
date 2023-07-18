@@ -8,19 +8,20 @@ const Step = () => {
   const { step, setStep } = useStepStore();
   return (
     <>
-      {steps.map((item) => {
+      {steps.map((mapStep) => {
         return (
           <div
-            key={item}
-            className={clsx(
-              "bg-gray-200 rounded-lg cursor-pointer justify-around m-5 ",
-              {
-                "shadow-[0_0px_0px_3px_rgba(0,0,0,0.3)]": step === item,
-              },
-            )}
-            onClick={() => setStep(item)}
+            key={mapStep}
+            className="ml-10 bg-window rounded-lg cursor-pointer m-5 w-2/5 text-[#CFD4DA]"
+            onClick={() => setStep(mapStep)}
           >
-            <div className="flex items-center p-4">{stepsPicker(item)}</div>
+            <div
+              className={clsx("flex items-center p-4", {
+                "text-[#2AC131]": step === mapStep,
+              })}
+            >
+              {stepsPicker(mapStep, step)}
+            </div>
           </div>
         );
       })}
@@ -30,27 +31,27 @@ const Step = () => {
 
 export default Step;
 
-const stepsPicker = (step: number) => {
-  switch (step) {
+const stepsPicker = (mapStep: number, step: number) => {
+  switch (mapStep) {
     case 1:
       return (
-        <div className="flex items-center ">
-          <LayoutTemplate />
-          Step {step}
+        <div className="flex items-center gap-3">
+          <LayoutTemplate color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
+          Step {mapStep}
         </div>
       );
     case 2:
       return (
-        <div className="flex items-center">
-          <UserCircle />
-          Step {step}
+        <div className="flex items-center gap-3">
+          <UserCircle color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
+          <p className=""> Step {mapStep}</p>
         </div>
       );
     case 3:
       return (
-        <div className="flex items-center">
-          <Wrench />
-          Step {step}
+        <div className="flex items-center gap-3">
+          <Wrench color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
+          Step {mapStep}
         </div>
       );
   }

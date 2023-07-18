@@ -36,16 +36,16 @@ const useInfoStore = create<State>((set) => ({
   infoOutput: {
     textInput: "",
 
-    signOff: "",
+    signOff: "Regards",
 
-    fullName: "",
-    occupation: "",
-    jobTitle: "",
-    company: "",
-    workAddress: "",
-    phoneNumber: "",
-    workEmail: "",
-    website: "",
+    fullName: "John Smith",
+    occupation: "Occupation",
+    jobTitle: "Marketing Specialist",
+    company: "NuReply",
+    workAddress: "Work Address",
+    phoneNumber: "500-530-530",
+    workEmail: "johns@nureply.com",
+    website: "https://nureply.com/",
 
     LinkedInLink: "",
     GitHubLink: "",
@@ -54,7 +54,7 @@ const useInfoStore = create<State>((set) => ({
     FacebookLink: "",
     InstagramLink: "",
 
-    image: "",
+    image: "/initialIcon.png",
   },
   setInfoOutput: (newInfoOutput) =>
     set((state) => ({ infoOutput: { ...state.infoOutput, ...newInfoOutput } })),
