@@ -3,7 +3,6 @@ import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
 import { cn } from "@/utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
-import clsx from "clsx";
 import { Github, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import Image from "next/image";
 
@@ -22,19 +21,19 @@ const previewVariants = cva(`m-5 gap-0.1 flex`, {
     userInfo: {
       plainText: `flex-col gap-1`,
       template1Left: `flex-col gap-1`,
-      template1Right: `order-1 flex-col gap-1`,
+      template1Right: `order-1 flex-col gap-1 justify-self-end`,
       template2Left: `flex-col gap-1`,
-      template2Right: `flex-col order-1 gap-1`,
+      template2Right: `flex-col order-1 gap-1 justify-self-end`,
       template3Top: `flex-col gap-1`,
       template3Bottom: `flex-col order-1 gap-1`,
       initial: "",
     },
     profileIcon: {
       plainText: `hidden `,
-      template1Left: ``,
+      template1Left: `justify-self-end`,
       template1Right: `order-2 ml-10`,
-      template2Left: `ml-10`,
-      template2Right: `order-2`,
+      template2Left: `ml-10 justify-self-end`,
+      template2Right: `order-2 `,
       template3Top: ``,
       template3Bottom: `order-3`,
       initial: "",
@@ -42,8 +41,8 @@ const previewVariants = cva(`m-5 gap-0.1 flex`, {
     linkIcons: {
       plainText: `hidden `,
       template1Left: `flex gap-2 col-start-2 col-end-3`,
-      template1Right: `flex gap-2 order-3 `,
-      template2Left: `flex gap-2`,
+      template1Right: `flex gap-2 order-3 justify-self-end`,
+      template2Left: `flex gap-2 justify-self-end`,
       template2Right: `flex gap-2 col-start-2 col-end-3 order-3`,
       template3Top: `flex gap-2`,
       template3Bottom: `flex gap-2 order-2`,
@@ -75,6 +74,8 @@ const Preview = ({
   ...props
 }: PreviewProps) => {
   const { infoOutput } = useInfoStore();
+  const { customizationOutput } = useCustomizationStore();
+  const template = useTemplateStore();
 
   let signOff = infoOutput.signOff;
   let fullName = infoOutput.fullName;
@@ -92,24 +93,33 @@ const Preview = ({
   let TwitterLink = infoOutput.TwitterLink;
   let InstagramLink = infoOutput.InstagramLink;
   let image = infoOutput.image;
-
-  const { customizationOutput } = useCustomizationStore();
-
   let fontSize = customizationOutput.fontSize.toString();
+  console.log(customizationOutput.fontSize.toString());
   let iconSize = customizationOutput.iconSize;
   let imageSize = customizationOutput.imageSize;
   let nameColor = customizationOutput.nameColor;
   let textColor = customizationOutput.textColor;
   let linkColor = customizationOutput.linkColor;
 
-  const template = useTemplateStore();
-
   return (
-    <div className="w-full rounded-tl-lg rounded-tr-lg bg-grays-0">
-      <div className="w-full h-7 bg-grays-1 flex gap-3">
-        <div className="w-3 h-3 rounded-full bg-[#FD4646] mt-2"></div>
+    <div className="w-full rounded-lg bg-grays-1">
+      <div className="w-full h-7 rounded-lg bg-grays-1 flex gap-3">
+        <div className="w-3 h-3 rounded-full bg-[#FD4646] ml-3 mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#FEB024] mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#2AC131] mt-2"></div>
+      </div>
+      <div className=" pl-4 border-t-2 border-grays-3">Send from: emma@woodpecker.com Emma Smith</div>
+      <div className="pl-4 border-y-2  border-grays-3">
+        Subject: Get new company email signatures
+      </div>
+
+      <div className="m-5">
+        <div>{"Hi {{Name}},"}</div>
+        <div>
+          Apparently, email signatures can mess up deliverability. Did you know
+          that? News to me.
+        </div>
+        <span>-----</span>
       </div>
       <div className={`mt-15 ${cn(previewVariants({ outerDiv }))}`}>
         <div className={`${cn(previewVariants({ profileIcon }))}`}>
