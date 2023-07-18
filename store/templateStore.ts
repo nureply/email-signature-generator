@@ -23,7 +23,7 @@ export interface TemplateStoreState {
       | "template2Right"
       | "template3Top"
       | "template3Bottom"
-      | "initial"
+      | "initial",
   ) => void;
 }
 

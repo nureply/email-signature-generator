@@ -1,20 +1,26 @@
-import React from "react";
-import { SetStateAction, useState } from "react";
+import React, { useState } from "react";
+
+type ChangeOrMouseEvent = React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement>;
 
 interface IColorPicker {
   label: string;
   id: string;
   name: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeOrMouseEvent) => void;
 }
+
 const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
   const [color, setColor] = useState("");
 
-  const onColorChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleDefaultColorClick = (defaultColor: string) => {
+    setColor(defaultColor);
+    onChange({ target: { name, value: defaultColor } } as ChangeOrMouseEvent); 
+  };
+
+  const onColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
+    onChange(e);
   };
 
   return (
@@ -32,6 +38,26 @@ const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
           value={color}
           onChange={onColorChange}
         />
+        <div>
+          <button
+            className="px-2 py-1 mt-2 mr-2 text-sm font-semibold text-white bg-nureply-blue-full rounded-lg cursor-pointer"
+            onClick={() => handleDefaultColorClick("#f44336")} 
+          >
+            Default
+          </button>
+          <button
+            className="px-2 py-1 mt-2 mr-2 text-sm font-semibold text-white bg-black rounded-lg cursor-pointer"
+            onClick={() => handleDefaultColorClick("#000000")} 
+          >
+            Black
+          </button>
+          <button
+            className="px-2 py-1 mt-2 mr-2 text-sm font-semibold text-white bg-[#FF00FF] rounded-lg cursor-pointer"
+            onClick={() => handleDefaultColorClick("#FF00FF")} 
+          >
+            Fuchsia
+          </button>
+        </div>
       </div>
     </>
   );
