@@ -6,6 +6,6 @@ interface StepStoreState {
 }
 
 export const useStepStore = create<StepStoreState>((set) => ({
-  step: 0,
+  step: 1,
   setStep: (status) => set(() => ({ step: status })),
 }));
