@@ -8,6 +8,7 @@ const steps = [1, 2, 3];
 const Step = () => {
   const { step, setStep } = useStepStore();
   const { template } = useTemplateStore();
+  
   const isStepClickable = (mapStep: number) => {
     if (template.id === "initial") {
       // If the template is "initial", no step is clickable

@@ -9,7 +9,6 @@ type State = {
     signOff: string;
 
     fullName: string;
-    occupation: string;
     jobTitle: string;
     company: string;
     workAddress: string;
@@ -39,7 +38,6 @@ const useInfoStore = create<State>((set) => ({
     signOff: "Regards",
 
     fullName: "John Smith",
-    occupation: "Occupation",
     jobTitle: "Marketing Specialist",
     company: "NuReply",
     workAddress: "Work Address",
@@ -71,7 +69,7 @@ const useInfoStore = create<State>((set) => ({
     }
   },
   isValidLink(linkValue) {
-    return validateLink(linkValue); 
+    return validateLink(linkValue);
   },
 }));
 

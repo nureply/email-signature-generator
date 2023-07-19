@@ -84,7 +84,6 @@ const Preview = ({
 
   let signOff = infoOutput.signOff;
   let fullName = infoOutput.fullName;
-  let occupation = infoOutput.occupation;
   let jobTitle = infoOutput.jobTitle;
   let company = infoOutput.company;
   let workAddress = infoOutput.workAddress;
@@ -152,8 +151,6 @@ const Preview = ({
             {fullName}{" "}
           </div>
           <div key="jobInfo">
-            {occupation}
-            {occupation && jobTitle ? " |" : ""}
             {jobTitle}
             {jobTitle && company ? " | " : ""}
             {company}
