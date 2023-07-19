@@ -2,20 +2,12 @@ import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
 import Description from "./Description";
 import InputText from "./InputText";
-import { validateEmail } from "../utils/validation"; 
-
+import { validateEmail } from "../utils/validation";
 
 const Info = () => {
+  const { infoOutput, handleChange, onImageChange, isValidLink } =
+    useInfoStore();
   const {
-    infoOutput,
-    setInfoOutput,
-    handleChange,
-    onImageChange,
-    isValidLink,
-  } = useInfoStore();
-
-  const {
-    textInput,
     signOff,
     fullName,
     jobTitle,
@@ -41,7 +33,6 @@ const Info = () => {
       value: signOff,
     },
   ];
-
   const inputTextData = [
     {
       label: "Full Name",
@@ -94,7 +85,6 @@ const Info = () => {
       type: "text",
     },
   ];
-
   const inputTextLinkData = [
     {
       label: "LinkedIn",
@@ -156,7 +146,6 @@ const Info = () => {
             />
           ))}
         </div>
-
         <div className="my-4 pb-4 border-b border-background">
           <div className="m-2 py-4">
             <Description
@@ -173,11 +162,12 @@ const Info = () => {
               value={item.value}
               onChange={handleChange}
               type={item.type as "text" | "email"}
-              isValidEmail={item.type === "email" ? validateEmail(item.value) : true}
+              isValidEmail={
+                item.type === "email" ? validateEmail(item.value) : true
+              }
             />
           ))}
         </div>
-
         <div className="my-4 pb-4 border-b border-background">
           <div className="m-2 py-4">
             <Description
@@ -194,11 +184,10 @@ const Info = () => {
               value={item.value}
               onChange={handleChange}
               type="link"
-              isValidLink={isValidLink(item.value)} 
+              isValidLink={isValidLink(item.value)}
             />
           ))}
         </div>
-
         <div className="my-4 pb-4 border-b border-background">
           <div className="mx-2 my-4">
             <Description
@@ -207,7 +196,7 @@ const Info = () => {
             />
           </div>
           <label
-            className="block w-fit p-4 bg-background border border-nureply-blue-full rounded-lg font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
+            className="block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
             htmlFor="image"
           >
             Upload Image
@@ -217,7 +206,7 @@ const Info = () => {
             type="file"
             id="image"
             name="image"
-            accept="image/*"
+            accept="image/*" // currently accepting all
             onChange={onImageChange}
           />
         </div>

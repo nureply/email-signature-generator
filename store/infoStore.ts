@@ -4,12 +4,9 @@ import { validateLink } from "../utils/validation";
 
 type State = {
   infoOutput: {
-    textInput: string;
-
     signOff: string;
 
     fullName: string;
-    occupation: string;
     jobTitle: string;
     company: string;
     workAddress: string;
@@ -34,18 +31,15 @@ type State = {
 
 const useInfoStore = create<State>((set) => ({
   infoOutput: {
-    textInput: "",
+    signOff: "",
 
-    signOff: "Regards",
-
-    fullName: "John Smith",
-    occupation: "Occupation",
-    jobTitle: "Marketing Specialist",
-    company: "NuReply",
-    workAddress: "Work Address",
-    phoneNumber: "500-530-530",
-    workEmail: "johns@nureply.com",
-    website: "https://nureply.com/",
+    fullName: "",
+    jobTitle: "",
+    company: "",
+    workAddress: "",
+    phoneNumber: "",
+    workEmail: "",
+    website: "",
 
     LinkedInLink: "",
     GitHubLink: "",
@@ -71,7 +65,7 @@ const useInfoStore = create<State>((set) => ({
     }
   },
   isValidLink(linkValue) {
-    return validateLink(linkValue); 
+    return validateLink(linkValue);
   },
 }));
 
