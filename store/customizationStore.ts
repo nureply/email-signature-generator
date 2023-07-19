@@ -1,7 +1,9 @@
 import { create } from "zustand";
 import { ChangeEvent } from "react";
 
-type ChangeOrMouseEvent = ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement>;
+type ChangeOrMouseEvent =
+  | ChangeEvent<HTMLInputElement>
+  | React.MouseEvent<HTMLButtonElement>;
 
 type State = {
   customizationOutput: {
@@ -11,8 +13,11 @@ type State = {
     nameColor: string;
     textColor: string;
     linkColor: string;
+    nameFont: string;
   };
-  setCustomizationOutput: (newCustomizationOutput: Partial<State["customizationOutput"]>) => void;
+  setCustomizationOutput: (
+    newCustomizationOutput: Partial<State["customizationOutput"]>,
+  ) => void;
   handleChange: (event: ChangeOrMouseEvent) => void;
 };
 
@@ -24,6 +29,7 @@ const useCustomizationStore = create<State>((set) => ({
     nameColor: "",
     textColor: "",
     linkColor: "",
+    nameFont: "",
   },
   setCustomizationOutput: (newCustomizationOutput) =>
     set((state) => ({

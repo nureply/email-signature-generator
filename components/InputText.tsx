@@ -35,17 +35,17 @@ const Input = ({
           {label}
         </label>
         <input
-  className={clsx("p-2 rounded text-input", {
-    "border": (type === "email" || type === "link") && value.length > 0,
-    "border-valid": isValid && value.length > 0,
-    "border-invalid": !isValid && value.length > 0,
-  })}
-  type={type}
-  id={id}
-  name={name}
-  value={value}
-  onChange={onChange}
-/>
+          className={clsx("p-2 rounded text-input", {
+            border: (type === "email" || type === "link") && value.length > 0,
+            "border-valid": isValid && value.length > 0,
+            "border-invalid": !isValid && value.length > 0,
+          })}
+          type={type}
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+        />
       </div>
     </>
   );

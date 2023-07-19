@@ -4,8 +4,6 @@ import { validateLink } from "../utils/validation";
 
 type State = {
   infoOutput: {
-    textInput: string;
-
     signOff: string;
 
     fullName: string;
@@ -33,23 +31,21 @@ type State = {
 
 const useInfoStore = create<State>((set) => ({
   infoOutput: {
-    textInput: "",
+    signOff: "",
 
-    signOff: "Regards",
+    fullName: "",
+    jobTitle: "",
+    company: "",
+    workAddress: "",
+    phoneNumber: "",
+    workEmail: "",
+    website: "",
 
-    fullName: "John Smith",
-    jobTitle: "Marketing Specialist",
-    company: "NuReply",
-    workAddress: "Work Address",
-    phoneNumber: "500-530-530",
-    workEmail: "johns@nureply.com",
-    website: "https://nureply.com/",
-
-    LinkedInLink: "https://www.linkedin.com/company/nureplyinc",
+    LinkedInLink: "",
     GitHubLink: "",
     YouTubeLink: "",
-    TwitterLink: "https://twitter.com/nureplyinc",
-    FacebookLink: "https://www.facebook.com/groups/nureplyinc",
+    TwitterLink: "",
+    FacebookLink: "",
     InstagramLink: "",
 
     image: "/initialIcon.png",
