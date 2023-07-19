@@ -3,7 +3,14 @@ import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
 import { cn } from "@/utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
-import { Github, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import Image from "next/image";
 
 const previewVariants = cva(`m-5 gap-0.1 flex`, {
@@ -67,15 +74,13 @@ export interface PreviewProps
 
 const Preview = ({
   className,
-  outerDiv,
-  userInfo,
-  profileIcon,
-  linkIcons,
+
   ...props
 }: PreviewProps) => {
   const { infoOutput } = useInfoStore();
   const { customizationOutput } = useCustomizationStore();
-  const template = useTemplateStore();
+  const { template, setTemplate } = useTemplateStore();
+  let templateId = template.id;
 
   let signOff = infoOutput.signOff;
   let fullName = infoOutput.fullName;
@@ -88,13 +93,12 @@ const Preview = ({
   let website = infoOutput.website;
   let LinkedInLink = infoOutput.LinkedInLink;
   let GitHubLink = infoOutput.GitHubLink;
-  let ArtStataionLink = infoOutput.ArtStationLink;
+  let FacebookLink = infoOutput.FacebookLink;
   let YouTubeLink = infoOutput.YouTubeLink;
   let TwitterLink = infoOutput.TwitterLink;
   let InstagramLink = infoOutput.InstagramLink;
   let image = infoOutput.image;
-  let fontSize = customizationOutput.fontSize.toString();
-  console.log(customizationOutput.fontSize.toString());
+  let fontSizeString = customizationOutput.fontSize.toString();
   let iconSize = customizationOutput.iconSize;
   let imageSize = customizationOutput.imageSize;
   let nameColor = customizationOutput.nameColor;
@@ -102,14 +106,16 @@ const Preview = ({
   let linkColor = customizationOutput.linkColor;
 
   return (
-    <div className="w-full rounded-lg bg-grays-1">
-      <div className="w-full h-7 rounded-lg bg-grays-1 flex gap-3">
+    <div className="w-full rounded-lg bg-gray-100">
+      <div className="w-full h-7 rounded-lg bg-gray-100 flex gap-3">
         <div className="w-3 h-3 rounded-full bg-[#FD4646] ml-3 mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#FEB024] mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#2AC131] mt-2"></div>
       </div>
-      <div className=" pl-4 border-t-2 border-grays-3">Send from: emma@woodpecker.com Emma Smith</div>
-      <div className="pl-4 border-y-2  border-grays-3">
+      <div className=" pl-4 border-t-2 border-gray-300">
+        Send from: emma@woodpecker.com Emma Smith
+      </div>
+      <div className="pl-4 border-y-2  border-gray-300">
         Subject: Get new company email signatures
       </div>
 
@@ -121,8 +127,8 @@ const Preview = ({
         </div>
         <span>-----</span>
       </div>
-      <div className={`mt-15 ${cn(previewVariants({ outerDiv }))}`}>
-        <div className={`${cn(previewVariants({ profileIcon }))}`}>
+      <div className={`mt-15 ${cn(previewVariants({ outerDiv: templateId }))}`}>
+        <div className={`${cn(previewVariants({ profileIcon: templateId }))}`}>
           <div className=" rounded-full mt-5">
             <Image
               src={image}
@@ -133,13 +139,18 @@ const Preview = ({
           </div>
         </div>
         <div
-          key="personalInfo "
-          className={`text-[${fontSize}px] ${cn(
-            previewVariants({ userInfo }),
-          )}`}
+          key="personalInfo"
+          style={{ fontSize: `${fontSizeString}px`, color: textColor }}
+          className={`${cn(previewVariants({ userInfo: templateId }))}`}
         >
-          <div key="sign-of">{signOff}</div>
-          <div key="name">{fullName} </div>
+          <div>{signOff}</div>
+          <div
+            style={{
+              color: nameColor,
+            }}
+          >
+            {fullName}{" "}
+          </div>
           <div key="jobInfo">
             {occupation}
             {occupation && jobTitle ? " |" : ""}
@@ -148,13 +159,19 @@ const Preview = ({
             {company}
           </div>
           <div>
-            <div key="workMail">{workEmail}</div>
-            <div key="website">{website}</div>
-            <div key="phoneNumber">{phoneNumber}</div>
-            <div key="address">{workAddress}</div>
+            <div>{workEmail}</div>
+            <div
+              style={{
+                color: linkColor,
+              }}
+            >
+              {website}
+            </div>
+            <div>{phoneNumber}</div>
+            <div>{workAddress}</div>
           </div>
         </div>
-        <div className={cn(previewVariants({ linkIcons }))}>
+        <div className={cn(previewVariants({ linkIcons: templateId }))}>
           {LinkedInLink && (
             <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
               <Linkedin size={iconSize} />
@@ -173,6 +190,11 @@ const Preview = ({
           {TwitterLink && (
             <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
               <Twitter size={iconSize} />
+            </a>
+          )}
+          {FacebookLink && (
+            <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
+              <Facebook size={iconSize} />
             </a>
           )}
           {InstagramLink && (

@@ -47,11 +47,11 @@ const useInfoStore = create<State>((set) => ({
     workEmail: "johns@nureply.com",
     website: "https://nureply.com/",
 
-    LinkedInLink: "",
+    LinkedInLink: "https://www.linkedin.com/company/nureplyinc",
     GitHubLink: "",
     YouTubeLink: "",
-    TwitterLink: "",
-    FacebookLink: "",
+    TwitterLink: "https://twitter.com/nureplyinc",
+    FacebookLink: "https://www.facebook.com/groups/nureplyinc",
     InstagramLink: "",
 
     image: "/initialIcon.png",
