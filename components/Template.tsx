@@ -60,7 +60,7 @@ const Template = () => {
             "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer flex-auto",
             {
               "shadow-[0_0px_0px_5px_rgba(0,0,0,0.3)]": item.id === template.id,
-            }
+            },
           )}
         >
           {item.label}

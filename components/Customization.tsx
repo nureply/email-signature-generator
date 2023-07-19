@@ -1,11 +1,12 @@
 import useCustomizationStore from "../store/customizationStore";
 
 import Heading from "./Heading";
+import FontChanger from "./FontChanger";
 import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
 
 const Customization = () => {
-  const { customizationOutput, setCustomizationOutput, handleChange } = useCustomizationStore();
+  const { customizationOutput, handleChange } = useCustomizationStore();
 
   const sliderData = [
     {
@@ -41,16 +42,19 @@ const Customization = () => {
       label: "Name Color",
       id: "nameColor",
       name: "nameColor",
+      value: customizationOutput.nameColor,
     },
     {
       label: "Text Color",
       id: "textColor",
       name: "textColor",
+      value: customizationOutput.textColor,
     },
     {
       label: "Link Color",
       id: "linkColor",
       name: "linkColor",
+      value: customizationOutput.linkColor,
     },
   ];
 
@@ -64,6 +68,15 @@ const Customization = () => {
           />
         </div>
 
+        <div>
+          <p
+            className="mt-4 px-4"
+            style={{ fontFamily: customizationOutput.nameFont }}
+          >
+            Select a custom font
+          </p>
+          <FontChanger />
+        </div>
         <div className="w-full p-4">
           {sliderData.map((item) => (
             <Slider key={item.id} {...item} onChange={handleChange} />
@@ -73,7 +86,7 @@ const Customization = () => {
           <ColorPicker
             key={item.id}
             {...item}
-            value="nureply-blue-full"
+            value={item.value}
             onChange={handleChange}
           />
         ))}
