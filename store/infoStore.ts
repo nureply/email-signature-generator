@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { ChangeEvent } from "react";
+import { validateLink } from "../utils/validation";
 
 type State = {
   infoOutput: {
@@ -18,9 +19,9 @@ type State = {
 
     LinkedInLink: string;
     GitHubLink: string;
-    ArtStationLink: string;
     YouTubeLink: string;
     TwitterLink: string;
+    FacebookLink: string;
     InstagramLink: string;
 
     image: string;
@@ -28,6 +29,7 @@ type State = {
   setInfoOutput: (newInfoOutput: Partial<State["infoOutput"]>) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  isValidLink: (linkName: string) => boolean;
 };
 
 const useInfoStore = create<State>((set) => ({
@@ -45,12 +47,12 @@ const useInfoStore = create<State>((set) => ({
     workEmail: "johns@nureply.com",
     website: "https://nureply.com/",
 
-    LinkedInLink: "https://www.linkedin.com/",
-    GitHubLink: "https://github.com/",
-    ArtStationLink: "",
-    YouTubeLink: "https://www.youtube.com/",
-    TwitterLink: "https://twitter.com/",
-    InstagramLink: "https://www.instagram.com/",
+    LinkedInLink: "",
+    GitHubLink: "",
+    YouTubeLink: "",
+    TwitterLink: "",
+    FacebookLink: "",
+    InstagramLink: "",
 
     image: "/initialIcon.png",
   },
@@ -67,6 +69,9 @@ const useInfoStore = create<State>((set) => ({
         infoOutput: { ...state.infoOutput, image: URL.createObjectURL(file) },
       }));
     }
+  },
+  isValidLink(linkValue) {
+    return validateLink(linkValue); 
   },
 }));
 

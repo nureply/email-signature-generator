@@ -1,33 +1,35 @@
 import useInfoStore from "../store/infoStore";
-
 import Heading from "./Heading";
 import Description from "./Description";
 import InputText from "./InputText";
+import { validateEmail } from "../utils/validation"; 
+
 
 const Info = () => {
-  const { infoOutput, setInfoOutput, handleChange, onImageChange } = useInfoStore();
+  const {
+    infoOutput,
+    setInfoOutput,
+    handleChange,
+    onImageChange,
+    isValidLink,
+  } = useInfoStore();
 
   const {
     textInput,
-
     signOff,
-
     fullName,
-    occupation,
     jobTitle,
     company,
     workAddress,
     phoneNumber,
     workEmail,
     website,
-
     LinkedInLink,
     GitHubLink,
-    ArtStationLink,
     YouTubeLink,
     TwitterLink,
+    FacebookLink,
     InstagramLink,
-
     image,
   } = infoOutput;
 
@@ -36,95 +38,99 @@ const Info = () => {
       label: "Sign-off",
       id: "signOff",
       name: "signOff",
-      value: infoOutput.signOff,
+      value: signOff,
     },
   ];
-  const inputTextDataDefault = [
+
+  const inputTextData = [
     {
       label: "Full Name",
       id: "fullName",
       name: "fullName",
-      value: infoOutput.fullName,
-    },
-    {
-      label: "Occupation",
-      id: "occupation",
-      name: "occupation",
-      value: infoOutput.occupation,
+      value: fullName,
+      type: "text",
     },
     {
       label: "Job Title",
       id: "jobTitle",
       name: "jobTitle",
-      value: infoOutput.jobTitle,
+      value: jobTitle,
+      type: "text",
     },
     {
       label: "Company",
       id: "company",
       name: "company",
-      value: infoOutput.company,
+      value: company,
+      type: "text",
     },
     {
       label: "Work Address",
       id: "workAddress",
       name: "workAddress",
-      value: infoOutput.workAddress,
+      value: workAddress,
+      type: "text",
     },
     {
       label: "Phone Number",
       id: "phoneNumber",
       name: "phoneNumber",
-      value: infoOutput.phoneNumber,
+      value: phoneNumber,
+      type: "text",
     },
     {
       label: "Work Email",
       id: "workEmail",
       name: "workEmail",
-      value: infoOutput.workEmail,
+      value: workEmail,
+      type: "email",
+      isValidEmail: validateEmail(workEmail),
     },
     {
       label: "Website",
       id: "website",
       name: "website",
-      value: infoOutput.website,
+      value: website,
+      type: "text",
     },
   ];
-  const inputTextDataColored = [
+
+  const inputTextLinkData = [
     {
       label: "LinkedIn",
       id: "LinkedInLink",
       name: "LinkedInLink",
-      value: infoOutput.LinkedInLink,
+      value: LinkedInLink,
     },
     {
       label: "GitHub",
       id: "GitHubLink",
       name: "GitHubLink",
-      value: infoOutput.GitHubLink,
-    },
-    {
-      label: "ArtStation",
-      id: "ArtStationLink",
-      name: "ArtStationLink",
-      value: infoOutput.ArtStationLink,
+      value: GitHubLink,
     },
     {
       label: "YouTube",
       id: "YouTubeLink",
       name: "YouTubeLink",
-      value: infoOutput.YouTubeLink,
+      value: YouTubeLink,
     },
     {
       label: "Twitter",
       id: "TwitterLink",
       name: "TwitterLink",
-      value: infoOutput.TwitterLink,
+      value: TwitterLink,
+    },
+    {
+      label: "Facebook",
+      id: "FacebookLink",
+      name: "FacebookLink",
+      value: FacebookLink,
     },
     {
       label: "Instagram",
       id: "InstagramLink",
       name: "InstagramLink",
-      value: infoOutput.InstagramLink,
+      value: InstagramLink,
     },
   ];
 
@@ -158,7 +164,7 @@ const Info = () => {
               secondary="Start filling in your data, unused fields can be left blank"
             />
           </div>
-          {inputTextDataDefault.map((item) => (
+          {inputTextData.map((item) => (
             <InputText
               key={item.id}
               label={item.label}
@@ -166,6 +172,8 @@ const Info = () => {
               name={item.name}
               value={item.value}
               onChange={handleChange}
+              type={item.type as "text" | "email"}
+              isValidEmail={item.type === "email" ? validateEmail(item.value) : true}
             />
           ))}
         </div>
@@ -177,7 +185,7 @@ const Info = () => {
               secondary="Add URLs of your social media profiles"
             />
           </div>
-          {inputTextDataColored.map((item) => (
+          {inputTextLinkData.map((item) => (
             <InputText
               key={item.id}
               label={item.label}
@@ -185,6 +193,8 @@ const Info = () => {
               name={item.name}
               value={item.value}
               onChange={handleChange}
+              type="link"
+              isValidLink={isValidLink(item.value)} 
             />
           ))}
         </div>

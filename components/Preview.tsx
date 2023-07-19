@@ -135,7 +135,7 @@ const Preview = ({
         <div
           key="personalInfo "
           className={`text-[${fontSize}px] ${cn(
-            previewVariants({ userInfo })
+            previewVariants({ userInfo }),
           )}`}
         >
           <div key="sign-of">{signOff}</div>
