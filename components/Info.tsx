@@ -22,6 +22,7 @@ const Info = () => {
     TwitterLink,
     FacebookLink,
     InstagramLink,
+    image,
   } = infoOutput;
 
   const signOffData = [
