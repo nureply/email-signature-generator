@@ -82,7 +82,6 @@ const Info = () => {
       id: "website",
       name: "website",
       value: website,
-      type: "text",
     },
   ];
   const inputTextLinkData = [

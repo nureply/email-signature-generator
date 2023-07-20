@@ -64,6 +64,7 @@ const ColorPicker = ({ label, id, name }: IColorPicker) => {
                   ? "border-valid"
                   : "border-invalid"
               } rounded-md focus:outline-none`}
+              placeholder="#"
               type="text"
               id={id}
               name={name}

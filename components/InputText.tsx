@@ -35,10 +35,10 @@ const Input = ({
           {label}
         </label>
         <input
-          className={clsx("p-2 rounded text-input", {
+          className={clsx("w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none", {
             border: (type === "email" || type === "link") && value.length > 0,
-            "border-valid": isValid && value.length > 0,
-            "border-invalid": !isValid && value.length > 0,
+            "border-valid": (type === "email" || type === "link") && isValid && value.length > 0,
+            "border-invalid": (type === "email" || type === "link") && !isValid && value.length > 0,
           })}
           type={type}
           id={id}

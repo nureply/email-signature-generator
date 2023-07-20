@@ -5,7 +5,7 @@ import iconNureply from "../assets/Nureply/logofull.png";
 
 const Header = () => {
   return (
-    <header className="fixed flex z-50 top-0 left-0 right-0 p-8 justify-between items-center bg-window">
+    <header className="fixed flex z-50 top-0 left-0 right-0 p-6 justify-between items-center bg-window shadow">
       <div className="flex items-center overflow-hidden">
         <Image className="mx-2" src={iconNureply} width={200} alt="" />
         <h1 className="text-xl font-semibold text-default">
