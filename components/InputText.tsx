@@ -8,9 +8,41 @@ interface IInput {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type?: "text" | "email" | "link";
-  isValidEmail?: boolean;
-  isValidLink?: boolean;
 }
+
+function isEmailValid(email: string): boolean {
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  return email === '' || emailRegex.test(email);
+}
+
+function isLinkValid(link: string): boolean {
+  try {
+    const url = new URL(link);
+    const hostname = url.hostname;
+    const pathname = url.pathname;
+
+    switch (true) {
+      case hostname.includes('linkedin.com') && pathname.startsWith('/in/'):
+        return true;
+      case hostname.includes('github.com') && pathname.split('/').length === 2:
+        return true;
+      case hostname.includes('youtube.com') && pathname.startsWith('/user/'):
+        return true;
+      case hostname.includes('twitter.com') && pathname.split('/').length === 2:
+        return true;
+      case hostname.includes('facebook.com') && pathname.startsWith('/'):
+        return true;
+      case hostname.includes('instagram.com') &&
+        pathname.split('/').length === 2:
+        return true;
+      default:
+        return false;
+    }
+  } catch (e) {
+    return false;
+  }
+}
+
 const Input = ({
   label,
   id,
@@ -18,14 +50,12 @@ const Input = ({
   value,
   onChange,
   type,
-  isValidEmail = true,
-  isValidLink = true,
 }: IInput) => {
   let isValid = true;
   if (type === "email") {
-    isValid = isValidEmail;
+    isValid = isEmailValid(value);
   } else if (type === "link") {
-    isValid = isValidLink;
+    isValid = isLinkValid(value);
   }
 
   return (

@@ -2,7 +2,6 @@ import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
 import Description from "./Description";
 import InputText from "./InputText";
-import { validateEmail } from "../utils/validation";
 
 const Info = () => {
   const {
@@ -23,7 +22,6 @@ const Info = () => {
     image,
     handleChange,
     onImageChange,
-    isValidLink
   } = useInfoStore();
 
   const signOffData = [
@@ -76,7 +74,6 @@ const Info = () => {
       name: "workEmail",
       value: workEmail,
       type: "email",
-      isValidEmail: validateEmail(workEmail),
     },
     {
       label: "Website",
@@ -160,19 +157,16 @@ const Info = () => {
             />
           </div>
           {inputTextData.map((item) => (
-            <InputText
-              key={item.id}
-              label={item.label}
-              id={item.id}
-              name={item.name}
-              value={item.value}
-              onChange={handleChange}
-              type={item.type as "text" | "email"}
-              isValidEmail={
-                item.type === "email" ? validateEmail(item.value) : true
-              }
-            />
-          ))}
+  <InputText
+    key={item.id}
+    label={item.label}
+    id={item.id}
+    name={item.name}
+    value={item.value}
+    onChange={handleChange}
+    type={item.type as "text" | "email"}
+  />
+))}
         </div>
         <div className="my-4 pb-4 border-b border-background">
           <div className="m-2 py-4">
@@ -182,17 +176,16 @@ const Info = () => {
             />
           </div>
           {inputTextLinkData.map((item) => (
-            <InputText
-              key={item.id}
-              label={item.label}
-              id={item.id}
-              name={item.name}
-              value={item.value}
-              onChange={handleChange}
-              type="link"
-              isValidLink={isValidLink(item.value)}
-            />
-          ))}
+  <InputText
+    key={item.id}
+    label={item.label}
+    id={item.id}
+    name={item.name}
+    value={item.value}
+    onChange={handleChange}
+    type="link"
+  />
+))}
         </div>
         <div className="my-4 pb-4 border-b border-background">
           <div className="mx-2 my-4">

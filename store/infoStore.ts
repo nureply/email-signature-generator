@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { ChangeEvent } from "react";
-import { validateLink } from "../utils/validation";
 
 type State = {
   signOff: string;
@@ -25,7 +24,6 @@ type State = {
   setInfoOutput: (newInfoOutput: Partial<State>) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   onImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  isValidLink: (linkName: string) => boolean;
 };
 
 const useInfoStore = create<State>((set) => ({
@@ -68,10 +66,6 @@ const useInfoStore = create<State>((set) => ({
         image: URL.createObjectURL(file),
       }));
     }
-  },
-  
-  isValidLink(linkValue) {
-    return validateLink(linkValue);
   },
 }));
 
