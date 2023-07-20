@@ -6,7 +6,17 @@ import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
 
 const Customization = () => {
-  const { customizationOutput, handleChange } = useCustomizationStore();
+  const {
+    fontSize,
+    iconSize,
+    imageSize,
+    backgroundColor,
+    nameColor,
+    textColor,
+    linkColor,
+    nameFont,
+    handleChange
+  } = useCustomizationStore();
 
   const sliderData = [
     {
@@ -15,7 +25,7 @@ const Customization = () => {
       name: "fontSize",
       min: 12,
       max: 16,
-      value: customizationOutput.fontSize,
+      value: fontSize,
       step: 1,
     },
     {
@@ -24,7 +34,7 @@ const Customization = () => {
       name: "iconSize",
       min: 16,
       max: 24,
-      value: customizationOutput.iconSize,
+      value: iconSize,
       step: 1,
     },
     {
@@ -33,28 +43,34 @@ const Customization = () => {
       name: "imageSize",
       min: 100,
       max: 120,
-      value: customizationOutput.imageSize,
+      value: imageSize,
       step: 1,
     },
   ];
   const colorPickerData = [
     {
+      label: "Background Color",
+      id: "backgroundColor",
+      name: "backgroundColor",
+      value: backgroundColor,
+    },
+    {
       label: "Name Color",
       id: "nameColor",
       name: "nameColor",
-      value: customizationOutput.nameColor,
+      value: nameColor,
     },
     {
       label: "Text Color",
       id: "textColor",
       name: "textColor",
-      value: customizationOutput.textColor,
+      value: textColor,
     },
     {
       label: "Link Color",
       id: "linkColor",
       name: "linkColor",
-      value: customizationOutput.linkColor,
+      value: linkColor,
     },
   ];
 
@@ -71,7 +87,7 @@ const Customization = () => {
         <div>
           <p
             className="mt-4 px-4"
-            style={{ fontFamily: customizationOutput.nameFont }}
+            style={{ fontFamily: nameFont }}
           >
             Select a custom font
           </p>

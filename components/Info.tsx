@@ -5,8 +5,6 @@ import InputText from "./InputText";
 import { validateEmail } from "../utils/validation";
 
 const Info = () => {
-  const { infoOutput, handleChange, onImageChange, isValidLink } =
-    useInfoStore();
   const {
     signOff,
     fullName,
@@ -23,7 +21,10 @@ const Info = () => {
     FacebookLink,
     InstagramLink,
     image,
-  } = infoOutput;
+    handleChange,
+    onImageChange,
+    isValidLink
+  } = useInfoStore();
 
   const signOffData = [
     {
@@ -144,6 +145,12 @@ const Info = () => {
               onChange={handleChange}
             />
           ))}
+          <select className="block w-full py-2 pl-2 pr-8 rounded-md border-2 border-highlight focus:outline-none text-fade" name="signOff" onChange={handleChange}>
+            <option value="">Select a sign-off</option>
+            <option value="Regards,">Regards,</option>
+            <option value="Best regards,">Best regards,</option>
+            <option value="Kind regards,">Kind regards,</option>
+          </select>
         </div>
         <div className="my-4 pb-4 border-b border-background">
           <div className="m-2 py-4">

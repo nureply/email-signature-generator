@@ -6,42 +6,38 @@ type ChangeOrMouseEvent =
   | React.MouseEvent<HTMLButtonElement>;
 
 type State = {
-  customizationOutput: {
-    fontSize: number;
-    iconSize: number;
-    imageSize: number;
-    nameColor: string;
-    textColor: string;
-    linkColor: string;
-    nameFont: string;
-  };
-  setCustomizationOutput: (
-    newCustomizationOutput: Partial<State["customizationOutput"]>,
-  ) => void;
+  fontSize: number;
+  iconSize: number;
+  imageSize: number;
+  backgroundColor: string;
+  nameColor: string;
+  textColor: string;
+  linkColor: string;
+  nameFont: string;
+
+  setCustomizationOutput: (newCustomizationOutput: Partial<State>) => void;
   handleChange: (event: ChangeOrMouseEvent) => void;
 };
 
 const useCustomizationStore = create<State>((set) => ({
-  customizationOutput: {
-    fontSize: 12,
-    iconSize: 16,
-    imageSize: 100,
-    nameColor: "",
-    textColor: "",
-    linkColor: "",
-    nameFont: "",
+  fontSize: 12,
+  iconSize: 16,
+  imageSize: 100,
+  backgroundColor: "",
+  nameColor: "",
+  textColor: "",
+  linkColor: "",
+  nameFont: "",
+
+  setCustomizationOutput(newCustomizationOutput) {
+    set((state) => ({ ...state, ...newCustomizationOutput }));
   },
-  setCustomizationOutput: (newCustomizationOutput) =>
-    set((state) => ({
-      customizationOutput: {
-        ...state.customizationOutput,
-        ...newCustomizationOutput,
-      },
-    })),
-  handleChange: (event) => {
+  
+  handleChange(event) {
     const { name, value } = event.target as HTMLInputElement;
     set((state) => ({
-      customizationOutput: { ...state.customizationOutput, [name]: value },
+      ...state,
+      [name]: value,
     }));
   },
 }));
