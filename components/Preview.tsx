@@ -12,12 +12,13 @@ import {
   Youtube,
 } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const previewVariants = cva(`m-5 gap-0.1 flex`, {
   variants: {
     outerDiv: {
       plainText: ``,
-      template1Left: `grid grid-cols-2 items-center p-4}`,
+      template1Left: `grid grid-cols-2 items-center p-4`,
       template1Right: `grid grid-cols-2 items-center p-4`,
       template2Left: `grid grid-cols-2 items-center`,
       template2Right: `grid grid-cols-2 items-center`,
@@ -105,8 +106,239 @@ const Preview = ({
     image,
   } = useInfoStore();
   const { template, setTemplate } = useTemplateStore();
+  const [signature, setSignature] = useState({
+    outerDivStyle: {},
+    userInfoStyle: {},
+    contactInfoStyle: {},
+    profileIconStyle: {},
+    linkIconsStyle: {},
+  });
 
-  let fontSizeString = fontSize.toString();
+  const outputSignature = (
+    <div style={signature.userInfoStyle}>
+      <div style={signature.profileIconStyle}>
+        <div className=" rounded-full mt-5">
+          <img
+            src={image}
+            alt="Profile Image"
+            width={imageSize}
+            height={imageSize}
+          />
+        </div>
+      </div>
+      <div
+        key="personalInfo"
+        style={{
+          fontSize: `${fontSize.toString()}px`,
+          color: textColor,
+          ...signature.userInfoStyle,
+        }}
+      >
+        <div>{signOff}</div>
+        <div
+          style={{
+            color: nameColor,
+          }}
+        >
+          {fullName}
+        </div>
+        <div key="jobInfo">
+          {jobTitle}
+          {jobTitle && company ? " | " : ""}
+          {company}
+        </div>
+        <div>
+          <div>{workEmail}</div>
+          <div
+            style={{
+              color: linkColor,
+            }}
+          >
+            {website}
+          </div>
+          <div>{phoneNumber}</div>
+          <div>{workAddress}</div>
+        </div>
+      </div>
+      <div style={signature.linkIconsStyle}>
+        {LinkedInLink && (
+          <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
+            <Linkedin size={iconSize} />
+          </a>
+        )}
+        {GitHubLink && (
+          <a href={GitHubLink} target="_blank" rel="noopener noreferrer">
+            <Github size={iconSize} />
+          </a>
+        )}
+        {YouTubeLink && (
+          <a href={YouTubeLink} target="_blank" rel="noopener noreferrer">
+            <Youtube size={iconSize} />
+          </a>
+        )}
+        {TwitterLink && (
+          <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
+            <Twitter size={iconSize} />
+          </a>
+        )}
+        {FacebookLink && (
+          <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
+            <Facebook size={iconSize} />
+          </a>
+        )}
+        {InstagramLink && (
+          <a href={InstagramLink} target="_blank" rel="noopener noreferrer">
+            <Instagram size={iconSize} />
+          </a>
+        )}
+      </div>
+    </div>
+  );
+
+  useEffect(() => {
+    if (template.id === "plainText") {
+      setSignature({
+        ...signature,
+        userInfoStyle: {
+          marginTop: "15px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+        },
+        profileIconStyle: {
+          display: "none",
+        },
+        linkIconsStyle: {
+          display: "none",
+        },
+      });
+    } else if (template.id === "template1Left") {
+      setSignature({
+        ...signature,
+        outerDivStyle: {
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          alignItems: "center",
+          padding: "1rem",
+        },
+        userInfoStyle: {
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+        },
+        contactInfoStyle: {},
+        profileIconStyle: { justifySelf: "end" },
+        linkIconsStyle: {
+          display: "flex",
+          gap: "0.5rem",
+          gridColumnStart: "2",
+          gridColumnEnd: "3",
+        },
+      });
+    } else if (template.id === "template1Right") {
+      setSignature({
+        ...signature,
+        outerDivStyle: {
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          alignItems: "center",
+          padding: "1rem",
+        },
+        userInfoStyle: {
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+        },
+        contactInfoStyle: {},
+        profileIconStyle: { marginLeft: "10px" },
+        linkIconsStyle: {
+          display: "flex",
+          gap: "0.5rem",
+          justifySelf: "end",
+        },
+      });
+    } else if (template.id === "template2Left") {
+      setSignature({
+        ...signature,
+        outerDivStyle: {
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          alignItems: "center",
+        },
+        userInfoStyle: {
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+        },
+        contactInfoStyle: {},
+        profileIconStyle: { marginLeft: "10px", justifySelf: "end" },
+        linkIconsStyle: {
+          display: "flex",
+          gap: "0.5rem",
+        },
+      });
+    } else if (template.id === "template2Right") {
+      setSignature({
+        ...signature,
+        outerDivStyle: {
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          alignItems: "center",
+        },
+        userInfoStyle: {
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+        },
+        contactInfoStyle: {},
+        profileIconStyle: { justifySelf: "end" },
+        linkIconsStyle: {
+          display: "flex",
+          gap: "0.5rem",
+          gridColumnStart: "2",
+          gridColumnEnd: "3",
+        },
+      });
+    } else if (template.id === "template3Top") {
+      setSignature({
+        ...signature,
+        outerDivStyle: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        },
+        userInfoStyle: {
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+        },
+        contactInfoStyle: {},
+        profileIconStyle: {},
+        linkIconsStyle: { display: "flex", gap: "0.5rem" },
+      });
+    } else if (template.id === "template3Bottom") {
+      setSignature({
+        ...signature,
+        outerDivStyle: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        },
+        userInfoStyle: {
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+          order: "1",
+        },
+        contactInfoStyle: { display: "flex", gap: "0.5rem", order: "2" },
+        profileIconStyle: {},
+        linkIconsStyle: {},
+      });
+    }
+  }, [template.id]);
+
+  console.log(outputSignature);
+
   let templateId = template.id;
 
   return (
@@ -144,7 +376,7 @@ const Preview = ({
         </div>
         <div
           key="personalInfo"
-          style={{ fontSize: `${fontSizeString}px`, color: textColor }}
+          style={{ fontSize: `${fontSize.toString()}px`, color: textColor }}
           className={`${cn(previewVariants({ userInfo: templateId }))}`}
         >
           <div>{signOff}</div>
