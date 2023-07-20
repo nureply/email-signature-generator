@@ -8,7 +8,7 @@ const steps = [1, 2, 3];
 const Step = () => {
   const { step, setStep } = useStepStore();
   const { template } = useTemplateStore();
-  
+
   const isStepClickable = (mapStep: number) => {
     if (template.id === "initial") {
       // If the template is "initial", no step is clickable
@@ -37,7 +37,7 @@ const Step = () => {
               "ml-10 bg-window -mr-[2px] my-5 w-2/5 text-[#CFD4DA]",
               {
                 "cursor-pointer": isStepClickable(mapStep),
-              }
+              },
             )}
             onClick={() => handleStepClick(mapStep)}
           >

@@ -14,15 +14,17 @@ type State = {
   textColor: string;
   linkColor: string;
   nameFont: string;
+};
 
+type CustomizationStore = State & {
   setCustomizationOutput: (newCustomizationOutput: Partial<State>) => void;
   handleChange: (event: ChangeOrMouseEvent) => void;
 };
 
-const useCustomizationStore = create<State>((set) => ({
+const useCustomizationStore = create<CustomizationStore>((set) => ({
   fontSize: 12,
   iconSize: 16,
-  imageSize: 100,
+  imageSize: 120,
   backgroundColor: "",
   nameColor: "",
   textColor: "",
@@ -32,13 +34,15 @@ const useCustomizationStore = create<State>((set) => ({
   setCustomizationOutput(newCustomizationOutput) {
     set((state) => ({ ...state, ...newCustomizationOutput }));
   },
-  
+
   handleChange(event) {
-    const { name, value } = event.target as HTMLInputElement;
-    set((state) => ({
-      ...state,
-      [name]: value,
-    }));
+    if ("target" in event) {
+      const { name, value } = event.target as HTMLInputElement;
+      set((state) => ({
+        ...state,
+        [name]: value,
+      }));
+    }
   },
 }));
 
