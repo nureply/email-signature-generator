@@ -71,6 +71,15 @@ const Input = ({ label, id, name, value, onChange, type = "text" }: IInput) => {
         value={value}
         onChange={onChange}
       />
+      {showInvalidBorder && (
+        <p className="text-xs text-invalid">
+          {type === "email"
+            ? "This doesn't look like a valid email"
+            : type === "link"
+            ? "This doesn't look like a valid profile link"
+            : ""}
+        </p>
+      )}
     </div>
   );
 };
