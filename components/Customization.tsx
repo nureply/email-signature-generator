@@ -5,58 +5,68 @@ import FontChanger from "./FontChanger";
 import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
 
-const Customization = () => {
-  const { customizationOutput, handleChange } = useCustomizationStore();
+const sliderData = [
+  {
+    label: "Font Size",
+    id: "fontSize",
+    name: "fontSize",
+    min: 12,
+    max: 16,
+    step: 1,
+  },
+  {
+    label: "Icon Size",
+    id: "iconSize",
+    name: "iconSize",
+    min: 16,
+    max: 24,
+    step: 1,
+  },
+  {
+    label: "Image Size",
+    id: "imageSize",
+    name: "imageSize",
+    min: 120,
+    max: 240,
+    step: 10,
+  },
+];
 
-  const sliderData = [
-    {
-      label: "Font Size",
-      id: "fontSize",
-      name: "fontSize",
-      min: 12,
-      max: 16,
-      value: customizationOutput.fontSize,
-      step: 1,
-    },
-    {
-      label: "Icon Size",
-      id: "iconSize",
-      name: "iconSize",
-      min: 16,
-      max: 24,
-      value: customizationOutput.iconSize,
-      step: 1,
-    },
-    {
-      label: "Image Size",
-      id: "imageSize",
-      name: "imageSize",
-      min: 100,
-      max: 120,
-      value: customizationOutput.imageSize,
-      step: 1,
-    },
-  ];
-  const colorPickerData = [
-    {
-      label: "Name Color",
-      id: "nameColor",
-      name: "nameColor",
-      value: customizationOutput.nameColor,
-    },
-    {
-      label: "Text Color",
-      id: "textColor",
-      name: "textColor",
-      value: customizationOutput.textColor,
-    },
-    {
-      label: "Link Color",
-      id: "linkColor",
-      name: "linkColor",
-      value: customizationOutput.linkColor,
-    },
-  ];
+const colorPickerData = [
+  {
+    label: "Background Color",
+    id: "backgroundColor",
+    name: "backgroundColor",
+  },
+  {
+    label: "Name Color",
+    id: "nameColor",
+    name: "nameColor",
+  },
+  {
+    label: "Text Color",
+    id: "textColor",
+    name: "textColor",
+  },
+  {
+    label: "Link Color",
+    id: "linkColor",
+    name: "linkColor",
+  },
+];
+
+const Customization = () => {
+  const {
+    fontSize,
+    iconSize,
+    imageSize,
+    backgroundColor,
+    nameColor,
+    textColor,
+    linkColor,
+    nameFont,
+    handleChange,
+  } = useCustomizationStore();
 
   return (
     <>
@@ -69,24 +79,59 @@ const Customization = () => {
         </div>
 
         <div>
-          <p
-            className="mt-4 px-4"
-            style={{ fontFamily: customizationOutput.nameFont }}
-          >
+          <p className="mt-4 px-4" style={{ fontFamily: nameFont }}>
             Select a custom font
           </p>
           <FontChanger />
         </div>
         <div className="w-full p-4">
-          {sliderData.map((item) => (
-            <Slider key={item.id} {...item} onChange={handleChange} />
-          ))}
+          {sliderData.map(({ label, id, name, min, max, step }) => {
+            let value;
+            switch (name) {
+              case "fontSize":
+                value = fontSize;
+                break;
+              case "iconSize":
+                value = iconSize;
+                break;
+              case "imageSize":
+                value = imageSize;
+                break;
+              default:
+                value = 0;
+            }
+            return (
+              <Slider
+                key={id}
+                label={label}
+                id={id}
+                name={name}
+                min={min}
+                max={max}
+                step={step}
+                value={value}
+                onChange={handleChange}
+              />
+            );
+          })}
         </div>
-        {colorPickerData.map((item) => (
+        {colorPickerData.map(({ label, id, name }) => (
           <ColorPicker
-            key={item.id}
-            {...item}
-            value={item.value}
+            key={id}
+            label={label}
+            id={id}
+            name={name}
+            value={
+              name === "backgroundColor"
+                ? backgroundColor
+                : name === "nameColor"
+                ? nameColor
+                : name === "textColor"
+                ? textColor
+                : name === "linkColor"
+                ? linkColor
+                : ""
+            }
             onChange={handleChange}
           />
         ))}

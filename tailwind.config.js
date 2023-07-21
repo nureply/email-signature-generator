@@ -19,6 +19,7 @@ module.exports = {
         window: "rgb(255, 255, 255)",
 
         default: "#343A40", // gray-900
+        fade: "#868E96", // gray-700
         highlight: "#CFD4DA", // gray-500
         input: "rgb(0, 0, 0)",
 

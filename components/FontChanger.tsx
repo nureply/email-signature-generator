@@ -3,7 +3,8 @@ import useCustomizationStore from "../store/customizationStore";
 
 const FontChanger = () => {
   const fonts = [
-    "Quicksand", // this has to be changed and then clicked back again for some reason, so the initial selected font looks like this but it is not
+    "",
+    "Quicksand",
     "Roboto",
     "Poppins",
     "Open Sans",
@@ -24,7 +25,7 @@ const FontChanger = () => {
         id="fontChanger"
         name="fontChanger"
         onChange={handleFontChange}
-        className="block w-full py-2 pl-2 pr-8 rounded-md border-highlight focus:outline-none sm:text-sm"
+        className="block w-full py-2 pl-2 pr-8 rounded-md border-2 border-highlight focus:outline-none sm:text-sm"
       >
         {fonts.map((font) => (
           <option key={font} value={font}>
