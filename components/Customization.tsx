@@ -34,11 +34,6 @@ const sliderData = [
 
 const colorPickerData = [
   {
-    label: "Background Color",
-    id: "backgroundColor",
-    name: "backgroundColor",
-  },
-  {
     label: "Name Color",
     id: "nameColor",
     name: "nameColor",
@@ -60,7 +55,6 @@ const Customization = () => {
     fontSize,
     iconSize,
     imageSize,
-    backgroundColor,
     nameColor,
     textColor,
     linkColor,
@@ -122,9 +116,7 @@ const Customization = () => {
             id={id}
             name={name}
             value={
-              name === "backgroundColor"
-                ? backgroundColor
-                : name === "nameColor"
+              name === "nameColor"
                 ? nameColor
                 : name === "textColor"
                 ? textColor

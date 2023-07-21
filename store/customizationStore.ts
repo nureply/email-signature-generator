@@ -9,7 +9,6 @@ type State = {
   fontSize: number;
   iconSize: number;
   imageSize: number;
-  backgroundColor: string;
   nameColor: string;
   textColor: string;
   linkColor: string;
@@ -25,7 +24,6 @@ const useCustomizationStore = create<CustomizationStore>((set) => ({
   fontSize: 12,
   iconSize: 16,
   imageSize: 120,
-  backgroundColor: "",
   nameColor: "",
   textColor: "",
   linkColor: "",
