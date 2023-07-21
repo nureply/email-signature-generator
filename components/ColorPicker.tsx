@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useCallback, useMemo } from 'react';
-import { useForm } from 'react-hook-form';
-import useCustomizationStore from '../store/customizationStore';
-import ColorButton from './ColorButton';
+import React, { ChangeEvent, useCallback, useMemo } from "react";
+import { useForm } from "react-hook-form";
+import useCustomizationStore from "../store/customizationStore";
+import ColorButton from "./ColorButton";
 
 interface IColorPickerProps {
   label: string;
@@ -14,7 +14,7 @@ interface IColorPickerProps {
 function getContrast(hexcolor: string) {
   if (hexcolor.length === 4) {
     hexcolor =
-      '#' +
+      "#" +
       hexcolor[1] +
       hexcolor[1] +
       hexcolor[2] +
@@ -26,7 +26,7 @@ function getContrast(hexcolor: string) {
   const g = parseInt(hexcolor.slice(3, 5), 16);
   const b = parseInt(hexcolor.slice(5, 7), 16);
   const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? 'black' : 'white';
+  return yiq >= 128 ? "black" : "white";
 }
 
 const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
@@ -36,10 +36,10 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
   ) as string;
 
   const { register, formState } = useForm({
-    mode: 'onChange',
-    reValidateMode: 'onChange',
+    mode: "onChange",
+    reValidateMode: "onChange",
     defaultValues: { [name]: color },
-    criteriaMode: 'all',
+    criteriaMode: "all",
     shouldUnregister: false,
   });
 
@@ -47,7 +47,7 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
     (e: ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
       if (!value) {
-        setCustomizationOutput({ [name]: '#' });
+        setCustomizationOutput({ [name]: "#" });
       } else {
         setCustomizationOutput({ [name]: value.toUpperCase() });
       }
@@ -67,23 +67,23 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
     : null;
 
   const textColor = useMemo(
-    () => (isValidHex ? getContrast(color) : 'black'),
+    () => (isValidHex ? getContrast(color) : "black"),
     [isValidHex, color],
   );
 
   const defaultColors = useMemo(
     () => [
-      '#F6F158',
-      '#FFC300',
-      '#88F353',
-      '#4DA000',
-      '#006B20',
-      '#3B82F6',
-      '#808DFF',
-      '#FF5733',
-      '#FF604B',
-      '#900C22',
-      '#000000',
+      "#F6F158",
+      "#FFC300",
+      "#88F353",
+      "#4DA000",
+      "#006B20",
+      "#3B82F6",
+      "#808DFF",
+      "#FF5733",
+      "#FF604B",
+      "#900C22",
+      "#000000",
     ],
     [],
   );
@@ -102,16 +102,16 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
                   /^#[0-9A-Fa-f]{3}$|^#[0-9A-Fa-f]{6}$/.test(value),
               })}
               style={{
-                width: '80px',
+                width: "80px",
                 backgroundColor: color as string,
                 color: textColor,
               }}
               className={`w-full h-[40px] px-2 border-2 ${
                 isValidHex === null
-                  ? ''
+                  ? ""
                   : isValidHex
-                  ? 'border-valid'
-                  : 'border-invalid'
+                  ? "border-valid"
+                  : "border-invalid"
               } rounded-md focus:outline-none placeholder-fade`}
               placeholder="#"
               type="text"
@@ -121,7 +121,7 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
               onChange={handleInputChange}
               onClick={(e) => {
                 if (!e.currentTarget.value) {
-                  setCustomizationOutput({ [name]: '#' });
+                  setCustomizationOutput({ [name]: "#" });
                 }
               }}
             />

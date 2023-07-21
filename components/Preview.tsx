@@ -15,58 +15,58 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const previewVariants = cva(`m-5 gap-0.1 flex`, {
-    variants: {
-        outerDiv: {
-          plainText: ``,
-          template1Left: `grid grid-cols-2 items-center p-4`,
-          template1Right: `grid grid-cols-2 items-center p-4`,
-          template2Left: `grid grid-cols-2 items-center`,
-          template2Right: `grid grid-cols-2 items-center`,
-          template3Top: `flex-col items-center`,
-          template3Bottom: `flex-col items-center`,
-          initial: "hidden",
-        },
-        userInfo: {
-          plainText: `flex-col gap-1`,
-          template1Left: `flex-col gap-1`,
-          template1Right: `order-1 flex-col gap-1 justify-self-end`,
-          template2Left: `flex-col gap-1`,
-          template2Right: `flex-col order-1 gap-1 justify-self-end`,
-          template3Top: `flex-col gap-1`,
-          template3Bottom: `flex-col order-1 gap-1`,
-          initial: "",
-        },
-        profileIcon: {
-          plainText: `hidden `,
-          template1Left: `justify-self-end`,
-          template1Right: `order-2 ml-10`,
-          template2Left: `ml-10 justify-self-end`,
-          template2Right: `order-2 `,
-          template3Top: ``,
-          template3Bottom: `order-3`,
-          initial: "",
-        },
-        linkIcons: {
-          plainText: `hidden `,
-          template1Left: `flex gap-2 col-start-2 col-end-3`,
-          template1Right: `flex gap-2 order-3 justify-self-end`,
-          template2Left: `flex gap-2 justify-self-end`,
-          template2Right: `flex gap-2 col-start-2 col-end-3 order-3`,
-          template3Top: `flex gap-2`,
-          template3Bottom: `flex gap-2 order-2`,
-          initial: "",
-        },
-        contactInfo: {
-          plainText: ` `,
-          template1Left: ``,
-          template1Right: ``,
-          template2Left: ``,
-          template2Right: ``,
-          template3Top: ``,
-          template3Bottom: `flex gap-2 order-2`,
-          initial: "",
-        },
-      },
+  variants: {
+    outerDiv: {
+      plainText: ``,
+      template1Left: `grid grid-cols-2 items-center p-4`,
+      template1Right: `grid grid-cols-2 items-center p-4`,
+      template2Left: `grid grid-cols-2 items-center`,
+      template2Right: `grid grid-cols-2 items-center`,
+      template3Top: `flex-col items-center`,
+      template3Bottom: `flex-col items-center`,
+      initial: "hidden",
+    },
+    userInfo: {
+      plainText: `flex-col gap-1`,
+      template1Left: `flex-col gap-1`,
+      template1Right: `order-1 flex-col gap-1 justify-self-end`,
+      template2Left: `flex-col gap-1`,
+      template2Right: `flex-col order-1 gap-1 justify-self-end`,
+      template3Top: `flex-col gap-1`,
+      template3Bottom: `flex-col order-1 gap-1`,
+      initial: "",
+    },
+    profileIcon: {
+      plainText: `hidden `,
+      template1Left: `justify-self-end`,
+      template1Right: `order-2 ml-10`,
+      template2Left: `ml-10 justify-self-end`,
+      template2Right: `order-2 `,
+      template3Top: ``,
+      template3Bottom: `order-3`,
+      initial: "",
+    },
+    linkIcons: {
+      plainText: `hidden `,
+      template1Left: `flex gap-2 col-start-2 col-end-3`,
+      template1Right: `flex gap-2 order-3 justify-self-end`,
+      template2Left: `flex gap-2 justify-self-end`,
+      template2Right: `flex gap-2 col-start-2 col-end-3 order-3`,
+      template3Top: `flex gap-2`,
+      template3Bottom: `flex gap-2 order-2`,
+      initial: "",
+    },
+    contactInfo: {
+      plainText: ` `,
+      template1Left: ``,
+      template1Right: ``,
+      template2Left: ``,
+      template2Right: ``,
+      template3Top: ``,
+      template3Bottom: `flex gap-2 order-2`,
+      initial: "",
+    },
+  },
 });
 
 export interface PreviewProps
@@ -113,12 +113,21 @@ const Preview = ({ className, ...props }: PreviewProps) => {
     <div style={signature.userInfoStyle}>
       <div style={signature.profileIconStyle}>
         <div className="rounded-full mt-5">
-          <Image src={image} alt="Profile Image" width={imageSize} height={imageSize} />
+          <Image
+            src={image}
+            alt="Profile Image"
+            width={imageSize}
+            height={imageSize}
+          />
         </div>
       </div>
       <div
         key="personalInfo"
-        style={{ fontSize: `${fontSize.toString()}px`, color: textColor, ...signature.userInfoStyle }}
+        style={{
+          fontSize: `${fontSize.toString()}px`,
+          color: textColor,
+          ...signature.userInfoStyle,
+        }}
       >
         <div>{signOff}</div>
         <div style={{ color: nameColor }}>{fullName}</div>
@@ -330,14 +339,20 @@ const Preview = ({ className, ...props }: PreviewProps) => {
       <div className="m-5">
         <div>{"Hi {{Name}},"}</div>
         <div>
-          Apparently, email signatures can mess up deliverability. Did you know that? News to me.
+          Apparently, email signatures can mess up deliverability. Did you know
+          that? News to me.
         </div>
         <span>-----</span>
       </div>
       <div className={`mt-15 ${cn(previewVariants({ outerDiv: templateId }))}`}>
         <div className={`${cn(previewVariants({ profileIcon: templateId }))}`}>
           <div className="rounded-full mt-5">
-            <Image src={image} alt="Profile Image" width={imageSize} height={imageSize} />
+            <Image
+              src={image}
+              alt="Profile Image"
+              width={imageSize}
+              height={imageSize}
+            />
           </div>
         </div>
         <div
