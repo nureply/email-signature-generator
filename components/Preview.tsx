@@ -77,32 +77,37 @@ const Preview = ({
 
   ...props
 }: PreviewProps) => {
-  const { infoOutput } = useInfoStore();
-  const { customizationOutput } = useCustomizationStore();
+  const {
+    fontSize,
+    nameFont,
+    linkColor,
+    textColor,
+    nameColor,
+    backgroundColor,
+    imageSize,
+    iconSize,
+  } = useCustomizationStore();
+  const {
+    signOff,
+    fullName,
+    jobTitle,
+    company,
+    workAddress,
+    phoneNumber,
+    workEmail,
+    website,
+    LinkedInLink,
+    GitHubLink,
+    YouTubeLink,
+    TwitterLink,
+    FacebookLink,
+    InstagramLink,
+    image,
+  } = useInfoStore();
   const { template, setTemplate } = useTemplateStore();
-  let templateId = template.id;
 
-  let signOff = infoOutput.signOff;
-  let fullName = infoOutput.fullName;
-  let jobTitle = infoOutput.jobTitle;
-  let company = infoOutput.company;
-  let workAddress = infoOutput.workAddress;
-  let phoneNumber = infoOutput.phoneNumber;
-  let workEmail = infoOutput.workEmail;
-  let website = infoOutput.website;
-  let LinkedInLink = infoOutput.LinkedInLink;
-  let GitHubLink = infoOutput.GitHubLink;
-  let FacebookLink = infoOutput.FacebookLink;
-  let YouTubeLink = infoOutput.YouTubeLink;
-  let TwitterLink = infoOutput.TwitterLink;
-  let InstagramLink = infoOutput.InstagramLink;
-  let image = infoOutput.image;
-  let fontSizeString = customizationOutput.fontSize.toString();
-  let iconSize = customizationOutput.iconSize;
-  let imageSize = customizationOutput.imageSize;
-  let nameColor = customizationOutput.nameColor;
-  let textColor = customizationOutput.textColor;
-  let linkColor = customizationOutput.linkColor;
+  let fontSizeString = fontSize.toString();
+  let templateId = template.id;
 
   return (
     <div className="w-full rounded-lg bg-gray-100">

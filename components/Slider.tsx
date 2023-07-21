@@ -1,5 +1,4 @@
 import React from "react";
-import useCustomizationStore from "../store/customizationStore";
 
 interface ISlider {
   label: string;
@@ -11,9 +10,17 @@ interface ISlider {
   step: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const Slider = ({ label, id, name, min, max, value, step }: ISlider) => {
-  const { handleChange } = useCustomizationStore();
 
+const Slider = ({
+  label,
+  id,
+  name,
+  min,
+  max,
+  value,
+  step,
+  onChange,
+}: ISlider) => {
   return (
     <>
       <div>
@@ -29,7 +36,7 @@ const Slider = ({ label, id, name, min, max, value, step }: ISlider) => {
           max={max}
           value={value}
           step={step}
-          onChange={handleChange}
+          onChange={onChange}
         />
         <output
           className="pb-2 border-b border-background text-default"

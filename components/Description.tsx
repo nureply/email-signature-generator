@@ -1,19 +1,18 @@
 import React from "react";
 
-interface IDescription {
+interface DescriptionProps {
   primary: string;
   secondary: string;
 }
-const Description = ({ primary, secondary }: IDescription) => {
+
+const Description: React.FC<DescriptionProps> = ({ primary, secondary }) => {
   return (
-    <>
-      <div>
-        <h1 className="text-xl font-bold text-default underline decoration-highlight">
-          {primary}
-        </h1>
-        <p className="text-sm text-default">{secondary}</p>
-      </div>
-    </>
+    <div>
+      <h1 className="text-xl font-bold text-default underline decoration-highlight">
+        {primary}
+      </h1>
+      <p className="text-sm text-default">{secondary}</p>
+    </div>
   );
 };
 

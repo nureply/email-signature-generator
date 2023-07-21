@@ -1,47 +1,83 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useCallback, useMemo } from "react";
 import useCustomizationStore from "../store/customizationStore";
+import ColorButton from "./ColorButton";
 
-interface IColorPicker {
+interface IColorPickerProps {
   label: string;
   id: string;
   name: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
-const ColorPicker = ({ label, id, name }: IColorPicker) => {
-  const { customizationOutput, setCustomizationOutput } =
-    useCustomizationStore();
-  const color = customizationOutput[name as keyof typeof customizationOutput];
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setCustomizationOutput({ [name]: value.toUpperCase() });
-  };
-  const handleDefaultColorClick = (defaultColor: string) => {
-    setCustomizationOutput({ [name]: defaultColor });
-  };
+function getContrast(hexcolor: string) {
+  if (hexcolor.length === 4) {
+    hexcolor =
+      "#" +
+      hexcolor[1] +
+      hexcolor[1] +
+      hexcolor[2] +
+      hexcolor[2] +
+      hexcolor[3] +
+      hexcolor[3];
+  }
+  const r = parseInt(hexcolor.slice(1, 3), 16);
+  const g = parseInt(hexcolor.slice(3, 5), 16);
+  const b = parseInt(hexcolor.slice(5, 7), 16);
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 128 ? "black" : "white";
+}
+
+const ColorPicker = ({ label, id, name: fieldName }: IColorPickerProps) => {
+  const { setCustomizationOutput } = useCustomizationStore();
+  const color = useCustomizationStore(
+    (state) => state[fieldName as keyof typeof state],
+  ) as string;
+
+  const handleInputChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target;
+      if (!value) {
+        setCustomizationOutput({ [fieldName]: "#" });
+      } else {
+        setCustomizationOutput({ [fieldName]: value.toUpperCase() });
+      }
+    },
+    [fieldName, setCustomizationOutput],
+  );
+
+  const handleDefaultColorClick = useCallback(
+    (defaultColor: string) => {
+      setCustomizationOutput({ [fieldName]: defaultColor });
+    },
+    [fieldName, setCustomizationOutput],
+  );
 
   const isValidHex = color
     ? /^#[0-9A-Fa-f]{3}$|^#[0-9A-Fa-f]{6}$/.test(color.toString())
     : null;
-  function getContrast(hexcolor: string) {
-    if (hexcolor.length === 4) {
-      hexcolor =
-        "#" +
-        hexcolor[1] +
-        hexcolor[1] +
-        hexcolor[2] +
-        hexcolor[2] +
-        hexcolor[3] +
-        hexcolor[3];
-    }
-    const r = parseInt(hexcolor.slice(1, 3), 16);
-    const g = parseInt(hexcolor.slice(3, 5), 16);
-    const b = parseInt(hexcolor.slice(5, 7), 16);
-    const yiq = (r * 299 + g * 587 + b * 114) / 1000; // calculates the YIQ value of a color based on its RGB values
-    return yiq >= 128 ? "black" : "white";
-  }
-  const textColor = isValidHex ? getContrast(color as string) : "black";
+
+  const textColor = useMemo(
+    () => (isValidHex ? getContrast(color) : "black"),
+    [isValidHex, color],
+  );
+
+  const defaultColors = useMemo(
+    () => [
+      "#F6F158",
+      "#FFC300",
+      "#88F353",
+      "#4DA000",
+      "#006B20",
+      "#3B82F6",
+      "#808DFF",
+      "#FF5733",
+      "#FF604B",
+      "#900C22",
+      "#000000",
+    ],
+    [],
+  );
 
   return (
     <>
@@ -63,39 +99,28 @@ const ColorPicker = ({ label, id, name }: IColorPicker) => {
                   : isValidHex
                   ? "border-valid"
                   : "border-invalid"
-              } rounded-md focus:outline-none`}
+              } rounded-md focus:outline-none placeholder-fade`}
+              placeholder="#"
               type="text"
               id={id}
-              name={name}
+              name={fieldName}
               value={color}
               onChange={handleInputChange}
+              onClick={(e) => {
+                if (!e.currentTarget.value) {
+                  setCustomizationOutput({ [fieldName]: "#" });
+                }
+              }}
             />
           </div>
           <div className="ml-4">
-            <button
-              className="my-2 mr-2 px-2 py-1 rounded-lg text-sm font-semibold bg-[#000000] text-white cursor-pointer"
-              onClick={() => handleDefaultColorClick("#000000")}
-            >
-              Default
-            </button>
-            <button
-              className="my-2 mr-2 px-2 py-1 rounded-lg text-sm font-semibold bg-[#3B82F6] text-white cursor-pointer"
-              onClick={() => handleDefaultColorClick("#3B82F6")}
-            >
-              Blue
-            </button>
-            <button
-              className="my-2 mr-2 px-2 py-1 rounded-lg text-sm font-semibold bg-[#88F353] text-white cursor-pointer"
-              onClick={() => handleDefaultColorClick("#88F353")}
-            >
-              Green
-            </button>
-            <button
-              className="my-2 mr-2 px-2 py-1 rounded-lg text-sm font-semibold bg-[#F6F158] text-white cursor-pointer"
-              onClick={() => handleDefaultColorClick("#F6F158")}
-            >
-              Yellow
-            </button>
+            {defaultColors.map((color) => (
+              <ColorButton
+                key={color}
+                color={color}
+                onClick={handleDefaultColorClick}
+              />
+            ))}
           </div>
         </div>
       </div>
