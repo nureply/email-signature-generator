@@ -1,6 +1,7 @@
-import React, { ChangeEvent, useCallback, useMemo } from "react";
-import useCustomizationStore from "../store/customizationStore";
-import ColorButton from "./ColorButton";
+import React, { ChangeEvent, useCallback, useMemo } from 'react';
+import { useForm } from 'react-hook-form';
+import useCustomizationStore from '../store/customizationStore';
+import ColorButton from './ColorButton';
 
 interface IColorPickerProps {
   label: string;
@@ -13,7 +14,7 @@ interface IColorPickerProps {
 function getContrast(hexcolor: string) {
   if (hexcolor.length === 4) {
     hexcolor =
-      "#" +
+      '#' +
       hexcolor[1] +
       hexcolor[1] +
       hexcolor[2] +
@@ -25,32 +26,40 @@ function getContrast(hexcolor: string) {
   const g = parseInt(hexcolor.slice(3, 5), 16);
   const b = parseInt(hexcolor.slice(5, 7), 16);
   const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? "black" : "white";
+  return yiq >= 128 ? 'black' : 'white';
 }
 
-const ColorPicker = ({ label, id, name: fieldName }: IColorPickerProps) => {
+const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
   const { setCustomizationOutput } = useCustomizationStore();
   const color = useCustomizationStore(
-    (state) => state[fieldName as keyof typeof state],
+    (state) => state[name as keyof typeof state],
   ) as string;
+
+  const { register, formState } = useForm({
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+    defaultValues: { [name]: color },
+    criteriaMode: 'all',
+    shouldUnregister: false,
+  });
 
   const handleInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
       if (!value) {
-        setCustomizationOutput({ [fieldName]: "#" });
+        setCustomizationOutput({ [name]: '#' });
       } else {
-        setCustomizationOutput({ [fieldName]: value.toUpperCase() });
+        setCustomizationOutput({ [name]: value.toUpperCase() });
       }
     },
-    [fieldName, setCustomizationOutput],
+    [name, setCustomizationOutput],
   );
 
   const handleDefaultColorClick = useCallback(
     (defaultColor: string) => {
-      setCustomizationOutput({ [fieldName]: defaultColor });
+      setCustomizationOutput({ [name]: defaultColor });
     },
-    [fieldName, setCustomizationOutput],
+    [name, setCustomizationOutput],
   );
 
   const isValidHex = color
@@ -58,23 +67,23 @@ const ColorPicker = ({ label, id, name: fieldName }: IColorPickerProps) => {
     : null;
 
   const textColor = useMemo(
-    () => (isValidHex ? getContrast(color) : "black"),
+    () => (isValidHex ? getContrast(color) : 'black'),
     [isValidHex, color],
   );
 
   const defaultColors = useMemo(
     () => [
-      "#F6F158",
-      "#FFC300",
-      "#88F353",
-      "#4DA000",
-      "#006B20",
-      "#3B82F6",
-      "#808DFF",
-      "#FF5733",
-      "#FF604B",
-      "#900C22",
-      "#000000",
+      '#F6F158',
+      '#FFC300',
+      '#88F353',
+      '#4DA000',
+      '#006B20',
+      '#3B82F6',
+      '#808DFF',
+      '#FF5733',
+      '#FF604B',
+      '#900C22',
+      '#000000',
     ],
     [],
   );
@@ -88,27 +97,31 @@ const ColorPicker = ({ label, id, name: fieldName }: IColorPickerProps) => {
         <div className="flex items-center">
           <div className="relative">
             <input
+              {...register(name, {
+                validate: (value) =>
+                  /^#[0-9A-Fa-f]{3}$|^#[0-9A-Fa-f]{6}$/.test(value),
+              })}
               style={{
-                width: "80px",
+                width: '80px',
                 backgroundColor: color as string,
                 color: textColor,
               }}
               className={`w-full h-[40px] px-2 border-2 ${
                 isValidHex === null
-                  ? ""
+                  ? ''
                   : isValidHex
-                  ? "border-valid"
-                  : "border-invalid"
+                  ? 'border-valid'
+                  : 'border-invalid'
               } rounded-md focus:outline-none placeholder-fade`}
               placeholder="#"
               type="text"
               id={id}
-              name={fieldName}
+              name={name}
               value={color}
               onChange={handleInputChange}
               onClick={(e) => {
                 if (!e.currentTarget.value) {
-                  setCustomizationOutput({ [fieldName]: "#" });
+                  setCustomizationOutput({ [name]: '#' });
                 }
               }}
             />
@@ -123,6 +136,9 @@ const ColorPicker = ({ label, id, name: fieldName }: IColorPickerProps) => {
             ))}
           </div>
         </div>
+        {formState.errors[name] && (
+          <p className="text-xs text-invalid">Invalid color code</p>
+        )}
       </div>
     </>
   );

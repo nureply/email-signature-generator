@@ -18,7 +18,6 @@ const Signature = () => {
     linkColor,
     textColor,
     nameColor,
-    backgroundColor,
     imageSize,
     iconSize,
   } = useCustomizationStore();
