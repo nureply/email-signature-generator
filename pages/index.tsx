@@ -7,6 +7,7 @@ import Step from "@/components/Step";
 import Template from "@/components/Template";
 import { useStepStore } from "@/store/stepStore";
 import { useTemplateStore } from "@/store/templateStore";
+import Signature from "@/components/Signature";
 
 export default function Home() {
   const { step } = useStepStore();
