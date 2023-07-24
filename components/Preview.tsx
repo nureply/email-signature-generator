@@ -73,18 +73,13 @@ export interface PreviewProps
   extends React.ButtonHTMLAttributes<HTMLDivElement>,
     VariantProps<typeof previewVariants> {}
 
-const Preview = ({
-  className,
-
-  ...props
-}: PreviewProps) => {
+const Preview = ({ className, ...props }: PreviewProps) => {
   const {
     fontSize,
     nameFont,
     linkColor,
     textColor,
     nameColor,
-    backgroundColor,
     imageSize,
     iconSize,
   } = useCustomizationStore();
@@ -117,8 +112,8 @@ const Preview = ({
   const outputSignature = (
     <div style={signature.userInfoStyle}>
       <div style={signature.profileIconStyle}>
-        <div className=" rounded-full mt-5">
-          <img
+        <div className="rounded-full mt-5">
+          <Image
             src={image}
             alt="Profile Image"
             width={imageSize}
@@ -135,13 +130,7 @@ const Preview = ({
         }}
       >
         <div>{signOff}</div>
-        <div
-          style={{
-            color: nameColor,
-          }}
-        >
-          {fullName}
-        </div>
+        <div style={{ color: nameColor }}>{fullName}</div>
         <div key="jobInfo">
           {jobTitle}
           {jobTitle && company ? " | " : ""}
@@ -149,13 +138,7 @@ const Preview = ({
         </div>
         <div>
           <div>{workEmail}</div>
-          <div
-            style={{
-              color: linkColor,
-            }}
-          >
-            {website}
-          </div>
+          <div style={{ color: linkColor }}>{website}</div>
           <div>{phoneNumber}</div>
           <div>{workAddress}</div>
         </div>
@@ -337,8 +320,6 @@ const Preview = ({
     }
   }, [template.id]);
 
-  console.log(outputSignature);
-
   let templateId = template.id;
 
   return (
@@ -348,7 +329,7 @@ const Preview = ({
         <div className="w-3 h-3 rounded-full bg-[#FEB024] mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#2AC131] mt-2"></div>
       </div>
-      <div className=" pl-4 border-t-2 border-gray-300">
+      <div className="pl-4 border-t-2 border-gray-300">
         Send from: emma@woodpecker.com Emma Smith
       </div>
       <div className="pl-4 border-y-2  border-gray-300">
@@ -365,7 +346,7 @@ const Preview = ({
       </div>
       <div className={`mt-15 ${cn(previewVariants({ outerDiv: templateId }))}`}>
         <div className={`${cn(previewVariants({ profileIcon: templateId }))}`}>
-          <div className=" rounded-full mt-5">
+          <div className="rounded-full mt-5">
             <Image
               src={image}
               alt="Profile Image"
@@ -380,13 +361,7 @@ const Preview = ({
           className={`${cn(previewVariants({ userInfo: templateId }))}`}
         >
           <div>{signOff}</div>
-          <div
-            style={{
-              color: nameColor,
-            }}
-          >
-            {fullName}{" "}
-          </div>
+          <div style={{ color: nameColor }}>{fullName} </div>
           <div key="jobInfo">
             {jobTitle}
             {jobTitle && company ? " | " : ""}
@@ -394,13 +369,7 @@ const Preview = ({
           </div>
           <div>
             <div>{workEmail}</div>
-            <div
-              style={{
-                color: linkColor,
-              }}
-            >
-              {website}
-            </div>
+            <div style={{ color: linkColor }}>{website}</div>
             <div>{phoneNumber}</div>
             <div>{workAddress}</div>
           </div>

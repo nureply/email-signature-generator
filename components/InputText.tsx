@@ -1,5 +1,5 @@
 import React from "react";
-import clsx from "clsx";
+import { useForm } from "react-hook-form";
 
 interface IInput {
   label: string;
@@ -43,6 +43,12 @@ function isLinkValid(link: string): boolean {
 }
 
 const Input = ({ label, id, name, value, onChange, type = "text" }: IInput) => {
+  const { register, formState } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+    defaultValues: { [name]: value },
+  });
+
   const isValid =
     (type === "email" && isEmailValid(value)) ||
     (type === "link" && isLinkValid(value));
@@ -57,20 +63,30 @@ const Input = ({ label, id, name, value, onChange, type = "text" }: IInput) => {
         {label}
       </label>
       <input
-        className={clsx(
-          "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
-          {
-            border: isValidationNeeded && value.length > 0,
-            "border-valid": showValidBorder,
-            "border-invalid": showInvalidBorder,
-          },
-        )}
+        {...register(name, {
+          validate: (value) =>
+            !isValidationNeeded ||
+            (type === "email" && isEmailValid(value)) ||
+            (type === "link" && isLinkValid(value)),
+        })}
+        className={`w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none ${
+          showValidBorder ? "border-valid" : ""
+        } ${showInvalidBorder ? "border-invalid" : ""}`}
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={onChange}
       />
+      {formState.errors[name] && (
+        <p className="text-xs text-invalid">
+          {type === "email"
+            ? "This doesn't look like a valid email"
+            : type === "link"
+            ? "This doesn't look like a valid profile link"
+            : ""}
+        </p>
+      )}
     </div>
   );
 };
