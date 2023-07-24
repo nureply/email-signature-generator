@@ -26,9 +26,9 @@ const FontChanger = () => {
       <select
         id="fontChanger"
         name="fontChanger"
+        value={nameFont}
         onChange={handleFontChange}
         className="block w-full py-2 pl-2 pr-8 rounded-md border-2 border-highlight focus:outline-none sm:text-sm"
-        value={nameFont}
       >
         {fonts.map((font) => (
           <option key={font} value={font}>

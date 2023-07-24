@@ -1,5 +1,4 @@
 import useCustomizationStore from "../store/customizationStore";
-
 import Heading from "./Heading";
 import FontChanger from "./FontChanger";
 import Slider from "./Slider";
@@ -31,7 +30,6 @@ const sliderData = [
     step: 10,
   },
 ];
-
 const colorPickerData = [
   {
     label: "Name Color",
@@ -78,6 +76,7 @@ const Customization = () => {
           </p>
           <FontChanger />
         </div>
+
         <div className="w-full p-4">
           {sliderData.map(({ label, id, name, min, max, step }) => {
             let value;
@@ -109,6 +108,7 @@ const Customization = () => {
             );
           })}
         </div>
+
         {colorPickerData.map(({ label, id, name }) => (
           <ColorPicker
             key={id}

@@ -4,6 +4,12 @@ import Heading from "./Heading";
 import Description from "./Description";
 import InputText from "./InputText";
 
+const signOffOptions = [
+  { value: "", label: "Select a sign-off" },
+  { value: "Regards,", label: "Regards," },
+  { value: "Best regards,", label: "Best regards," },
+  { value: "Kind regards,", label: "Kind regards," },
+];
 const signOffData = [
   {
     label: "Sign-off",
@@ -11,7 +17,6 @@ const signOffData = [
     name: "signOff",
   },
 ];
-
 const inputTextData = [
   {
     label: "Full Name",
@@ -55,7 +60,6 @@ const inputTextData = [
     name: "website",
   },
 ];
-
 const inputTextLinkData = [
   {
     label: "LinkedIn",
@@ -87,13 +91,6 @@ const inputTextLinkData = [
     id: "InstagramLink",
     name: "InstagramLink",
   },
-];
-
-const signOffOptions = [
-  { value: "", label: "Select a sign-off" },
-  { value: "Regards,", label: "Regards," },
-  { value: "Best regards,", label: "Best regards," },
-  { value: "Kind regards,", label: "Kind regards," },
 ];
 
 const Info = () => {

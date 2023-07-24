@@ -1,6 +1,6 @@
 import React from "react";
 
-interface ISlider {
+interface SliderProps {
   label: string;
   id: string;
   name: string;
@@ -11,7 +11,7 @@ interface ISlider {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Slider = ({
+const Slider: React.FC<SliderProps> = ({
   label,
   id,
   name,
@@ -20,13 +20,14 @@ const Slider = ({
   value,
   step,
   onChange,
-}: ISlider) => {
+}) => {
   return (
     <>
       <div>
         <label className="block mt-2 font-semi-bold text-default" htmlFor={id}>
           {label}
         </label>
+
         <input
           className="w-full h-2 rounded-lg bg-background appearance-none cursor-pointer"
           type="range"

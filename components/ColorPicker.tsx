@@ -1,9 +1,11 @@
-import React, { ChangeEvent, useCallback, useMemo } from "react";
+import React, { ChangeEvent, useState, useMemo, useCallback } from "react";
 import { useForm } from "react-hook-form";
+import clsx from "clsx";
+
 import useCustomizationStore from "../store/customizationStore";
 import ColorButton from "./ColorButton";
 
-interface IColorPickerProps {
+interface ColorPickerProps {
   label: string;
   id: string;
   name: string;
@@ -11,16 +13,11 @@ interface IColorPickerProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
+const HEX_COLOR_REGEX = /^#[0-9A-Fa-f]{3}$|^#[0-9A-Fa-f]{6}$/;
+
 function getContrast(hexcolor: string) {
   if (hexcolor.length === 4) {
-    hexcolor =
-      "#" +
-      hexcolor[1] +
-      hexcolor[1] +
-      hexcolor[2] +
-      hexcolor[2] +
-      hexcolor[3] +
-      hexcolor[3];
+    hexcolor = `#${hexcolor[1]}${hexcolor[1]}${hexcolor[2]}${hexcolor[2]}${hexcolor[3]}${hexcolor[3]}`;
   }
   const r = parseInt(hexcolor.slice(1, 3), 16);
   const g = parseInt(hexcolor.slice(3, 5), 16);
@@ -29,11 +26,13 @@ function getContrast(hexcolor: string) {
   return yiq >= 128 ? "black" : "white";
 }
 
-const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
+const ColorPicker = ({ label, id, name }: ColorPickerProps) => {
   const { setCustomizationOutput } = useCustomizationStore();
   const color = useCustomizationStore(
     (state) => state[name as keyof typeof state],
   ) as string;
+
+  const isValidHex = color ? HEX_COLOR_REGEX.test(color.toString()) : null;
 
   const { register, formState } = useForm({
     mode: "onChange",
@@ -62,10 +61,6 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
     [name, setCustomizationOutput],
   );
 
-  const isValidHex = color
-    ? /^#[0-9A-Fa-f]{3}$|^#[0-9A-Fa-f]{6}$/.test(color.toString())
-    : null;
-
   const textColor = useMemo(
     () => (isValidHex ? getContrast(color) : "black"),
     [isValidHex, color],
@@ -88,12 +83,14 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
     [],
   );
 
+  const [isFocused, setIsFocused] = useState(false);
   return (
     <>
       <div className="m-2">
         <label className="block pb-2 font-semibold text-default" htmlFor={id}>
           {label}
         </label>
+
         <div className="flex items-center">
           <div className="relative">
             <input
@@ -106,13 +103,15 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
                 backgroundColor: color as string,
                 color: textColor,
               }}
-              className={`w-full h-[40px] px-2 border-2 ${
+              className={clsx(
+                "w-full h-[40px] px-2 border-2 rounded-md focus:outline-none placeholder-fade",
                 isValidHex === null
                   ? ""
                   : isValidHex
                   ? "border-valid"
-                  : "border-invalid"
-              } rounded-md focus:outline-none placeholder-fade`}
+                  : "border-invalid",
+                isFocused && "vibrate",
+              )}
               placeholder="#"
               type="text"
               id={id}
@@ -124,6 +123,8 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
                   setCustomizationOutput({ [name]: "#" });
                 }
               }}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
             />
           </div>
           <div className="ml-4">
@@ -136,9 +137,6 @@ const ColorPicker = ({ label, id, name }: IColorPickerProps) => {
             ))}
           </div>
         </div>
-        {formState.errors[name] && (
-          <p className="text-xs text-invalid">Invalid color code</p>
-        )}
       </div>
     </>
   );
