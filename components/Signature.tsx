@@ -206,8 +206,13 @@ const Signature = () => {
       });
     }
   }, [template.id]);
+
+  
   return (
-    <div style={{ margin: "1.25rem", gap: "0.1rem", display: "flex" }}>
+    <div
+      className="signaturetrying"
+      style={{ margin: "1.25rem", gap: "0.1rem", display: "flex" }}
+    >
       <div style={signature.outerDivStyle}>
         <div style={signature.profileIconStyle}>
           <img
@@ -222,6 +227,7 @@ const Signature = () => {
           style={{
             fontSize: `${fontSize.toString()}px`,
             color: textColor,
+            fontFamily: nameFont,
             ...signature.userInfoStyle,
           }}
         >
@@ -254,32 +260,32 @@ const Signature = () => {
         <div style={signature.linkIconsStyle}>
           {LinkedInLink && (
             <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
-              <Linkedin size={iconSize} />
+              <Linkedin size={iconSize} color="#343A40"/>
             </a>
           )}
           {GitHubLink && (
             <a href={GitHubLink} target="_blank" rel="noopener noreferrer">
-              <Github size={iconSize} />
+              <Github size={iconSize} color="#343A40"/>
             </a>
           )}
           {YouTubeLink && (
             <a href={YouTubeLink} target="_blank" rel="noopener noreferrer">
-              <Youtube size={iconSize} />
+              <Youtube size={iconSize} color="#343A40"/>
             </a>
           )}
           {TwitterLink && (
             <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
-              <Twitter size={iconSize} />
+              <Twitter size={iconSize} color="#343A40" />
             </a>
           )}
           {FacebookLink && (
             <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
-              <Facebook size={iconSize} />
+              <Facebook size={iconSize} color="#343A40"/>
             </a>
           )}
           {InstagramLink && (
             <a href={InstagramLink} target="_blank" rel="noopener noreferrer">
-              <Instagram size={iconSize} />
+              <Instagram size={iconSize} color="#343A40"/>
             </a>
           )}
         </div>
