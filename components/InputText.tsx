@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import clsx from "clsx";
 
 interface InputTextProps {
@@ -16,6 +15,7 @@ const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 function isEmailValid(email: string): boolean {
   return email === "" || emailRegex.test(email);
 }
+
 function isLinkValid(link: string): boolean {
   try {
     const url = new URL(link);
@@ -25,15 +25,15 @@ function isLinkValid(link: string): boolean {
       case "linkedin.com":
         return pathname.startsWith("/in/");
       case "github.com":
-        return pathname.split("/").length === 2;
+        return pathname.split("/").length >= 2;
       case "youtube.com":
         return pathname.startsWith("/user/");
       case "twitter.com":
-        return pathname.split("/").length === 2;
+        return pathname.split("/").length >= 2;
       case "facebook.com":
-        return pathname.startsWith("/");
+        return true;
       case "instagram.com":
-        return pathname.split("/").length === 2;
+        return pathname.split("/").length >= 2;
       default:
         return false;
     }
@@ -41,6 +41,7 @@ function isLinkValid(link: string): boolean {
     return false;
   }
 }
+
 
 const InputText: React.FC<InputTextProps> = ({
   type = "text",
@@ -51,12 +52,6 @@ const InputText: React.FC<InputTextProps> = ({
   onChange,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-
-  const { register, formState } = useForm({
-    mode: "onChange",
-    reValidateMode: "onChange",
-    defaultValues: { [name]: value },
-  });
 
   const isValidationNeeded = type === "email" || type === "link";
   const isValid =
@@ -69,8 +64,7 @@ const InputText: React.FC<InputTextProps> = ({
     <div>
       <label
         className={clsx(
-          "block p-2 font-semibold text-default",
-          isFocused && "vibrate",
+          "block p-2 font-semibold text-default"
         )}
         htmlFor={id}
       >
@@ -78,12 +72,6 @@ const InputText: React.FC<InputTextProps> = ({
       </label>
 
       <input
-        {...register(name, {
-          validate: (value) =>
-            !isValidationNeeded ||
-            (type === "email" && isEmailValid(value)) ||
-            (type === "link" && isLinkValid(value)),
-        })}
         className={clsx(
           "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
           showValidBorder && "border-valid",
@@ -94,8 +82,6 @@ const InputText: React.FC<InputTextProps> = ({
         name={name}
         value={value}
         onChange={onChange}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
       />
       {showInvalidBorder && (
         <p
@@ -104,9 +90,8 @@ const InputText: React.FC<InputTextProps> = ({
           })}
         >
           {isValidationNeeded && !isValid && value.length > 0
-            ? `This does not look like a valid ${
-                type === "email" ? "email" : "profile link"
-              }, make sure to check your info`
+            ? `This does not look like a valid ${type === "email" ? "email" : "profile link"
+            }, make sure to check your info`
             : ""}
         </p>
       )}
