@@ -1,7 +1,7 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+import clsx from "clsx";
 
-interface IInput {
+interface InputTextProps {
   label: string;
   id: string;
   name: string;
@@ -25,15 +25,15 @@ function isLinkValid(link: string): boolean {
       case "linkedin.com":
         return pathname.startsWith("/in/");
       case "github.com":
-        return pathname.split("/").length === 2;
+        return pathname.split("/").length >= 2;
       case "youtube.com":
         return pathname.startsWith("/user/");
       case "twitter.com":
-        return pathname.split("/").length === 2;
+        return pathname.split("/").length >= 2;
       case "facebook.com":
-        return pathname.startsWith("/");
+        return true;
       case "instagram.com":
-        return pathname.split("/").length === 2;
+        return pathname.split("/").length >= 2;
       default:
         return false;
     }
@@ -42,48 +42,56 @@ function isLinkValid(link: string): boolean {
   }
 }
 
-const Input = ({ label, id, name, value, onChange, type = "text" }: IInput) => {
-  const { register, formState } = useForm({
-    mode: "onChange",
-    reValidateMode: "onChange",
-    defaultValues: { [name]: value },
-  });
 
+const InputText: React.FC<InputTextProps> = ({
+  type = "text",
+  label,
+  id,
+  name,
+  value,
+  onChange,
+}) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  const isValidationNeeded = type === "email" || type === "link";
   const isValid =
     (type === "email" && isEmailValid(value)) ||
     (type === "link" && isLinkValid(value));
-
-  const isValidationNeeded = type === "email" || type === "link";
   const showValidBorder = isValidationNeeded && isValid && value.length > 0;
   const showInvalidBorder = isValidationNeeded && !isValid && value.length > 0;
 
   return (
     <div>
-      <label className="block p-2 font-semibold text-default" htmlFor={id}>
+      <label
+        className={clsx(
+          "block p-2 font-semibold text-default"
+        )}
+        htmlFor={id}
+      >
         {label}
       </label>
+
       <input
-        {...register(name, {
-          validate: (value) =>
-            !isValidationNeeded ||
-            (type === "email" && isEmailValid(value)) ||
-            (type === "link" && isLinkValid(value)),
-        })}
-        className={`w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none ${
-          showValidBorder ? "border-valid" : ""
-        } ${showInvalidBorder ? "border-invalid" : ""}`}
+        className={clsx(
+          "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
+          showValidBorder && "border-valid",
+          showInvalidBorder && "border-invalid",
+        )}
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={onChange}
       />
-      {formState.errors[name] && (
-        <p className="text-xs text-invalid">
-          {type === "email"
-            ? "This doesn't look like a valid email"
-            : type === "link"
-            ? "This doesn't look like a valid profile link"
+      {showInvalidBorder && (
+        <p
+          className={clsx("text-sm", {
+            "text-invalid": isValidationNeeded && !isValid && value.length > 0,
+          })}
+        >
+          {isValidationNeeded && !isValid && value.length > 0
+            ? `This does not look like a valid ${type === "email" ? "email" : "profile link"
+            }, make sure to check your info`
             : ""}
         </p>
       )}
@@ -91,4 +99,4 @@ const Input = ({ label, id, name, value, onChange, type = "text" }: IInput) => {
   );
 };
 
-export default Input;
+export default InputText;

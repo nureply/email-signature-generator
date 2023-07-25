@@ -4,6 +4,13 @@ import Heading from "./Heading";
 import Description from "./Description";
 import InputText from "./InputText";
 
+const signOffOptions = [
+  { value: "", label: "Select a sign-off" },
+  { value: "Best,", label: "Best," },
+  { value: "Regards,", label: "Regards," },
+  { value: "Best regards,", label: "Best regards," },
+  { value: "Kind regards,", label: "Kind regards," },
+];
 const signOffData = [
   {
     label: "Sign-off",
@@ -11,7 +18,6 @@ const signOffData = [
     name: "signOff",
   },
 ];
-
 const inputTextData = [
   {
     label: "Full Name",
@@ -55,7 +61,6 @@ const inputTextData = [
     name: "website",
   },
 ];
-
 const inputTextLinkData = [
   {
     label: "LinkedIn",
@@ -89,13 +94,6 @@ const inputTextLinkData = [
   },
 ];
 
-const signOffOptions = [
-  { value: "", label: "Select a sign-off" },
-  { value: "Regards,", label: "Regards," },
-  { value: "Best regards,", label: "Best regards," },
-  { value: "Kind regards,", label: "Kind regards," },
-];
-
 const Info = () => {
   const {
     signOff,
@@ -126,16 +124,6 @@ const Info = () => {
       </div>
 
       <div className="m-4 pb-4 border-b border-background">
-        {signOffData.map((item) => (
-          <InputText
-            key={item.id}
-            label={item.label}
-            id={item.id}
-            name={item.name}
-            value={signOff}
-            onChange={handleChange}
-          />
-        ))}
         <select
           className="block w-full py-2 pl-2 pr-8 rounded-md border-2 border-highlight focus:outline-none text-fade"
           name="signOff"
@@ -227,20 +215,23 @@ const Info = () => {
             secondary="Can be both square or round"
           />
         </div>
-        <label
-          className="block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
-          htmlFor="image"
-        >
-          Upload Image
-        </label>
-        <input
-          className="hidden"
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          onChange={onImageChange}
-        />
+        <div className="flex items-center justify-center">
+  <label
+    className="group block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors relative overflow-hidden"
+    htmlFor="image"
+  >
+    Upload Image
+    <span className="absolute bottom-0 left-0 w-full h-0 bg-nureply-blue-tint transition-all duration-500 group-hover:h-full"></span>
+  </label>
+  <input
+    className="hidden"
+    type="file"
+    id="image"
+    name="image"
+    accept="image/*"
+    onChange={onImageChange}
+  />
+</div>
       </div>
     </div>
   );

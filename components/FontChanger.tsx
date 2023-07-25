@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import React, { ChangeEvent } from "react";
 import useCustomizationStore from "../store/customizationStore";
 
 const FontChanger = () => {
@@ -14,7 +14,9 @@ const FontChanger = () => {
     "Courier New",
     "Times New Roman",
   ];
-  const { setCustomizationOutput } = useCustomizationStore();
+
+  const { nameFont, setCustomizationOutput } = useCustomizationStore();
+
   const handleFontChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setCustomizationOutput({ nameFont: event.target.value });
   };
@@ -24,6 +26,7 @@ const FontChanger = () => {
       <select
         id="fontChanger"
         name="fontChanger"
+        value={nameFont}
         onChange={handleFontChange}
         className="block w-full py-2 pl-2 pr-8 rounded-md border-2 border-highlight focus:outline-none sm:text-sm"
       >
