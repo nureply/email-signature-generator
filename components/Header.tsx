@@ -18,10 +18,6 @@ const Header = () => {
     try {
       let successful = document.execCommand("copy");
       console.log(successful ? "Success" : "Fail");
-      /* setState((prevState) => ({
-        ...prevState,
-        copied: true,
-      })); */
     } catch (err) {
       console.log("Fail");
     }
