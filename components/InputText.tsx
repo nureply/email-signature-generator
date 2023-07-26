@@ -16,24 +16,25 @@ function isEmailValid(email: string): boolean {
   return email === "" || emailRegex.test(email);
 }
 
-function isLinkValid(link: string): boolean {
+function isLinkValid(link: string, label: string): boolean {
   try {
     const url = new URL(link);
     const { hostname, pathname } = url;
+    const domain = hostname.replace("www.", "");
 
-    switch (hostname) {
+    switch (domain) {
       case "linkedin.com":
-        return pathname.startsWith("/in/");
+        return label === "LinkedIn" && pathname.startsWith("/in/");
       case "github.com":
-        return pathname.split("/").length >= 2;
+        return label === "GitHub" && pathname.split("/").length >= 2;
       case "youtube.com":
-        return pathname.startsWith("/user/");
+        return label === "YouTube" && pathname.startsWith("/user/");
       case "twitter.com":
-        return pathname.split("/").length >= 2;
+        return label === "Twitter" && pathname.split("/").length >= 2;
       case "facebook.com":
-        return true;
+        return label === "Facebook";
       case "instagram.com":
-        return pathname.split("/").length >= 2;
+        return label === "Instagram" && pathname.split("/").length >= 2;
       default:
         return false;
     }
@@ -41,7 +42,6 @@ function isLinkValid(link: string): boolean {
     return false;
   }
 }
-
 
 const InputText: React.FC<InputTextProps> = ({
   type = "text",
@@ -56,16 +56,14 @@ const InputText: React.FC<InputTextProps> = ({
   const isValidationNeeded = type === "email" || type === "link";
   const isValid =
     (type === "email" && isEmailValid(value)) ||
-    (type === "link" && isLinkValid(value));
+    (type === "link" && isLinkValid(value, label));
   const showValidBorder = isValidationNeeded && isValid && value.length > 0;
   const showInvalidBorder = isValidationNeeded && !isValid && value.length > 0;
 
   return (
     <div>
       <label
-        className={clsx(
-          "block p-2 font-semibold text-default"
-        )}
+        className={clsx("block p-2 font-semibold text-default")}
         htmlFor={id}
       >
         {label}
@@ -90,8 +88,9 @@ const InputText: React.FC<InputTextProps> = ({
           })}
         >
           {isValidationNeeded && !isValid && value.length > 0
-            ? `This does not look like a valid ${type === "email" ? "email" : "profile link"
-            }, make sure to check your info`
+            ? `This does not look like a valid ${
+                type === "email" ? "email" : "profile link"
+              }, make sure to check your info`
             : ""}
         </p>
       )}

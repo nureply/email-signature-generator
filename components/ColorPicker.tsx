@@ -25,10 +25,16 @@ function getContrast(hexcolor: string) {
   return yiq >= 128 ? "black" : "white";
 }
 
-const ColorPicker = ({ label, id, name, value, onChange }: ColorPickerProps) => {
+const ColorPicker = ({
+  label,
+  id,
+  name,
+  value,
+  onChange,
+}: ColorPickerProps) => {
   const { setCustomizationOutput } = useCustomizationStore();
   const color = useCustomizationStore(
-    (state) => state[name as keyof typeof state]
+    (state) => state[name as keyof typeof state],
   ) as string;
 
   const isValidHex = color ? HEX_COLOR_REGEX.test(color.toString()) : null;
@@ -42,20 +48,20 @@ const ColorPicker = ({ label, id, name, value, onChange }: ColorPickerProps) => 
         setCustomizationOutput({ [name]: value.toUpperCase() });
       }
     },
-    [name, setCustomizationOutput]
+    [name, setCustomizationOutput],
   );
 
   const handleDefaultColorClick = useCallback(
     (defaultColor: string) => {
       setCustomizationOutput({ [name]: defaultColor });
     },
-    [name, setCustomizationOutput]
+    [name, setCustomizationOutput],
   );
 
-  const textColor = useMemo(() => (isValidHex ? getContrast(color) : "black"), [
-    isValidHex,
-    color,
-  ]);
+  const textColor = useMemo(
+    () => (isValidHex ? getContrast(color) : "black"),
+    [isValidHex, color],
+  );
 
   const defaultColors = useMemo(
     () => [
@@ -71,7 +77,7 @@ const ColorPicker = ({ label, id, name, value, onChange }: ColorPickerProps) => 
       "#900C22",
       "#000000",
     ],
-    []
+    [],
   );
 
   return (
@@ -97,7 +103,7 @@ const ColorPicker = ({ label, id, name, value, onChange }: ColorPickerProps) => 
                   ? ""
                   : isValidHex
                   ? "border-valid"
-                  : "border-invalid"
+                  : "border-invalid",
               )}
               placeholder="#"
               type="text"

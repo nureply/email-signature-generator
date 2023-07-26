@@ -11,13 +11,6 @@ const signOffOptions = [
   { value: "Best regards,", label: "Best regards," },
   { value: "Kind regards,", label: "Kind regards," },
 ];
-const signOffData = [
-  {
-    label: "Sign-off",
-    id: "signOff",
-    name: "signOff",
-  },
-];
 const inputTextData = [
   {
     label: "Full Name",
@@ -216,22 +209,22 @@ const Info = () => {
           />
         </div>
         <div className="flex items-center justify-center">
-  <label
-    className="group block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors relative overflow-hidden"
-    htmlFor="image"
-  >
-    Upload Image
-    <span className="absolute bottom-0 left-0 w-full h-0 bg-nureply-blue-tint transition-all duration-500 group-hover:h-full"></span>
-  </label>
-  <input
-    className="hidden"
-    type="file"
-    id="image"
-    name="image"
-    accept="image/*"
-    onChange={onImageChange}
-  />
-</div>
+          <label
+            className="group block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors relative overflow-hidden"
+            htmlFor="image"
+          >
+            Upload Image
+            <span className="absolute bottom-0 left-0 w-full h-0 bg-nureply-blue-tint transition-all duration-500 group-hover:h-full"></span>
+          </label>
+          <input
+            className="hidden"
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={onImageChange}
+          />
+        </div>
       </div>
     </div>
   );
