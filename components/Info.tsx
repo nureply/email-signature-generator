@@ -1,7 +1,6 @@
 import React from "react";
 import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
-import Description from "./Description";
 import InputText from "./InputText";
 
 const signOffOptions = [
@@ -133,7 +132,8 @@ const Info = () => {
 
       <div className="my-4 pb-4 border-b border-background">
         <div className="m-2 py-4">
-          <Description
+          <Heading
+            type="Description"
             primary="Personal info & contacts"
             secondary="Start filling in your data, unused fields can be left blank"
           />
@@ -169,7 +169,8 @@ const Info = () => {
 
       <div className="my-4 pb-4 border-b border-background">
         <div className="m-2 py-4">
-          <Description
+          <Heading
+            type="Description"
             primary="Social media links"
             secondary="Add URLs of your social media profiles"
           />
@@ -203,7 +204,8 @@ const Info = () => {
 
       <div className="my-4 pb-4 border-b border-background">
         <div className="mx-2 my-4">
-          <Description
+          <Heading
+            type="Description"
             primary="Add a photo"
             secondary="Can be both square or round"
           />
