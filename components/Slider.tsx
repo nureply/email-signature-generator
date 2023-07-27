@@ -25,7 +25,10 @@ const Slider: React.FC<SliderProps> = ({
     <>
       <div>
         <div className="flex items-center justify-center">
-          <label className="block mt-2 font-semi-bold text-default" htmlFor={id}>
+          <label
+            className="block mt-2 font-semi-bold text-default"
+            htmlFor={id}
+          >
             {label}
           </label>
         </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
-import Description from "./Description";
 import InputText from "./InputText";
 
 const signOffOptions = [
@@ -10,13 +9,6 @@ const signOffOptions = [
   { value: "Regards,", label: "Regards," },
   { value: "Best regards,", label: "Best regards," },
   { value: "Kind regards,", label: "Kind regards," },
-];
-const signOffData = [
-  {
-    label: "Sign-off",
-    id: "signOff",
-    name: "signOff",
-  },
 ];
 const inputTextData = [
   {
@@ -140,7 +132,8 @@ const Info = () => {
 
       <div className="my-4 pb-4 border-b border-background">
         <div className="m-2 py-4">
-          <Description
+          <Heading
+            type="Description"
             primary="Personal info & contacts"
             secondary="Start filling in your data, unused fields can be left blank"
           />
@@ -176,7 +169,8 @@ const Info = () => {
 
       <div className="my-4 pb-4 border-b border-background">
         <div className="m-2 py-4">
-          <Description
+          <Heading
+            type="Description"
             primary="Social media links"
             secondary="Add URLs of your social media profiles"
           />
@@ -210,28 +204,29 @@ const Info = () => {
 
       <div className="my-4 pb-4 border-b border-background">
         <div className="mx-2 my-4">
-          <Description
+          <Heading
+            type="Description"
             primary="Add a photo"
             secondary="Can be both square or round"
           />
         </div>
         <div className="flex items-center justify-center">
-  <label
-    className="group block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors relative overflow-hidden"
-    htmlFor="image"
-  >
-    Upload Image
-    <span className="absolute bottom-0 left-0 w-full h-0 bg-nureply-blue-tint transition-all duration-500 group-hover:h-full"></span>
-  </label>
-  <input
-    className="hidden"
-    type="file"
-    id="image"
-    name="image"
-    accept="image/*"
-    onChange={onImageChange}
-  />
-</div>
+          <label
+            className="group block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors relative overflow-hidden"
+            htmlFor="image"
+          >
+            Upload Image
+            <span className="absolute bottom-0 left-0 w-full h-0 bg-nureply-blue-tint transition-all duration-500 group-hover:h-full"></span>
+          </label>
+          <input
+            className="hidden"
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={onImageChange}
+          />
+        </div>
       </div>
     </div>
   );
