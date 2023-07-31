@@ -17,35 +17,40 @@ const UserPersonalInfo = () => {
 
   return (
     <table
+    cellPadding={0}
+    cellSpacing={0}
       style={{
-        fontSize: `${fontSize.toString()}px`,
-        color: textColor,
+        fontSize: `${fontSize}px`,
         fontFamily: nameFont,
+        color: textColor,
+        borderCollapse: "collapse"
       }}
     >
-      <tr>{signOff}</tr>
-      <tr
-        style={{
-          color: nameColor,
-        }}
-      >
-        {fullName}
+      <tr>
+        <td>{signOff}</td>
+      </tr>
+      <tr style={{ color: nameColor }}>
+        <td>{fullName}</td>
       </tr>
       <tr>
-        {jobTitle}
-        {jobTitle && company ? " | " : ""}
-        {company}
+        <td>
+          {jobTitle}
+          {jobTitle && company ? " | " : ""}
+          {company}
+        </td>
       </tr>
-      <tr>{workEmail}</tr>
-      <tr
-        style={{
-          color: linkColor,
-        }}
-      >
-        {website}
+      <tr>
+        <td>{workEmail}</td>
       </tr>
-      <tr>{phoneNumber}</tr>
-      <tr>{workAddress}</tr>
+      <tr style={{ color: linkColor }}>
+        <td>{website}</td>
+      </tr>
+      <tr>
+        <td>{phoneNumber}</td>
+      </tr>
+      <tr>
+        <td>{workAddress}</td>
+      </tr>
     </table>
   );
 };
