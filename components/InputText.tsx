@@ -25,8 +25,6 @@ function isLinkValid(link: string, label: string): boolean {
     switch (domain) {
       case "linkedin.com":
         return label === "LinkedIn" && pathname.startsWith("/in/");
-      case "github.com":
-        return label === "GitHub" && pathname.split("/").length >= 2;
       case "youtube.com":
         return label === "YouTube" && pathname.startsWith("/user/");
       case "twitter.com":
