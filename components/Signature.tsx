@@ -14,47 +14,28 @@ const Signature = () => {
     template.id === "template2Right"
   ) {
     return (
-      <table className="signaturetrying" style={{ margin: "2rem" }}>
+      <table className="signaturetrying" cellPadding={0} cellSpacing={0} style={{ borderCollapse: "collapse" }}>
         <tr>
           <td style={{ paddingRight: "1.75rem" }}>
-            {template.id === "template1Left" ||
-            template.id === "template2Left" ? (
-              <UserProfilePic />
-            ) : (
-              <UserPersonalInfo />
-            )}
+            {template.id === "template1Left" || template.id === "template2Left" ? <UserProfilePic /> : <UserPersonalInfo />}
           </td>
           <td>
-            {template.id === "template1Left" ||
-            template.id === "template2Left" ? (
-              <UserPersonalInfo />
-            ) : (
-              <UserProfilePic />
-            )}
+            {template.id === "template1Left" || template.id === "template2Left" ? <UserPersonalInfo /> : <UserProfilePic />}
           </td>
         </tr>
         <tr>
           <td>
-            {template.id === "template1Left" ||
-            template.id === "template2Right" ? null : (
-              <UserLinkIcons />
-            )}
+            {template.id === "template1Left" || template.id === "template2Right" ? null : <UserLinkIcons />}
           </td>
           <td>
-            {template.id === "template1Left" ||
-            template.id === "template2Right" ? (
-              <UserLinkIcons />
-            ) : null}
+            {template.id === "template1Left" || template.id === "template2Right" ? <UserLinkIcons /> : null}
           </td>
         </tr>
       </table>
     );
   } else if (template.id === "template3Top") {
     return (
-      <table
-        className="signaturetrying"
-        style={{ margin: "2rem", justifyItems: "center" }}
-      >
+      <table className="signaturetrying" cellPadding={0} cellSpacing={0} style={{ borderCollapse: "collapse" }}>
         <tr>
           <UserProfilePic />
         </tr>
@@ -68,10 +49,7 @@ const Signature = () => {
     );
   } else if (template.id === "template3Bottom") {
     return (
-      <table
-        className="signaturetrying"
-        style={{ margin: "2rem", justifyItems: "center" }}
-      >
+      <table className="signaturetrying" cellPadding={0} cellSpacing={0} style={{ borderCollapse: "collapse" }}>
         <tr>
           <UserPersonalInfo />
         </tr>

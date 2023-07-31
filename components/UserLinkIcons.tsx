@@ -26,37 +26,49 @@ const UserLinkIcons = () => {
     return null;
   }
   return (
-    <table style={{ display: "flex", gap: "0.125rem", padding: "1rem" }}>
-      {LinkedInLink && (
-        <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
-          <Linkedin size={iconSize} color="#343A40" />
-        </a>
-      )}
-      {GitHubLink && (
-        <a href={GitHubLink} target="_blank" rel="noopener noreferrer">
-          <Github size={iconSize} color="#343A40" />
-        </a>
-      )}
-      {YouTubeLink && (
-        <a href={YouTubeLink} target="_blank" rel="noopener noreferrer">
-          <Youtube size={iconSize} color="#343A40" />
-        </a>
-      )}
-      {TwitterLink && (
-        <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
-          <Twitter size={iconSize} color="#343A40" />
-        </a>
-      )}
-      {FacebookLink && (
-        <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
-          <Facebook size={iconSize} color="#343A40" />
-        </a>
-      )}
-      {InstagramLink && (
-        <a href={InstagramLink} target="_blank" rel="noopener noreferrer">
-          <Instagram size={iconSize} color="#343A40" />
-        </a>
-      )}
+    <table>
+      <td>
+        {LinkedInLink && (
+          <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
+            <Linkedin size={iconSize} color="#343A40" />
+          </a>
+        )}
+      </td>
+      <td>
+        {GitHubLink && (
+          <a href={GitHubLink} target="_blank" rel="noopener noreferrer">
+            <Github size={iconSize} color="#343A40" />
+          </a>
+        )}
+      </td>
+      <td>
+        {YouTubeLink && (
+          <a href={YouTubeLink} target="_blank" rel="noopener noreferrer">
+            <Youtube size={iconSize} color="#343A40" />
+          </a>
+        )}
+      </td>
+      <td>
+        {TwitterLink && (
+          <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
+            <Twitter size={iconSize} color="#343A40" />
+          </a>
+        )}
+      </td>
+      <td>
+        {FacebookLink && (
+          <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
+            <Facebook size={iconSize} color="#343A40" />
+          </a>
+        )}
+      </td>
+      <td>
+        {InstagramLink && (
+          <a href={InstagramLink} target="_blank" rel="noopener noreferrer">
+            <Instagram size={iconSize} color="#343A40" />
+          </a>
+        )}
+      </td>
     </table>
   );
 };
