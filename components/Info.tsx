@@ -60,11 +60,6 @@ const inputTextLinkData = [
     name: "LinkedInLink",
   },
   {
-    label: "GitHub",
-    id: "GitHubLink",
-    name: "GitHubLink",
-  },
-  {
     label: "YouTube",
     id: "YouTubeLink",
     name: "YouTubeLink",
@@ -97,7 +92,6 @@ const Info = () => {
     workEmail,
     website,
     LinkedInLink,
-    GitHubLink,
     YouTubeLink,
     TwitterLink,
     FacebookLink,
@@ -184,8 +178,6 @@ const Info = () => {
             value={
               item.name === "LinkedInLink"
                 ? LinkedInLink
-                : item.name === "GitHubLink"
-                ? GitHubLink
                 : item.name === "YouTubeLink"
                 ? YouTubeLink
                 : item.name === "TwitterLink"

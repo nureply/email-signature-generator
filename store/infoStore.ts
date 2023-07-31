@@ -11,7 +11,6 @@ interface State {
   workEmail: string;
   website: string;
   LinkedInLink: string;
-  GitHubLink: string;
   YouTubeLink: string;
   TwitterLink: string;
   FacebookLink: string;
@@ -33,7 +32,6 @@ const useInfoStore = create<State>((set) => ({
   workEmail: "johnsmith@nureply.com",
   website: "nureply.com",
   LinkedInLink: "https://www.linkedin.com/in/nureply/",
-  GitHubLink: "https://www.github.com/nureply/",
   YouTubeLink: "https://www.youtube.com/user/nureply/",
   TwitterLink: "https://www.twitter.com/nureply/",
   FacebookLink: "https://www.facebook.com/nureply/",
