@@ -16,6 +16,7 @@ interface State {
   FacebookLink: string;
   InstagramLink: string;
   image: string;
+  imageUrl: string | ArrayBuffer | null;
 
   setInfoOutput: (newInfoOutput: Partial<State>) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
@@ -37,6 +38,7 @@ const useInfoStore = create<State>((set) => ({
   FacebookLink: "https://www.facebook.com/nureply/",
   InstagramLink: "https://www.instagram.com/nureply/",
   image: "/initialIcon.png",
+  imageUrl: "/initialIcon.png", // since this is not a URL, copying this won't work, custom images currently seem to work
 
   setInfoOutput: (newInfoOutput) => {
     set((state) => ({ ...state, ...newInfoOutput }));
@@ -53,10 +55,15 @@ const useInfoStore = create<State>((set) => ({
   onImageChange: (e) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
-      set((state) => ({
-        ...state,
-        image: URL.createObjectURL(file),
-      }));
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = reader.result;
+        set((state) => ({
+          ...state,
+          imageUrl: dataUrl,
+        }));
+      };
+      reader.readAsDataURL(file);
     }
   },
 }));
