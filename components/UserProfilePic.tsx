@@ -5,7 +5,7 @@ import useCustomizationStore from "@/store/customizationStore";
 
 const UserProfilePic = () => {
   const { imageSize } = useCustomizationStore();
-  const { imageUrl } = useInfoStore(); 
+  const { imageURL } = useInfoStore(); 
   const { template } = useTemplateStore();
 
   if (template.id === "plainText") {
@@ -14,7 +14,7 @@ const UserProfilePic = () => {
 
   return (
     <img
-      src={imageUrl}
+      src={imageURL}
       alt="Profile Image"
       width={imageSize}
       height={imageSize}

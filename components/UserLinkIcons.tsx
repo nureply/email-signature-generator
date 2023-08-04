@@ -3,7 +3,6 @@ import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
 import {
   Facebook,
-  Github,
   Instagram,
   Linkedin,
   Twitter,
@@ -13,7 +12,6 @@ import {
 const UserLinkIcons = () => {
   const {
     LinkedInLink,
-    GitHubLink,
     YouTubeLink,
     TwitterLink,
     FacebookLink,
@@ -31,13 +29,6 @@ const UserLinkIcons = () => {
         {LinkedInLink && (
           <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
             <Linkedin size={iconSize} color="#343A40" />
-          </a>
-        )}
-      </td>
-      <td>
-        {GitHubLink && (
-          <a href={GitHubLink} target="_blank" rel="noopener noreferrer">
-            <Github size={iconSize} color="#343A40" />
           </a>
         )}
       </td>

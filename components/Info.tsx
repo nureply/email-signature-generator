@@ -2,7 +2,17 @@ import React from "react";
 import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
 import InputText from "./InputText";
+import Tooltip from "./Tooltip";
 
+const imageData = [
+  {
+    label: "Image URL",
+    id: "imageURL",
+    name: "imageURL",
+    type: "text",
+    tooltip: "Add the URL of your profile picture",
+  },
+]
 const signOffOptions = [
   { value: "", label: "Select a sign-off" },
   { value: "Best,", label: "Best," },
@@ -97,6 +107,7 @@ const Info = () => {
     FacebookLink,
     InstagramLink,
     handleChange,
+    imageURL,
     onImageChange,
   } = useInfoStore();
 
@@ -108,6 +119,29 @@ const Info = () => {
           secondary="Enter your data and see how it looks on your selected layout"
         />
       </div>
+
+      <div className="my-4 pb-4 border-b border-background">
+        <div className="mx-2 my-4">
+          <Heading
+            type="Description"
+            primary="Add a photo"
+            secondary="Can be both square or round"
+          />
+        </div>
+        {imageData.map((item) => (
+            <div key={item.id} className="relative">
+              <InputText
+                label={item.label}
+                id={item.id}
+                name={item.name}
+                value={imageURL}
+                onChange={handleChange}
+                type="text"
+              />
+              {item.tooltip && <Tooltip tooltipText={item.tooltip} />}
+            </div>
+          ))}
+        </div>
 
       <div className="m-4 pb-4 border-b border-background">
         <select
@@ -192,33 +226,6 @@ const Info = () => {
             type="link"
           />
         ))}
-      </div>
-
-      <div className="my-4 pb-4 border-b border-background">
-        <div className="mx-2 my-4">
-          <Heading
-            type="Description"
-            primary="Add a photo"
-            secondary="Can be both square or round"
-          />
-        </div>
-        <div className="flex items-center justify-center">
-          <label
-            className="group block w-fit my-6 p-4 bg-background rounded-lg border-2 border-nureply-blue-full font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors relative overflow-hidden"
-            htmlFor="image"
-          >
-            Upload Image
-            <span className="absolute bottom-0 left-0 w-full h-0 bg-nureply-blue-tint transition-all duration-500 group-hover:h-full"></span>
-          </label>
-          <input
-            className="hidden"
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={onImageChange}
-          />
-        </div>
       </div>
     </div>
   );
