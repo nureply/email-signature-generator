@@ -2,7 +2,7 @@ import Signature from "./Signature";
 
 const Preview = () => {
   return (
-    <div className="w-full rounded-lg bg-gray-100">
+    <div className="w-full rounded-lg border-2 border-gray-500">
       <div className="w-full h-7 rounded-lg bg-gray-100 flex gap-3">
         <div className="w-3 h-3 rounded-full bg-[#FD4646] ml-3 mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#FEB024] mt-2"></div>
@@ -23,7 +23,9 @@ const Preview = () => {
         </div>
         <span>-----</span>
       </div>
-      <Signature />
+      <div className="p-4">
+        <Signature />
+      </div>
     </div>
   );
 };

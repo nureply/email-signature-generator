@@ -36,7 +36,7 @@ const useInfoStore = create<State>((set) => ({
   TwitterLink: "https://www.twitter.com/nureply/",
   FacebookLink: "https://www.facebook.com/nureply/",
   InstagramLink: "https://www.instagram.com/nureply/",
-  image: "/initialIcon.png",
+  image: "https://i.imgur.com/fyYcdUD.png",
 
   setInfoOutput: (newInfoOutput) => {
     set((state) => ({ ...state, ...newInfoOutput }));

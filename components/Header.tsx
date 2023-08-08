@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-
 import iconNureply from "../assets/Nureply/logofull.png";
 
 const Header = () => {
@@ -35,10 +34,10 @@ const Header = () => {
       </div>
 
       <button
-        className="px-8 py-2 rounded-xl bg-background border-2 border-nureply-blue-full font-semibold text-nureply-blue-full cursor-not-allowed"
+        className="px-8 py-2 rounded-xl bg-background border-2 border-nureply-blue-full font-semibold text-nureply-blue-full "
         onClick={handleGenerateClick}
       >
-        Generate
+        Copy
       </button>
     </header>
   );
