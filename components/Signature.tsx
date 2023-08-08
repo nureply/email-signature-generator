@@ -3,11 +3,9 @@ import UserProfilePic from "./UserProfilePic";
 import UserPersonalInfo from "./UserPersonalInfo";
 import UserLinkIcons from "./UserLinkIcons";
 import { useTemplateStore } from "@/store/templateStore";
-import { useSignatureStore } from "@/store/signatureStore";
 
 const Signature = () => {
   const { template } = useTemplateStore();
-  const { setSignature } = useSignatureStore();
 
   const renderSignature = () => {
     switch (template.id) {
