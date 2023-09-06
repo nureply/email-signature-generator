@@ -1,13 +1,7 @@
 import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 
 const UserLinkIcons = () => {
   const {

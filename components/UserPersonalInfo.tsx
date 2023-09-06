@@ -1,6 +1,8 @@
 import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
 
+import { MapPin, Mail, Globe, Phone } from "lucide-react";
+
 const UserPersonalInfo = () => {
   const {
     signOff,
@@ -12,18 +14,18 @@ const UserPersonalInfo = () => {
     workEmail,
     website,
   } = useInfoStore();
-  const { fontSize, nameFont, linkColor, textColor, nameColor } =
+  const { fontSize, nameFont, linkColor, textColor, nameColor, iconSize } =
     useCustomizationStore();
 
   return (
     <table
-    cellPadding={0}
-    cellSpacing={0}
+      cellPadding={0}
+      cellSpacing={0}
       style={{
         fontSize: `${fontSize}px`,
         fontFamily: nameFont,
         color: textColor,
-        borderCollapse: "collapse"
+        borderCollapse: "collapse",
       }}
     >
       <tr>
@@ -40,16 +42,44 @@ const UserPersonalInfo = () => {
         </td>
       </tr>
       <tr>
-        <td>{workEmail}</td>
+        <td style={{ display: "flex" }}>
+          {workEmail && (
+            <>
+              <Mail size={iconSize} />
+            </>
+          )}
+          {workEmail}
+        </td>
       </tr>
       <tr style={{ color: linkColor }}>
-        <td>{website}</td>
+        <td style={{ display: "flex" }}>
+          {website && (
+            <>
+              <Globe size={iconSize} />
+            </>
+          )}
+          {website}
+        </td>
       </tr>
       <tr>
-        <td>{phoneNumber}</td>
+        <td style={{ display: "flex" }}>
+          {phoneNumber && (
+            <>
+              <Phone size={iconSize} />
+            </>
+          )}
+          {phoneNumber}
+        </td>
       </tr>
       <tr>
-        <td>{workAddress}</td>
+        <td style={{ display: "flex" }}>
+          {workAddress && (
+            <>
+              <MapPin size={iconSize} />
+            </>
+          )}
+          {workAddress}
+        </td>
       </tr>
     </table>
   );
