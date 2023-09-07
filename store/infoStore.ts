@@ -16,14 +16,15 @@ interface State {
   FacebookLink: string;
   InstagramLink: string;
   image: string;
+  imageURL: string;
 
   setInfoOutput: (newInfoOutput: Partial<State>) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
-  onImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onImageChange: (url: string) => void;
 }
 
 const useInfoStore = create<State>((set) => ({
-  signOff: "Best regards,",
+  signOff: "",
   fullName: "John Smith",
   jobTitle: "Manager",
   company: "Nureply",
@@ -36,7 +37,8 @@ const useInfoStore = create<State>((set) => ({
   TwitterLink: "https://www.twitter.com/nureply/",
   FacebookLink: "https://www.facebook.com/nureply/",
   InstagramLink: "https://www.instagram.com/nureply/",
-  image: "https://i.imgur.com/fyYcdUD.png",
+  image: "/initialIcon.png",
+  imageURL: "/initialIcon.png",
 
   setInfoOutput: (newInfoOutput) => {
     set((state) => ({ ...state, ...newInfoOutput }));
@@ -50,14 +52,11 @@ const useInfoStore = create<State>((set) => ({
     }));
   },
 
-  onImageChange: (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      const file = e.target.files[0];
-      set((state) => ({
-        ...state,
-        image: URL.createObjectURL(file),
-      }));
-    }
+  onImageChange: (url) => {
+    set((state) => ({
+      ...state,
+      imageURL: url,
+    }));
   },
 }));
 
