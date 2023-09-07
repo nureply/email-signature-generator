@@ -73,7 +73,7 @@ const Signature = () => {
                     </tbody>
                   </table>
                 </td>
-                <td style={{ paddingRight: "16px" }}>
+                <td style={{ paddingLeft: "16px" }}>
                   <UserProfilePic />
                 </td>
               </tr>
