@@ -24,7 +24,7 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="flex w-full py-[16px] bg-background">
+      <div className="flex w-full bg-background">
         <aside className="sticky hidden basis-2/12 h-screen top-8 lg:block bg-window border-x-2 border-gray-400">
           {/* Left column area */}
           <div className="grid justify-items-end">

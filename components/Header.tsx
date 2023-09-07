@@ -27,14 +27,14 @@ const Header = () => {
   return (
     <header className="fixed flex z-50 top-0 left-0 right-0 p-2 justify-between items-center bg-window shadow">
       <div className="flex items-center overflow-hidden">
-        <Image className="" src={iconNureply} width={200} alt="" />
+        <Image className="mr-5" src={iconNureply} width={150} alt="" />
         <h1 className="text-xl font-semibold text-default">
           Email Signature Generator
         </h1>
       </div>
 
       <button
-        className="px-8 py-2 rounded-md bg-background border-2 border-nureply-blue-full font-semibold text-nureply-blue-full "
+        className="rounded-md bg-nureply-blue-full px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-nureply-blue-full/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
         onClick={handleGenerateClick}
       >
         Copy
