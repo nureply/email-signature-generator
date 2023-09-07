@@ -8,6 +8,7 @@ import Template from "@/components/Template";
 import { useStepStore } from "@/store/stepStore";
 import { useTemplateStore } from "@/store/templateStore";
 import Signature from "@/components/Signature";
+import Upload from "@/components/Upload";
 
 export default function Home() {
   const { step } = useStepStore();
@@ -31,17 +32,33 @@ export default function Home() {
           </div>
         </aside>
 
-        <main className=" basis-4/12 bg-window overflow-y-auto max-h-screen">
+        {step === 0
+        ?
+        <main className=" basis-10/12 bg-window overflow-y-auto max-h-screen">
+          {step === 0 && <Upload />}
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
         </main>
+        :
+        <main className=" basis-4/12 bg-window overflow-y-auto max-h-screen">
+          {step === 0 && <Info />}
+          {step === 1 && <Template />}
+          {step === 2 && <Info />}
+          {step === 3 && <Customization />}
+        </main>
+        }
 
+        {step === 0
+        ?
+        null
+        :
         <aside className="sticky hidden basis-6/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-gray-400">
           <div className="p-10">
             <Preview />
           </div>
         </aside>
+        }
       </div>
     </>
   );

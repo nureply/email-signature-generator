@@ -1,9 +1,9 @@
 import { useStepStore } from "@/store/stepStore";
 import { useTemplateStore } from "@/store/templateStore";
 import clsx from "clsx";
-import { LayoutTemplate, UserCircle, Wrench } from "lucide-react";
+import { LayoutTemplate, UserCircle, Wrench, Info } from "lucide-react";
 
-const steps = [1, 2, 3];
+const steps = [0, 1, 2, 3];
 
 const Step = () => {
   const { step, setStep } = useStepStore();
@@ -63,6 +63,13 @@ export default Step;
 
 const stepsPicker = (mapStep: number, step: number) => {
   switch (mapStep) {
+    case 0:
+      return (
+        <div className="flex items-center gap-3">
+          <Info color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
+          <div className="">INFO</div>
+        </div>
+      );
     case 1:
       return (
         <div className="flex items-center gap-3">
