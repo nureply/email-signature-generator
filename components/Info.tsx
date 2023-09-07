@@ -4,8 +4,6 @@ import Heading from "./Heading";
 import InputText from "./InputText";
 import Tooltip from "./Tooltip";
 
-import { Home, Mail, Globe, Phone } from "lucide-react";
-
 const imageData = [
   {
     label: "Image URL",

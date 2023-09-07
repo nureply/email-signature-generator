@@ -21,7 +21,7 @@ const Preview = () => {
 
       <div className="m-5">
         <div>{"Hey,"}</div>
-        <div>Some say email signatures can alarm deliverability filters.</div>
+        <div>We started using professional email signatures! Some say they can alarm deliverability filters, though.</div>
         <span>-----</span>
       </div>
       <Signature />

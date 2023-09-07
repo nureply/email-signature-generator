@@ -1,8 +1,6 @@
 import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
 
-import { MapPin, Mail, Globe, Phone } from "lucide-react";
-
 const UserPersonalInfo = () => {
   const {
     signOff,
@@ -45,7 +43,8 @@ const UserPersonalInfo = () => {
         <td style={{ display: "flex" }}>
           {workEmail && (
             <>
-              <Mail size={iconSize} />
+              <img src="https://i.imgur.com/JTfwuQG.png" width={iconSize} height={iconSize} />
+               
             </>
           )}
           {workEmail}
@@ -55,7 +54,8 @@ const UserPersonalInfo = () => {
         <td style={{ display: "flex" }}>
           {website && (
             <>
-              <Globe size={iconSize} />
+              <img src="https://i.imgur.com/HLoZI2E.png" width={iconSize} height={iconSize} />
+               
             </>
           )}
           {website}
@@ -65,7 +65,8 @@ const UserPersonalInfo = () => {
         <td style={{ display: "flex" }}>
           {phoneNumber && (
             <>
-              <Phone size={iconSize} />
+              <img src="https://i.imgur.com/m6mkG6W.png" width={iconSize} height={iconSize} />
+               
             </>
           )}
           {phoneNumber}
@@ -75,7 +76,8 @@ const UserPersonalInfo = () => {
         <td style={{ display: "flex" }}>
           {workAddress && (
             <>
-              <MapPin size={iconSize} />
+              <img src="https://i.imgur.com/1BFyCw1.png" width={iconSize} height={iconSize} />
+               
             </>
           )}
           {workAddress}
