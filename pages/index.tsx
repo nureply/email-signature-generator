@@ -42,7 +42,7 @@ export default function Home() {
           {step === 3 && <Customization />}
         </main>
 
-        {step != 0 && (
+        {step !== 0 && (
           <aside className="sticky hidden basis-6/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-gray-400">
             <div className="p-10">
               <Preview />

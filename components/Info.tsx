@@ -12,7 +12,7 @@ const imageData = [
     type: "text",
     tooltip: "Add the URL of your profile picture",
   },
-]
+];
 const signOffOptions = [
   { value: "", label: "Select a sign-off" },
   { value: "Best,", label: "Best," },
@@ -108,7 +108,6 @@ const Info = () => {
     InstagramLink,
     handleChange,
     imageURL,
-    onImageChange,
   } = useInfoStore();
 
   return (
@@ -129,23 +128,23 @@ const Info = () => {
           />
         </div>
         {imageData.map((item) => (
-            <div key={item.id} className="relative">
-              <InputText
-                label={item.label}
-                id={item.id}
-                name={item.name}
-                value={imageURL}
-                onChange={handleChange}
-                type="text"
-              />
-              {item.tooltip && <Tooltip tooltipText={item.tooltip} />}
-            </div>
-          ))}
-        </div>
+          <div key={item.id} className="relative">
+            <InputText
+              label={item.label}
+              id={item.id}
+              name={item.name}
+              value={imageURL}
+              onChange={handleChange}
+              type="text"
+            />
+            {item.tooltip && <Tooltip tooltipText={item.tooltip} />}
+          </div>
+        ))}
+      </div>
 
       <div className="m-4 pb-4 border-b border-background">
         <select
-          className="block w-full py-2 pl-2 pr-8 rounded-md border-2 border-highlight focus:outline-none text-fade"
+          className="block w-full py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none text-fade"
           name="signOff"
           onChange={handleChange}
           value={signOff}

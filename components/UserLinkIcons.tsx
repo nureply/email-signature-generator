@@ -45,7 +45,7 @@ const UserLinkIcons = () => {
           {TwitterLink && (
             <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
               <img
-                src="https://i.imgur.com/Cxm9ewg.png"
+                src="https://imgur.com/gmuTUFy.png"
                 height={iconSize}
                 width={iconSize}
               />

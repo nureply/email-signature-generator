@@ -13,7 +13,7 @@ const UserPersonalInfo = () => {
     workEmail,
     website,
   } = useInfoStore();
-  const { fontSize, nameFont, linkColor, textColor, nameColor } =
+  const { fontSize, nameFont, linkColor, textColor, nameColor, iconSize } =
     useCustomizationStore();
   const { template } = useTemplateStore();
 
