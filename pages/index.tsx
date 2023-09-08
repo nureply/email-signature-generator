@@ -34,7 +34,10 @@ export default function Home() {
         </aside>
 
         <main
-          className={`basis-${step === 0 ? 10 : 4}/12 bg-window overflow-y-auto max-h-screen`}
+          className={clsx(
+            " bg-window overflow-y-auto max-h-screen",
+            step === 0 ? "basis-10/12" : "basis-4/12"
+          )}
         >
           {step === 0 && <Upload />}
           {step === 1 && <Template />}
