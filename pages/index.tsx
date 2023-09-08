@@ -9,6 +9,7 @@ import { useStepStore } from "@/store/stepStore";
 import { useTemplateStore } from "@/store/templateStore";
 import Signature from "@/components/Signature";
 import clsx from "clsx";
+import Upload from "@/components/Upload";
 
 export default function Home() {
   const { step } = useStepStore();
@@ -33,13 +34,9 @@ export default function Home() {
         </aside>
 
         <main
-          className={clsx(
-            " basis-4/12 bg-window overflow-y-auto max-h-screen",
-            {
-              "basis-10/12": step === 0,
-            }
-          )}
+          className={`basis-${step === 0 ? 10 : 4}/12 bg-window overflow-y-auto max-h-screen`}
         >
+          {step === 0 && <Upload />}
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
