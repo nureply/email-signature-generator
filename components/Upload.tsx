@@ -20,98 +20,93 @@ const Upload = () => {
         <>
             <div className="m-6">
                 <div className='py-20'>
-                <h1 className="not-italic text-6xl text-center font-bold mb-4 ">Free email signature generator</h1>
-                <p className="not-italic text-xl text-center mb-4">Get a professional email signature that won’t send your emails to spam</p>
-                
+                    <h1 className="not-italic text-5xl text-center font-bold mb-4 ">Create Your Professional Email Signature</h1>
+                    <p className="not-italic text-xl text-center mb-4">Upgrade Your Email Signature for a Professional Look Without Email Delivery Issues.</p>
                 </div>
-               
-                
-                
-
                 <div className="min-h-screen bg-white mx-auto max-w-3xl ">
-                <h1 className=" text-2xl font-semibold mb-4">How to make an email signature?</h1>
-                    <div onClick={() => toggleAccordion(1)} className="p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer">
+                    <h1 className=" text-2xl font-semibold mb-4">How to make an email signature?</h1>
+                    <div onClick={() => toggleAccordion(1)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 1 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 1 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
-                            <h4 className="text-xl text-black ">
-                                Choose a template
-                            </h4>
+                            <p className="text-xl">
+                            Choose the Appropriate Template
+                            </p>
                         </div>
                     </div>
                     {openAccordion === 1 && (
                         <div className="w-full bg-white p-4">
-                            <h4 className="text-lg text-gray-900 ml-14">Pick a template and fill it with your personal &amp; professional details.</h4>
+                            <h4 className="text-gray-900 ml-14">Choose a Template and Customize Your Personal and Professional Information</h4>
                         </div>
                     )}
                     <hr className="border-b-1 border-black" />
-                    <div onClick={() => toggleAccordion(2)} className="p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer">
+                    <div onClick={() => toggleAccordion(2)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 2 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-10 w-10 ml-2 ${openAccordion === 2 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" >
+                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 2 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
-                            <h4 className=" text-3xl text-black">
-                                Pick your style
+                            <h4 className="text-xl">
+                            Select Your Preferred Style
                             </h4>
                         </div>
                     </div>
                     {openAccordion === 2 && (
                         <div className="w-full bg-white p-4">
-                            <h4 className="text-2xl text-black ml-14">Style it the way you like it. Choose the font &amp; color, and what the icons should look like.</h4>
+                            <h4 className="text-gray-900 ml-14">Personalize Your Style – Pick the Font, Color, and Icon Design</h4>
                         </div>
                     )}
                     <hr className="border-b-1 border-black" />
-                    <div onClick={() => toggleAccordion(3)} className="p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer">
+                    <div onClick={() => toggleAccordion(3)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 3 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-10 w-10 ml-2 ${openAccordion === 3 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 3 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
-                            <h4 className="text-3xl text-black">
-                                Create your email signature
+                            <h4 className="text-xl">
+                            Design Your Email Signature
                             </h4>
                         </div>
                     </div>
                     {openAccordion === 3 && (
                         <div className="w-full bg-white p-4">
-                            <h4 className="text-2xl text-black ml-14">Get a professional email signature that makes you look good &amp; won't harm your email deliverability.</h4>
+                            <h4 className="text-gray-900 ml-14">Create a Professional Email Signature that Enhances Your Image and Doesn't Impact Your Email Delivery.</h4>
                         </div>
                     )}
-                    <hr className="border-b-1 border-black" /> 
-                    <div onClick={() => toggleAccordion(4)} className="p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer">
+                    <hr className="border-b-1 border-black" />
+                    <div onClick={() => toggleAccordion(4)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 4 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-10 w-10 ml-2 ${openAccordion === 4 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 4 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
-                            <h4 className="text-3xl text-black">
-                                Add it to your email client
+                            <h4 className="text-xl">
+                            Integrate It with Your Email Client
                             </h4>
                         </div>
                     </div>
                     {openAccordion === 4 && (
                         <div className="w-full bg-white p-4">
-                            <h4 className="text-2xl text-black ml-14 ">Follow our step-by-steps to add your brand new email signature to Woodpecker, Gmail, Outlook, Yahoo! or Apple Mail.</h4>
+                            <h4 className="text-gray-900 ml-14 ">Follow Our Step-by-Step Guide to Add Your Fresh Email Signature to Nureply, Gmail, Outlook, Yahoo!, or Apple Mail.</h4>
                         </div>
                     )}
-                    <hr className="border-b-1 border-black" /> 
-                    <div onClick={() => toggleAccordion(5)} className="p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer">
+                    <hr className="border-b-1 border-black" />
+                    <div onClick={() => toggleAccordion(5)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 5 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-10 w-10 ml-2 ${openAccordion === 5 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 5 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
-                            <h4 className="text-3xl text-black">Tag your colleagues in</h4>
+                            <h4 className="text-xl">
+                            Mention Your Colleagues in
+                            </h4>
                         </div>
                     </div>
                     {openAccordion === 5 && (
                         <div className="w-full bg-white p-4 ml-14">
-                            <h4 className="text-2xl text-black">Got your email signature? Great. Now it's time to make your email signatures look professional and concise across the whole company. Send the HTML code you've downloaded to your colleagues, so they can easily modify it with their data in our generator.</h4>
+                            <h4 className="text-gray-900">Have Your Email Signature Ready? Excellent! It's Time to Standardize Professional and Concise Signatures Across the Entire Company. Share the Downloaded HTML Code with Your Colleagues, Allowing Them to Easily Personalize it with Their Information Using Our Generator.</h4>
                         </div>
                     )}
                     <hr className="border-b-1 border-black" />
-                    </div>
-                   
                 </div>
-            
+            </div>
         </>
     );
 };

@@ -8,7 +8,6 @@ import Template from "@/components/Template";
 import { useStepStore } from "@/store/stepStore";
 import { useTemplateStore } from "@/store/templateStore";
 import Signature from "@/components/Signature";
-import clsx from "clsx";
 import Upload from "@/components/Upload";
 
 export default function Home() {
@@ -25,30 +24,23 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="flex w-full py-[16px] bg-background">
-        <aside className="sticky hidden basis-2/12 h-screen top-8 lg:block bg-window border-x-2 border-gray-400">
-          {/* Left column area */}
+      <div className="flex w-full py-10 bg-background">
+        <aside className="sticky hidden lg:block basis-2/12 h-screen top-8 bg-window border-x-2 border-gray-400">
+          {/* Sol sütun alanı */}
           <div className="grid justify-items-end">
             <Step />
           </div>
         </aside>
 
-        <main
-          className={clsx(
-            " basis-4/12 bg-window overflow-y-auto max-h-screen",
-            {
-              "basis-10/12": step === 0,
-            }
-          )}
-        >
+        <main className={`basis-${step === 0 ? '10' : '4'}/12 bg-window overflow-y-auto max-h-screen`}>
+          {step === 0 && <Upload />}
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
-          {step === 0 &&  <Upload />}
         </main>
 
-        {step != 0 && (
-          <aside className="sticky hidden basis-6/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-gray-400">
+        {step !== 0 && (
+          <aside className="sticky hidden xl:block basis-6/12 h-screen top-8 p-5 bg-window border-x-2 border-gray-400">
             <div className="p-10">
               <Preview />
             </div>
