@@ -112,7 +112,7 @@ const Info = () => {
 
   return (
     <div className="m-8">
-      <div className="p-4 border-b border-background">
+      <div className="m-2 py-4 border-b border-background">
         <Heading
           primary="Your info"
           secondary="Enter your data and see how it looks on your selected layout"
@@ -142,7 +142,7 @@ const Info = () => {
         ))}
       </div>
 
-      <div className="m-4 pb-4 border-b border-background">
+      <div className="pb-4 border-b border-background">
         <select
           className="block w-full py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none text-fade"
           name="signOff"

@@ -101,8 +101,7 @@ const UserPersonalInfo = () => {
                       <>
                         <img
                           src="https://i.imgur.com/m6mkG6W.png"
-                          width={iconSize}
-                          height={iconSize}
+                          className="scale-[0.65]"
                         />
                       </>
                     )}
@@ -113,8 +112,7 @@ const UserPersonalInfo = () => {
                       <>
                         <img
                           src="https://i.imgur.com/JTfwuQG.png"
-                          width={iconSize}
-                          height={iconSize}
+                          className="scale-[0.65]"
                         />
                       </>
                     )}
@@ -142,8 +140,7 @@ const UserPersonalInfo = () => {
                       <>
                         <img
                           src="https://i.imgur.com/1BFyCw1.png"
-                          width={iconSize}
-                          height={iconSize}
+                          className="scale-[0.65]"
                         />
                       </>
                     )}
@@ -154,8 +151,7 @@ const UserPersonalInfo = () => {
                       <>
                         <img
                           src="https://i.imgur.com/HLoZI2E.png"
-                          width={iconSize}
-                          height={iconSize}
+                          className="scale-[0.65]"
                         />
                       </>
                     )}

@@ -18,7 +18,7 @@ const sliderData = [
     id: "iconSize",
     name: "iconSize",
     min: 16,
-    max: 24,
+    max: 20,
     step: 1,
   },
   {
@@ -26,7 +26,7 @@ const sliderData = [
     id: "imageSize",
     name: "imageSize",
     min: 120,
-    max: 240,
+    max: 200,
     step: 10,
   },
 ];
