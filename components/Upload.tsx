@@ -12,9 +12,7 @@ const Upload = () => {
         }
     };
 
-    const {
-        onImageChange,
-    } = useInfoStore();
+    const { onImageChange } = useInfoStore();
 
     return (
         <>
@@ -24,8 +22,8 @@ const Upload = () => {
                     <p className="not-italic text-xl text-center mb-4">Upgrade Your Email Signature for a Professional Look Without Email Delivery Issues.</p>
                 </div>
                 <div className="min-h-screen bg-white mx-auto max-w-3xl ">
-                    <p className=" text-2xl font-semibold mb-4">How to make an email signature?</p>
-                    <div onClick={() => toggleAccordion(1)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 1 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
+                    <p className=" text-2xl text-center font-semibold mb-4">How to make an email signature?</p>
+                    <div onClick={() => toggleAccordion(1)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer ${openAccordion === 1 ? 'bg-gray-200 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 1 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -41,7 +39,7 @@ const Upload = () => {
                         </div>
                     )}
                     <hr className="border-b-1 border-black" />
-                    <div onClick={() => toggleAccordion(2)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 2 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
+                    <div onClick={() => toggleAccordion(2)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer ${openAccordion === 2 ? 'bg-gray-200 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 2 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -57,7 +55,7 @@ const Upload = () => {
                         </div>
                     )}
                     <hr className="border-b-1 border-black" />
-                    <div onClick={() => toggleAccordion(3)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 3 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
+                    <div onClick={() => toggleAccordion(3)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer ${openAccordion === 3 ? 'bg-gray-200 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 3 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -73,7 +71,7 @@ const Upload = () => {
                         </div>
                     )}
                     <hr className="border-b-1 border-black" />
-                    <div onClick={() => toggleAccordion(4)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 4 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
+                    <div onClick={() => toggleAccordion(4)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer ${openAccordion === 4 ? 'bg-gray-200 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 4 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -89,7 +87,7 @@ const Upload = () => {
                         </div>
                     )}
                     <hr className="border-b-1 border-black" />
-                    <div onClick={() => toggleAccordion(5)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer transform transition-transform duration-300 ease-in-out ${openAccordion === 5 ? 'bg-gray-200 scale-105 text-nureply-blue-full' : 'bg-white text-black'}`}>
+                    <div onClick={() => toggleAccordion(5)} className={`p-4 bg-white w-full rounded flex justify-between items-center cursor-pointer ${openAccordion === 5 ? 'bg-gray-200 text-nureply-blue-full' : 'bg-white text-black'}`}>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ml-2 ${openAccordion === 5 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -104,7 +102,7 @@ const Upload = () => {
                             <p className="text-gray-900">Have Your Email Signature Ready? Excellent! It's Time to Standardize Professional and Concise Signatures Across the Entire Company. Share the Downloaded HTML Code with Your Colleagues, Allowing Them to Easily Personalize it with Their Information Using Our Generator.</p>
                         </div>
                     )}
-                    <hr className="border-b-1 border-black" />
+                    <hr className="border-b-1 border-black " />
                 </div>
             </div>
         </>
