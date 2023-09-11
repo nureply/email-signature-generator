@@ -96,8 +96,30 @@ const UserPersonalInfo = () => {
             <table>
               <tbody>
                 <tr>
-                  <td>{phoneNumber}</td>
-                  <td style={{ paddingLeft: "16px" }}>{workEmail}</td>
+                  <td>
+                    {phoneNumber && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/m6mkG6W.png"
+                          width={iconSize}
+                          height={iconSize}
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px" }}>{phoneNumber}</td>
+                  <td style={{ paddingLeft: "16px" }}>
+                    {workEmail && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/JTfwuQG.png"
+                          width={iconSize}
+                          height={iconSize}
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px" }}>{workEmail}</td>
                 </tr>
               </tbody>
             </table>
@@ -115,8 +137,30 @@ const UserPersonalInfo = () => {
             <table>
               <tbody>
                 <tr>
-                  <td>{workAddress}</td>
-                  <td style={{ paddingLeft: "16px", color: linkColor }}>
+                  <td>
+                    {workAddress && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/1BFyCw1.png"
+                          width={iconSize}
+                          height={iconSize}
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px" }}>{workAddress}</td>
+                  <td style={{ paddingLeft: "16px" }}>
+                    {website && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/HLoZI2E.png"
+                          width={iconSize}
+                          height={iconSize}
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px", color: linkColor }}>
                     <a href={website}>{website}</a>
                   </td>
                 </tr>
