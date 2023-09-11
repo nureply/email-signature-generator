@@ -65,7 +65,7 @@ const Template = () => {
             setTemplate(item.id);
           }}
           className={clsx(
-            "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
+            "bg-gray-200 mt-10 rounded-lg text-center w-4/5 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
             {
               "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
                 item.id === template.id,

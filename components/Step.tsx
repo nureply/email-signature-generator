@@ -37,7 +37,7 @@ const Step = () => {
           <div
             key={mapStep}
             className={clsx(
-              "ml-10 bg-window -mr-[2px] my-5 w-2/5 text-[#CFD4DA]",
+              " bg-window -mr-[1.5px] my-5 w-4/5 text-[#CFD4DA]",
               {
                 "cursor-pointer": isStepClickable(mapStep),
               }

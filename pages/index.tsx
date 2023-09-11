@@ -26,7 +26,7 @@ export default function Home() {
       </div>
 
       <div className="flex w-full bg-background">
-        <aside className="sticky hidden basis-2/12 h-screen top-8 lg:block bg-window border-x-2 border-gray-400">
+        <aside className="sticky hidden basis-1/12 h-screen top-8 lg:block bg-window ">
           {/* Left column area */}
           <div className="grid justify-items-end">
             <Step />
@@ -35,8 +35,8 @@ export default function Home() {
 
         <main
           className={clsx(
-            " bg-window overflow-y-auto max-h-screen",
-            step === 0 ? "basis-10/12" : "basis-4/12"
+            " bg-window overflow-y-auto max-h-screen border-l-2 border-gray-400",
+            step === 0 ? "basis-11/12" : "basis-3/12"
           )}
         >
           {step === 0 && <Upload />}
@@ -46,7 +46,7 @@ export default function Home() {
         </main>
 
         {step !== 0 && (
-          <aside className="sticky hidden basis-6/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-gray-400">
+          <aside className="sticky hidden basis-8/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-gray-400">
             <div className="p-10">
               <Preview />
             </div>
