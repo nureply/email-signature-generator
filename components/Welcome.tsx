@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useInfoStore from "../store/infoStore";
 
-const Upload = () => {
+const Welcome = () => {
   const [openAccordion, setOpenAccordion] = useState(null);
 
   const toggleAccordion = (index: any) => {
@@ -211,4 +211,4 @@ const Upload = () => {
   );
 };
 
-export default Upload;
+export default Welcome;
