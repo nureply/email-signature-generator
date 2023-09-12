@@ -102,7 +102,7 @@ const ColorPicker = ({
                 isValidHex === null
                   ? ""
                   : isValidHex
-                  ? "border-valid"
+                  ? "" // empty but a color like green can be
                   : "border-invalid",
               )}
               placeholder="#"

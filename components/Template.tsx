@@ -56,6 +56,9 @@ const Template = () => {
           primary="Templates"
           secondary="Choose a template to start building your email signature"
         />
+        <p className="text-highlight text-sm">
+          (The customization step is locked for plain text signatures)
+        </p>
       </div>
 
       {templateData.map((item) => (
@@ -69,7 +72,7 @@ const Template = () => {
             {
               "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
                 item.id === template.id,
-            }
+            },
           )}
         >
           {item.label}

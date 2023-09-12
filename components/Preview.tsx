@@ -21,7 +21,10 @@ const Preview = () => {
 
       <div className="m-5">
         <div>{"Hey,"}</div>
-        <div>We started using professional email signatures! Some say they can alarm deliverability filters, though.</div>
+        <div>
+          We started using professional email signatures! Some say they can
+          alarm deliverability filters, though.
+        </div>
         <span>-----</span>
       </div>
       <div className="p-4">

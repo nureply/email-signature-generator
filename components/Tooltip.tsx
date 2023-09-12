@@ -20,7 +20,7 @@ const Tooltip: React.FC<TooltipProps> = ({ tooltipText }) => {
       className="absolute top-2 right-0 text-highlight bg-background cursor-pointer flex items-center justify-center border border-highlight"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{ width: '30px', height: '30px', borderRadius: '50%' }}
+      style={{ width: "30px", height: "30px", borderRadius: "50%" }}
     >
       <span className="">?</span>
       {showTooltip && (
@@ -30,9 +30,6 @@ const Tooltip: React.FC<TooltipProps> = ({ tooltipText }) => {
       )}
     </div>
   );
-
-
 };
-
 
 export default Tooltip;
