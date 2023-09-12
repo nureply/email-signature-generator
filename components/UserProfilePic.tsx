@@ -1,11 +1,11 @@
 import React from "react";
-import  useInfoStore  from "@/store/infoStore";
+import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
 import useCustomizationStore from "@/store/customizationStore";
 
 const UserProfilePic = () => {
   const { imageSize } = useCustomizationStore();
-  const { imageURL } = useInfoStore(); 
+  const { imageURL } = useInfoStore();
   const { template } = useTemplateStore();
 
   if (template.id === "plainText") {
@@ -14,11 +14,11 @@ const UserProfilePic = () => {
 
   return (
     <img
-      src={imageURL}
+      src="https://i.imgur.com/fyYcdUD.png"
       alt="Profile Image"
       width={imageSize}
       height={imageSize}
-      style={{ borderRadius: "50%" }} 
+      style={{ borderRadius: "50%" }}
     />
   );
 };

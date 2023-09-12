@@ -1,5 +1,6 @@
 import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
+import { useTemplateStore } from "@/store/templateStore";
 
 const UserPersonalInfo = () => {
   const {
@@ -12,47 +13,160 @@ const UserPersonalInfo = () => {
     workEmail,
     website,
   } = useInfoStore();
-  const { fontSize, nameFont, linkColor, textColor, nameColor } =
+  const { fontSize, nameFont, linkColor, textColor, nameColor, iconSize } =
     useCustomizationStore();
+  const { template } = useTemplateStore();
 
-  return (
-    <table
-    cellPadding={0}
-    cellSpacing={0}
-      style={{
-        fontSize: `${fontSize}px`,
-        fontFamily: nameFont,
-        color: textColor,
-        borderCollapse: "collapse"
-      }}
-    >
-      <tr>
-        <td>{signOff}</td>
-      </tr>
-      <tr style={{ color: nameColor }}>
-        <td>{fullName}</td>
-      </tr>
-      <tr>
-        <td>
-          {jobTitle}
-          {jobTitle && company ? " | " : ""}
-          {company}
-        </td>
-      </tr>
-      <tr>
-        <td>{workEmail}</td>
-      </tr>
-      <tr style={{ color: linkColor }}>
-        <td>{website}</td>
-      </tr>
-      <tr>
-        <td>{phoneNumber}</td>
-      </tr>
-      <tr>
-        <td>{workAddress}</td>
-      </tr>
-    </table>
-  );
+  if (template.id === "plainText") {
+    return (
+      <div
+        style={{
+          textSizeAdjust: "13px",
+          color: "gray-900",
+          fontFamily: "sans-serif",
+        }}
+      >
+        {signOff}
+        <br />
+        {fullName}
+        <br />
+        {jobTitle} | {company} <br />
+        {phoneNumber}
+        <br />
+        {workEmail}
+        <br />
+        {workAddress}
+        <br />
+        {website}
+      </div>
+    );
+  } else {
+    return (
+      <>
+        <tr
+          style={{
+            color: textColor,
+            fontSize: `${fontSize}px`,
+            fontFamily: nameFont,
+          }}
+        >
+          <td style={{ paddingBottom: "4px" }}>{signOff}</td>
+        </tr>
+        <tr
+          style={{
+            color: textColor,
+            fontSize: `${fontSize}px`,
+            fontFamily: nameFont,
+          }}
+        >
+          <td style={{ color: nameColor, paddingBottom: "4px" }}>{fullName}</td>
+        </tr>
+        <tr
+          style={{
+            borderBottom: "1px solid #868E96",
+            paddingBottom: "4px",
+          }}
+        >
+          <td>
+            <table
+              style={{
+                color: textColor,
+                fontSize: `${fontSize}px`,
+                fontFamily: nameFont,
+              }}
+            >
+              <tbody>
+                <tr>
+                  <td>{jobTitle}</td>
+                  <td style={{ paddingLeft: "16px" }}>{company}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr
+          style={{
+            paddingTop: "4px",
+            color: textColor,
+            fontSize: `${fontSize}px`,
+            fontFamily: nameFont,
+          }}
+        >
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    {phoneNumber && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/m6mkG6W.png"
+                          className="scale-[0.65]"
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px" }}>{phoneNumber}</td>
+                  <td style={{ paddingLeft: "16px" }}>
+                    {workEmail && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/JTfwuQG.png"
+                          className="scale-[0.65]"
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px" }}>{workEmail}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr
+          style={{
+            paddingTop: "4px",
+            color: textColor,
+            fontSize: `${fontSize}px`,
+            fontFamily: nameFont,
+          }}
+        >
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    {workAddress && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/1BFyCw1.png"
+                          className="scale-[0.65]"
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px" }}>{workAddress}</td>
+                  <td style={{ paddingLeft: "16px" }}>
+                    {website && (
+                      <>
+                        <img
+                          src="https://i.imgur.com/HLoZI2E.png"
+                          className="scale-[0.65]"
+                        />
+                      </>
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "6px", color: linkColor }}>
+                    <a href={website}>{website}</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </>
+    );
+  }
 };
 
 export default UserPersonalInfo;

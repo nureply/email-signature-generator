@@ -70,7 +70,7 @@ const InputText: React.FC<InputTextProps> = ({
       <input
         className={clsx(
           "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
-          showValidBorder && "border-valid",
+          showValidBorder && "", // if changing the border color also when the input is valid would be needed, it can be done here
           showInvalidBorder && "border-invalid",
         )}
         type={type}

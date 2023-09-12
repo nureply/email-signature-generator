@@ -2,6 +2,7 @@ import clsx from "clsx";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTemplateStore } from "@/store/templateStore";
 import { AlignJustify, UserCircle } from "lucide-react";
+import Heading from "./Heading";
 
 const templateData: {
   label: string;
@@ -49,7 +50,14 @@ const Template = () => {
   const { template, setTemplate } = useTemplateStore();
 
   return (
-    <>
+    <div className="py-[20px]">
+      <div className="px-12 py-4">
+        <Heading
+          primary="Templates"
+          secondary="Choose a template to start building your email signature"
+        />
+      </div>
+
       {templateData.map((item) => (
         <div
           key={item.id}
@@ -57,11 +65,11 @@ const Template = () => {
             setTemplate(item.id);
           }}
           className={clsx(
-            "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
+            "bg-gray-200 mt-10 rounded-lg text-center w-4/5 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
             {
               "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
                 item.id === template.id,
-            },
+            }
           )}
         >
           {item.label}
@@ -70,7 +78,7 @@ const Template = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
