@@ -24,10 +24,10 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="flex flex-col xl:flex-row w-full bg-background">
-        <aside className="xl:sticky xl:basis-1/12 xl:h-screen xl:top-8 xl:block bg-window ">
+      <div className="flex flex-col xl:flex-row w-full bg-background ">
+        <aside className="xl:sticky xl:basis-1/12 xl:h-screen xl:top-8 xl:block bg-window border-gray-400 border-b-2 max-sm:pt-6 ">
           {/* Left column area */}
-          <div className=" flex xl:flex-col xl:grid flex-row justify-items-end">
+          <div className=" flex xl:flex-col xl:grid flex-row justify-items-end max-xl:justify-center gap-8">
             <Step />
           </div>
         </aside>
@@ -35,14 +35,18 @@ export default function Home() {
         <main
           className={clsx(
             " bg-window overflow-y-auto max-h-screen border-l-2 border-gray-400",
-            step === 0 ? "xl:basis-11/12" : "xl:basis-4/12",
+            step === 0 ? "xl:basis-11/12" : "xl:basis-4/12"
           )}
         >
           {step === 0 && <Welcome />}
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
-          {step === 4 && <Preview />}
+          {step === 4 && (
+            <div className="px-5 pt-10">
+              <Preview />
+            </div>
+          )}
         </main>
 
         {step !== 0 && (
