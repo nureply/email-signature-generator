@@ -2,6 +2,7 @@ import { useStepStore } from "@/store/stepStore";
 import { useTemplateStore } from "@/store/templateStore";
 import clsx from "clsx";
 import { Info, LayoutTemplate, UserCircle, Wrench, Eye } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const steps = [0, 1, 2, 3, 4];
 
@@ -29,12 +30,34 @@ const Step = () => {
     // For other templates and non-zero steps, all steps are clickable
     return true;
   };
-
   const handleStepClick = (mapStep: number) => {
-    if (isStepClickable(mapStep)) {
+    const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+    const xlWidth = 1024;
+
+    if (step === 4 && windowWidth > xlWidth) {
+      setStep(3);
+    } else if (isStepClickable(mapStep)) {
       setStep(mapStep);
     }
   };
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const xlWidth = 1024;
+
+    if (step === 4 && windowWidth > xlWidth) {
+      setStep(3);
+    }
+  }, [windowWidth]);
 
   return (
     <>
@@ -46,7 +69,7 @@ const Step = () => {
               " bg-window lg:-mr-[1.5px] -mb-[1.5px] my-5 lg:mx-5 xl:w-3/5 text-[#CFD4DA]",
               {
                 "cursor-pointer": isStepClickable(mapStep),
-              }
+              },
             )}
             onClick={() => handleStepClick(mapStep)}
           >
@@ -63,7 +86,7 @@ const Step = () => {
                     step === mapStep,
                   "xl:border-y-2 border-x-2 xl:rounded-l-md border-x-gray-400 xl:border-y-gray-400":
                     step === mapStep,
-                }
+                },
               )}
             >
               {stepsPicker(mapStep, step)}

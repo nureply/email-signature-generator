@@ -56,7 +56,7 @@ const Template = () => {
           primary="Templates"
           secondary="Choose a template to start building your email signature"
         />
-        <p className="text-highlight text-sm">
+        <p className="text-fade text-sm">
           (The customization step is locked for plain text signatures)
         </p>
       </div>

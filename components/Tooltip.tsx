@@ -24,7 +24,7 @@ const Tooltip: React.FC<TooltipProps> = ({ tooltipText }) => {
     >
       <span className="">?</span>
       {showTooltip && (
-        <div className="absolute bottom-0 right-4 transform translate-x-1/4 translate-y-1/4 text-sm text-highlight bg-background rounded-md p-2 px-4 border border-highlight">
+        <div className="absolute bottom-0 right-4 transform translate-x-1/4 translate-y-1/4 text-sm text-fade bg-background rounded-md p-2 px-4 border border-fade">
           {tooltipText}
         </div>
       )}

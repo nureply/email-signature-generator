@@ -21,13 +21,13 @@ const Welcome = () => {
           <h1 className="not-italic text-5xl text-center font-bold mb-4 ">
             Create Your Professional Email Signature
           </h1>
-          <p className="not-italic text-xl text-center mb-2">
+          <p className="not-italic text-xl text-center mb-9">
             Upgrade your email signature to a professional look without email
-            delivery issues.
+            deliverability issues.
           </p>
         </div>
         <div className="min-h-screen bg-white mx-auto max-w-3xl ">
-          <p className=" text-2xl text-center font-semibold mb-4">
+          <p className=" text-2xl text-center font-semibold mb-9">
             How to create an email signature?
           </p>
           <div
@@ -131,7 +131,7 @@ const Welcome = () => {
             <div className="w-full bg-white pb-3 pl-3">
               <p className="text-gray-900 ml-12">
                 Create a professional email signature that enhances your image
-                and does not impact your email delivery
+                and does not impact your email deliverability
               </p>
             </div>
           )}

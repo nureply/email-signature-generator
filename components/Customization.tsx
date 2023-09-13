@@ -26,7 +26,7 @@ const sliderData = [
     id: "imageSize",
     name: "imageSize",
     min: 120,
-    max: 200,
+    max: 180,
     step: 10,
   },
 ];
