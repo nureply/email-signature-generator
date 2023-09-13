@@ -57,7 +57,7 @@ const Step = () => {
                   "xl:border-r-2   xl:border-r-gray-400 max-xl:border-b-2 max-xl:border-b-gray-400":
                     step !== mapStep,
                   "text-[#4B67FA]": step === mapStep,
-                  "xl:border-l-2 border-t-2 xl:rounded-l-md rounded-t-md xl:border-l-gray-400 border-t-gray-400":
+                  "xl:border-l-2 border-t-2 xl:rounded-l-md max-lg:rounded-t-md xl:border-l-gray-400 border-t-gray-400":
                     step === mapStep,
                   "xl:border-r-2 xl:border-r-window border-b-window":
                     step === mapStep,
