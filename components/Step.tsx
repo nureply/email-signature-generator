@@ -9,6 +9,8 @@ const steps = [0, 1, 2, 3, 4];
 const Step = () => {
   const { step, setStep } = useStepStore();
   const { template } = useTemplateStore();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
   const isStepClickable = (mapStep: number) => {
     const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
     const xlWidth = 1280;
@@ -41,7 +43,9 @@ const Step = () => {
     }
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window != "undefined" ? window.innerWidth : 0
+  );
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -57,7 +61,21 @@ const Step = () => {
     if (step === 4 && windowWidth > xlWidth) {
       setStep(3);
     }
-  }, [windowWidth]);
+  }, [setStep, step]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -69,7 +87,7 @@ const Step = () => {
               " bg-window lg:-mr-[1.5px] -mb-[1.5px] my-5 lg:mx-5 xl:w-3/5 text-[#CFD4DA]",
               {
                 "cursor-pointer": isStepClickable(mapStep),
-              },
+              }
             )}
             onClick={() => handleStepClick(mapStep)}
           >
@@ -86,10 +104,10 @@ const Step = () => {
                     step === mapStep,
                   "xl:border-y-2 border-x-2 xl:rounded-l-md border-x-gray-400 xl:border-y-gray-400":
                     step === mapStep,
-                },
+                }
               )}
             >
-              {stepsPicker(mapStep, step)}
+              {stepsPicker(mapStep, step, isSmallScreen)}
             </div>
           </div>
         );
@@ -100,14 +118,14 @@ const Step = () => {
 
 export default Step;
 
-const stepsPicker = (mapStep: number, step: number) => {
+const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
   switch (mapStep) {
     case 0:
       return (
         <div className="flex flex-col pl-2 justify-center items-center gap-2">
           <Info
-            width={32}
-            height={32}
+            width={isSmallScreen ? 24 : 32}
+            height={isSmallScreen ? 24 : 32}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Info</div>
@@ -117,8 +135,8 @@ const stepsPicker = (mapStep: number, step: number) => {
       return (
         <div className="flex flex-col justify-center items-center gap-2">
           <LayoutTemplate
-            width={32}
-            height={32}
+            width={isSmallScreen ? 24 : 32}
+            height={isSmallScreen ? 24 : 32}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Step1</div>
@@ -128,8 +146,8 @@ const stepsPicker = (mapStep: number, step: number) => {
       return (
         <div className="flex flex-col justify-center  items-center gap-2">
           <UserCircle
-            width={32}
-            height={32}
+            width={isSmallScreen ? 24 : 32}
+            height={isSmallScreen ? 24 : 32}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Step2</div>
@@ -139,8 +157,8 @@ const stepsPicker = (mapStep: number, step: number) => {
       return (
         <div className="flex flex-col justify-center  items-center gap-2">
           <Wrench
-            width={32}
-            height={32}
+            width={isSmallScreen ? 24 : 32}
+            height={isSmallScreen ? 24 : 32}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Step3</div>
@@ -150,8 +168,8 @@ const stepsPicker = (mapStep: number, step: number) => {
       return (
         <div className="flex flex-col justify-center items-center gap-2 xl:hidden">
           <Eye
-            width={32}
-            height={32}
+            width={isSmallScreen ? 24 : 32}
+            height={isSmallScreen ? 24 : 32}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>View</div>

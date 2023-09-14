@@ -1,7 +1,6 @@
 import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
-import Image from "next/image";
 
 const UserPersonalInfo = () => {
   const {
@@ -100,7 +99,7 @@ const UserPersonalInfo = () => {
                   <td>
                     {phoneNumber && (
                       <>
-                        <Image
+                        <img
                           src="https://i.imgur.com/m6mkG6W.png"
                           className="scale-[0.65]"
                           alt="Phone Number"
@@ -108,11 +107,13 @@ const UserPersonalInfo = () => {
                       </>
                     )}
                   </td>
-                  <td style={{ paddingLeft: "6px" }}>{phoneNumber}</td>
-                  <td style={{ paddingLeft: "16px" }}>
+                  <td style={{ paddingLeft: "6px", width: "150px" }}>
+                    {phoneNumber}
+                  </td>
+                  <td style={{ paddingLeft: "8px" }}>
                     {workEmail && (
                       <>
-                        <Image
+                        <img
                           src="https://i.imgur.com/JTfwuQG.png"
                           className="scale-[0.65]"
                           alt="Email"
@@ -120,7 +121,9 @@ const UserPersonalInfo = () => {
                       </>
                     )}
                   </td>
-                  <td style={{ paddingLeft: "6px" }}>{workEmail}</td>
+                  <td style={{ paddingLeft: "6px", width: "150px" }}>
+                    {workEmail}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -141,7 +144,7 @@ const UserPersonalInfo = () => {
                   <td>
                     {workAddress && (
                       <>
-                        <Image
+                        <img
                           src="https://i.imgur.com/1BFyCw1.png"
                           className="scale-[0.65]"
                           alt="Address"
@@ -149,11 +152,13 @@ const UserPersonalInfo = () => {
                       </>
                     )}
                   </td>
-                  <td style={{ paddingLeft: "6px" }}>{workAddress}</td>
-                  <td style={{ paddingLeft: "16px" }}>
+                  <td style={{ paddingLeft: "6px", width: "150px" }}>
+                    {workAddress}
+                  </td>
+                  <td style={{ paddingLeft: "8px" }}>
                     {website && (
                       <>
-                        <Image
+                        <img
                           src="https://i.imgur.com/HLoZI2E.png"
                           className="scale-[0.65]"
                           alt="Website"
@@ -161,7 +166,13 @@ const UserPersonalInfo = () => {
                       </>
                     )}
                   </td>
-                  <td style={{ paddingLeft: "6px", color: linkColor }}>
+                  <td
+                    style={{
+                      paddingLeft: "6px",
+                      color: linkColor,
+                      width: "150px",
+                    }}
+                  >
                     <a href={website}>{website}</a>
                   </td>
                 </tr>

@@ -50,7 +50,7 @@ const Template = () => {
   const { template, setTemplate } = useTemplateStore();
 
   return (
-    <div className="py-[20px]">
+    <div className="py-[36px] ">
       <div className="px-12 py-4">
         <Heading
           primary="Templates"

@@ -14,7 +14,7 @@ const UserProfilePic = () => {
   }
 
   return (
-    <Image
+    <img
       src="https://i.imgur.com/fyYcdUD.png"
       alt="Profile Image"
       width={imageSize}

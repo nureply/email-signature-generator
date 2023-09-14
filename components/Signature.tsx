@@ -7,6 +7,8 @@ import { useTemplateStore } from "@/store/templateStore";
 const Signature = () => {
   const { template } = useTemplateStore();
 
+  const isSmallScreen = window.innerWidth <= 640;
+
   const renderSignature = () => {
     switch (template.id) {
       case "plainText":
@@ -17,7 +19,10 @@ const Signature = () => {
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "650px" : "auto",
+            }}
           >
             <tbody>
               <tr>
@@ -51,7 +56,10 @@ const Signature = () => {
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "650px" : "auto",
+            }}
           >
             <tbody>
               <tr>
@@ -85,7 +93,10 @@ const Signature = () => {
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "650px" : "auto",
+            }}
           >
             <tr>
               <td style={{ paddingRight: "16px" }}>
@@ -121,7 +132,10 @@ const Signature = () => {
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "650px" : "auto",
+            }}
           >
             <tr>
               <td style={{ paddingRight: "16px" }}>
@@ -157,7 +171,10 @@ const Signature = () => {
           <table
             cellPadding={5}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "380px" : "auto",
+            }}
           >
             <tr>
               <td>
@@ -183,7 +200,10 @@ const Signature = () => {
           <table
             cellPadding={5}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "380px" : "auto",
+            }}
           >
             <UserPersonalInfo />
             <tr>
