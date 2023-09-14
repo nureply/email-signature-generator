@@ -1,6 +1,7 @@
 import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
+import Image from "next/image";
 
 const UserPersonalInfo = () => {
   const {
@@ -99,9 +100,10 @@ const UserPersonalInfo = () => {
                   <td>
                     {phoneNumber && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/m6mkG6W.png"
                           className="scale-[0.65]"
+                          alt="Phone Number"
                         />
                       </>
                     )}
@@ -110,9 +112,10 @@ const UserPersonalInfo = () => {
                   <td style={{ paddingLeft: "16px" }}>
                     {workEmail && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/JTfwuQG.png"
                           className="scale-[0.65]"
+                          alt="Email"
                         />
                       </>
                     )}
@@ -138,9 +141,10 @@ const UserPersonalInfo = () => {
                   <td>
                     {workAddress && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/1BFyCw1.png"
                           className="scale-[0.65]"
+                          alt="Address"
                         />
                       </>
                     )}
@@ -149,9 +153,10 @@ const UserPersonalInfo = () => {
                   <td style={{ paddingLeft: "16px" }}>
                     {website && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/HLoZI2E.png"
                           className="scale-[0.65]"
+                          alt="Website"
                         />
                       </>
                     )}

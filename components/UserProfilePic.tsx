@@ -2,6 +2,7 @@ import React from "react";
 import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
 import useCustomizationStore from "@/store/customizationStore";
+import Image from "next/image";
 
 const UserProfilePic = () => {
   const { imageSize } = useCustomizationStore();
@@ -13,7 +14,7 @@ const UserProfilePic = () => {
   }
 
   return (
-    <img
+    <Image
       src="https://i.imgur.com/fyYcdUD.png"
       alt="Profile Image"
       width={imageSize}
