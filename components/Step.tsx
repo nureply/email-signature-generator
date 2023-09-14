@@ -61,7 +61,7 @@ const Step = () => {
     if (step === 4 && windowWidth > xlWidth) {
       setStep(3);
     }
-  }, [setStep, step]);
+  }, [windowWidth]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -75,7 +75,7 @@ const Step = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [step, setStep]);
 
   return (
     <>
