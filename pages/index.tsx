@@ -1,18 +1,17 @@
 import Head from "next/head";
-import Customization from "@/components/Customization";
-import Header from "@/components/Header";
-import Info from "@/components/Info";
-import { Preview } from "@/components/Preview";
-import Step from "@/components/Step";
-import Template from "@/components/Template";
-import { useStepStore } from "@/store/stepStore";
-import { useTemplateStore } from "@/store/templateStore";
-import Signature from "@/components/Signature";
 import clsx from "clsx";
+
+import Header from "@/components/Header";
 import Welcome from "@/components/Welcome";
+import Step from "@/components/Step";
+import { useStepStore } from "@/store/stepStore";
+import Template from "@/components/Template";
+import Info from "@/components/Info";
+import Customization from "@/components/Customization";
+import { Preview } from "@/components/Preview";
+
 export default function Home() {
   const { step } = useStepStore();
-  const { template } = useTemplateStore();
 
   return (
     <>
@@ -20,21 +19,22 @@ export default function Home() {
         <title>Email Signature Generator - Nureply</title>
       </Head>
 
-      <div className="">
+      <div>
         <Header />
       </div>
 
-      <div className="flex flex-col xl:flex-row w-full bg-background ">
-        <aside className="xl:sticky xl:basis-1/12 xl:h-screen xl:top-8 xl:block bg-window border-gray-400 border-b-2 max-sm:pt-6 ">
-          {/* Left column area */}
-          <div className=" flex xl:flex-col xl:grid flex-row justify-items-end max-xl:justify-center gap-8">
+      <div className="flex flex-col xl:flex-row w-full bg-background">
+        {/*   L E F T   C O L U M N   /   T O P   R O W   */}
+        <aside className="xl:block xl:sticky xl:basis-1/12 xl:top-8 xl:h-screen max-sm:pt-6 bg-window border-gray-400 border-b-2">
+          <div className=" flex flex-row xl:flex-col xl:grid justify-items-end max-xl:justify-center gap-8">
             <Step />
           </div>
         </aside>
 
+        {/*   M I D D L E   C O L U M N   /   R O W   */}
         <main
           className={clsx(
-            " bg-window overflow-y-auto max-h-screen border-l-2 border-gray-400",
+            "max-h-screen overflow-y-auto bg-window border-l-2 border-gray-400",
             step === 0 ? "xl:basis-11/12" : "xl:basis-4/12",
           )}
         >
@@ -50,7 +50,8 @@ export default function Home() {
         </main>
 
         {step !== 0 && (
-          <aside className="hidden xl:block sticky basis-7/12 h-screen top-8 p-5 bg-window border-x-2 border-gray-400">
+          /*   R I G H T   C O L U M N   /   H I D D E N   */
+          <aside className="hidden sticky xl:block basis-7/12 top-8 h-screen p-5 bg-window border-x-2 border-gray-400">
             <div className="p-10">
               <Preview />
             </div>

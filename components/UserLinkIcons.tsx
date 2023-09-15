@@ -2,7 +2,6 @@ import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
 
-
 const UserLinkIcons = () => {
   const {
     LinkedInLink,

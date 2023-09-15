@@ -44,7 +44,7 @@ const Step = () => {
   };
 
   const [windowWidth, setWindowWidth] = useState(
-    typeof window != "undefined" ? window.innerWidth : 0
+    typeof window != "undefined" ? window.innerWidth : 0,
   );
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const Step = () => {
               " bg-window lg:-mr-[1.5px] -mb-[1.5px] my-5 lg:mx-5 xl:w-3/5 text-[#CFD4DA]",
               {
                 "cursor-pointer": isStepClickable(mapStep),
-              }
+              },
             )}
             onClick={() => handleStepClick(mapStep)}
           >
@@ -104,7 +104,7 @@ const Step = () => {
                     step === mapStep,
                   "xl:border-y-2 border-x-2 xl:rounded-l-md border-x-gray-400 xl:border-y-gray-400":
                     step === mapStep,
-                }
+                },
               )}
             >
               {stepsPicker(mapStep, step, isSmallScreen)}

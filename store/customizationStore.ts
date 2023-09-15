@@ -28,11 +28,9 @@ const useCustomizationStore = create<CustomizationStore>((set) => ({
   textColor: "",
   linkColor: "",
   nameFont: "",
-
   setCustomizationOutput(newCustomizationOutput) {
     set((state) => ({ ...state, ...newCustomizationOutput }));
   },
-
   handleChange(event) {
     if ("target" in event) {
       const { name, value } = event.target as HTMLInputElement;

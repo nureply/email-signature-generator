@@ -17,7 +17,6 @@ interface State {
   InstagramLink: string;
   image: string;
   imageURL: string;
-
   setInfoOutput: (newInfoOutput: Partial<State>) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   onImageChange: (url: string) => void;
@@ -39,11 +38,9 @@ const useInfoStore = create<State>((set) => ({
   InstagramLink: "https://www.instagram.com/",
   image: "/initialIcon.png",
   imageURL: "/initialIcon.png",
-
   setInfoOutput: (newInfoOutput) => {
     set((state) => ({ ...state, ...newInfoOutput }));
   },
-
   handleChange: (e) => {
     const { name, value } = e.target as HTMLInputElement | HTMLSelectElement;
     set((state) => ({
@@ -51,7 +48,6 @@ const useInfoStore = create<State>((set) => ({
       [name]: value,
     }));
   },
-
   onImageChange: (url) => {
     set((state) => ({
       ...state,
