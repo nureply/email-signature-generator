@@ -25,9 +25,9 @@ const sliderData = [
     label: "Image Size",
     id: "imageSize",
     name: "imageSize",
-    min: 120,
-    max: 180,
-    step: 10,
+    min: 100,
+    max: 120,
+    step: 1,
   },
 ];
 const colorPickerData = [

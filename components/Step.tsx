@@ -11,7 +11,7 @@ const Step = () => {
   const [windowWidth, setWindowWidth] = useState(
     typeof window != "undefined" ? window.innerWidth : 0,
   );
-  const xlWidth = 1024;
+  const xlWidth = 1280;
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const { step, setStep } = useStepStore();
@@ -111,7 +111,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
   switch (mapStep) {
     case 0:
       return (
-        <div className="flex flex-col items-center justify-center gap-2 xl:pl-2">
+        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2 xl:pl-2">
           <Info
             width={isSmallScreen ? 24 : 32}
             height={isSmallScreen ? 24 : 32}
@@ -122,7 +122,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 1:
       return (
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2">
           <LayoutTemplate
             width={isSmallScreen ? 24 : 32}
             height={isSmallScreen ? 24 : 32}
@@ -133,7 +133,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 2:
       return (
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2">
           <UserCircle
             width={isSmallScreen ? 24 : 32}
             height={isSmallScreen ? 24 : 32}
@@ -144,7 +144,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 3:
       return (
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2">
           <Wrench
             width={isSmallScreen ? 24 : 32}
             height={isSmallScreen ? 24 : 32}
@@ -155,7 +155,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 4:
       return (
-        <div className="flex flex-col items-center justify-center gap-2 xl:hidden">
+        <div className="flex flex-col items-center justify-center gap-8 xl:hidden">
           <Eye
             width={isSmallScreen ? 24 : 32}
             height={isSmallScreen ? 24 : 32}

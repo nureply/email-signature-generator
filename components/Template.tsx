@@ -1,5 +1,5 @@
 import React from "react";
-import { UserCircle } from "lucide-react";
+import { Info, UserCircle } from "lucide-react";
 import clsx from "clsx";
 
 import { useTemplateStore } from "@/store/templateStore";
@@ -57,9 +57,12 @@ const Template = () => {
           primary="Templates"
           secondary="Choose a template to start building your email signature"
         />
-        <p className="text-sm italic text-fade">
-          Step 3 (Customization) is locked for plain text signatures
-        </p>
+        <div className="flex items-center mt-1">
+          <Info className="w-4 h-4 text-fade" />
+          <p className="ml-0.5 text-sm text-fade">
+            Step 3 (Customization) is locked for plain text signatures
+          </p>
+        </div>
       </div>
 
       {templateData.map((item) => (

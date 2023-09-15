@@ -7,6 +7,7 @@ import useCustomizationStore from "@/store/customizationStore";
 
 const UserProfilePic = () => {
   const { template } = useTemplateStore();
+  const { imageURL } = useInfoStore();
   const { imageSize } = useCustomizationStore();
 
   if (template.id === "plainText") {
@@ -15,11 +16,11 @@ const UserProfilePic = () => {
 
   return (
     <Image
-      src="https://i.imgur.com/fyYcdUD.png"
+      src={imageURL}
       alt="Profile Image"
       width={imageSize}
       height={imageSize}
-      style={{ borderRadius: "50%" }}
+      style={{ borderRadius: "50%", overflow: "clip" }}
     />
   );
 };

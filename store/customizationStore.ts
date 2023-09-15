@@ -23,7 +23,7 @@ type CustomizationStore = State & {
 const useCustomizationStore = create<CustomizationStore>((set) => ({
   fontSize: 12,
   iconSize: 16,
-  imageSize: 120,
+  imageSize: 100,
   nameColor: "",
   textColor: "",
   linkColor: "",
