@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useMemo, useCallback } from "react";
+import React, { ChangeEvent, useMemo, useCallback } from "react";
 import clsx from "clsx";
 
 import useCustomizationStore from "../store/customizationStore";
@@ -18,20 +18,16 @@ function getContrast(hexcolor: string) {
   if (hexcolor.length === 4) {
     hexcolor = `#${hexcolor[1]}${hexcolor[1]}${hexcolor[2]}${hexcolor[2]}${hexcolor[3]}${hexcolor[3]}`;
   }
+
   const r = parseInt(hexcolor.slice(1, 3), 16);
   const g = parseInt(hexcolor.slice(3, 5), 16);
   const b = parseInt(hexcolor.slice(5, 7), 16);
   const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+
   return yiq >= 128 ? "black" : "white";
 }
 
-const ColorPicker = ({
-  label,
-  id,
-  name,
-  value,
-  onChange,
-}: ColorPickerProps) => {
+const ColorPicker = ({ label, id, name }: ColorPickerProps) => {
   const { setCustomizationOutput } = useCustomizationStore();
   const color = useCustomizationStore(
     (state) => state[name as keyof typeof state],
@@ -102,7 +98,7 @@ const ColorPicker = ({
                 isValidHex === null
                   ? ""
                   : isValidHex
-                  ? "" // empty but a color like green can be
+                  ? "" // a color indicating a valid input can be used here, such as border-valid
                   : "border-invalid",
               )}
               placeholder="#"
@@ -118,6 +114,7 @@ const ColorPicker = ({
               }}
             />
           </div>
+
           <div className="ml-4">
             {defaultColors.map((color) => (
               <ColorButton

@@ -1,13 +1,13 @@
 import React from "react";
-import useInfoStore from "@/store/infoStore";
-import { useTemplateStore } from "@/store/templateStore";
-import useCustomizationStore from "@/store/customizationStore";
 import Image from "next/image";
 
+import { useTemplateStore } from "@/store/templateStore";
+import useInfoStore from "@/store/infoStore";
+import useCustomizationStore from "@/store/customizationStore";
+
 const UserProfilePic = () => {
-  const { imageSize } = useCustomizationStore();
-  const { imageURL } = useInfoStore();
   const { template } = useTemplateStore();
+  const { imageSize } = useCustomizationStore();
 
   if (template.id === "plainText") {
     return null;

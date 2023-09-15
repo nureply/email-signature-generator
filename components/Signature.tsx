@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
+
+import { useTemplateStore } from "@/store/templateStore";
 import UserProfilePic from "./UserProfilePic";
 import UserPersonalInfo from "./UserPersonalInfo";
 import UserLinkIcons from "./UserLinkIcons";
-import { useTemplateStore } from "@/store/templateStore";
 
 const Signature = () => {
   const { template } = useTemplateStore();
@@ -51,6 +52,7 @@ const Signature = () => {
             </tbody>
           </table>
         );
+
       case "template1Right":
         return (
           <table
@@ -88,6 +90,7 @@ const Signature = () => {
             </tbody>
           </table>
         );
+
       case "template2Left":
         return (
           <table
@@ -127,6 +130,7 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       case "template2Right":
         return (
           <table
@@ -166,6 +170,7 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       case "template3Top":
         return (
           <table
@@ -195,6 +200,7 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       case "template3Bottom":
         return (
           <table
@@ -224,6 +230,7 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       default:
         return null;
     }

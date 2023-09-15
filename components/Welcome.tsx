@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useInfoStore from "../store/infoStore";
 
 const Welcome = () => {
   const [openAccordion, setOpenAccordion] = useState(null);
@@ -12,36 +11,36 @@ const Welcome = () => {
     }
   };
 
-  const { onImageChange } = useInfoStore();
-
   return (
     <>
       <div className="m-6">
         <div className="p-20 ">
-          <h1 className="not-italic text-5xl text-center font-bold mb-4 ">
+          <h1 className="mb-4 text-center text-5xl font-bold">
             Create Your Professional Email Signature
           </h1>
-          <p className="not-italic text-xl text-center mb-9">
+          <p className="mb-9 text-center text-xl">
             Upgrade your email signature to a professional look without email
             deliverability issues.
           </p>
         </div>
-        <div className="min-h-screen bg-white mx-auto max-w-3xl ">
-          <p className=" text-2xl text-center font-semibold mb-9">
+
+        <div className="max-w-3xl min-h-screen mx-auto bg-window">
+          <p className="mb-9 text-center text-2xl font-semibold">
             How to create an email signature?
           </p>
+
           <div
             onClick={() => toggleAccordion(1)}
-            className={`p-2 bg-white w-full rounded flex justify-between items-center cursor-pointer ${
+            className={`flex items-center justify-between w-full p-2 bg-window rounded cursor-pointer ${
               openAccordion === 1
-                ? "bg-gray-200 text-nureply-blue-full"
-                : "bg-white text-black"
+                ? "bg-window text-nureply-blue"
+                : "bg-window text-default"
             }`}
           >
             <div className="flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-8 w-8 ml-2 ${
+                className={`w-8 h-8 ml-2 ${
                   openAccordion === 1 ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -58,19 +57,19 @@ const Welcome = () => {
             </div>
           </div>
           {openAccordion === 1 && (
-            <div className="w-full bg-white pb-3 pl-3">
-              <p className="text-gray-900 ml-12">
+            <div className="w-full pb-3 pl-3 bg-window">
+              <p className="ml-12 text-default">
                 Choose a template and start filling in your information
               </p>
             </div>
           )}
-          <hr className="border-b-1 border-black" />
+          <hr className="border-b-1 border-fade" />
           <div
             onClick={() => toggleAccordion(2)}
-            className={`p-2 bg-white w-full rounded flex justify-between items-center cursor-pointer ${
+            className={`flex items-center justify-between w-full p-2 bg-window rounded cursor-pointer ${
               openAccordion === 2
-                ? "bg-gray-200 text-nureply-blue-full"
-                : "bg-white text-black"
+                ? "bg-window text-nureply-blue"
+                : "bg-window text-default"
             }`}
           >
             <div className="flex items-center gap-2">
@@ -93,25 +92,25 @@ const Welcome = () => {
             </div>
           </div>
           {openAccordion === 2 && (
-            <div className="w-full bg-white pb-3 pl-3">
-              <p className="text-gray-900 ml-12">
+            <div className="w-full pb-3 pl-3 bg-window">
+              <p className="ml-12 text-default">
                 Customize the style – Pick the font, colors, and adjust the size
               </p>
             </div>
           )}
-          <hr className="border-b-1 border-black" />
+          <hr className="border-b-1 border-fade" />
           <div
             onClick={() => toggleAccordion(3)}
-            className={`p-2 bg-white w-full rounded flex justify-between items-center cursor-pointer ${
+            className={`flex items-center justify-between w-full p-2 bg-window rounded cursor-pointer ${
               openAccordion === 3
-                ? "bg-gray-200 text-nureply-blue-full"
-                : "bg-white text-black"
+                ? "bg-window text-nureply-blue"
+                : "bg-window text-default"
             }`}
           >
             <div className="flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-8 w-8 ml-2 ${
+                className={`w-8 h-8 ml-2 ${
                   openAccordion === 3 ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -128,26 +127,26 @@ const Welcome = () => {
             </div>
           </div>
           {openAccordion === 3 && (
-            <div className="w-full bg-white pb-3 pl-3">
-              <p className="text-gray-900 ml-12">
+            <div className="w-full pb-3 pl-3 bg-window">
+              <p className="ml-12 text-default">
                 Create a professional email signature that enhances your image
                 and does not impact your email deliverability
               </p>
             </div>
           )}
-          <hr className="border-b-1 border-black" />
+          <hr className="border-b-1 border-fade" />
           <div
             onClick={() => toggleAccordion(4)}
-            className={`p-2 bg-white w-full rounded flex justify-between items-center cursor-pointer ${
+            className={`flex items-center justify-between w-full p-2 bg-window rounded cursor-pointer ${
               openAccordion === 4
-                ? "bg-gray-200 text-nureply-blue-full"
-                : "bg-white text-black"
+                ? "bg-window text-nureply-blue"
+                : "bg-window text-default"
             }`}
           >
             <div className="flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-8 w-8 ml-2 ${
+                className={`w-8 h-8 ml-2 ${
                   openAccordion === 4 ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -160,30 +159,30 @@ const Welcome = () => {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <p className="text-xl">Integrate with Your Email Client</p>
+              <p className="text-xl">Integrate with Your Email</p>
             </div>
           </div>
           {openAccordion === 4 && (
-            <div className="w-full bg-white pb-3 pl-3">
-              <p className="text-gray-900 ml-12 ">
+            <div className="w-full bg-window pb-3 pl-3">
+              <p className="ml-12 text-default">
                 Copy-paste your finished signature to your preferred email
                 clients
               </p>
             </div>
           )}
-          <hr className="border-b-1 border-black" />
+          <hr className="border-b-1 border-fade" />
           <div
             onClick={() => toggleAccordion(5)}
-            className={`p-2 bg-white w-full rounded flex justify-between items-center cursor-pointer ${
+            className={`flex items-center justify-between w-full p-2 bg-window rounded cursor-pointer ${
               openAccordion === 5
-                ? "bg-gray-200 text-nureply-blue-full"
-                : "bg-white text-black"
+                ? "bg-window text-nureply-blue"
+                : "bg-window text-default"
             }`}
           >
             <div className="flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-8 w-8 ml-2 ${
+                className={`w-8 h-8 ml-2 ${
                   openAccordion === 5 ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -200,11 +199,11 @@ const Welcome = () => {
             </div>
           </div>
           {openAccordion === 5 && (
-            <div className="w-full bg-white pb-3 pl-3 ">
-              <p className="text-gray-900 ml-12">Excellent!</p>
+            <div className="w-full pb-3 pl-3 bg-window">
+              <p className="ml-12 text-default">Excellent!</p>
             </div>
           )}
-          <hr className="border-b-1 border-black " />
+          <hr className="border-b-1 border-fade" />
         </div>
       </div>
     </>

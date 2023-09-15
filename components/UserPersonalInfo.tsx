@@ -1,7 +1,8 @@
-import useCustomizationStore from "@/store/customizationStore";
-import useInfoStore from "@/store/infoStore";
-import { useTemplateStore } from "@/store/templateStore";
 import Image from "next/image";
+
+import { useTemplateStore } from "@/store/templateStore";
+import useInfoStore from "@/store/infoStore";
+import useCustomizationStore from "@/store/customizationStore";
 
 const UserPersonalInfo = () => {
   const {
@@ -14,16 +15,16 @@ const UserPersonalInfo = () => {
     workEmail,
     website,
   } = useInfoStore();
-  const { fontSize, nameFont, linkColor, textColor, nameColor, iconSize } =
-    useCustomizationStore();
   const { template } = useTemplateStore();
+  const { fontSize, nameFont, linkColor, textColor, nameColor } =
+    useCustomizationStore();
 
   if (template.id === "plainText") {
     return (
       <div
         style={{
           textSizeAdjust: "13px",
-          color: "gray-900",
+          color: "default",
           fontFamily: "sans-serif",
         }}
       >

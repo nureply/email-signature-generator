@@ -1,7 +1,8 @@
-import useCustomizationStore from "@/store/customizationStore";
-import useInfoStore from "@/store/infoStore";
-import { useTemplateStore } from "@/store/templateStore";
 import Image from "next/image";
+
+import { useTemplateStore } from "@/store/templateStore";
+import useInfoStore from "@/store/infoStore";
+import useCustomizationStore from "@/store/customizationStore";
 
 const UserLinkIcons = () => {
   const {
@@ -11,8 +12,8 @@ const UserLinkIcons = () => {
     FacebookLink,
     InstagramLink,
   } = useInfoStore();
-  const { iconSize } = useCustomizationStore();
   const { template } = useTemplateStore();
+  const { iconSize } = useCustomizationStore();
 
   if (template.id === "plainText") {
     return null;

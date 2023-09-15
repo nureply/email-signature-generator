@@ -1,7 +1,8 @@
+import React from "react";
+import { UserCircle } from "lucide-react";
 import clsx from "clsx";
-import React, { Dispatch, SetStateAction } from "react";
+
 import { useTemplateStore } from "@/store/templateStore";
-import { AlignJustify, UserCircle } from "lucide-react";
 import Heading from "./Heading";
 
 const templateData: {
@@ -56,8 +57,8 @@ const Template = () => {
           primary="Templates"
           secondary="Choose a template to start building your email signature"
         />
-        <p className="text-fade text-sm">
-          (The customization step is locked for plain text signatures)
+        <p className="text-sm italic text-fade">
+          Step 3 (Customization) is locked for plain text signatures
         </p>
       </div>
 
@@ -68,15 +69,15 @@ const Template = () => {
             setTemplate(item.id);
           }}
           className={clsx(
-            "bg-gray-200 mt-10 rounded-lg text-center w-4/5 lg:max-xl:w-1/3 md:max-lg:w-1/2 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
+            "flex-auto w-4/5 mx-auto mt-10 bg-background border-2 border-fade rounded-lg text-center text-xs md:max-lg:w-1/2 lg:max-xl:w-1/3 cursor-pointer",
             {
-              "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
+              "font-semibold shadow-[0_0px_0px_3px_rgba(73,80,87,1)]":
                 item.id === template.id,
-            }
+            },
           )}
         >
           {item.label}
-          <div className="bg-window rounded-lg p-5 border-t-2 border-gray-700">
+          <div className="p-5 bg-window border-t-2 border-fade rounded-lg">
             {templatePicker(item.label)}
           </div>
         </div>
@@ -93,6 +94,7 @@ const templatePicker = (type: string) => {
           <Text />
         </div>
       );
+
     case "Template 1 Right":
       return (
         <div className="flex justify-around m-3">
@@ -109,6 +111,7 @@ const templatePicker = (type: string) => {
           </div>
         </div>
       );
+
     case "Template 1 Left":
       return (
         <div className="flex justify-around m-3">
@@ -125,6 +128,7 @@ const templatePicker = (type: string) => {
           </div>
         </div>
       );
+
     case "Template 2 Left":
       return (
         <div className="flex justify-around m-3">
@@ -141,6 +145,7 @@ const templatePicker = (type: string) => {
           </div>
         </div>
       );
+
     case "Template 2 Right":
       return (
         <div className="flex justify-around m-3">
@@ -157,22 +162,25 @@ const templatePicker = (type: string) => {
           </div>
         </div>
       );
+
     case "Template 3 Top":
       return (
-        <div className="flex-col gap-2 flex items-center">
+        <div className="flex flex-col items-center gap-2">
           <UserCircle size={75} color="#CFD4DA" />
           <Text />
           <Icons />
         </div>
       );
+
     case "Template 3 Bottom":
       return (
-        <div className="flex-col gap-2 flex items-center">
+        <div className="flex flex-col items-center gap-2">
           <Text />
           <Icons />
           <UserCircle size={75} color="#CFD4DA" />
         </div>
       );
+
     default:
       return null;
   }
@@ -182,9 +190,9 @@ function Icons() {
   const numbers = [1, 2, 3, 4];
 
   return (
-    <div className="flex mt-5 gap-3 px-3">
+    <div className="flex mt-5 px-3 gap-3">
       {numbers.map((item) => (
-        <div key={item} className="w-4 h-4 bg-gray-500 rounded-full"></div>
+        <div key={item} className="w-4 h-4 bg-highlight rounded-full"></div>
       ))}
     </div>
   );
@@ -198,7 +206,7 @@ function Text() {
       {numbers.map((item) => (
         <div
           key={item}
-          className="w-[184px] max-sm:w-[116px] h-[12px] bg-gray-500 rounded-full"
+          className="w-[184px] h-[12px] max-sm:w-[116px] bg-highlight rounded-full"
         ></div>
       ))}
     </div>

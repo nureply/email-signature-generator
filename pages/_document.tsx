@@ -12,6 +12,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Quicksand&family=Roboto&display=swap"
           />
         </Head>
+
         <body>
           <Main />
           <NextScript />

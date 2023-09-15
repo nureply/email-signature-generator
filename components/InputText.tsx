@@ -49,8 +49,6 @@ const InputText: React.FC<InputTextProps> = ({
   value,
   onChange,
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
-
   const isValidationNeeded = type === "email" || type === "link";
   const isValid =
     (type === "email" && isEmailValid(value)) ||
@@ -70,7 +68,7 @@ const InputText: React.FC<InputTextProps> = ({
       <input
         className={clsx(
           "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
-          showValidBorder && "", // if changing the border color also when the input is valid would be needed, it can be done here
+          showValidBorder && "", // a color indicating a valid input can be used here, such as border-valid
           showInvalidBorder && "border-invalid",
         )}
         type={type}

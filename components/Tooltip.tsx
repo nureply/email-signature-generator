@@ -10,14 +10,13 @@ const Tooltip: React.FC<TooltipProps> = ({ tooltipText }) => {
   const handleMouseEnter = () => {
     setShowTooltip(true);
   };
-
   const handleMouseLeave = () => {
     setShowTooltip(false);
   };
 
   return (
     <div
-      className="absolute top-2 right-0 text-highlight bg-background cursor-pointer flex items-center justify-center border border-highlight"
+      className="flex items-center justify-center absolute top-2 right-0 bg-background border border-highlight text-highlight cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -30,7 +29,7 @@ const Tooltip: React.FC<TooltipProps> = ({ tooltipText }) => {
       <span className="">?</span>
       {showTooltip && (
         <div
-          className="absolute bottom-0 right-full transform translate-x-[35px] translate-y-1 text-sm text-fade bg-background rounded-full p-2 px-4 border border-highlight"
+          className="absolute bottom-0 right-full p-2 px-4 transform translate-x-[35px] translate-y-1 bg-background border border-highlight rounded-full text-sm text-fade"
           style={{
             width: "251px",
             background: "linear-gradient(to bottom left, #F8F9FA, #FFFFFF)",
