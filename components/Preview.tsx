@@ -28,7 +28,7 @@ const Preview = () => {
         <span>-----</span>
       </div>
       <div className="p-4">
-        <div className="max-sm:overflow-x-scroll ">
+        <div className="max-sm:overflow-x-scroll max-sm:p-6">
           <Signature />
         </div>
       </div>

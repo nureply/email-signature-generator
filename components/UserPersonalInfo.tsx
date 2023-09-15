@@ -1,6 +1,7 @@
 import useCustomizationStore from "@/store/customizationStore";
 import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
+import Image from "next/image";
 
 const UserPersonalInfo = () => {
   const {
@@ -99,30 +100,32 @@ const UserPersonalInfo = () => {
                   <td>
                     {phoneNumber && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/m6mkG6W.png"
-                          className="scale-[0.65]"
+                          width={14}
+                          height={14}
                           alt="Phone Number"
+                          style={{ marginRight: "6px" }}
                         />
                       </>
                     )}
                   </td>
-                  <td style={{ paddingLeft: "6px", width: "150px" }}>
-                    {phoneNumber}
-                  </td>
-                  <td style={{ paddingLeft: "8px" }}>
+                  <td style={{ width: "165px" }}>{phoneNumber}</td>
+                  <td>
                     {workEmail && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/JTfwuQG.png"
-                          className="scale-[0.65]"
+                          width={14}
+                          height={14}
                           alt="Email"
+                          style={{ marginRight: "6px", marginLeft: "6px" }}
                         />
                       </>
                     )}
                   </td>
-                  <td style={{ paddingLeft: "6px", width: "150px" }}>
-                    {workEmail}
+                  <td style={{ width: "165px" }}>
+                    <a href={"mailto:" + workEmail}>{workEmail}</a>
                   </td>
                 </tr>
               </tbody>
@@ -144,24 +147,28 @@ const UserPersonalInfo = () => {
                   <td>
                     {workAddress && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/1BFyCw1.png"
-                          className="scale-[0.65]"
+                          width={14}
+                          height={14}
                           alt="Address"
+                          style={{ marginRight: "6px" }}
                         />
                       </>
                     )}
                   </td>
-                  <td style={{ paddingLeft: "6px", width: "150px" }}>
+                  <td style={{ paddingRight: "8px", width: "165px" }}>
                     {workAddress}
                   </td>
-                  <td style={{ paddingLeft: "8px" }}>
+                  <td>
                     {website && (
                       <>
-                        <img
+                        <Image
                           src="https://i.imgur.com/HLoZI2E.png"
-                          className="scale-[0.65]"
+                          width={14}
+                          height={14}
                           alt="Website"
+                          style={{ marginRight: "6px", marginLeft: "6px" }}
                         />
                       </>
                     )}
@@ -170,7 +177,7 @@ const UserPersonalInfo = () => {
                     style={{
                       paddingLeft: "6px",
                       color: linkColor,
-                      width: "150px",
+                      width: "165px",
                     }}
                   >
                     <a href={website}>{website}</a>

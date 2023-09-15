@@ -68,11 +68,11 @@ const Template = () => {
             setTemplate(item.id);
           }}
           className={clsx(
-            "bg-gray-200 mt-10 rounded-lg text-center w-4/5 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
+            "bg-gray-200 mt-10 rounded-lg text-center w-4/5 lg:max-xl:w-1/3 md:max-lg:w-1/2 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
             {
               "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
                 item.id === template.id,
-            },
+            }
           )}
         >
           {item.label}
@@ -89,66 +89,69 @@ const templatePicker = (type: string) => {
   switch (type) {
     case "Plain Text":
       return (
-        <div className="flex">
-          <AlignJustify size={96} color="#CFD4DA" />
-          <AlignJustify size={96} color="#CFD4DA" />
+        <div className="flex flex-col justify-center ">
+          <Text />
         </div>
       );
     case "Template 1 Right":
       return (
-        <div className="flex justify-around p-5 pl-10 align-center">
+        <div className="flex justify-around m-3">
           <div>
-            <div className="flex">
-              <AlignJustify size={96} color="#CFD4DA" />
-              <AlignJustify size={96} color="#CFD4DA" />
+            <div>
+              <Text />
             </div>
-            <Icons />
+            <div>
+              <Icons />
+            </div>
           </div>
-          <div className="flex justify-center mt-5 mr-5">
-            <UserCircle size={60} color="#CFD4DA" />
+          <div className="ml-4">
+            <UserCircle size={75} color="#CFD4DA" />
           </div>
         </div>
       );
     case "Template 1 Left":
       return (
-        <div className="flex justify-around p-4 align-center">
-          <div className="flex justify-center mt-7 ml-5">
-            <UserCircle size={60} color="#CFD4DA" />
+        <div className="flex justify-around m-3">
+          <div className="mr-4">
+            <UserCircle size={75} color="#CFD4DA" />
           </div>
           <div>
-            <div className="flex">
-              <AlignJustify size={96} color="#CFD4DA" />
-              <AlignJustify size={96} color="#CFD4DA" />
+            <div>
+              <Text />
             </div>
-            <Icons />
-          </div>
-        </div>
-      );
-    case "Template 2 Left":
-      return (
-        <div className="grid grid-cols-2 p-5">
-          <div className="flex order-3">
-            <AlignJustify size={96} color="#CFD4DA" />
-            <AlignJustify size={96} color="#CFD4DA" />
-          </div>
-          <div>
-            <UserCircle className="order-2 ml-5" size={60} color="#CFD4DA" />
-            <div className="m-3 gap-2 flex order-1">
+            <div>
               <Icons />
             </div>
           </div>
         </div>
       );
-    case "Template 2 Right":
+    case "Template 2 Left":
       return (
-        <div className="grid grid-cols-2 p-5">
-          <div className="flex">
-            <AlignJustify size={96} color="#CFD4DA" />
-            <AlignJustify size={96} color="#CFD4DA" />
+        <div className="flex justify-around m-3">
+          <div>
+            <div className="ml-8">
+              <UserCircle size={75} color="#CFD4DA" />
+            </div>
+            <div>
+              <Icons />
+            </div>
           </div>
           <div>
-            <UserCircle className="ml-8" size={60} color="#CFD4DA" />
-            <div className="m-3 gap-2 flex">
+            <Text />
+          </div>
+        </div>
+      );
+    case "Template 2 Right":
+      return (
+        <div className="flex justify-around m-3">
+          <div>
+            <Text />
+          </div>
+          <div>
+            <div className="ml-4">
+              <UserCircle size={75} color="#CFD4DA" />
+            </div>
+            <div>
               <Icons />
             </div>
           </div>
@@ -156,28 +159,18 @@ const templatePicker = (type: string) => {
       );
     case "Template 3 Top":
       return (
-        <div className="flex-col p-5 flex items-center">
-          <UserCircle size={60} color="#CFD4DA" />
-          <div className="flex">
-            <AlignJustify size={96} color="#CFD4DA" />
-            <AlignJustify size={96} color="#CFD4DA" />
-          </div>
-          <div className="m-3 gap-2 flex">
-            <Icons />
-          </div>
+        <div className="flex-col gap-2 flex items-center">
+          <UserCircle size={75} color="#CFD4DA" />
+          <Text />
+          <Icons />
         </div>
       );
     case "Template 3 Bottom":
       return (
-        <div className="flex-col p-5 flex items-center">
-          <div className="flex">
-            <AlignJustify size={96} color="#CFD4DA" />
-            <AlignJustify size={96} color="#CFD4DA" />
-          </div>
-          <div className="m-3 gap-2 flex">
-            <Icons />
-          </div>
-          <UserCircle size={60} color="#CFD4DA" />
+        <div className="flex-col gap-2 flex items-center">
+          <Text />
+          <Icons />
+          <UserCircle size={75} color="#CFD4DA" />
         </div>
       );
     default:
@@ -197,4 +190,18 @@ function Icons() {
   );
 }
 
+function Text() {
+  const numbers = [1, 2, 3, 4];
+
+  return (
+    <div className="flex flex-col gap-3">
+      {numbers.map((item) => (
+        <div
+          key={item}
+          className="w-[184px] max-sm:w-[116px] h-[12px] bg-gray-500 rounded-full"
+        ></div>
+      ))}
+    </div>
+  );
+}
 export default Template;
