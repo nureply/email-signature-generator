@@ -14,18 +14,18 @@ const Welcome = () => {
   return (
     <>
       <div className="m-6">
-        <div className="p-20 ">
-          <h1 className="mb-4 text-center text-5xl font-bold">
+        <div className="p-10 sm:p-20 ">
+          <h1 className="mb-4 text-center text-3xl sm:text-5xl font-bold">
             Create Your Professional Email Signature
           </h1>
-          <p className="mb-9 text-center text-xl">
+          <p className="mb-8 text-center text-lg sm:text-xl">
             Upgrade your email signature to a professional look without email
             deliverability issues.
           </p>
         </div>
 
         <div className="max-w-3xl min-h-screen mx-auto bg-window">
-          <p className="mb-9 text-center text-2xl font-semibold">
+          <p className="mb-8 text-center text-lg sm:text-2xl font-semibold">
             How to create an email signature?
           </p>
 
