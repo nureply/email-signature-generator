@@ -98,36 +98,36 @@ const UserPersonalInfo = () => {
             <table>
               <tbody>
                 <tr>
-                  <td>
-                    {phoneNumber && (
-                      <>
-                        <Image
-                          src="https://i.imgur.com/m6mkG6W.png"
-                          width={14}
-                          height={14}
-                          alt="Phone Number"
-                          style={{ marginRight: "6px" }}
-                        />
-                      </>
-                    )}
-                  </td>
-                  <td style={{ width: "165px" }}>{phoneNumber}</td>
-                  <td>
-                    {workEmail && (
-                      <>
-                        <Image
-                          src="https://i.imgur.com/JTfwuQG.png"
-                          width={14}
-                          height={14}
-                          alt="Email"
-                          style={{ marginRight: "6px", marginLeft: "6px" }}
-                        />
-                      </>
-                    )}
-                  </td>
-                  <td style={{ width: "165px" }}>
-                    <a href={"mailto:" + workEmail}>{workEmail}</a>
-                  </td>
+                  {phoneNumber && (
+                    <td>
+                      <Image
+                        src="https://i.imgur.com/m6mkG6W.png"
+                        width={14}
+                        height={14}
+                        alt="Phone Number"
+                        style={{ marginRight: "6px" }}
+                      />
+                    </td>
+                  )}
+                  {phoneNumber && (
+                    <td style={{ paddingRight: "10px" }}>{phoneNumber}</td>
+                  )}
+                  {workEmail && (
+                    <td>
+                      <Image
+                        src="https://i.imgur.com/JTfwuQG.png"
+                        width={14}
+                        height={14}
+                        alt="Email"
+                        style={{ marginRight: "6px" }}
+                      />
+                    </td>
+                  )}
+                  {workEmail && (
+                    <td>
+                      <a href={"mailto:" + workEmail}>{workEmail}</a>
+                    </td>
+                  )}
                 </tr>
               </tbody>
             </table>
@@ -145,44 +145,40 @@ const UserPersonalInfo = () => {
             <table>
               <tbody>
                 <tr>
-                  <td>
-                    {workAddress && (
-                      <>
-                        <Image
-                          src="https://i.imgur.com/1BFyCw1.png"
-                          width={14}
-                          height={14}
-                          alt="Address"
-                          style={{ marginRight: "6px" }}
-                        />
-                      </>
-                    )}
-                  </td>
-                  <td style={{ paddingRight: "8px", width: "165px" }}>
-                    {workAddress}
-                  </td>
-                  <td>
-                    {website && (
-                      <>
-                        <Image
-                          src="https://i.imgur.com/HLoZI2E.png"
-                          width={14}
-                          height={14}
-                          alt="Website"
-                          style={{ marginRight: "6px", marginLeft: "6px" }}
-                        />
-                      </>
-                    )}
-                  </td>
-                  <td
-                    style={{
-                      paddingLeft: "6px",
-                      color: linkColor,
-                      width: "165px",
-                    }}
-                  >
-                    <a href={website}>{website}</a>
-                  </td>
+                  {workAddress && (
+                    <td>
+                      <Image
+                        src="https://i.imgur.com/1BFyCw1.png"
+                        width={14}
+                        height={14}
+                        alt="Address"
+                        style={{ marginRight: "6px" }}
+                      />
+                    </td>
+                  )}
+                  {workAddress && (
+                    <td style={{ paddingRight: "10px" }}>{workAddress}</td>
+                  )}
+                  {website && (
+                    <td>
+                      <Image
+                        src="https://i.imgur.com/HLoZI2E.png"
+                        width={14}
+                        height={14}
+                        alt="Website"
+                        style={{ marginRight: "6px" }}
+                      />
+                    </td>
+                  )}
+                  {website && (
+                    <td
+                      style={{
+                        color: linkColor,
+                      }}
+                    >
+                      <a href={website}>{website}</a>
+                    </td>
+                  )}
                 </tr>
               </tbody>
             </table>

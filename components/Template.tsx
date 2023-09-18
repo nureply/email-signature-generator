@@ -72,11 +72,11 @@ const Template = () => {
             setTemplate(item.id);
           }}
           className={clsx(
-            "flex-auto w-4/5 mx-auto mt-10 bg-background border-2 border-fade rounded-lg text-center text-xs md:max-lg:w-1/2 lg:max-xl:w-1/3 cursor-pointer",
+            "flex-auto w-4/5 mx-auto mt-10 bg-background border-2 border-fade rounded-lg text-center text-xs md:max-lg:w-1/2 lg:max-xl:w-3/5 cursor-pointer",
             {
               "font-semibold shadow-[0_0px_0px_3px_rgba(73,80,87,1)]":
                 item.id === template.id,
-            },
+            }
           )}
         >
           {item.label}
@@ -100,7 +100,7 @@ const templatePicker = (type: string) => {
 
     case "Template 1 Right":
       return (
-        <div className="flex justify-around m-3">
+        <div className="flex justify-around lg:max-xl:justify-center m-3">
           <div>
             <div>
               <Text />
@@ -117,7 +117,7 @@ const templatePicker = (type: string) => {
 
     case "Template 1 Left":
       return (
-        <div className="flex justify-around m-3">
+        <div className="flex justify-around lg:max-xl:justify-center m-3">
           <div className="mr-4">
             <UserCircle size={75} color="#CFD4DA" />
           </div>
@@ -134,7 +134,7 @@ const templatePicker = (type: string) => {
 
     case "Template 2 Left":
       return (
-        <div className="flex justify-around m-3">
+        <div className="flex justify-around lg:max-xl:justify-center m-3">
           <div>
             <div className="ml-8">
               <UserCircle size={75} color="#CFD4DA" />
@@ -151,7 +151,7 @@ const templatePicker = (type: string) => {
 
     case "Template 2 Right":
       return (
-        <div className="flex justify-around m-3">
+        <div className="flex justify-around lg:max-xl:justify-center m-3">
           <div>
             <Text />
           </div>
@@ -209,7 +209,7 @@ function Text() {
       {numbers.map((item) => (
         <div
           key={item}
-          className="w-[184px] h-[12px] max-sm:w-[116px] bg-highlight rounded-full"
+          className="sm:w-[184px] w-[116px] lg:max-xl:w-[216px] h-[12px]  bg-highlight rounded-full"
         ></div>
       ))}
     </div>

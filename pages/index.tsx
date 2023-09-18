@@ -25,8 +25,8 @@ export default function Home() {
 
       <div className="flex flex-col xl:flex-row w-full bg-background">
         {/*   L E F T   C O L U M N   /   T O P   R O W   */}
-        <aside className="xl:block xl:sticky xl:basis-1/12 xl:top-8 xl:h-screen max-sm:pt-6 bg-window border-gray-400 border-b-2">
-          <div className=" flex flex-row xl:flex-col xl:grid justify-items-end max-xl:justify-center gap-8">
+        <aside className="xl:block xl:sticky xl:basis-1/12 xl:top-8 xl:h-screen bg-window border-gray-400 border-b-2">
+          <div className=" flex flex-row xl:flex-col xl:grid justify-items-end max-xl:justify-center gap-2 md:gap-6">
             <Step />
           </div>
         </aside>

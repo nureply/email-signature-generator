@@ -9,7 +9,7 @@ const steps = [0, 1, 2, 3, 4];
 
 const Step = () => {
   const [windowWidth, setWindowWidth] = useState(
-    typeof window != "undefined" ? window.innerWidth : 0,
+    typeof window != "undefined" ? window.innerWidth : 0
   );
   const xlWidth = 1280;
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -76,7 +76,7 @@ const Step = () => {
               "my-5 -mb-[1.5px] lg:mx-5 lg:-mr-[1.5px] xl:w-3/5 bg-window text-highlight",
               {
                 "cursor-pointer": isStepClickable(mapStep),
-              },
+              }
             )}
             onClick={() => handleStepClick(mapStep)}
           >
@@ -93,7 +93,7 @@ const Step = () => {
                     step === mapStep,
                   "border-x-2 border-x-gray-400 xl:border-y-2 xl:rounded-l-md xl:border-y-gray-400":
                     step === mapStep,
-                },
+                }
               )}
             >
               {stepsPicker(mapStep, step, isSmallScreen)}
@@ -111,10 +111,10 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
   switch (mapStep) {
     case 0:
       return (
-        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2 xl:pl-2">
+        <div className="flex flex-col items-center gap-2 xl:gap-2 xl:pl-2">
           <Info
-            width={isSmallScreen ? 24 : 32}
-            height={isSmallScreen ? 24 : 32}
+            width={isSmallScreen ? 20 : 28}
+            height={isSmallScreen ? 20 : 28}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Info</div>
@@ -122,10 +122,10 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 1:
       return (
-        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2">
+        <div className="flex flex-col items-center gap-2 xl:gap-2">
           <LayoutTemplate
-            width={isSmallScreen ? 24 : 32}
-            height={isSmallScreen ? 24 : 32}
+            width={isSmallScreen ? 20 : 28}
+            height={isSmallScreen ? 20 : 28}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Step 1</div>
@@ -133,10 +133,10 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 2:
       return (
-        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2">
+        <div className="flex flex-col items-center gap-2 xl:gap-2">
           <UserCircle
-            width={isSmallScreen ? 24 : 32}
-            height={isSmallScreen ? 24 : 32}
+            width={isSmallScreen ? 20 : 28}
+            height={isSmallScreen ? 20 : 28}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Step 2</div>
@@ -144,10 +144,10 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 3:
       return (
-        <div className="flex flex-col items-center justify-center gap-8 xl:gap-2">
+        <div className="flex flex-col items-center gap-2 xl:gap-2">
           <Wrench
-            width={isSmallScreen ? 24 : 32}
-            height={isSmallScreen ? 24 : 32}
+            width={isSmallScreen ? 20 : 28}
+            height={isSmallScreen ? 20 : 28}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>Step 3</div>
@@ -155,10 +155,10 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 4:
       return (
-        <div className="flex flex-col items-center justify-center gap-8 xl:hidden">
+        <div className="flex flex-col items-center gap-2 xl:hidden">
           <Eye
-            width={isSmallScreen ? 24 : 32}
-            height={isSmallScreen ? 24 : 32}
+            width={isSmallScreen ? 20 : 28}
+            height={isSmallScreen ? 20 : 28}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>View</div>
