@@ -59,7 +59,7 @@ const Template = () => {
         />
         <div className="flex items-center mt-1">
           <Info className="w-4 h-4 text-fade" />
-          <p className="ml-0.5 text-sm text-fade">
+          <p className="ml-1 text-sm text-fade">
             Step 3 (Customization) is locked for plain text signatures
           </p>
         </div>
