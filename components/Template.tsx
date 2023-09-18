@@ -76,7 +76,7 @@ const Template = () => {
             {
               "font-semibold shadow-[0_0px_0px_3px_rgba(73,80,87,1)]":
                 item.id === template.id,
-            }
+            },
           )}
         >
           {item.label}
