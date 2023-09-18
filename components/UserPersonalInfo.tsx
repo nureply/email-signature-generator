@@ -19,6 +19,58 @@ const UserPersonalInfo = () => {
   const { fontSize, nameFont, linkColor, textColor, nameColor } =
     useCustomizationStore();
 
+  const widthLeft = {
+    xlScreen: {
+      width: "180px",
+    },
+    smallScreen: {
+      width: "180px",
+    },
+    mediumScreen: {
+      width: "180px",
+    },
+    largeScreen: {
+      width: "180px",
+    },
+  };
+  const widthRight = {
+    xlScreen: {
+      maxWidth: "140px",
+    },
+    smallScreen: {
+      maxWidth: "140px",
+    },
+    mediumScreen: {
+      maxWidth: "140px",
+    },
+    largeScreen: {
+      maxWidth: "140px",
+    },
+  };
+
+  let selectedWidthRight = widthRight.xlScreen;
+  let selectedWidthLeft = widthLeft.xlScreen;
+
+  if (window.innerWidth < 768) {
+    selectedWidthLeft = widthLeft.smallScreen;
+  } else if (window.innerWidth < 1024) {
+    selectedWidthLeft = widthLeft.mediumScreen;
+  } else if (window.innerWidth < 1440) {
+    selectedWidthLeft = widthLeft.largeScreen;
+  } else {
+    selectedWidthLeft = widthLeft.xlScreen;
+  }
+
+  if (window.innerWidth < 768) {
+    selectedWidthRight = widthRight.smallScreen;
+  } else if (window.innerWidth < 1024) {
+    selectedWidthRight = widthRight.mediumScreen;
+  } else if (window.innerWidth < 1440) {
+    selectedWidthRight = widthRight.largeScreen;
+  } else {
+    selectedWidthRight = widthRight.xlScreen;
+  }
+
   if (template.id === "plainText") {
     return (
       <div
@@ -110,7 +162,9 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {phoneNumber && (
-                    <td style={{ paddingRight: "10px" }}>{phoneNumber}</td>
+                    <td style={{ paddingRight: "10px", ...selectedWidthLeft }}>
+                      {phoneNumber}
+                    </td>
                   )}
                   {workEmail && (
                     <td>
@@ -124,7 +178,7 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {workEmail && (
-                    <td>
+                    <td style={{ ...selectedWidthRight }}>
                       <a href={"mailto:" + workEmail}>{workEmail}</a>
                     </td>
                   )}
@@ -157,7 +211,9 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {workAddress && (
-                    <td style={{ paddingRight: "10px" }}>{workAddress}</td>
+                    <td style={{ paddingRight: "10px", ...selectedWidthLeft }}>
+                      {workAddress}
+                    </td>
                   )}
                   {website && (
                     <td>
@@ -174,6 +230,7 @@ const UserPersonalInfo = () => {
                     <td
                       style={{
                         color: linkColor,
+                        ...selectedWidthRight,
                       }}
                     >
                       <a href={website}>{website}</a>
