@@ -35,16 +35,16 @@ const UserPersonalInfo = () => {
   };
   const widthRight = {
     xlScreen: {
-      maxWidth: "140px",
+      width: "140px",
     },
     smallScreen: {
-      maxWidth: "140px",
+      width: "140px",
     },
     mediumScreen: {
-      maxWidth: "140px",
+      width: "140px",
     },
     largeScreen: {
-      maxWidth: "140px",
+      width: "140px",
     },
   };
 
@@ -162,7 +162,13 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {phoneNumber && (
-                    <td style={{ paddingRight: "10px", ...selectedWidthLeft }}>
+                    <td
+                      style={{
+                        paddingRight: "10px",
+                        wordBreak: "break-word",
+                        ...selectedWidthLeft,
+                      }}
+                    >
                       {phoneNumber}
                     </td>
                   )}
@@ -178,7 +184,9 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {workEmail && (
-                    <td style={{ ...selectedWidthRight }}>
+                    <td
+                      style={{ wordBreak: "break-word", ...selectedWidthRight }}
+                    >
                       <a href={"mailto:" + workEmail}>{workEmail}</a>
                     </td>
                   )}
@@ -211,7 +219,13 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {workAddress && (
-                    <td style={{ paddingRight: "10px", ...selectedWidthLeft }}>
+                    <td
+                      style={{
+                        paddingRight: "10px",
+                        wordBreak: "break-word",
+                        ...selectedWidthLeft,
+                      }}
+                    >
                       {workAddress}
                     </td>
                   )}
@@ -230,6 +244,7 @@ const UserPersonalInfo = () => {
                     <td
                       style={{
                         color: linkColor,
+                        wordBreak: "break-word",
                         ...selectedWidthRight,
                       }}
                     >
