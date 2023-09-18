@@ -15,13 +15,21 @@ const UserProfilePic = () => {
   }
 
   return (
-    <Image
-      src={imageURL}
-      alt="Profile Image"
-      width={imageSize}
-      height={imageSize}
-      style={{ borderRadius: "50%", overflow: "clip" }}
-    />
+    <div
+      style={{
+        width: imageSize,
+        height: imageSize,
+        borderRadius: "50%",
+        overflow: "hidden",
+      }}
+    >
+      <Image
+        src={imageURL}
+        alt="Profile Image"
+        width={imageSize}
+        height={imageSize}
+      />
+    </div>
   );
 };
 
