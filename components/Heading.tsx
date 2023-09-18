@@ -16,8 +16,8 @@ const Heading: React.FC<HeadingProps> = ({
       <h1
         className={
           type === "Heading"
-            ? "text-2xl font-bold text-default"
-            : "text-xl font-bold text-default"
+            ? "text-2xl font-bold mb-1 sm:mb-0 text-default"
+            : "text-xl font-bold mb-1 sm:mb-0 text-default"
         }
       >
         {primary}
