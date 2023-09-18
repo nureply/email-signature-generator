@@ -209,7 +209,7 @@ function Text() {
       {numbers.map((item) => (
         <div
           key={item}
-          className="sm:w-[184px] w-[116px] lg:max-xl:w-[216px] h-[12px]  bg-highlight rounded-full"
+          className="w-[116px] sm:w-[184px] lg:max-xl:w-[216px] h-[12px] bg-highlight rounded-full"
         ></div>
       ))}
     </div>
