@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useTemplateStore } from "@/store/templateStore";
 import UserProfilePic from "./UserProfilePic";
 import UserPersonalInfo from "./UserPersonalInfo";

@@ -13,3 +13,13 @@
     padding-top: 4rem;
   }
 }
+
+@keyframes pulse {
+  0% {
+    border-color: #10b981;
+  }
+}
+
+.pulse-green {
+  animation: pulse 0.5s ease-in-out;
+}

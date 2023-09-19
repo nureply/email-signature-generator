@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+
 import iconNureply from "../assets/Nureply/logofull.png";
 import { useTemplateStore } from "@/store/templateStore";
 
