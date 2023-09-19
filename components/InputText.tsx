@@ -49,21 +49,21 @@ const InputText: React.FC<InputTextProps> = ({
   value,
   onChange,
 }) => {
-  const [wasInvalid, setWasInvalid] = useState(false);
-  const [animate, setAnimate] = useState(false);
-
   const isValidationNeeded = type === "email" || type === "link";
   const isValid =
     (type === "email" && isEmailValid(value)) ||
     (type === "link" && isLinkValid(value, label));
-  const showValidBorder = isValidationNeeded && isValid && value.length > 0;
+  const showValidBorder = isValidationNeeded && isValid && value.length > 0; // currently not used, instead there is a pulse animation
   const showInvalidBorder = isValidationNeeded && !isValid && value.length > 0;
+  const [wasInvalid, setWasInvalid] = useState(false);
+
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     if (wasInvalid && isValid) {
       setWasInvalid(false);
       setAnimate(true);
-      setTimeout(() => setAnimate(false), 1000); // remove animation after 1 second
+      setTimeout(() => setAnimate(false), 500);
     } else if (!wasInvalid && !isValid) {
       setWasInvalid(true);
     }
@@ -82,7 +82,7 @@ const InputText: React.FC<InputTextProps> = ({
         className={clsx(
           "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
           animate && "pulse-green",
-          showInvalidBorder && "border-invalid",
+          showInvalidBorder && "border-invalid"
         )}
         type={type}
         id={id}
