@@ -24,17 +24,17 @@ const Signature = () => {
             cellSpacing={0}
             style={{
               borderCollapse: "collapse",
-              width: isSmallScreen ? "505px" : "auto",
+              width: isSmallScreen ? "555px" : "auto",
             }}
           >
             <tbody>
               <tr>
-                <td>
+                <td style={{ paddingRight: "16px" }}>
                   <UserProfilePic />
                 </td>
                 <td>
                   <table>
-                    <tbody style={{ width: "385px" }}>
+                    <tbody>
                       <UserPersonalInfo />
                       <tr>
                         <td>
@@ -62,12 +62,12 @@ const Signature = () => {
             cellSpacing={0}
             style={{
               borderCollapse: "collapse",
-              width: isSmallScreen ? "505px" : "auto",
+              width: isSmallScreen ? "555px" : "auto",
             }}
           >
             <tbody>
               <tr>
-                <td style={{ width: "385px" }}>
+                <td style={{ paddingRight: "16px" }}>
                   <table>
                     <tbody>
                       <UserPersonalInfo />
@@ -100,11 +100,11 @@ const Signature = () => {
             cellSpacing={0}
             style={{
               borderCollapse: "collapse",
-              width: isSmallScreen ? "505px" : "auto",
+              width: isSmallScreen ? "555px" : "auto",
             }}
           >
             <tr>
-              <td style={{ paddingRight: "16px", width: imageSize }}>
+              <td style={{ paddingRight: "16px" }}>
                 <table>
                   <tr>
                     <td>
@@ -124,7 +124,7 @@ const Signature = () => {
                   </tr>
                 </table>
               </td>
-              <td style={{ width: "385px" }}>
+              <td>
                 <table>
                   <UserPersonalInfo />
                 </table>
@@ -140,11 +140,11 @@ const Signature = () => {
             cellSpacing={0}
             style={{
               borderCollapse: "collapse",
-              width: isSmallScreen ? "505px" : "auto",
+              width: isSmallScreen ? "555px" : "auto",
             }}
           >
             <tr>
-              <td style={{ paddingRight: "16px", width: "385px" }}>
+              <td style={{ paddingRight: "16px" }}>
                 <table>
                   <UserPersonalInfo />
                 </table>
@@ -157,12 +157,10 @@ const Signature = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td style={{ paddingTop: "8px" }}>
                       <table>
                         <tbody>
-                          <tr>
-                            <UserLinkIcons />
-                          </tr>
+                          <UserLinkIcons />
                         </tbody>
                       </table>
                     </td>
@@ -180,7 +178,7 @@ const Signature = () => {
             cellSpacing={0}
             style={{
               borderCollapse: "collapse",
-              width: "385px",
+              width: isSmallScreen ? "410px" : "auto",
             }}
           >
             <tr>
@@ -210,7 +208,7 @@ const Signature = () => {
             cellSpacing={0}
             style={{
               borderCollapse: "collapse",
-              width: "385px",
+              width: isSmallScreen ? "410px" : "auto",
             }}
           >
             <UserPersonalInfo />

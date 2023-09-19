@@ -35,16 +35,16 @@ const UserPersonalInfo = () => {
   };
   const widthRight = {
     xlScreen: {
-      width: "140px",
+      maxWidth: "180px",
     },
     smallScreen: {
-      width: "140px",
+      maxWidth: "180px",
     },
     mediumScreen: {
-      width: "140px",
+      maxWidth: "180px",
     },
     largeScreen: {
-      width: "140px",
+      maxWidth: "180px",
     },
   };
 
