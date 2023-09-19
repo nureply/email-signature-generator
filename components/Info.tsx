@@ -125,7 +125,7 @@ const Info = () => {
           <Heading
             type="Description"
             primary="Add a photo"
-            secondary="Can be both square or round"
+            secondary="Add the link of your image"
           />
         </div>
         {imageData.map((item) => (

@@ -28,11 +28,11 @@ function isLinkValid(link: string, label: string): boolean {
       case "youtube.com":
         return label === "YouTube" && pathname.startsWith("/user/");
       case "twitter.com":
-        return label === "Twitter" && pathname.split("/").length >= 2;
+        return label === "Twitter";
       case "facebook.com":
         return label === "Facebook";
       case "instagram.com":
-        return label === "Instagram" && pathname.split("/").length >= 2;
+        return label === "Instagram";
       default:
         return false;
     }
