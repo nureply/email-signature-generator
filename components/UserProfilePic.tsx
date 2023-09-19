@@ -14,19 +14,19 @@ const UserProfilePic = () => {
   }
 
   return (
-    <div
-      style={{
-        overflow: "hidden",
-        position: "relative",
-        width: imageSize,
-        height: imageSize,
-        borderRadius: "50%",
-        backgroundImage: `url(${imageURL})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    />
+    <>
+      <img
+        src={imageURL}
+        alt="Profile Image"
+        style={{
+          borderRadius: "50%",
+          overflow: "hidden",
+          position: "relative",
+          width: `${imageSize}px`,
+          height: `${imageSize}px`,
+        }}
+      />
+    </>
   );
 };
 
