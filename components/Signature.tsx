@@ -28,15 +28,7 @@ const Signature = () => {
           >
             <tbody>
               <tr>
-                <td
-                  style={{
-                    paddingRight: "16px",
-                    width: imageSize,
-                    height: imageSize,
-                    borderRadius: "50%",
-                    overflow: "hidden",
-                  }}
-                >
+                <td>
                   <UserProfilePic />
                 </td>
                 <td>
@@ -92,15 +84,7 @@ const Signature = () => {
                     </tbody>
                   </table>
                 </td>
-                <td
-                  style={{
-                    paddingLeft: "16px",
-                    width: imageSize,
-                    height: imageSize,
-                    borderRadius: "50%",
-                    overflow: "hidden",
-                  }}
-                >
+                <td>
                   <UserProfilePic />
                 </td>
               </tr>
@@ -122,14 +106,7 @@ const Signature = () => {
               <td style={{ paddingRight: "16px", width: imageSize }}>
                 <table>
                   <tr>
-                    <td
-                      style={{
-                        width: imageSize,
-                        height: imageSize,
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                      }}
-                    >
+                    <td>
                       <UserProfilePic />
                     </td>
                   </tr>
@@ -174,14 +151,7 @@ const Signature = () => {
               <td>
                 <table>
                   <tr>
-                    <td
-                      style={{
-                        width: imageSize,
-                        height: imageSize,
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                      }}
-                    >
+                    <td>
                       <UserProfilePic />
                     </td>
                   </tr>
@@ -213,14 +183,7 @@ const Signature = () => {
             }}
           >
             <tr>
-              <td
-                style={{
-                  width: imageSize,
-                  height: imageSize,
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                }}
-              >
+              <td>
                 <UserProfilePic />
               </td>
             </tr>
@@ -262,14 +225,7 @@ const Signature = () => {
               </td>
             </tr>
             <tr>
-              <td
-                style={{
-                  width: imageSize,
-                  height: imageSize,
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                }}
-              >
+              <td>
                 <UserProfilePic />
               </td>
             </tr>
