@@ -21,13 +21,20 @@ const UserProfilePic = () => {
         height: imageSize,
         borderRadius: "50%",
         overflow: "hidden",
+        position: "relative",
       }}
     >
-      <Image
+      <img
         src={imageURL}
         alt="Profile Image"
         width={imageSize}
         height={imageSize}
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
       />
     </div>
   );
