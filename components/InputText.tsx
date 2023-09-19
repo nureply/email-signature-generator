@@ -82,7 +82,7 @@ const InputText: React.FC<InputTextProps> = ({
         className={clsx(
           "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
           animate && "pulse-green",
-          showInvalidBorder && "border-invalid"
+          showInvalidBorder && "border-invalid",
         )}
         type={type}
         id={id}
