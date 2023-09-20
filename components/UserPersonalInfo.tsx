@@ -130,7 +130,8 @@ const UserPersonalInfo = () => {
               <tbody>
                 <tr>
                   <td>{jobTitle}</td>
-                  <td style={{ paddingLeft: "16px" }}>{company}</td>
+                  <td style={{ paddingLeft: "4px", paddingRight: "4px" }}>|</td>
+                  <td>{company}</td>
                 </tr>
               </tbody>
             </table>
