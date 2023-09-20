@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { useTemplateStore } from "@/store/templateStore";
 import useInfoStore from "@/store/infoStore";
 import useCustomizationStore from "@/store/customizationStore";
@@ -152,7 +150,7 @@ const UserPersonalInfo = () => {
                 <tr>
                   {phoneNumber && (
                     <td>
-                      <Image
+                      <img
                         src="https://i.imgur.com/m6mkG6W.png"
                         width={14}
                         height={14}
@@ -174,7 +172,7 @@ const UserPersonalInfo = () => {
                   )}
                   {workEmail && (
                     <td>
-                      <Image
+                      <img
                         src="https://i.imgur.com/JTfwuQG.png"
                         width={14}
                         height={14}
@@ -214,7 +212,7 @@ const UserPersonalInfo = () => {
                 <tr>
                   {workAddress && (
                     <td>
-                      <Image
+                      <img
                         src="https://i.imgur.com/1BFyCw1.png"
                         width={14}
                         height={14}
@@ -236,7 +234,7 @@ const UserPersonalInfo = () => {
                   )}
                   {website && (
                     <td>
-                      <Image
+                      <img
                         src="https://i.imgur.com/HLoZI2E.png"
                         width={14}
                         height={14}
