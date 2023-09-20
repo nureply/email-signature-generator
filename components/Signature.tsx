@@ -4,7 +4,6 @@ import { useTemplateStore } from "@/store/templateStore";
 import UserProfilePic from "./UserProfilePic";
 import UserPersonalInfo from "./UserPersonalInfo";
 import UserLinkIcons from "./UserLinkIcons";
-import useCustomizationStore from "@/store/customizationStore";
 
 const Signature = () => {
   const { template } = useTemplateStore();
