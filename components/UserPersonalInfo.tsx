@@ -244,16 +244,15 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {website && (
-                    <td
-                      style={{
-                        color: linkColor,
-                        wordBreak: "break-word",
-                        ...selectedWidthRight,
-                      }}
-                    >
+                    <td>
                       <a
                         href={website}
-                        style={{ color: linkColor, textDecoration: "none" }}
+                        style={{
+                          color: linkColor,
+                          textDecoration: "none",
+                          wordBreak: "break-word",
+                          ...selectedWidthRight,
+                        }}
                       >
                         {website}
                       </a>
