@@ -12,6 +12,7 @@ module.exports = {
         "nureply-blue": "#4B67FA",
 
         // Validation
+        disabled: "#DEE2E6", // gray-400
         valid: "#10B981", // green-500 // this one is not used currently
         invalid: "#EF4444", // red-500
         // Backgrounds

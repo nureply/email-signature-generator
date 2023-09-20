@@ -14,6 +14,23 @@
   }
 }
 
+.message {
+  position: absolute;
+  right: 100px;
+  animation: fadeOut 2s forwards;
+  color: #4b67fa;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes pulse {
   0% {
     border-color: #10b981;

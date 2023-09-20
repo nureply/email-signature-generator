@@ -19,11 +19,12 @@ const UserProfilePic = () => {
         src={imageURL}
         alt="Profile Image"
         style={{
-          borderRadius: "50%",
           overflow: "hidden",
           position: "relative",
           width: `${imageSize}px`,
           height: `${imageSize}px`,
+          borderRadius: "50%",
+          objectFit: "cover",
         }}
       />
     </>

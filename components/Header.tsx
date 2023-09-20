@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import iconNureply from "../assets/Nureply/logofull.png";
@@ -6,6 +6,7 @@ import { useTemplateStore } from "@/store/templateStore";
 
 const Header = () => {
   const { template } = useTemplateStore();
+  const [showMessage, setShowMessage] = useState(false);
 
   const copyToClipboard = () => {
     let copyText = document.querySelector(".signaturetrying");
@@ -22,7 +23,10 @@ const Header = () => {
     }
     try {
       let successful = document.execCommand("copy");
-      console.log(successful ? "Success" : "Fail");
+      if (successful) {
+        setShowMessage(true);
+        setTimeout(() => setShowMessage(false), 2000);
+      }
     } catch (err) {
       console.log("Fail");
     }
@@ -44,14 +48,17 @@ const Header = () => {
       </div>
 
       <button
-        className={`px-2 sm:px-4 py-2.5 bg-nureply-blue text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background ${
-          isDisabled ? "cursor-not-allowed" : "hover:bg-nureply-blue/75"
+        className={`px-2 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background ${
+          isDisabled
+            ? "bg-disabled cursor-not-allowed"
+            : "bg-nureply-blue hover:bg-nureply-blue/75"
         }`}
         onClick={handleGenerateClick}
-        disabled={template.id === "initial"}
+        disabled={isDisabled}
       >
         Copy
       </button>
+      {showMessage && <div className="message">Copied!</div>}
     </header>
   );
 };
