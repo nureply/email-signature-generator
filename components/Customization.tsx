@@ -42,6 +42,11 @@ const colorPickerData = [
     name: "textColor",
   },
   {
+    label: "Email Color",
+    id: "emailColor",
+    name: "emailColor",
+  },
+  {
     label: "Link Color",
     id: "linkColor",
     name: "linkColor",
@@ -50,13 +55,13 @@ const colorPickerData = [
 
 const Customization = () => {
   const {
+    fontName,
     fontSize,
     iconSize,
     imageSize,
     nameColor,
     textColor,
     linkColor,
-    nameFont,
     handleChange,
   } = useCustomizationStore();
 
@@ -71,7 +76,7 @@ const Customization = () => {
         </div>
 
         <div>
-          <p className="mt-4 px-4" style={{ fontFamily: nameFont }}>
+          <p className="mt-4 px-4" style={{ fontFamily: fontName }}>
             Select a custom font
           </p>
           <FontChanger />
@@ -119,6 +124,8 @@ const Customization = () => {
               name === "nameColor"
                 ? nameColor
                 : name === "textColor"
+                ? textColor
+                : name === "emailColor"
                 ? textColor
                 : name === "linkColor"
                 ? linkColor

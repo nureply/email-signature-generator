@@ -14,7 +14,7 @@ const UserPersonalInfo = () => {
     website,
   } = useInfoStore();
   const { template } = useTemplateStore();
-  const { fontSize, nameFont, linkColor, textColor, nameColor } =
+  const { fontName, fontSize, linkColor, textColor, emailColor, nameColor } =
     useCustomizationStore();
 
   const widthLeft = {
@@ -99,7 +99,7 @@ const UserPersonalInfo = () => {
           style={{
             color: textColor,
             fontSize: `${fontSize}px`,
-            fontFamily: nameFont,
+            fontFamily: fontName,
           }}
         >
           <td style={{ paddingBottom: "4px" }}>{signOff}</td>
@@ -108,7 +108,7 @@ const UserPersonalInfo = () => {
           style={{
             color: textColor,
             fontSize: `${fontSize}px`,
-            fontFamily: nameFont,
+            fontFamily: fontName,
           }}
         >
           <td style={{ color: nameColor, paddingBottom: "4px" }}>{fullName}</td>
@@ -124,7 +124,7 @@ const UserPersonalInfo = () => {
               style={{
                 color: textColor,
                 fontSize: `${fontSize}px`,
-                fontFamily: nameFont,
+                fontFamily: fontName,
               }}
             >
               <tbody>
@@ -141,7 +141,7 @@ const UserPersonalInfo = () => {
             paddingTop: "4px",
             color: textColor,
             fontSize: `${fontSize}px`,
-            fontFamily: nameFont,
+            fontFamily: fontName,
           }}
         >
           <td>
@@ -187,7 +187,7 @@ const UserPersonalInfo = () => {
                     >
                       <a
                         href={"mailto:" + workEmail}
-                        style={{ color: textColor, textDecoration: "none" }}
+                        style={{ color: emailColor, textDecoration: "none" }}
                       >
                         {workEmail}
                       </a>
@@ -203,7 +203,7 @@ const UserPersonalInfo = () => {
             paddingTop: "4px",
             color: textColor,
             fontSize: `${fontSize}px`,
-            fontFamily: nameFont,
+            fontFamily: fontName,
           }}
         >
           <td>
