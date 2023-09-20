@@ -187,7 +187,12 @@ const UserPersonalInfo = () => {
                     <td
                       style={{ wordBreak: "break-word", ...selectedWidthRight }}
                     >
-                      <a href={"mailto:" + workEmail}>{workEmail}</a>
+                      <a
+                        href={"mailto:" + workEmail}
+                        style={{ color: textColor, textDecoration: "none" }}
+                      >
+                        {workEmail}
+                      </a>
                     </td>
                   )}
                 </tr>
@@ -248,7 +253,12 @@ const UserPersonalInfo = () => {
                         ...selectedWidthRight,
                       }}
                     >
-                      <a href={website}>{website}</a>
+                      <a
+                        href={website}
+                        style={{ color: linkColor, textDecoration: "none" }}
+                      >
+                        {website}
+                      </a>
                     </td>
                   )}
                 </tr>
