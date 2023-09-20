@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { useTemplateStore } from "@/store/templateStore";
 import useInfoStore from "@/store/infoStore";
 import useCustomizationStore from "@/store/customizationStore";

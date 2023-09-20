@@ -8,7 +8,6 @@ import useCustomizationStore from "@/store/customizationStore";
 
 const Signature = () => {
   const { template } = useTemplateStore();
-  const { imageSize } = useCustomizationStore();
 
   const isSmallScreen = window.innerWidth <= 640;
 
