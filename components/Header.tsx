@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+
 import iconNureply from "../assets/Nureply/logofull.png";
+import { useTemplateStore } from "@/store/templateStore";
 
 const Header = () => {
+  const { template } = useTemplateStore();
+  const [showMessage, setShowMessage] = useState(false);
+
   const copyToClipboard = () => {
     let copyText = document.querySelector(".signaturetrying");
+
     const range = document.createRange();
     if (copyText) {
       range.selectNode(copyText);
     }
+
     const windowSelection = window.getSelection();
     if (windowSelection) {
       windowSelection.removeAllRanges();
@@ -16,29 +23,42 @@ const Header = () => {
     }
     try {
       let successful = document.execCommand("copy");
-      console.log(successful ? "Success" : "Fail");
+      if (successful) {
+        setShowMessage(true);
+        setTimeout(() => setShowMessage(false), 2000);
+      }
     } catch (err) {
       console.log("Fail");
     }
   };
+
   const handleGenerateClick = () => {
     copyToClipboard();
   };
+
+  const isDisabled = template.id === "initial";
+
   return (
-    <header className="fixed flex z-50 top-0 left-0 right-0 p-2 justify-between items-center bg-window shadow">
+    <header className="fixed flex items-center justify-between z-50 top-0 left-0 right-0 p-2 bg-window shadow">
       <div className="flex items-center overflow-hidden">
         <Image className="mr-5" src={iconNureply} width={150} alt="" />
-        <h1 className="text-xl font-semibold text-default">
+        <h1 className="text-base sm:text-xl font-semibold text-default">
           Email Signature Generator
         </h1>
       </div>
 
       <button
-        className="rounded-md bg-nureply-blue-full px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-nureply-blue-full/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
+        className={`px-2 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background ${
+          isDisabled
+            ? "bg-disabled cursor-not-allowed"
+            : "bg-nureply-blue hover:bg-nureply-blue/75"
+        }`}
         onClick={handleGenerateClick}
+        disabled={isDisabled}
       >
         Copy
       </button>
+      {showMessage && <div className="message">Copied!</div>}
     </header>
   );
 };

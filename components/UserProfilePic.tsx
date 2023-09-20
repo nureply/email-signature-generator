@@ -1,25 +1,33 @@
 import React from "react";
-import useInfoStore from "@/store/infoStore";
+
 import { useTemplateStore } from "@/store/templateStore";
+import useInfoStore from "@/store/infoStore";
 import useCustomizationStore from "@/store/customizationStore";
 
 const UserProfilePic = () => {
-  const { imageSize } = useCustomizationStore();
-  const { imageURL } = useInfoStore();
   const { template } = useTemplateStore();
+  const { imageURL } = useInfoStore();
+  const { imageSize } = useCustomizationStore();
 
   if (template.id === "plainText") {
     return null;
   }
 
   return (
-    <img
-      src="https://i.imgur.com/fyYcdUD.png"
-      alt="Profile Image"
-      width={imageSize}
-      height={imageSize}
-      style={{ borderRadius: "50%" }}
-    />
+    <>
+      <img
+        src={imageURL}
+        alt="Profile Image"
+        style={{
+          overflow: "hidden",
+          position: "relative",
+          width: `${imageSize}px`,
+          height: `${imageSize}px`,
+          borderRadius: "50%",
+          objectFit: "cover",
+        }}
+      />
+    </>
   );
 };
 

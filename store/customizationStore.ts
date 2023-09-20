@@ -6,13 +6,14 @@ type ChangeOrMouseEvent =
   | React.MouseEvent<HTMLButtonElement>;
 
 type State = {
+  fontName: string;
   fontSize: number;
   iconSize: number;
   imageSize: number;
   nameColor: string;
   textColor: string;
+  emailColor: string;
   linkColor: string;
-  nameFont: string;
 };
 
 type CustomizationStore = State & {
@@ -21,18 +22,17 @@ type CustomizationStore = State & {
 };
 
 const useCustomizationStore = create<CustomizationStore>((set) => ({
+  fontName: "",
   fontSize: 12,
   iconSize: 16,
-  imageSize: 120,
+  imageSize: 100,
   nameColor: "",
   textColor: "",
+  emailColor: "",
   linkColor: "",
-  nameFont: "",
-
   setCustomizationOutput(newCustomizationOutput) {
     set((state) => ({ ...state, ...newCustomizationOutput }));
   },
-
   handleChange(event) {
     if ("target" in event) {
       const { name, value } = event.target as HTMLInputElement;

@@ -4,6 +4,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 @layer base {
@@ -13,23 +14,29 @@
   }
 }
 
-@keyframes vibrate {
-  0% {
-    transform: translateX(0);
+.message {
+  position: absolute;
+  right: 100px;
+  animation: fadeOut 2s forwards;
+  color: #4b67fa;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
   }
-  25% {
-    transform: translateX(1px);
-  }
-  50% {
-    transform: translateX(3px);
-  }
-  75% {
-    transform: translateX(1px);
-  }
-  100% {
-    transform: translateX(0);
+
+  to {
+    opacity: 0;
   }
 }
-.vibrate {
-  animation: vibrate 0.3s linear;
+
+@keyframes pulse {
+  0% {
+    border-color: #10b981;
+  }
+}
+
+.pulse-green {
+  animation: pulse 0.5s ease-in-out;
 }

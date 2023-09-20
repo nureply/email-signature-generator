@@ -1,4 +1,5 @@
 import React from "react";
+
 import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
 import InputText from "./InputText";
@@ -93,6 +94,7 @@ const inputTextLinkData = [
 
 const Info = () => {
   const {
+    imageURL,
     signOff,
     fullName,
     jobTitle,
@@ -107,7 +109,6 @@ const Info = () => {
     FacebookLink,
     InstagramLink,
     handleChange,
-    imageURL,
   } = useInfoStore();
 
   return (
@@ -124,7 +125,7 @@ const Info = () => {
           <Heading
             type="Description"
             primary="Add a photo"
-            secondary="Can be both square or round"
+            secondary="Add the link of your image"
           />
         </div>
         {imageData.map((item) => (

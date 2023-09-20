@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 
 interface InputTextProps {
@@ -28,11 +28,11 @@ function isLinkValid(link: string, label: string): boolean {
       case "youtube.com":
         return label === "YouTube" && pathname.startsWith("/user/");
       case "twitter.com":
-        return label === "Twitter" && pathname.split("/").length >= 2;
+        return label === "Twitter";
       case "facebook.com":
         return label === "Facebook";
       case "instagram.com":
-        return label === "Instagram" && pathname.split("/").length >= 2;
+        return label === "Instagram";
       default:
         return false;
     }
@@ -49,14 +49,25 @@ const InputText: React.FC<InputTextProps> = ({
   value,
   onChange,
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
-
   const isValidationNeeded = type === "email" || type === "link";
   const isValid =
     (type === "email" && isEmailValid(value)) ||
     (type === "link" && isLinkValid(value, label));
-  const showValidBorder = isValidationNeeded && isValid && value.length > 0;
+  const showValidBorder = isValidationNeeded && isValid && value.length > 0; // currently not used, instead there is a pulse animation
   const showInvalidBorder = isValidationNeeded && !isValid && value.length > 0;
+  const [wasInvalid, setWasInvalid] = useState(false);
+
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (wasInvalid && isValid) {
+      setWasInvalid(false);
+      setAnimate(true);
+      setTimeout(() => setAnimate(false), 500);
+    } else if (!wasInvalid && !isValid) {
+      setWasInvalid(true);
+    }
+  }, [value, isValid, wasInvalid]);
 
   return (
     <div>
@@ -70,7 +81,7 @@ const InputText: React.FC<InputTextProps> = ({
       <input
         className={clsx(
           "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
-          showValidBorder && "", // if changing the border color also when the input is valid would be needed, it can be done here
+          animate && "pulse-green",
           showInvalidBorder && "border-invalid",
         )}
         type={type}
@@ -79,6 +90,7 @@ const InputText: React.FC<InputTextProps> = ({
         value={value}
         onChange={onChange}
       />
+
       {showInvalidBorder && (
         <p
           className={clsx("text-sm", {

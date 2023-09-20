@@ -25,16 +25,13 @@ const Slider: React.FC<SliderProps> = ({
     <>
       <div>
         <div className="flex items-center justify-center">
-          <label
-            className="block mt-2 font-semi-bold text-default"
-            htmlFor={id}
-          >
+          <label className="block mt-2 font-semibold text-default" htmlFor={id}>
             {label}
           </label>
         </div>
 
         <input
-          className="w-full h-2 rounded-lg bg-background appearance-none cursor-pointer"
+          className="appearance-none w-full h-2 rounded-lg bg-background cursor-pointer"
           type="range"
           id={id}
           name={name}

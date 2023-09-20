@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
+
+import { useTemplateStore } from "@/store/templateStore";
 import UserProfilePic from "./UserProfilePic";
 import UserPersonalInfo from "./UserPersonalInfo";
 import UserLinkIcons from "./UserLinkIcons";
-import { useTemplateStore } from "@/store/templateStore";
 
 const Signature = () => {
   const { template } = useTemplateStore();
+
+  const isSmallScreen = window.innerWidth <= 640;
 
   const renderSignature = () => {
     switch (template.id) {
@@ -17,7 +20,10 @@ const Signature = () => {
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "555px" : "auto",
+            }}
           >
             <tbody>
               <tr>
@@ -46,16 +52,20 @@ const Signature = () => {
             </tbody>
           </table>
         );
+
       case "template1Right":
         return (
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "555px" : "auto",
+            }}
           >
             <tbody>
               <tr>
-                <td>
+                <td style={{ paddingRight: "16px" }}>
                   <table>
                     <tbody>
                       <UserPersonalInfo />
@@ -73,19 +83,23 @@ const Signature = () => {
                     </tbody>
                   </table>
                 </td>
-                <td style={{ paddingLeft: "16px" }}>
+                <td>
                   <UserProfilePic />
                 </td>
               </tr>
             </tbody>
           </table>
         );
+
       case "template2Left":
         return (
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "555px" : "auto",
+            }}
           >
             <tr>
               <td style={{ paddingRight: "16px" }}>
@@ -116,12 +130,16 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       case "template2Right":
         return (
           <table
             cellPadding={0}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "555px" : "auto",
+            }}
           >
             <tr>
               <td style={{ paddingRight: "16px" }}>
@@ -137,12 +155,10 @@ const Signature = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td style={{ paddingTop: "8px" }}>
                       <table>
                         <tbody>
-                          <tr>
-                            <UserLinkIcons />
-                          </tr>
+                          <UserLinkIcons />
                         </tbody>
                       </table>
                     </td>
@@ -152,12 +168,16 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       case "template3Top":
         return (
           <table
             cellPadding={5}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "410px" : "auto",
+            }}
           >
             <tr>
               <td>
@@ -178,12 +198,16 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       case "template3Bottom":
         return (
           <table
             cellPadding={5}
             cellSpacing={0}
-            style={{ borderCollapse: "collapse" }}
+            style={{
+              borderCollapse: "collapse",
+              width: isSmallScreen ? "410px" : "auto",
+            }}
           >
             <UserPersonalInfo />
             <tr>
@@ -204,6 +228,7 @@ const Signature = () => {
             </tr>
           </table>
         );
+
       default:
         return null;
     }

@@ -1,6 +1,6 @@
-import useCustomizationStore from "@/store/customizationStore";
-import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
+import useInfoStore from "@/store/infoStore";
+import useCustomizationStore from "@/store/customizationStore";
 
 const UserLinkIcons = () => {
   const {
@@ -10,8 +10,8 @@ const UserLinkIcons = () => {
     FacebookLink,
     InstagramLink,
   } = useInfoStore();
-  const { iconSize } = useCustomizationStore();
   const { template } = useTemplateStore();
+  const { iconSize } = useCustomizationStore();
 
   if (template.id === "plainText") {
     return null;
@@ -24,8 +24,8 @@ const UserLinkIcons = () => {
             <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/85qsHCu.png"
-                height={iconSize}
-                width={iconSize}
+                alt="LinkedIn Icon"
+                style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
           )}
@@ -35,8 +35,8 @@ const UserLinkIcons = () => {
             <a href={YouTubeLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/fUBlfhT.png"
-                height={iconSize}
-                width={iconSize}
+                alt="Youtube Icon"
+                style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
           )}
@@ -46,8 +46,8 @@ const UserLinkIcons = () => {
             <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://imgur.com/gmuTUFy.png"
-                height={iconSize}
-                width={iconSize}
+                alt="Twitter Icon"
+                style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
           )}
@@ -57,8 +57,8 @@ const UserLinkIcons = () => {
             <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/H5XUTzh.png"
-                height={iconSize}
-                width={iconSize}
+                alt="Facebook Icon"
+                style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
           )}
@@ -68,8 +68,8 @@ const UserLinkIcons = () => {
             <a href={InstagramLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/Z9Gkdd6.png"
-                height={iconSize}
-                width={iconSize}
+                alt="Instagram Icon"
+                style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
           )}

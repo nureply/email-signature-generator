@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from "react";
+
 import useCustomizationStore from "../store/customizationStore";
 
 const FontChanger = () => {
@@ -15,10 +16,10 @@ const FontChanger = () => {
     "Times New Roman",
   ];
 
-  const { nameFont, setCustomizationOutput } = useCustomizationStore();
+  const { fontName, setCustomizationOutput } = useCustomizationStore();
 
   const handleFontChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCustomizationOutput({ nameFont: event.target.value });
+    setCustomizationOutput({ fontName: event.target.value });
   };
 
   return (
@@ -26,9 +27,9 @@ const FontChanger = () => {
       <select
         id="fontChanger"
         name="fontChanger"
-        value={nameFont}
+        value={fontName}
         onChange={handleFontChange}
-        className="block w-full py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none sm:text-sm"
+        className="block w-full py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none"
       >
         {fonts.map((font) => (
           <option key={font} value={font}>
