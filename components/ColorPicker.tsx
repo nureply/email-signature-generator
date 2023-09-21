@@ -90,7 +90,7 @@ const ColorPicker = ({ label, id, name }: ColorPickerProps) => {
             <input
               style={{
                 width: "80px",
-                backgroundColor: color as string,
+                backgroundColor: isValidHex ? color : "#FFFFFF",
                 color: textColor,
               }}
               className={clsx(
@@ -98,7 +98,7 @@ const ColorPicker = ({ label, id, name }: ColorPickerProps) => {
                 isValidHex === null
                   ? ""
                   : isValidHex
-                  ? "" // a color indicating a valid input can be used here, such as border-valid
+                  ? "pulse-green"
                   : "border-invalid",
               )}
               placeholder="#"
