@@ -195,7 +195,7 @@ function Icons() {
   return (
     <div className="flex mt-5 px-3 gap-3">
       {numbers.map((item) => (
-        <div key={item} className="w-4 h-4 bg-highlight rounded-full"></div>
+        <div key={item} className="w-3 h-3 bg-highlight rounded-full"></div>
       ))}
     </div>
   );
@@ -209,7 +209,7 @@ function Text() {
       {numbers.map((item) => (
         <div
           key={item}
-          className="w-[116px] sm:w-[184px] lg:max-xl:w-[216px] h-[12px] bg-highlight rounded-full"
+          className="w-[116px] sm:w-[165px] lg:max-xl:w-[216px] h-[12px] bg-highlight rounded-full"
         ></div>
       ))}
     </div>
