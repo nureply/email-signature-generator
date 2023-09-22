@@ -116,6 +116,7 @@ const Info = () => {
         <Heading
           primary="Your info"
           secondary="Enter your data and see how it looks on your selected layout"
+          type="Description"
         />
       </div>
 

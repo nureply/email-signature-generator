@@ -14,11 +14,11 @@ const Welcome = () => {
   return (
     <>
       <div className="m-6">
-        <div className="p-2 sm:p-20 ">
-          <h1 className="mt-5 mb-8 lg:mt-0 lg:mb-14 text-center text-3xl sm:text-5xl font-bold">
+        <div className="p-2 sm:pt-20">
+          <h1 className="mt-5 mb-8 lg:mt-0 lg:mb-6 text-center text-3xl font-bold">
             Create Your Professional Email Signature
           </h1>
-          <p className="mb-8 text-center text-lg sm:text-xl">
+          <p className="mb-10 text-center text-lg sm:text-xl">
             Upgrade your email signature to a professional look without email
             deliverability issues.
           </p>
@@ -30,7 +30,7 @@ const Welcome = () => {
           </p>
 
           <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-            <ul className="list-disc  max-w-2xl mx-auto divide-y divide-gray-200 dark:divide-gray-700">
+            <ul className="list-decimal max-w-2xl mx-auto divide-y divide-gray-200 dark:divide-gray-700">
               <li className="py-8 first:pt-0 last:pb-0 text-gray-800">
                 <div className="flex gap-x-5">
                   <div>
@@ -51,8 +51,7 @@ const Welcome = () => {
                       Customize the Style
                     </h3>
                     <p className="mt-1 text-gray-800">
-                      Customize the style – Pick the font, colors, and adjust
-                      the size
+                      Pick the font, colors, and adjust the size
                     </p>
                   </div>
                 </div>

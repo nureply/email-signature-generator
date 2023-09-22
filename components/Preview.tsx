@@ -13,8 +13,8 @@ const Preview = () => {
 
       <div className="text-default">
         <div className={clsx("py-2 pl-4 border-t-2 border-gray-300")}>
-          <span className={clsx("text-fade")}>Send from:</span>{" "}
-          johnsmith@nureply.com - John Smith
+          <span className={clsx("text-fade")}>Send from:</span> onur@nureply.com
+          - Onur Genes
         </div>
         <div className={clsx("py-2 pl-4 border-y-2 border-gray-300")}>
           <span className={clsx("text-fade")}>Subject:</span> Email Signatures

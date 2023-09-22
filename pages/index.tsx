@@ -35,7 +35,7 @@ export default function Home() {
         <main
           className={clsx(
             "max-h-screen overflow-y-auto bg-window border-l-2 border-gray-400",
-            step === 0 ? "xl:basis-11/12" : "xl:basis-4/12",
+            step === 0 ? "xl:basis-11/12" : "xl:basis-3/12"
           )}
         >
           {step === 0 && <Welcome />}

@@ -72,6 +72,7 @@ const Customization = () => {
           <Heading
             primary="Customization"
             secondary="Customize the styling of your email signature"
+            type="Description"
           />
         </div>
 
