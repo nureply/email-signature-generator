@@ -4,6 +4,19 @@ import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
 import InputText from "./InputText";
 import Tooltip from "./Tooltip";
+import Slider from "./Slider";
+import useCustomizationStore from "@/store/customizationStore";
+
+const sliderData = [
+  {
+    label: "Image Size",
+    id: "imageSize",
+    name: "imageSize",
+    min: 100,
+    max: 120,
+    step: 1,
+  },
+];
 
 const imageData = [
   {
@@ -110,6 +123,8 @@ const Info = () => {
     handleChange,
   } = useInfoStore();
 
+  const { imageSize, handleCustomizationChange } = useCustomizationStore();
+
   return (
     <div className="m-8">
       <div className="m-2 py-4 border-b border-background">
@@ -141,6 +156,32 @@ const Info = () => {
             {item.tooltip && <Tooltip tooltipText={item.tooltip} />}
           </div>
         ))}
+
+        <div className="w-full p-4">
+          {sliderData.map(({ label, id, name, min, max, step }) => {
+            let value;
+            switch (name) {
+              case "imageSize":
+                value = imageSize;
+                break;
+              default:
+                value = 0;
+            }
+            return (
+              <Slider
+                key={id}
+                label={label}
+                id={id}
+                name={name}
+                min={min}
+                max={max}
+                step={step}
+                value={value}
+                onChange={handleCustomizationChange}
+              />
+            );
+          })}
+        </div>
       </div>
 
       <div className="pb-4 border-b border-background">

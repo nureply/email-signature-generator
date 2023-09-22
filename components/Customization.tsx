@@ -21,14 +21,6 @@ const sliderData = [
     max: 20,
     step: 1,
   },
-  {
-    label: "Image Size",
-    id: "imageSize",
-    name: "imageSize",
-    min: 100,
-    max: 120,
-    step: 1,
-  },
 ];
 const colorPickerData = [
   {
@@ -62,12 +54,12 @@ const Customization = () => {
     nameColor,
     textColor,
     linkColor,
-    handleChange,
+    handleCustomizationChange,
   } = useCustomizationStore();
 
   return (
     <>
-      <div className="m-8">
+      <div className="m-4">
         <div className="w-full p-4 border-b border-background">
           <Heading
             primary="Customization"
@@ -93,9 +85,6 @@ const Customization = () => {
               case "iconSize":
                 value = iconSize;
                 break;
-              case "imageSize":
-                value = imageSize;
-                break;
               default:
                 value = 0;
             }
@@ -109,7 +98,7 @@ const Customization = () => {
                 max={max}
                 step={step}
                 value={value}
-                onChange={handleChange}
+                onChange={handleCustomizationChange}
               />
             );
           })}
@@ -121,18 +110,7 @@ const Customization = () => {
             label={label}
             id={id}
             name={name}
-            value={
-              name === "nameColor"
-                ? nameColor
-                : name === "textColor"
-                ? textColor
-                : name === "emailColor"
-                ? textColor
-                : name === "linkColor"
-                ? linkColor
-                : ""
-            }
-            onChange={handleChange}
+            onChange={handleCustomizationChange}
           />
         ))}
       </div>
