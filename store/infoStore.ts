@@ -23,7 +23,7 @@ interface State {
 }
 
 const useInfoStore = create<State>((set) => ({
-  signOff: "",
+  signOff: "Best,",
   fullName: "John Smith",
   jobTitle: "Manager",
   company: "Nureply",

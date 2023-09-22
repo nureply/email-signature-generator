@@ -15,7 +15,6 @@ const imageData = [
   },
 ];
 const signOffOptions = [
-  { value: "", label: "Select a sign-off" },
   { value: "Best,", label: "Best," },
   { value: "Regards,", label: "Regards," },
   { value: "Best regards,", label: "Best regards," },
@@ -144,8 +143,14 @@ const Info = () => {
       </div>
 
       <div className="pb-4 border-b border-background">
+        <label
+          htmlFor="signOff"
+          className="block px-2 font-semibold text-default"
+        >
+          Select a sign-off
+        </label>
         <select
-          className="block w-full py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none text-fade"
+          className="block w-full mt-4 py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none text-fade"
           name="signOff"
           onChange={handleChange}
           value={signOff}
