@@ -25,11 +25,81 @@ const Welcome = () => {
         </div>
 
         <div className="max-w-3xl min-h-screen mx-auto bg-window">
-          <p className="mb-8 p-2 text-center text-lg sm:text-2xl font-semibold">
+          <p className="p-2 text-center text-lg sm:text-2xl font-semibold text-gray-950">
             How to create an email signature?
           </p>
 
-          <div
+          <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <ul className="list-disc  max-w-2xl mx-auto divide-y divide-gray-200 dark:divide-gray-700">
+              <li className="py-8 first:pt-0 last:pb-0 text-gray-800">
+                <div className="flex gap-x-5">
+                  <div>
+                    <h3 className="md:text-lg font-semibold text-gray-900 ">
+                      Choose a Template
+                    </h3>
+                    <p className="mt-1 text-gray-800">
+                      Choose a template and start filling in your information
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li className="py-8 first:pt-0 last:pb-0 text-gray-800">
+                <div className="flex gap-x-5">
+                  <div>
+                    <h3 className="md:text-lg font-semibold text-gray-900 ">
+                      Customize the Style
+                    </h3>
+                    <p className="mt-1 text-gray-800">
+                      Customize the style – Pick the font, colors, and adjust
+                      the size
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li className="py-8 first:pt-0 last:pb-0 text-gray-800">
+                <div className="flex gap-x-5">
+                  <div>
+                    <h3 className="md:text-lg font-semibold text-gray-900 ">
+                      Settle on the Design
+                    </h3>
+                    <p className="mt-1 text-gray-800">
+                      Create a professional email signature that enhances your
+                      image and does not impact your email deliverability
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li className="py-8 first:pt-0 last:pb-0 text-gray-800">
+                <div className="flex gap-x-5">
+                  <div>
+                    <h3 className="md:text-lg font-semibold text-gray-900 ">
+                      Integrate with Your Email
+                    </h3>
+                    <p className="mt-1 text-gray-800">
+                      Copy-paste your finished signature to your preferred email
+                      clients
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li className="py-8 first:pt-0 last:pb-0 text-gray-800">
+                <div className="flex gap-x-5">
+                  <div>
+                    <h3 className="md:text-lg font-semibold text-gray-900 ">
+                      Have Your Email Signature Ready?
+                    </h3>
+                    <p className="mt-1 text-gray-800">Excellent!</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* <div
             onClick={() => toggleAccordion(1)}
             className={`flex items-center justify-between w-full p-2 bg-window rounded cursor-pointer ${
               openAccordion === 1
@@ -203,7 +273,7 @@ const Welcome = () => {
               <p className="ml-12 text-default">Excellent!</p>
             </div>
           )}
-          <hr className="border-b-1 border-fade" />
+          <hr className="border-b-1 border-fade" /> */}
         </div>
       </div>
     </>
