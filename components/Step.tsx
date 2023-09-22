@@ -9,7 +9,7 @@ const steps = [0, 1, 2, 3, 4];
 
 const Step = () => {
   const [windowWidth, setWindowWidth] = useState(
-    typeof window != "undefined" ? window.innerWidth : 0,
+    typeof window != "undefined" ? window.innerWidth : 0
   );
   const xlWidth = 1280;
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -73,10 +73,10 @@ const Step = () => {
           <div
             key={mapStep}
             className={clsx(
-              "my-5 -mb-[1.5px] lg:mx-5 lg:-mr-[1.5px] xl:w-3/5 bg-window text-highlight",
+              "my-5 -mb-[2px] lg:mx-5 lg:-mr-[2px] xl:w-3/5 bg-window text-highlight",
               {
                 "cursor-pointer": isStepClickable(mapStep),
-              },
+              }
             )}
             onClick={() => handleStepClick(mapStep)}
           >
@@ -93,7 +93,7 @@ const Step = () => {
                     step === mapStep,
                   "border-x-2 border-x-gray-400 xl:border-y-2 xl:rounded-l-md xl:border-y-gray-400":
                     step === mapStep,
-                },
+                }
               )}
             >
               {stepsPicker(mapStep, step, isSmallScreen)}

@@ -111,7 +111,16 @@ const UserPersonalInfo = () => {
             fontFamily: fontName,
           }}
         >
-          <td style={{ color: nameColor, paddingBottom: "4px" }}>{fullName}</td>
+          <td
+            style={{
+              color: nameColor,
+              paddingBottom: "4px",
+              maxWidth: "410px",
+              wordBreak: "break-word",
+            }}
+          >
+            {fullName}
+          </td>
         </tr>
         <tr
           style={{
@@ -129,9 +138,13 @@ const UserPersonalInfo = () => {
             >
               <tbody>
                 <tr>
-                  <td>{jobTitle}</td>
+                  <td style={{ maxWidth: "200px", wordBreak: "break-word" }}>
+                    {jobTitle}
+                  </td>
                   <td style={{ paddingLeft: "4px", paddingRight: "4px" }}>|</td>
-                  <td>{company}</td>
+                  <td style={{ maxWidth: "200px", wordBreak: "break-word" }}>
+                    {company}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -245,14 +258,14 @@ const UserPersonalInfo = () => {
                     </td>
                   )}
                   {website && (
-                    <td>
+                    <td
+                      style={{ wordBreak: "break-word", ...selectedWidthRight }}
+                    >
                       <a
                         href={website}
                         style={{
                           color: linkColor,
                           textDecoration: "none",
-                          wordBreak: "break-word",
-                          ...selectedWidthRight,
                         }}
                       >
                         {website}
