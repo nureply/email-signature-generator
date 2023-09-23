@@ -23,7 +23,7 @@ const UserLinkIcons = () => {
           {LinkedInLink && (
             <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
               <img
-                src="https://i.imgur.com/sNynhAV.png"
+                src="https://i.imgur.com/V1taUrJ.png"
                 alt="LinkedIn Icon"
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
