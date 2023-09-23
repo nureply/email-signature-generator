@@ -6,6 +6,7 @@ import InputText from "./InputText";
 import Tooltip from "./Tooltip";
 import Slider from "./Slider";
 import useCustomizationStore from "@/store/customizationStore";
+import { useTemplateStore } from "@/store/templateStore";
 
 const sliderData = [
   {
@@ -137,9 +138,10 @@ const Info = () => {
   } = useInfoStore();
 
   const { imageSize, handleCustomizationChange } = useCustomizationStore();
+  const { template } = useTemplateStore();
 
   return (
-    <div className="m-8">
+    <div className="p-4 overflow-y-scroll h-screen">
       <div className="m-2 py-4 border-b border-background">
         <Heading
           primary="Your info"
@@ -148,55 +150,57 @@ const Info = () => {
         />
       </div>
 
-      <div className="my-4 pb-4 border-b border-background">
-        <div className="mx-2 my-4">
-          <Heading
-            type="Description"
-            primary="Add a photo"
-            secondary="Add the link of your image"
-          />
-        </div>
-        {imageData.map((item) => (
-          <div key={item.id} className="relative">
-            <InputText
-              label={item.label}
-              id={item.id}
-              name={item.name}
-              value={imageURL}
-              onChange={handleChange}
-              type="text"
-              maxLength={item.maxLength}
+      {template.id !== "plainText" && (
+        <div className="my-4 pb-4 border-b border-background">
+          <div className="mx-2 my-4">
+            <Heading
+              type="Description"
+              primary="Add a photo"
+              secondary="Add the link of your image"
             />
-            {item.tooltip && <Tooltip tooltipText={item.tooltip} />}
           </div>
-        ))}
-
-        <div className="w-full p-4">
-          {sliderData.map(({ label, id, name, min, max, step }) => {
-            let value;
-            switch (name) {
-              case "imageSize":
-                value = imageSize;
-                break;
-              default:
-                value = 0;
-            }
-            return (
-              <Slider
-                key={id}
-                label={label}
-                id={id}
-                name={name}
-                min={min}
-                max={max}
-                step={step}
-                value={value}
-                onChange={handleCustomizationChange}
+          {imageData.map((item) => (
+            <div key={item.id} className="relative">
+              <InputText
+                label={item.label}
+                id={item.id}
+                name={item.name}
+                value={imageURL}
+                onChange={handleChange}
+                type="text"
+                maxLength={item.maxLength}
               />
-            );
-          })}
+              {item.tooltip && <Tooltip tooltipText={item.tooltip} />}
+            </div>
+          ))}
+
+          <div className="w-full p-4">
+            {sliderData.map(({ label, id, name, min, max, step }) => {
+              let value;
+              switch (name) {
+                case "imageSize":
+                  value = imageSize;
+                  break;
+                default:
+                  value = 0;
+              }
+              return (
+                <Slider
+                  key={id}
+                  label={label}
+                  id={id}
+                  name={name}
+                  min={min}
+                  max={max}
+                  step={step}
+                  value={value}
+                  onChange={handleCustomizationChange}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="pb-4 border-b border-background">
         <label
@@ -257,39 +261,41 @@ const Info = () => {
         ))}
       </div>
 
-      <div className="my-4 pb-4 border-b border-background">
-        <div className="m-2 py-4">
-          <Heading
-            type="Description"
-            primary="Social media links"
-            secondary="Add URLs of your social media profiles"
-          />
+      {template.id !== "plainText" && (
+        <div className="my-4 pb-4 border-b border-background">
+          <div className="m-2 py-4">
+            <Heading
+              type="Description"
+              primary="Social media links"
+              secondary="Add URLs of your social media profiles"
+            />
+          </div>
+          {inputTextLinkData.map((item) => (
+            <InputText
+              key={item.id}
+              label={item.label}
+              id={item.id}
+              name={item.name}
+              value={
+                item.name === "LinkedInLink"
+                  ? LinkedInLink
+                  : item.name === "YouTubeLink"
+                  ? YouTubeLink
+                  : item.name === "TwitterLink"
+                  ? TwitterLink
+                  : item.name === "FacebookLink"
+                  ? FacebookLink
+                  : item.name === "InstagramLink"
+                  ? InstagramLink
+                  : ""
+              }
+              onChange={handleChange}
+              type="link"
+              maxLength={item.maxLength}
+            />
+          ))}
         </div>
-        {inputTextLinkData.map((item) => (
-          <InputText
-            key={item.id}
-            label={item.label}
-            id={item.id}
-            name={item.name}
-            value={
-              item.name === "LinkedInLink"
-                ? LinkedInLink
-                : item.name === "YouTubeLink"
-                ? YouTubeLink
-                : item.name === "TwitterLink"
-                ? TwitterLink
-                : item.name === "FacebookLink"
-                ? FacebookLink
-                : item.name === "InstagramLink"
-                ? InstagramLink
-                : ""
-            }
-            onChange={handleChange}
-            type="link"
-            maxLength={item.maxLength}
-          />
-        ))}
-      </div>
+      )}
     </div>
   );
 };

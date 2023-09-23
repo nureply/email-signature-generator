@@ -6,9 +6,10 @@ interface IColorPicker {
   label: string;
   id: string;
   name: string;
+  value: string;
   onChange: (event: ChangeOrMouseEvent, color: string) => void;
 }
-const ColorPicker = ({ label, id, name, onChange }: IColorPicker) => {
+const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
   const [color, setColor] = useState("#000");
   const handleDefaultColorClick = (defaultColor: string) => {
     setColor(defaultColor);
@@ -49,7 +50,7 @@ const ColorPicker = ({ label, id, name, onChange }: IColorPicker) => {
               alignItems: "center",
             }}
           >
-            <p>{color}</p>
+            <p>{value}</p>
           </div>
           <div className="border-2 border-[#CBD5E0] rounded-full w-[40px] h-[40px] flex justify-center items-center">
             <input
@@ -64,12 +65,12 @@ const ColorPicker = ({ label, id, name, onChange }: IColorPicker) => {
               type="color"
               id={id}
               name={name}
-              value={color}
+              value={value}
               onChange={onColorChange}
             />
             <div
               style={{
-                backgroundColor: color,
+                backgroundColor: value,
                 borderRadius: "100%",
                 width: "80%",
                 height: "80%",

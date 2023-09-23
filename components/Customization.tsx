@@ -50,16 +50,16 @@ const Customization = () => {
     fontName,
     fontSize,
     iconSize,
-    imageSize,
     nameColor,
     textColor,
     linkColor,
+    emailColor,
     handleCustomizationChange,
   } = useCustomizationStore();
 
   return (
     <>
-      <div className="m-4">
+      <div className="p-3 overflow-y-scroll h-screen">
         <div className="w-full p-4 border-b border-background">
           <Heading
             primary="Customization"
@@ -104,15 +104,35 @@ const Customization = () => {
           })}
         </div>
 
-        {colorPickerData.map(({ label, id, name }) => (
-          <ColorPicker
-            key={id}
-            label={label}
-            id={id}
-            name={name}
-            onChange={handleCustomizationChange}
-          />
-        ))}
+        {colorPickerData.map(({ label, id, name }) => {
+          let value;
+          switch (name) {
+            case "textColor":
+              value = textColor;
+              break;
+            case "nameColor":
+              value = nameColor;
+              break;
+            case "emailColor":
+              value = emailColor;
+              break;
+            case "linkColor":
+              value = linkColor;
+              break;
+            default:
+              value = "";
+          }
+          return (
+            <ColorPicker
+              key={id}
+              label={label}
+              id={id}
+              name={name}
+              value={value}
+              onChange={handleCustomizationChange}
+            />
+          );
+        })}
       </div>
     </>
   );

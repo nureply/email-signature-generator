@@ -41,8 +41,7 @@ const StepItem: React.FC<StepItemProps> = ({
           {
             "border-b-2 border-b-gray-400  ": step !== mapStep,
             "text-nureply-blue": step === mapStep,
-            "border-t-2 border-t-gray-400 max-lg:rounded-t-md ":
-              step === mapStep,
+            "border-t-2 border-t-gray-400 rounded-t-md ": step === mapStep,
             "border-b-window ": step === mapStep,
             "border-x-2 border-x-gray-400 ": step === mapStep,
           }

@@ -26,10 +26,10 @@ const useCustomizationStore = create<CustomizationStore>((set) => ({
   fontSize: 12,
   iconSize: 16,
   imageSize: 100,
-  nameColor: "",
-  textColor: "",
-  emailColor: "",
-  linkColor: "#000000",
+  nameColor: "#000",
+  textColor: "#000",
+  emailColor: "#000",
+  linkColor: "#000",
   setCustomizationOutput(newCustomizationOutput) {
     set((state) => ({ ...state, ...newCustomizationOutput }));
   },

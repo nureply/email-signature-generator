@@ -40,7 +40,7 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="flex flex-row w-full bg-background">
+      <div className="flex flex-row w-full bg-window">
         <div
           className={clsx(
             "flex-row",
@@ -52,7 +52,9 @@ export default function Home() {
           </div>
           <div>
             <main
-              className={clsx(" bg-window border-l-2 border-gray-400 pt-5")}
+              className={clsx(
+                "bg-window h-screen border-l-2 border-gray-400 pt-5"
+              )}
             >
               {step === 0 && <Welcome />}
               {step === 1 && <Template />}

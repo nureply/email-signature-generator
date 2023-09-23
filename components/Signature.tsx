@@ -39,9 +39,7 @@ const Signature = () => {
                         <td>
                           <table>
                             <tbody>
-                              <tr>
-                                <UserLinkIcons />
-                              </tr>
+                              <UserLinkIcons />
                             </tbody>
                           </table>
                         </td>
@@ -74,9 +72,7 @@ const Signature = () => {
                         <td>
                           <table>
                             <tbody>
-                              <tr>
-                                <UserLinkIcons />
-                              </tr>
+                              <UserLinkIcons />
                             </tbody>
                           </table>
                         </td>
@@ -114,9 +110,7 @@ const Signature = () => {
                     <td>
                       <table>
                         <tbody>
-                          <tr>
-                            <UserLinkIcons />
-                          </tr>
+                          <UserLinkIcons />
                         </tbody>
                       </table>
                     </td>
@@ -190,9 +184,7 @@ const Signature = () => {
               <td>
                 <table>
                   <tbody>
-                    <tr>
-                      <UserLinkIcons />
-                    </tr>
+                    <UserLinkIcons />
                   </tbody>
                 </table>
               </td>
@@ -215,9 +207,7 @@ const Signature = () => {
               <td>
                 <table>
                   <tbody>
-                    <tr>
-                      <UserLinkIcons />
-                    </tr>
+                    <UserLinkIcons />
                   </tbody>
                 </table>
               </td>
