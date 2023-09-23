@@ -25,6 +25,7 @@ const imageData = [
     name: "imageURL",
     type: "text",
     tooltip: "Add the URL of your profile picture",
+    maxLength: 200,
   },
 ];
 const signOffOptions = [
@@ -39,41 +40,48 @@ const inputTextData = [
     id: "fullName",
     name: "fullName",
     type: "text",
+    maxLength: 50,
   },
   {
     label: "Job Title",
     id: "jobTitle",
     name: "jobTitle",
     type: "text",
+    maxLength: 25,
   },
   {
     label: "Company",
     id: "company",
     name: "company",
     type: "text",
+    maxLength: 50,
   },
   {
     label: "Work Address",
     id: "workAddress",
     name: "workAddress",
     type: "text",
+    maxLength: 100,
   },
   {
     label: "Phone Number",
     id: "phoneNumber",
     name: "phoneNumber",
     type: "text",
+    maxLength: 15,
   },
   {
     label: "Work Email",
     id: "workEmail",
     name: "workEmail",
     type: "email",
+    maxLength: 50,
   },
   {
     label: "Website",
     id: "website",
     name: "website",
+    maxLength: 100,
   },
 ];
 const inputTextLinkData = [
@@ -81,26 +89,31 @@ const inputTextLinkData = [
     label: "LinkedIn",
     id: "LinkedInLink",
     name: "LinkedInLink",
+    maxLength: 100,
   },
   {
     label: "YouTube",
     id: "YouTubeLink",
     name: "YouTubeLink",
+    maxLength: 100,
   },
   {
     label: "Twitter",
     id: "TwitterLink",
     name: "TwitterLink",
+    maxLength: 100,
   },
   {
     label: "Facebook",
     id: "FacebookLink",
     name: "FacebookLink",
+    maxLength: 100,
   },
   {
     label: "Instagram",
     id: "InstagramLink",
     name: "InstagramLink",
+    maxLength: 100,
   },
 ];
 
@@ -152,6 +165,7 @@ const Info = () => {
               value={imageURL}
               onChange={handleChange}
               type="text"
+              maxLength={item.maxLength}
             />
             {item.tooltip && <Tooltip tooltipText={item.tooltip} />}
           </div>
@@ -238,6 +252,7 @@ const Info = () => {
             }
             onChange={handleChange}
             type={item.type as "text" | "email"}
+            maxLength={item.maxLength}
           />
         ))}
       </div>
@@ -271,6 +286,7 @@ const Info = () => {
             }
             onChange={handleChange}
             type="link"
+            maxLength={item.maxLength}
           />
         ))}
       </div>

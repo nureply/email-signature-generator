@@ -109,6 +109,8 @@ const UserPersonalInfo = () => {
             color: textColor,
             fontSize: `${fontSize}px`,
             fontFamily: fontName,
+            maxWidth: "410px",
+            wordBreak: "break-word",
           }}
         >
           <td style={{ color: nameColor, paddingBottom: "4px" }}>{fullName}</td>
@@ -129,9 +131,13 @@ const UserPersonalInfo = () => {
             >
               <tbody>
                 <tr>
-                  <td>{jobTitle}</td>
+                  <td style={{ maxWidth: "200px", wordBreak: "break-word" }}>
+                    {jobTitle}
+                  </td>
                   <td style={{ paddingLeft: "4px", paddingRight: "4px" }}>|</td>
-                  <td>{company}</td>
+                  <td style={{ maxWidth: "200px", wordBreak: "break-word" }}>
+                    {company}
+                  </td>
                 </tr>
               </tbody>
             </table>

@@ -8,6 +8,7 @@ interface InputTextProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type?: "text" | "email" | "link";
+  maxLength: number;
 }
 
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -48,6 +49,7 @@ const InputText: React.FC<InputTextProps> = ({
   name,
   value,
   onChange,
+  maxLength,
 }) => {
   const isValidationNeeded = type === "email" || type === "link";
   const isValid =
@@ -82,13 +84,14 @@ const InputText: React.FC<InputTextProps> = ({
         className={clsx(
           "w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none",
           animate && "pulse-green",
-          showInvalidBorder && "border-invalid",
+          showInvalidBorder && "border-invalid"
         )}
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={onChange}
+        maxLength={maxLength}
       />
 
       {showInvalidBorder && (
