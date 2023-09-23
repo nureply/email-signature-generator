@@ -29,7 +29,7 @@ const useCustomizationStore = create<CustomizationStore>((set) => ({
   nameColor: "",
   textColor: "",
   emailColor: "",
-  linkColor: "",
+  linkColor: "#000000",
   setCustomizationOutput(newCustomizationOutput) {
     set((state) => ({ ...state, ...newCustomizationOutput }));
   },

@@ -33,7 +33,7 @@ const StepItem: React.FC<StepItemProps> = ({
       onClick={() => handleStepClick(mapStep)}
     >
       <div
-        className={clsx("flex justify-center py-2 px-2 ", {
+        className={clsx("flex justify-center py-2 sm:px-2 sm:text-lg text-xs", {
           "border-b-2 border-b-gray-400  ": step !== mapStep,
           "text-nureply-blue": step === mapStep,
           "border-t-2 border-t-gray-400 max-lg:rounded-t-md ": step === mapStep,
@@ -43,8 +43,8 @@ const StepItem: React.FC<StepItemProps> = ({
       >
         <div className="flex flex-col gap-2">
           <IconComponent
-            width={isSmallScreen ? 20 : 28}
-            height={isSmallScreen ? 20 : 28}
+            width={isSmallScreen ? 18 : 28}
+            height={isSmallScreen ? 18 : 28}
             color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
           />
           <div>{labelText}</div>
