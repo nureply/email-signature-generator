@@ -21,14 +21,6 @@ const sliderData = [
     max: 20,
     step: 1,
   },
-  {
-    label: "Image Size",
-    id: "imageSize",
-    name: "imageSize",
-    min: 100,
-    max: 120,
-    step: 1,
-  },
 ];
 const colorPickerData = [
   {
@@ -58,20 +50,21 @@ const Customization = () => {
     fontName,
     fontSize,
     iconSize,
-    imageSize,
     nameColor,
     textColor,
     linkColor,
-    handleChange,
+    emailColor,
+    handleCustomizationChange,
   } = useCustomizationStore();
 
   return (
     <>
-      <div className="m-8">
+      <div className="p-3 overflow-y-scroll h-screen">
         <div className="w-full p-4 border-b border-background">
           <Heading
             primary="Customization"
             secondary="Customize the styling of your email signature"
+            type="Description"
           />
         </div>
 
@@ -92,9 +85,6 @@ const Customization = () => {
               case "iconSize":
                 value = iconSize;
                 break;
-              case "imageSize":
-                value = imageSize;
-                break;
               default:
                 value = 0;
             }
@@ -108,32 +98,41 @@ const Customization = () => {
                 max={max}
                 step={step}
                 value={value}
-                onChange={handleChange}
+                onChange={handleCustomizationChange}
               />
             );
           })}
         </div>
 
-        {colorPickerData.map(({ label, id, name }) => (
-          <ColorPicker
-            key={id}
-            label={label}
-            id={id}
-            name={name}
-            value={
-              name === "nameColor"
-                ? nameColor
-                : name === "textColor"
-                ? textColor
-                : name === "emailColor"
-                ? textColor
-                : name === "linkColor"
-                ? linkColor
-                : ""
-            }
-            onChange={handleChange}
-          />
-        ))}
+        {colorPickerData.map(({ label, id, name }) => {
+          let value;
+          switch (name) {
+            case "textColor":
+              value = textColor;
+              break;
+            case "nameColor":
+              value = nameColor;
+              break;
+            case "emailColor":
+              value = emailColor;
+              break;
+            case "linkColor":
+              value = linkColor;
+              break;
+            default:
+              value = "";
+          }
+          return (
+            <ColorPicker
+              key={id}
+              label={label}
+              id={id}
+              name={name}
+              value={value}
+              onChange={handleCustomizationChange}
+            />
+          );
+        })}
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import useCustomizationStore from "../store/customizationStore";
 
 const FontChanger = () => {
   const fonts = [
-    "",
+    "Inter",
     "Quicksand",
     "Roboto",
     "Poppins",

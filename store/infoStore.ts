@@ -23,13 +23,13 @@ interface State {
 }
 
 const useInfoStore = create<State>((set) => ({
-  signOff: "",
-  fullName: "John Smith",
+  signOff: "Best,",
+  fullName: "Onur Genes",
   jobTitle: "Manager",
   company: "Nureply",
   workAddress: "0000 SE 1st Street Rd, Miami FL 00000-0000",
   phoneNumber: "+000 000 000 0000",
-  workEmail: "johnsmith@nureply.com",
+  workEmail: "onur@nureply.com",
   website: "nureply.com",
   LinkedInLink: "https://www.linkedin.com/in/",
   YouTubeLink: "https://www.youtube.com/user/",

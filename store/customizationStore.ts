@@ -18,7 +18,7 @@ type State = {
 
 type CustomizationStore = State & {
   setCustomizationOutput: (newCustomizationOutput: Partial<State>) => void;
-  handleChange: (event: ChangeOrMouseEvent) => void;
+  handleCustomizationChange: (event: ChangeOrMouseEvent) => void;
 };
 
 const useCustomizationStore = create<CustomizationStore>((set) => ({
@@ -26,14 +26,14 @@ const useCustomizationStore = create<CustomizationStore>((set) => ({
   fontSize: 12,
   iconSize: 16,
   imageSize: 100,
-  nameColor: "",
-  textColor: "",
-  emailColor: "",
-  linkColor: "",
+  nameColor: "#000",
+  textColor: "#000",
+  emailColor: "#000",
+  linkColor: "#000",
   setCustomizationOutput(newCustomizationOutput) {
     set((state) => ({ ...state, ...newCustomizationOutput }));
   },
-  handleChange(event) {
+  handleCustomizationChange(event) {
     if ("target" in event) {
       const { name, value } = event.target as HTMLInputElement;
       set((state) => ({

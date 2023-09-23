@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import clsx from "clsx";
-
 import Header from "@/components/Header";
 import Welcome from "@/components/Welcome";
 import Step from "@/components/Step";
@@ -12,6 +12,23 @@ import { Preview } from "@/components/Preview";
 
 export default function Home() {
   const { step } = useStepStore();
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isWideScreen = windowWidth >= 1280;
 
   return (
     <>
@@ -23,39 +40,41 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="flex flex-col xl:flex-row w-full bg-background">
-        {/*   L E F T   C O L U M N   /   T O P   R O W   */}
-        <aside className="xl:block xl:sticky xl:basis-1/12 xl:top-8 xl:h-screen bg-window border-gray-400 border-b-2">
-          <div className=" flex flex-row xl:flex-col xl:grid justify-items-end max-xl:justify-center gap-2 md:gap-6">
-            <Step />
-          </div>
-        </aside>
-
-        {/*   M I D D L E   C O L U M N   /   R O W   */}
-        <main
+      <div className="flex flex-row w-full bg-window">
+        <div
           className={clsx(
-            "max-h-screen overflow-y-auto bg-window border-l-2 border-gray-400",
-            step === 0 ? "xl:basis-11/12" : "xl:basis-4/12",
+            "flex-row",
+            step === 0 || !isWideScreen ? "w-full" : "w-3/12"
           )}
         >
-          {step === 0 && <Welcome />}
-          {step === 1 && <Template />}
-          {step === 2 && <Info />}
-          {step === 3 && <Customization />}
-          {step === 4 && (
-            <div className="px-5 pt-10">
-              <Preview />
-            </div>
-          )}
-        </main>
+          <div className="grid xl:grid-cols-4 grid-cols-5 justify-items-center bg-window border-b-2 border-b-gray-400 max-sm:pt-2">
+            <Step />
+          </div>
+          <div>
+            <main
+              className={clsx(
+                "bg-window h-screen border-l-2 border-gray-400 pt-5"
+              )}
+            >
+              {step === 0 && <Welcome />}
+              {step === 1 && <Template />}
+              {step === 2 && <Info />}
+              {step === 3 && <Customization />}
+              {step === 4 && (
+                <div className="px-5 pt-10">
+                  <Preview />
+                </div>
+              )}
+            </main>
+          </div>
+        </div>
 
-        {step !== 0 && (
-          /*   R I G H T   C O L U M N   /   H I D D E N   */
-          <aside className="hidden sticky xl:block basis-7/12 top-8 h-screen p-5 bg-window border-x-2 border-gray-400">
-            <div className="p-10">
+        {step !== 0 && isWideScreen && (
+          <div className="w-9/12 bg-window border-x-2 border-gray-400">
+            <div className="m-10">
               <Preview />
             </div>
-          </aside>
+          </div>
         )}
       </div>
     </>

@@ -9,7 +9,7 @@
 
 @layer base {
   body {
-    @apply bg-background;
+    @apply bg-window;
     padding-top: 4rem;
   }
 }

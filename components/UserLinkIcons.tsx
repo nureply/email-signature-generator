@@ -23,7 +23,7 @@ const UserLinkIcons = () => {
           {LinkedInLink && (
             <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
               <img
-                src="https://i.imgur.com/85qsHCu.png"
+                src="https://i.imgur.com/V1taUrJ.png"
                 alt="LinkedIn Icon"
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
@@ -34,7 +34,7 @@ const UserLinkIcons = () => {
           {YouTubeLink && (
             <a href={YouTubeLink} target="_blank" rel="noopener noreferrer">
               <img
-                src="https://i.imgur.com/fUBlfhT.png"
+                src="https://i.imgur.com/jasTiCn.png"
                 alt="Youtube Icon"
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
@@ -56,7 +56,7 @@ const UserLinkIcons = () => {
           {FacebookLink && (
             <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
               <img
-                src="https://i.imgur.com/H5XUTzh.png"
+                src="https://i.imgur.com/lrRAdSk.png"
                 alt="Facebook Icon"
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
@@ -67,7 +67,7 @@ const UserLinkIcons = () => {
           {InstagramLink && (
             <a href={InstagramLink} target="_blank" rel="noopener noreferrer">
               <img
-                src="https://i.imgur.com/Z9Gkdd6.png"
+                src="https://i.imgur.com/tLtySgz.png"
                 alt="Instagram Icon"
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />

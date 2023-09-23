@@ -85,11 +85,29 @@ const UserPersonalInfo = () => {
         {jobTitle} | {company} <br />
         {phoneNumber}
         <br />
-        {workEmail}
+        <a
+          href={"mailto:" + workEmail}
+          style={{
+            color: "black",
+            textDecoration: "none",
+          }}
+        >
+          {workEmail}
+        </a>
         <br />
         {workAddress}
         <br />
-        {website}
+        <a
+          href={`https://${website}`}
+          style={{
+            color: "black",
+            textDecoration: "none",
+            wordBreak: "break-word",
+            ...selectedWidthRight,
+          }}
+        >
+          {website}
+        </a>
       </div>
     );
   } else {
@@ -109,9 +127,19 @@ const UserPersonalInfo = () => {
             color: textColor,
             fontSize: `${fontSize}px`,
             fontFamily: fontName,
+            maxWidth: "410px",
+            wordBreak: "break-word",
           }}
         >
-          <td style={{ color: nameColor, paddingBottom: "4px" }}>{fullName}</td>
+          <td
+            style={{
+              color: nameColor,
+              paddingBottom: "4px",
+              fontFamily: fontName,
+            }}
+          >
+            {fullName}
+          </td>
         </tr>
         <tr
           style={{
@@ -129,9 +157,13 @@ const UserPersonalInfo = () => {
             >
               <tbody>
                 <tr>
-                  <td>{jobTitle}</td>
+                  <td style={{ maxWidth: "200px", wordBreak: "break-word" }}>
+                    {jobTitle}
+                  </td>
                   <td style={{ paddingLeft: "4px", paddingRight: "4px" }}>|</td>
-                  <td>{company}</td>
+                  <td style={{ maxWidth: "200px", wordBreak: "break-word" }}>
+                    {company}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -188,7 +220,12 @@ const UserPersonalInfo = () => {
                     >
                       <a
                         href={"mailto:" + workEmail}
-                        style={{ color: emailColor, textDecoration: "none" }}
+                        style={{
+                          color: `${
+                            emailColor === "#000" ? "black" : emailColor
+                          }`,
+                          textDecoration: "none",
+                        }}
                       >
                         {workEmail}
                       </a>
@@ -247,9 +284,11 @@ const UserPersonalInfo = () => {
                   {website && (
                     <td>
                       <a
-                        href={website}
+                        href={`https://${website}`}
                         style={{
-                          color: linkColor,
+                          color: `${
+                            linkColor === "#000" ? "black" : linkColor
+                          }`,
                           textDecoration: "none",
                           wordBreak: "break-word",
                           ...selectedWidthRight,
