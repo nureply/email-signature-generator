@@ -9,7 +9,7 @@ const steps = [0, 1, 2, 3, 4];
 
 const Step = () => {
   const [windowWidth, setWindowWidth] = useState(
-    typeof window != "undefined" ? window.innerWidth : 0,
+    typeof window != "undefined" ? window.innerWidth : 0
   );
   const xlWidth = 1280;
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -66,35 +66,35 @@ const Step = () => {
     }
   }, [setStep, step, windowWidth]);
 
+  let stepsMap = [0, 1, 2, 3, 4];
+
+  if (windowWidth > 768) {
+    stepsMap = [0, 1, 2, 3];
+  }
+
   return (
     <>
-      {steps.map((mapStep) => {
+      {stepsMap.map((mapStep) => {
         return (
           <div
             key={mapStep}
             className={clsx(
-              "my-5 -mb-[1.5px] lg:mx-5 lg:-mr-[1.5px] xl:w-3/5 bg-window text-highlight",
+              "my-5 -mb-[2px] mx-[2px] bg-window text-highlight",
               {
                 "cursor-pointer": isStepClickable(mapStep),
-              },
+              }
             )}
             onClick={() => handleStepClick(mapStep)}
           >
             <div
-              className={clsx(
-                "flex items-center py-3 max-md:px-2 md:max-xl:px-8 xl:pl-2",
-                {
-                  "max-xl:border-b-2 max-xl:border-b-gray-400 xl:border-r-2 xl:border-r-gray-400":
-                    step !== mapStep,
-                  "text-nureply-blue": step === mapStep,
-                  "border-t-2 border-t-gray-400 max-lg:rounded-t-md xl:border-l-2 xl:rounded-l-md xl:border-l-gray-400":
-                    step === mapStep,
-                  "border-b-window xl:border-r-2 xl:border-r-window":
-                    step === mapStep,
-                  "border-x-2 border-x-gray-400 xl:border-y-2 xl:rounded-l-md xl:border-y-gray-400":
-                    step === mapStep,
-                },
-              )}
+              className={clsx("flex justify-center py-2 px-1 ", {
+                "border-b-2 border-b-gray-400  ": step !== mapStep,
+                "text-nureply-blue": step === mapStep,
+                "border-t-2 border-t-gray-400 max-lg:rounded-t-md ":
+                  step === mapStep,
+                "border-b-window ": step === mapStep,
+                "border-x-2 border-x-gray-400 ": step === mapStep,
+              })}
             >
               {stepsPicker(mapStep, step, isSmallScreen)}
             </div>
@@ -111,7 +111,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
   switch (mapStep) {
     case 0:
       return (
-        <div className="flex flex-col items-center gap-2 xl:gap-2 xl:pl-2">
+        <div className="flex flex-col gap-2 ">
           <Info
             width={isSmallScreen ? 20 : 28}
             height={isSmallScreen ? 20 : 28}
@@ -122,7 +122,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 1:
       return (
-        <div className="flex flex-col items-center gap-2 xl:gap-2">
+        <div className="flex flex-col gap-2 ">
           <LayoutTemplate
             width={isSmallScreen ? 20 : 28}
             height={isSmallScreen ? 20 : 28}
@@ -133,7 +133,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 2:
       return (
-        <div className="flex flex-col items-center gap-2 xl:gap-2">
+        <div className="flex flex-col gap-2 ">
           <UserCircle
             width={isSmallScreen ? 20 : 28}
             height={isSmallScreen ? 20 : 28}
@@ -144,7 +144,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 3:
       return (
-        <div className="flex flex-col items-center gap-2 xl:gap-2">
+        <div className="flex flex-col gap-2 ">
           <Wrench
             width={isSmallScreen ? 20 : 28}
             height={isSmallScreen ? 20 : 28}
@@ -155,7 +155,7 @@ const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
       );
     case 4:
       return (
-        <div className="flex flex-col items-center gap-2 xl:hidden">
+        <div className="flex flex-col gap-2 ">
           <Eye
             width={isSmallScreen ? 20 : 28}
             height={isSmallScreen ? 20 : 28}

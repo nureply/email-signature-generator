@@ -8,7 +8,8 @@ import UserLinkIcons from "./UserLinkIcons";
 const Signature = () => {
   const { template } = useTemplateStore();
 
-  const isSmallScreen = window.innerWidth <= 640;
+  const isSmallScreen =
+    typeof window !== "undefined" && window.innerWidth <= 640;
 
   const renderSignature = () => {
     switch (template.id) {
