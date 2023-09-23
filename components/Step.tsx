@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-
 import { useStepStore } from "@/store/stepStore";
 import { useTemplateStore } from "@/store/templateStore";
-import { Info, LayoutTemplate, UserCircle, Wrench, Eye } from "lucide-react";
+import StepItem from "./StepItem";
 
-const steps = [0, 1, 2, 3, 4];
+interface StepProps {}
 
-const Step = () => {
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window != "undefined" ? window.innerWidth : 0
-  );
-  const xlWidth = 1280;
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
+const Step: React.FC<StepProps> = () => {
   const { step, setStep } = useStepStore();
   const { template } = useTemplateStore();
+  const [windowWidth, setWindowWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
 
-  const isStepClickable = (mapStep: number) => {
-    const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+  const XL_WIDTH = 1280;
+
+  const isStepClickable = (mapStep: number): boolean => {
+    const currentWindowWidth =
+      typeof window !== "undefined" ? window.innerWidth : 0;
 
     if (mapStep === 0) {
       return true;
@@ -26,14 +26,15 @@ const Step = () => {
       return mapStep === 1;
     } else if (template.id === "plainText" && mapStep === 3) {
       return mapStep >= 1 && mapStep <= 2;
-    } else if (mapStep === 4 && windowWidth > xlWidth) {
+    } else if (mapStep === 4 && currentWindowWidth > XL_WIDTH) {
       return false;
     }
 
     return true;
   };
-  const handleStepClick = (mapStep: number) => {
-    if (step === 4 && windowWidth > xlWidth) {
+
+  const handleStepClick = (mapStep: number): void => {
+    if (step === 4 && windowWidth > XL_WIDTH) {
       setStep(3);
     } else if (isStepClickable(mapStep)) {
       setStep(mapStep);
@@ -41,128 +42,44 @@ const Step = () => {
   };
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 640);
+    const handleResize = (): void => {
+      const currentWindowWidth = window.innerWidth;
+      setWindowWidth(currentWindowWidth);
+      setIsSmallScreen(currentWindowWidth <= 640);
     };
 
     window.addEventListener("resize", handleResize);
-
     handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [step, setStep]);
+
   useEffect(() => {
-    if (step === 4 && windowWidth > xlWidth) {
-      setStep(3);
-    }
-  }, [setStep, step, windowWidth]);
+    const newStepsMap = windowWidth > 768 ? [0, 1, 2, 3] : [0, 1, 2, 3, 4];
 
-  let stepsMap = [0, 1, 2, 3, 4];
+    setStepsMap(newStepsMap);
+  }, [windowWidth]);
 
-  if (windowWidth > 768) {
-    stepsMap = [0, 1, 2, 3];
-  }
+  const [stepsMap, setStepsMap] = useState<number[]>(
+    windowWidth > 768 ? [0, 1, 2, 3, 4] : [0, 1, 2, 3, 4]
+  );
 
   return (
     <>
-      {stepsMap.map((mapStep) => {
-        return (
-          <div
-            key={mapStep}
-            className={clsx(
-              "my-5 -mb-[2px] mx-[2px] bg-window text-highlight",
-              {
-                "cursor-pointer": isStepClickable(mapStep),
-              }
-            )}
-            onClick={() => handleStepClick(mapStep)}
-          >
-            <div
-              className={clsx("flex justify-center py-2 px-1 ", {
-                "border-b-2 border-b-gray-400  ": step !== mapStep,
-                "text-nureply-blue": step === mapStep,
-                "border-t-2 border-t-gray-400 max-lg:rounded-t-md ":
-                  step === mapStep,
-                "border-b-window ": step === mapStep,
-                "border-x-2 border-x-gray-400 ": step === mapStep,
-              })}
-            >
-              {stepsPicker(mapStep, step, isSmallScreen)}
-            </div>
-          </div>
-        );
-      })}
+      {stepsMap.map((mapStep) => (
+        <StepItem
+          key={mapStep}
+          mapStep={mapStep}
+          step={step}
+          isSmallScreen={isSmallScreen}
+          handleStepClick={handleStepClick}
+          isStepClickable={isStepClickable}
+        />
+      ))}
     </>
   );
 };
 
 export default Step;
-
-const stepsPicker = (mapStep: number, step: number, isSmallScreen: boolean) => {
-  switch (mapStep) {
-    case 0:
-      return (
-        <div className="flex flex-col gap-2 ">
-          <Info
-            width={isSmallScreen ? 20 : 28}
-            height={isSmallScreen ? 20 : 28}
-            color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
-          />
-          <div>Info</div>
-        </div>
-      );
-    case 1:
-      return (
-        <div className="flex flex-col gap-2 ">
-          <LayoutTemplate
-            width={isSmallScreen ? 20 : 28}
-            height={isSmallScreen ? 20 : 28}
-            color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
-          />
-          <div>Step 1</div>
-        </div>
-      );
-    case 2:
-      return (
-        <div className="flex flex-col gap-2 ">
-          <UserCircle
-            width={isSmallScreen ? 20 : 28}
-            height={isSmallScreen ? 20 : 28}
-            color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
-          />
-          <div>Step 2</div>
-        </div>
-      );
-    case 3:
-      return (
-        <div className="flex flex-col gap-2 ">
-          <Wrench
-            width={isSmallScreen ? 20 : 28}
-            height={isSmallScreen ? 20 : 28}
-            color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
-          />
-          <div>Step 3</div>
-        </div>
-      );
-    case 4:
-      return (
-        <div className="flex flex-col gap-2 ">
-          <Eye
-            width={isSmallScreen ? 20 : 28}
-            height={isSmallScreen ? 20 : 28}
-            color={step === mapStep ? "#4B67FA" : "#CFD4DA"}
-          />
-          <div>View</div>
-        </div>
-      );
-  }
-};

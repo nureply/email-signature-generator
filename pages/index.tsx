@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import clsx from "clsx";
 import Header from "@/components/Header";
@@ -8,7 +9,6 @@ import Template from "@/components/Template";
 import Info from "@/components/Info";
 import Customization from "@/components/Customization";
 import { Preview } from "@/components/Preview";
-import { useEffect, useState } from "react";
 
 export default function Home() {
   const { step } = useStepStore();
@@ -28,6 +28,8 @@ export default function Home() {
     };
   }, []);
 
+  const isWideScreen = windowWidth >= 1280;
+
   return (
     <>
       <Head>
@@ -42,7 +44,7 @@ export default function Home() {
         <div
           className={clsx(
             "flex-row",
-            step === 0 || windowWidth < 1280 ? "w-full" : "w-3/12"
+            step === 0 || !isWideScreen ? "w-full" : "w-3/12"
           )}
         >
           <div className="grid grid-cols-5 justify-center bg-window border-b-2 border-b-gray-400">
@@ -65,7 +67,7 @@ export default function Home() {
           </div>
         </div>
 
-        {step !== 0 && windowWidth >= 1280 && (
+        {step !== 0 && isWideScreen && (
           <div className="w-9/12 bg-window border-x-2 border-gray-400">
             <div className="m-10">
               <Preview />
