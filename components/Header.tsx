@@ -59,6 +59,26 @@ const Header = () => {
         Copy
       </button>
       {showMessage && <div className="message">Copied!</div>}
+      <style jsx>{`
+        .message {
+        }
+        @media (max-width: 600px) {
+          .message {
+            z-index: 100;
+            position: absolute;
+            top: 100%;
+            right: 5px;
+            padding: 7.5px;
+            background: linear-gradient(
+              to bottom left,
+              rgba(75, 103, 250, 0.1),
+              #ffffff
+            );
+            border-radius: 10px;
+            color: rgba(75, 103, 250, 0.9);
+          }
+        }
+      `}</style>
     </header>
   );
 };
