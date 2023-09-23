@@ -28,11 +28,12 @@ const StepItem: React.FC<StepItemProps> = ({
     <div
       className={clsx("my-5 -mb-[2px] mx-[2px] bg-window text-highlight", {
         "cursor-pointer": isStepClickable(mapStep),
+        "xl:hidden ": mapStep === 4,
       })}
       onClick={() => handleStepClick(mapStep)}
     >
       <div
-        className={clsx("flex justify-center py-2 px-1 ", {
+        className={clsx("flex justify-center py-2 px-2 ", {
           "border-b-2 border-b-gray-400  ": step !== mapStep,
           "text-nureply-blue": step === mapStep,
           "border-t-2 border-t-gray-400 max-lg:rounded-t-md ": step === mapStep,

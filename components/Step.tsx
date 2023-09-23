@@ -41,30 +41,7 @@ const Step: React.FC<StepProps> = () => {
     }
   };
 
-  useEffect(() => {
-    const handleResize = (): void => {
-      const currentWindowWidth = window.innerWidth;
-      setWindowWidth(currentWindowWidth);
-      setIsSmallScreen(currentWindowWidth <= 640);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [step, setStep]);
-
-  useEffect(() => {
-    const newStepsMap = windowWidth > 768 ? [0, 1, 2, 3] : [0, 1, 2, 3, 4];
-
-    setStepsMap(newStepsMap);
-  }, [windowWidth]);
-
-  const [stepsMap, setStepsMap] = useState<number[]>(
-    windowWidth > 768 ? [0, 1, 2, 3, 4] : [0, 1, 2, 3, 4]
-  );
+  const stepsMap = [0, 1, 2, 3, 4];
 
   return (
     <>
