@@ -26,22 +26,29 @@ const StepItem: React.FC<StepItemProps> = ({
 
   return (
     <div
-      className={clsx("my-5 -mb-[2px] mx-[2px] bg-window text-highlight", {
-        "cursor-pointer": isStepClickable(mapStep),
-        "xl:hidden ": mapStep === 4,
-      })}
+      className={clsx(
+        "my-5 -mb-[2px] mx-[2px] bg-window text-highlight xl:w-[70px]",
+        {
+          "cursor-pointer": isStepClickable(mapStep),
+          "xl:hidden ": mapStep === 4,
+        }
+      )}
       onClick={() => handleStepClick(mapStep)}
     >
       <div
-        className={clsx("flex justify-center py-2 sm:px-2 sm:text-lg text-xs", {
-          "border-b-2 border-b-gray-400  ": step !== mapStep,
-          "text-nureply-blue": step === mapStep,
-          "border-t-2 border-t-gray-400 max-lg:rounded-t-md ": step === mapStep,
-          "border-b-window ": step === mapStep,
-          "border-x-2 border-x-gray-400 ": step === mapStep,
-        })}
+        className={clsx(
+          "flex justify-center py-2 sm:max-xl:px-3 px-1 sm:text-lg text-xs",
+          {
+            "border-b-2 border-b-gray-400  ": step !== mapStep,
+            "text-nureply-blue": step === mapStep,
+            "border-t-2 border-t-gray-400 max-lg:rounded-t-md ":
+              step === mapStep,
+            "border-b-window ": step === mapStep,
+            "border-x-2 border-x-gray-400 ": step === mapStep,
+          }
+        )}
       >
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-center gap-2 ">
           <IconComponent
             width={isSmallScreen ? 18 : 28}
             height={isSmallScreen ? 18 : 28}
