@@ -19,8 +19,8 @@ const UserLinkIcons = () => {
   return (
     <>
       <tr>
-        <td style={{ paddingLeft: "6px" }}>
-          {LinkedInLink && (
+        {LinkedInLink && (
+          <td style={{ paddingLeft: "6px" }}>
             <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/V1taUrJ.png"
@@ -28,10 +28,10 @@ const UserLinkIcons = () => {
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
-          )}
-        </td>
-        <td style={{ paddingLeft: "6px" }}>
-          {YouTubeLink && (
+          </td>
+        )}
+        {YouTubeLink && (
+          <td style={{ paddingLeft: "6px" }}>
             <a href={YouTubeLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/jasTiCn.png"
@@ -39,10 +39,10 @@ const UserLinkIcons = () => {
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
-          )}
-        </td>
-        <td style={{ paddingLeft: "6px" }}>
-          {TwitterLink && (
+          </td>
+        )}
+        {TwitterLink && (
+          <td style={{ paddingLeft: "6px" }}>
             <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://imgur.com/gmuTUFy.png"
@@ -50,10 +50,10 @@ const UserLinkIcons = () => {
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
-          )}
-        </td>
-        <td style={{ paddingLeft: "6px" }}>
-          {FacebookLink && (
+          </td>
+        )}
+        {FacebookLink && (
+          <td style={{ paddingLeft: "6px" }}>
             <a href={FacebookLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/lrRAdSk.png"
@@ -61,10 +61,10 @@ const UserLinkIcons = () => {
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
-          )}
-        </td>
-        <td style={{ paddingLeft: "6px" }}>
-          {InstagramLink && (
+          </td>
+        )}
+        {InstagramLink && (
+          <td style={{ paddingLeft: "6px" }}>
             <a href={InstagramLink} target="_blank" rel="noopener noreferrer">
               <img
                 src="https://i.imgur.com/tLtySgz.png"
@@ -72,8 +72,8 @@ const UserLinkIcons = () => {
                 style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
               />
             </a>
-          )}
-        </td>
+          </td>
+        )}
       </tr>
     </>
   );
