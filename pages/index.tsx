@@ -47,7 +47,7 @@ export default function Home() {
             step === 0 || !isWideScreen ? "w-full" : "w-3/12"
           )}
         >
-          <div className="grid xl:grid-cols-4 grid-cols-5 justify-items-center bg-window border-b-2 border-b-gray-400 max-sm:pt-2">
+          <div className="grid xl:grid-cols-4 grid-cols-5 justify-items-center bg-gray-100 border-b-2 border-b-gray-400 ">
             <Step />
           </div>
           <div>
