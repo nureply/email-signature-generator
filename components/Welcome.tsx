@@ -26,18 +26,12 @@ const Welcome = () => {
 
         <div className="max-w-3xl mx-auto mb-20 mt-10">
           <p className="text-base sm:text-lg text-center text-gray-900">
-            Looking for the best free email signature creator on the web? Look
-            no further. Our Email Signature Generator is designed to give you
-            the most professional email signature you can imagine. From adding
-            custom logos to sprucing up your sign-off with unique images,
-            we&apos;ve got you covered. Seriously, this is the best way to
-            create an email signature that will wow your contacts. Want to make
-            a free email signature that stands out? Our platform allows you to
-            create an email signature with a logo and even add images for that
-            extra flair. If you&apos;re a Gmail user, you&apos;ll be thrilled to
-            know you can easily create an HTML signature that seamlessly
-            integrates with your account. It&apos;s not just a signature;
-            it&apos;s your digital identity.
+            Looking for the best free email signature creator? Look no further
+            than Nureply&apos;s free email signature generator. Our tool is
+            designed to help you easily create a professional email signature
+            that will make a great impression. With our tool, you can add a logo
+            or other images to make your email signature stand out and look
+            customized to your unique style.
           </p>
         </div>
 
@@ -116,24 +110,7 @@ const Welcome = () => {
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto mb-20 mt-10">
-          <p className="text-base sm:text-lg text-center text-gray-900">
-            Looking for the best free email signature creator on the web? Look
-            no further. Our Email Signature Generator is designed to give you
-            the most professional email signature you can imagine. From adding
-            custom logos to sprucing up your sign-off with unique images,
-            we&apos;ve got you covered. Seriously, this is the best way to
-            create an email signature that will wow your contacts. Want to make
-            a free email signature that stands out? Our platform allows you to
-            create an email signature with a logo and even add images for that
-            extra flair. If you&apos;re a Gmail user, you&apos;ll be thrilled to
-            know you can easily create an HTML signature that seamlessly
-            integrates with your account. It&apos;s not just a signature;
-            it&apos;s your digital identity.
-          </p>
-        </div>
-
-        <div className="max-w-3xl  mx-auto bg-window">
+        <div className="max-w-3xl mt-10 mx-auto bg-window">
           <p className="p-2 text-center text-lg sm:text-2xl font-semibold text-gray-950">
             FAQ
           </p>
