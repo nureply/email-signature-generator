@@ -51,11 +51,7 @@ export default function Home() {
             <Step />
           </div>
           <div>
-            <main
-              className={clsx(
-                "bg-window h-screen border-l-2 border-gray-400 pt-5"
-              )}
-            >
+            <main className={clsx("bg-window border-l-2 border-gray-400 pt-5")}>
               {step === 0 && <Welcome />}
               {step === 1 && <Template />}
               {step === 2 && <Info />}

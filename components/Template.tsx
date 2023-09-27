@@ -51,7 +51,7 @@ const Template = () => {
   const { template, setTemplate } = useTemplateStore();
 
   return (
-    <div className="py-[36px] overflow-y-scroll h-screen">
+    <div className="py-[36px] overflow-y-scroll h-[82vh]">
       <div className="px-12 py-4">
         <Heading
           primary="Templates"

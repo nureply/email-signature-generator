@@ -141,7 +141,7 @@ const Info = () => {
   const { template } = useTemplateStore();
 
   return (
-    <div className="p-4 overflow-y-scroll h-screen">
+    <div className="p-4 overflow-y-scroll h-[82vh]">
       <div className="m-2 py-4 border-b border-background">
         <Heading
           primary="Your info"

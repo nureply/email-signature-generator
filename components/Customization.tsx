@@ -59,7 +59,7 @@ const Customization = () => {
 
   return (
     <>
-      <div className="p-3 overflow-y-scroll h-screen">
+      <div className="p-3 h-[82vh]">
         <div className="w-full p-4 border-b border-background">
           <Heading
             primary="Customization"

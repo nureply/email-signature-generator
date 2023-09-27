@@ -4,7 +4,7 @@ import Signature from "./Signature";
 
 const Preview = () => {
   return (
-    <div className="w-full max-sm:pb-8 mt-36 border-2 rounded-lg border-highlight">
+    <div className="w-full max-sm:pb-8 border-2 rounded-lg border-highlight">
       <div className="flex w-full h-7 rounded-lg gap-3 bg-gray-100">
         <div className="w-3 h-3 rounded-full ml-3 mt-2 bg-[#FD4646]"></div>
         <div className="w-3 h-3 rounded-full mt-2 bg-[#FEB024]"></div>
