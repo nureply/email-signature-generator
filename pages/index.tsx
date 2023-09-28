@@ -6,7 +6,7 @@ import Welcome from "@/components/Welcome";
 import Step from "@/components/Step";
 import { useStepStore } from "@/store/stepStore";
 import Template from "@/components/Template";
-import Info from "@/components/Info";
+import Infos from "@/components/Infos";
 import Customization from "@/components/Customization";
 import { Preview } from "@/components/Preview";
 
@@ -54,7 +54,7 @@ export default function Home() {
             <main className={clsx("bg-window border-l-2 border-gray-400 pt-5")}>
               {step === 0 && <Welcome />}
               {step === 1 && <Template />}
-              {step === 2 && <Info />}
+              {step === 2 && <Infos />}
               {step === 3 && <Customization />}
               {step === 4 && (
                 <div className="px-5 pt-10">
