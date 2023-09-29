@@ -15,7 +15,7 @@ export default function Home() {
   const { step, setStep } = useStepStore();
   const { template } = useTemplateStore();
 
-  const [disabled, setDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
@@ -55,9 +55,9 @@ export default function Home() {
 
   useEffect(() => {
     if (template.id === "plainText" || template.id === "initial") {
-      setDisabled(true);
+      setIsDisabled(true);
     } else {
-      setDisabled(false);
+      setIsDisabled(false);
     }
   }, [template.id]);
 
@@ -109,7 +109,7 @@ export default function Home() {
                   <button
                     className="px-2 w-28 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background bg-nureply-blue hover:bg-nureply-blue/75"
                     onClick={handleNextClick}
-                    disabled={disabled}
+                    disabled={isDisabled}
                   >
                     Next
                   </button>
