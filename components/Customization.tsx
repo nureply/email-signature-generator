@@ -59,7 +59,7 @@ const Customization = () => {
 
   return (
     <>
-      <div className="p-3 h-[82vh]">
+      <div className="p-3 py-[36px]">
         <div className="w-full p-4 border-b border-background">
           <Heading
             primary="Customization"

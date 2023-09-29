@@ -36,9 +36,7 @@ export default function Home() {
         <title>Email Signature Generator - Nureply</title>
       </Head>
 
-      <div>
-        <Header />
-      </div>
+      <Header />
 
       <div className="flex flex-row w-full bg-window">
         <div
@@ -50,24 +48,22 @@ export default function Home() {
           <div className="grid xl:grid-cols-4 grid-cols-5 justify-items-center bg-gray-100 border-b-2 border-b-gray-400 ">
             <Step />
           </div>
-          <div>
-            <main className={clsx("bg-window border-l-2 border-gray-400 pt-5")}>
-              {step === 0 && <Welcome />}
-              {step === 1 && <Template />}
-              {step === 2 && <Infos />}
-              {step === 3 && <Customization />}
-              {step === 4 && (
-                <div className="px-5 pt-10">
-                  <Preview />
-                </div>
-              )}
-            </main>
-          </div>
+          <main className={clsx("bg-window border-l-2 border-gray-400 pt-5")}>
+            {step === 0 && <Welcome />}
+            {step === 1 && <Template />}
+            {step === 2 && <Infos />}
+            {step === 3 && <Customization />}
+            {step === 4 && (
+              <div className="px-5 pt-10">
+                <Preview />
+              </div>
+            )}
+          </main>
         </div>
 
         {step !== 0 && isWideScreen && (
           <div className="w-9/12 bg-window border-x-2 border-gray-400">
-            <div className="m-10">
+            <div className="m-10 sticky top-28">
               <Preview />
             </div>
           </div>
