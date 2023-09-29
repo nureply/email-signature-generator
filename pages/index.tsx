@@ -5,13 +5,17 @@ import Header from "@/components/Header";
 import Welcome from "@/components/Welcome";
 import Step from "@/components/Step";
 import { useStepStore } from "@/store/stepStore";
+import { useTemplateStore } from "@/store/templateStore";
 import Template from "@/components/Template";
 import Infos from "@/components/Infos";
 import Customization from "@/components/Customization";
 import { Preview } from "@/components/Preview";
 
 export default function Home() {
-  const { step } = useStepStore();
+  const { step, setStep } = useStepStore();
+  const { template } = useTemplateStore();
+
+  const [disabled, setDisabled] = useState(false);
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
@@ -29,6 +33,33 @@ export default function Home() {
   }, []);
 
   const isWideScreen = windowWidth >= 1280;
+
+  const handleNextClick = () => {
+    if (step === 0) {
+      setStep(1);
+    } else if (step === 1) {
+      setStep(2);
+    } else if (step === 2) {
+      setStep(3);
+    }
+  };
+  const handlePreviousClick = () => {
+    if (step === 3) {
+      setStep(2);
+    } else if (step === 2) {
+      setStep(1);
+    } else if (step === 1) {
+      setStep(0);
+    }
+  };
+
+  useEffect(() => {
+    if (template.id === "plainText" || template.id === "initial") {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [template.id]);
 
   return (
     <>
@@ -65,6 +96,25 @@ export default function Home() {
           <div className="w-9/12 bg-window border-x-2 border-gray-400">
             <div className="m-10 sticky top-28">
               <Preview />
+              <div className="flex mx-auto justify-evenly max-w-xs mt-5">
+                {step !== 0 && (
+                  <button
+                    className="px-2 w-28 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background bg-nureply-blue hover:bg-nureply-blue/75"
+                    onClick={handlePreviousClick}
+                  >
+                    Previous
+                  </button>
+                )}
+                {step !== 3 && (
+                  <button
+                    className="px-2 w-28 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background bg-nureply-blue hover:bg-nureply-blue/75"
+                    onClick={handleNextClick}
+                    disabled={disabled}
+                  >
+                    Next
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         )}

@@ -1,8 +1,11 @@
+import { useStepStore } from "@/store/stepStore";
+
 const Welcome = () => {
+  const { step, setStep } = useStepStore();
   return (
     <>
       <div className="m-6">
-        <div className="p-2 sm:pt-20">
+        <div className="p-2 sm:pt-20 text-center">
           <h1 className="mt-5 mb-8 lg:mt-0 lg:mb-6 text-center text-3xl font-bold">
             Create Your Professional Email Signature
           </h1>
@@ -10,6 +13,12 @@ const Welcome = () => {
             Upgrade your email signature to a professional look without email
             deliverability issues.
           </p>
+          <button
+            className="px-2 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background bg-nureply-blue hover:bg-nureply-blue/75"
+            onClick={() => setStep(1)}
+          >
+            Start Now
+          </button>
         </div>
 
         <div className="max-w-3xl mx-auto mb-20 mt-10">
