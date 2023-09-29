@@ -29,12 +29,7 @@ const imageData = [
     maxLength: 200,
   },
 ];
-const signOffOptions = [
-  { value: "Best,", label: "Best," },
-  { value: "Regards,", label: "Regards," },
-  { value: "Best regards,", label: "Best regards," },
-  { value: "Kind regards,", label: "Kind regards," },
-];
+
 const inputTextData = [
   {
     label: "Full Name",
@@ -121,7 +116,6 @@ const inputTextLinkData = [
 const Infos = () => {
   const {
     imageURL,
-    signOff,
     fullName,
     jobTitle,
     company,
@@ -201,27 +195,6 @@ const Infos = () => {
           </div>
         </div>
       )}
-
-      <div className="pb-4 border-b border-background">
-        <label
-          htmlFor="signOff"
-          className="block px-2 font-semibold text-default"
-        >
-          Select a sign-off
-        </label>
-        <select
-          className="block w-full mt-4 py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none text-fade"
-          name="signOff"
-          onChange={handleChange}
-          value={signOff}
-        >
-          {signOffOptions.map(({ value, label }) => (
-            <option key={value} value={value}>
-              {label}
-            </option>
-          ))}
-        </select>
-      </div>
 
       <div className="my-4 pb-4 border-b border-background">
         <div className="m-2 py-4">
