@@ -107,7 +107,11 @@ export default function Home() {
                 )}
                 {step !== 3 && (
                   <button
-                    className="px-2 w-28 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background bg-nureply-blue hover:bg-nureply-blue/75"
+                    className={`px-2 w-28 sm:px-4 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background ${
+                      isDisabled
+                        ? "bg-disabled cursor-not-allowed"
+                        : "bg-nureply-blue hover:bg-nureply-blue/75"
+                    }`}
                     onClick={handleNextClick}
                     disabled={isDisabled}
                   >
