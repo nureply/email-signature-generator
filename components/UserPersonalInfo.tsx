@@ -4,7 +4,6 @@ import useCustomizationStore from "@/store/customizationStore";
 
 const UserPersonalInfo = () => {
   const {
-    signOff,
     fullName,
     jobTitle,
     company,
@@ -78,8 +77,6 @@ const UserPersonalInfo = () => {
           fontFamily: "sans-serif",
         }}
       >
-        {signOff}
-        <br />
         {fullName}
         <br />
         {jobTitle} | {company} <br />
@@ -119,9 +116,7 @@ const UserPersonalInfo = () => {
             fontSize: `${fontSize}px`,
             fontFamily: fontName,
           }}
-        >
-          <td style={{ paddingBottom: "4px" }}>{signOff}</td>
-        </tr>
+        ></tr>
         <tr
           style={{
             color: textColor,

@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { ChangeEvent } from "react";
 
 interface State {
-  signOff: string;
   fullName: string;
   jobTitle: string;
   company: string;
@@ -23,7 +22,6 @@ interface State {
 }
 
 const useInfoStore = create<State>((set) => ({
-  signOff: "Best,",
   fullName: "Onur Genes",
   jobTitle: "Founder",
   company: "Nureply",

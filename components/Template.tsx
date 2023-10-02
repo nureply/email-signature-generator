@@ -51,16 +51,16 @@ const Template = () => {
   const { template, setTemplate } = useTemplateStore();
 
   return (
-    <div className="py-[36px] overflow-y-scroll h-screen">
+    <div className="py-[36px]">
       <div className="px-12 py-4">
         <Heading
           primary="Templates"
           secondary="Choose a template to start building your email signature"
         />
-        <div className="flex items-center mt-1">
+        <div className="flex items-center pt-3">
           <Info className="w-4 h-4 text-fade" />
           <p className="ml-1 text-sm text-fade">
-            Step 3 (Customization) is locked for plain text signatures
+            Next steps are locked for plain text signatures
           </p>
         </div>
       </div>

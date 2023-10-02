@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Info } from "lucide-react";
 import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
 import InputText from "./InputText";
@@ -29,12 +29,7 @@ const imageData = [
     maxLength: 200,
   },
 ];
-const signOffOptions = [
-  { value: "Best,", label: "Best," },
-  { value: "Regards,", label: "Regards," },
-  { value: "Best regards,", label: "Best regards," },
-  { value: "Kind regards,", label: "Kind regards," },
-];
+
 const inputTextData = [
   {
     label: "Full Name",
@@ -118,10 +113,9 @@ const inputTextLinkData = [
   },
 ];
 
-const Info = () => {
+const Infos = () => {
   const {
     imageURL,
-    signOff,
     fullName,
     jobTitle,
     company,
@@ -141,7 +135,7 @@ const Info = () => {
   const { template } = useTemplateStore();
 
   return (
-    <div className="p-4 overflow-y-scroll h-screen">
+    <div className="p-4">
       <div className="m-2 py-4 border-b border-background">
         <Heading
           primary="Your info"
@@ -202,27 +196,6 @@ const Info = () => {
         </div>
       )}
 
-      <div className="pb-4 border-b border-background">
-        <label
-          htmlFor="signOff"
-          className="block px-2 font-semibold text-default"
-        >
-          Select a sign-off
-        </label>
-        <select
-          className="block w-full mt-4 py-2 pl-2 pr-8 bg-window rounded-md border-2 border-highlight focus:outline-none text-fade"
-          name="signOff"
-          onChange={handleChange}
-          value={signOff}
-        >
-          {signOffOptions.map(({ value, label }) => (
-            <option key={value} value={value}>
-              {label}
-            </option>
-          ))}
-        </select>
-      </div>
-
       <div className="my-4 pb-4 border-b border-background">
         <div className="m-2 py-4">
           <Heading
@@ -269,6 +242,12 @@ const Info = () => {
               primary="Social media links"
               secondary="Add URLs of your social media profiles"
             />
+            <div className="flex items-center mt-2">
+              <Info className="w-4 h-4 text-fade" />
+              <p className="ml-1 text-sm text-fade">
+                Simply clear the input fields to remove social media icons.
+              </p>
+            </div>
           </div>
           {inputTextLinkData.map((item) => (
             <InputText
@@ -300,4 +279,4 @@ const Info = () => {
   );
 };
 
-export default Info;
+export default Infos;
