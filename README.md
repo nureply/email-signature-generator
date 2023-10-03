@@ -29,22 +29,21 @@ The project as a site has a header and three main sections:
 The user can the click the copy button on the header after creating their signature, and it automatically copies the generated email signature to be easily pasted in anywhere
 
 #### Installation
+1. Clone the repo or download manually from GitHub
+2. Install dependencies
+3. Ready to run 
 
-_Please follow the below instructions to install and setup the tool._
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/nureply/email-signature.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-3. Run the app in development mode
-   ```sh
-   npm run dev
-   ```
+#### How to Use? (?)
+<!-- tutorial images or gifs here maybe (?) -->
 
 #### Contributors (?)
+**Onur Doğan:** He is a senior software engineering student at Çankaya University in Ankara, Türkiye, interested in front-end development and game design
+* _Responsible for developing the (?) of the project_
+
+**Ege Oruç:** He is a sophomore computer engineering student at Özyeğin University in İstanbul, Türkiye, interested in web development, algorithms and data structures
+* _Responsible for developing the (?) of the project_
+
+**Hasan Uğur Ertem:** He is a senior management information systems student at Medipol University in Ankara, Türkiye, interested in front-end development and cybersecurity
+* _Responsible for developing the (?) of the project_
 
 #### License (?)
