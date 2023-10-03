@@ -6,7 +6,7 @@
 
 <div align="center">
   <a href="https://nureply.com/">
-    <img src="assets/Nureply/logofull.png" alt="Logo" width="240" height="80">
+    <img src="assets/Nureply/logo-white-bg.png" alt="Logo" width="240" height="70">
   </a>
 
   <h3 align="center">
@@ -32,13 +32,12 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [License](#license)
 - [Usage](#usage)
 - [Supported Email Providers](#supported-email-providers)
 - [Project Status](#project-status)
 - [Roadmap](#roadmap)
 - [Project Team](#project-team)
-- [Links](#links)
+- [License](#license)
 
 ## About
 
@@ -88,7 +87,7 @@ _Please follow the below instructions to install and setup the tool._
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/nureply/email-signature.git
+   git clone https://github.com/nureply/email-signature-generator.git
    ```
 2. Install NPM packages
    ```sh
@@ -101,85 +100,35 @@ _Please follow the below instructions to install and setup the tool._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-
 ## Usage
 
 You can follow below steps to learn how to use the tool.
 
-<br>
+#### Info
 
-Step 1
+- You can start with clicking `start now` button
 
-![step1](https://github.com/nureply/email-signature/blob/main/assets/step-1.png)
+#### Step 1
 
-<br>
+- Select one of the layouts or continue with plaintext.
+- Click next to continue next step.
 
-Step 2
+#### Step 2
 
-![step2](https://github.com/nureply/email-signature/blob/main/assets/step-2.png)
+- Add your image url
+- Change image size
+- Add your personal information
+- Add your social media links
+- Click next to continue next step.
 
-<br>
+#### Step 3
 
-Step 3
-
-![step3](https://github.com/nureply/email-signature/blob/main/assets/step-3.png)
-
-<br>
-
-Step 4
-
-![step4](https://github.com/nureply/email-signature/blob/main/assets/step-4.png)
-
-<br>
-
-Step 5
-
-![step5](https://github.com/nureply/email-signature/blob/main/assets/step-5.png)
-
-Step 6
-
-![step6](https://github.com/nureply/email-signature/blob/main/assets/step-6.png)
-
-<br>
-
-Step 7
-
-![step7](https://github.com/nureply/email-signature/blob/main/assets/step-7.png)
-
-<br>
-
-Step 8
-
-![step8](https://github.com/nureply/email-signature/blob/main/assets/step-8.png)
-
-<br>
-
-Step 9
-
-![step9](https://github.com/nureply/email-signature/blob/main/assets/step-9.png)
-
-<br>
-
-Step 10
-
-![step10](https://github.com/nureply/email-signature/blob/main/assets/step-10.png)
-
-<br>
-
-Step 11
-
-![step11](https://github.com/nureply/email-signature/blob/main/assets/step-11.png)
-
-<br>
-
-Step 12
-
-![step12](https://github.com/nureply/email-signature/blob/main/assets/step-12.png)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
+- Select a custom font
+- Change Font size
+- Change icon size
+- Change name, text, email and link color
+- Click `copy` button
+- Paste your signature to your email provider's signature section.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -187,7 +136,7 @@ Step 12
 
 - [x] Outlook
 - [x] Yahoo
-- [] Gmail
+- [ ] Gmail
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -203,13 +152,25 @@ The project is completed in (??.??.2023) in a span of (?) months. The project te
 - [x] Yahoo compatibility
 - [ ] Gmail compatibility
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Project Team
 
-The project team consists of three interns who are all from different locations. They are:
+The project team is composed of three talented interns and two experienced mentors from the Nureply:
 
-- **Onur Doğan**: He is a senior software engineering student at Çankaya Üniversitesi in Ankara, Türkiye. He is interested in front-end development, game design, etc. He is responsible for developing the (...) of the project.
-- **Ege Oruç**: He is a (?) computer engineering student at Özyeğin Üniversitesi in İstanbul, Türkiye. He is interested in (?). He is responsible for developing the (...) of the project.
-- **Hasan Uğur Ertem**: He is a (?) Management Information Systems student at Medipol Üniversitesi in Ankara, Türkiye. He is interested in (?). He is responsible for developing the (...) of the project.
+#### Interns
+
+- **Onur Doğan**: Onur is a senior software engineering student at Çankaya Üniversitesi in Ankara, Türkiye.
+
+- **Ege Oruç**: Ege is a computer engineering student at Özyeğin Üniversity in İstanbul, Türkiye.
+
+- **Hasan Uğur Ertem**: Hasan is a Management Information Systems student at Medipol Üniversity in Ankara, Türkiye.
+
+#### Mentors
+
+- **Ayberk Uman**: Ayberk is bringing valuable industry experience to the team. He provides guidance and support to ensure the success of the project.
+
+- **Ozan İşgör**: Ozan not only offers guidance but also actively contributes to the project's development.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
