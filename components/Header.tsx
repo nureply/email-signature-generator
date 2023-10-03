@@ -4,6 +4,7 @@ import Image from "next/image";
 import iconNureply from "../assets/Nureply/logofull.png";
 import { useTemplateStore } from "@/store/templateStore";
 import InstructionsModal from "./InstructionsModal";
+import Link from "next/link";
 
 const Header = () => {
   const { template } = useTemplateStore();
@@ -49,12 +50,14 @@ const Header = () => {
       />
       <header className="fixed flex items-center justify-between z-50 top-0 left-0 right-0 p-2 bg-window shadow">
         <div className="flex items-center overflow-hidden">
-          <Image
-            className="mr-5 max-w-[140px] sm:max-w-[150px]"
-            src={iconNureply}
-            width={150}
-            alt=""
-          />
+          <Link href="https://nureply.com/" target="_blank">
+            <Image
+              className="mr-5 max-w-[140px] sm:max-w-[150px]"
+              src={iconNureply}
+              width={150}
+              alt=""
+            />
+          </Link>
           <h1 className="text-xs sm:text-xl font-semibold text-default mx-1">
             Email Signature Generator
           </h1>
