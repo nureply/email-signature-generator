@@ -142,7 +142,16 @@ You can follow below steps to learn how to use the tool.
 
 ## Project Status
 
-The project is completed in (??.??.2023) in a span of (?) months. The project team met every work day to discuss the progress, challenges, and plans for the next day. The project team also communicated regularly through the process.
+- **Development Stage:** Beta
+
+  - Our project is currently in the beta phase, with most of the core features implemented and tested. We are actively seeking user feedback and bug reports to make the necessary improvements for a stable release.
+
+- **Maintenance:** Active
+
+  - We are actively maintaining and updating the project with bug fixes, performance enhancements, and new features.
+
+- **Future Plans:**
+  - We plan to add support for gmail integrations and improve the user interface based on user feedback.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -160,11 +169,11 @@ The project team is composed of three talented interns and two experienced mento
 
 #### Interns
 
-- **Onur Doğan**: Onur is a senior software engineering student at Çankaya Üniversitesi in Ankara, Türkiye.
+- **Onur Doğan**: Onur is a senior software engineering student at Çankaya Üniversitesi in Ankara, Türkiye. Interested in front-end development and game design.
 
-- **Ege Oruç**: Ege is a computer engineering student at Özyeğin Üniversity in İstanbul, Türkiye.
+- **Ege Oruç**: Ege is a computer engineering student at Özyeğin Üniversity in İstanbul, Türkiye. Interested in web development, algorithms and data structures
 
-- **Hasan Uğur Ertem**: Hasan is a Management Information Systems student at Medipol Üniversity in Ankara, Türkiye.
+- **Hasan Uğur Ertem**: Hasan is a Management Information Systems student at Medipol Üniversity in Ankara, Türkiye. Interested in front-end development and cybersecurity
 
 #### Mentors
 
